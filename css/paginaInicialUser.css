@@ -1,0 +1,17 @@
+.Icon {
+    width: 200px;
+    height: 200px;
+    color: #333333;
+    border-bottom-color: #333333;
+    border-top-color: #333333;
+    border-left-color: #333333;
+    border-right-color: #333333;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-width: 0px;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+  }
