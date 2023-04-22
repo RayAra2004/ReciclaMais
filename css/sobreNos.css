@@ -1,0 +1,44 @@
+*{
+    color: #05e981;
+  }
+  body{
+    min-height: 94vh;
+    background-image: linear-gradient(180deg, #201b2c, rgb(14, 0, 61));
+  }
+  
+  p{
+    font-size: min(14px,20vw);
+  }
+  
+  header{
+    display: flex;
+    padding: 3%;
+    padding-bottom: 0%;
+    width: 90vw;
+    justify-content: space-between;
+  
+  }
+  .reciclaMaisIcon{
+    display: flex;
+    height:4vh;
+  }
+  .reciclaMaisIcon .material-icons{
+    font-size: 4vh;
+  }
+  .reciclaMaisIcon h1{
+    font-size: 4vh;
+  }
+  .menu{
+    display: flex;
+    max-width: fit-content;
+    max-height: 0%;
+    column-gap: 5%;
+    align-items: center;
+  }
+  .menu .sairBtn{
+    background-color: #05e981;
+    color: black;
+    padding-block: 1%;
+    padding-inline: 2%;
+    border-radius: 15%;
+  }
