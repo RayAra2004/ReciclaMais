@@ -1,44 +1,65 @@
 *{
     color: #05e981;
-  }
-  body{
-    min-height: 94vh;
+}
+body{
+    min-height: 100vh;
     background-image: linear-gradient(180deg, #201b2c, rgb(14, 0, 61));
-  }
-  
-  p{
-    font-size: min(14px,20vw);
-  }
-  
-  header{
     display: flex;
+    flex-direction: column;
+}
+
+p{
+    font-size: min(14px,20vw);
+}
+
+header{
+    display: flex;
+    border-bottom: 1px solid #05e981;
     padding: 3%;
     padding-bottom: 0%;
     width: 90vw;
     justify-content: space-between;
-  
-  }
-  .reciclaMaisIcon{
+
+}
+.reciclaMaisIcon{
     display: flex;
     height:4vh;
-  }
-  .reciclaMaisIcon .material-icons{
+}
+.reciclaMaisIcon .material-icons{
     font-size: 4vh;
-  }
-  .reciclaMaisIcon h1{
+}
+.reciclaMaisIcon h1{
     font-size: 4vh;
-  }
-  .menu{
+}
+.menu{
     display: flex;
     max-width: fit-content;
     max-height: 0%;
     column-gap: 5%;
     align-items: center;
-  }
-  .menu .sairBtn{
+}
+.menu .sairBtn{
     background-color: #05e981;
     color: black;
     padding-block: 1%;
     padding-inline: 2%;
     border-radius: 15%;
-  }
+}
+.conteudo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self : center;
+    width: 400px;
+    padding-top: 5%;
+    
+}
+.conteudo h1,.conteudo p{
+    color: white;
+}
+.conteudo{
+    text-align: center;
+}
+.conteudo p{
+    text-align: start;
+}
