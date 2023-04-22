@@ -1,30 +1,122 @@
-body{
-  min-height: 94vh;
-  padding: 3%;
-  background-image: linear-gradient(180deg, rgb(0, 0, 0), rgb(14, 0, 61));
+*{
+  color: #05e981;
 }
+body{
+  background-image: linear-gradient(180deg, #201b2c, rgb(14, 0, 61));
+}
+
+p{
+  font-size: min(14px,20vw);
+}
+
 header{
   display: flex;
+  border-bottom: 1px solid #05e981;
+  padding: 3%;
+  padding-bottom: 0%;
   width: 90vw;
   justify-content: space-between;
 
 }
 .reciclaMaisIcon{
   display: flex;
-  max-width:fit-content;
-  max-height: 0%;
-  color: #05e981;
+  height:4vh;
+}
+.reciclaMaisIcon .material-icons{
+  font-size: 4vh;
+}
+.reciclaMaisIcon h1{
+  font-size: 4vh;
 }
 .menu{
   display: flex;
   max-width: fit-content;
   max-height: 0%;
   column-gap: 5%;
-  color: #05e981;
+  align-items: center;
 }
 .menu .sairBtn{
   background-color: #05e981;
   color: black;
   padding-block: 1%;
   padding-inline: 2%;
+  border-radius: 15%;
+}
+
+.conteudo{
+  padding: 10%;
+  padding-top: 1%;
+  padding-left: 15%;
+  padding-bottom: 1%;
+}
+
+.conteudo p{
+  font-size: min(24px,20vw);
+}
+
+.subtitle{
+  display: flex;
+  justify-self: start;
+  margin-right: min(285px, 40%);
+  font-size: 30px;
+}
+
+.optionGroup{
+  display: flex;
+  margin-bottom: 5%;
+  justify-content: start;
+  gap: min(300px, 15vw);
+  /*background-color: white;*/
+  width: 70vw;
+}
+.option{
+  margin-top: 3%;
+  text-align: center;
+  background-color: #2f2841;
+  height: 100%;
+  width: min(40%, 200px);
+  border-radius: 10%;
+  cursor: pointer;
+}
+
+.material-icons{
+  font-size: min(160px, 26vw);
+}
+footer{
+  display: flex;
+  flex-direction: column;
+  background-color: #000;
+}
+.mainFooter{
+  display: flex;
+  margin-top: 1vh;
+  margin-left: min(10px, 5vw);
+  flex-direction: row;
+  justify-content: space-around;
+  gap:max(10px, 5vh)
+}
+.nos{
+  text-align: center;
+  color: white;
+}
+.informacoes{
+  display: flex;
+  justify-content:center;
+  flex-direction: column;
+  align-items: start;
+}
+.informacoes p{
+  margin-bottom: 10px;
+  color: white;
+}
+
+.mainFooter .reciclaMaisIcon{
+  display: flex;
+  height:10vh;
+}
+.mainFooter .reciclaMaisIcon .material-icons{
+  font-size: 10vh;
+}
+.mainFooter .reciclaMaisIcon h1{
+  font-size: 10vh;
 }
