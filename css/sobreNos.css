@@ -7,6 +7,12 @@ body{
     display: flex;
     flex-direction: column;
 }
+.reciclaMaisIcon img{
+    position: absolute;
+    height: 70px;
+    top: -10px;
+    left: 0;
+}
 
 p{
     font-size: min(14px,20vw);
@@ -62,4 +68,8 @@ header{
 }
 .conteudo p{
     text-align: start;
+    font-size: 20px;
+}
+.conteudo h1{
+    font-size: 30px;
 }
