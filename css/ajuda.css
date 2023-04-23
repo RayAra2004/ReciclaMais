@@ -1,0 +1,83 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+body{
+    background-color: #201b2c;
+}
+
+a{
+    text-decoration: none;
+}
+
+h1{
+    color: white;
+}
+p{
+    color: #05e981;
+}
+
+header{
+    display: flex;
+    padding: 1%;
+    justify-content: end;
+    align-items: center;
+    width: 100%;
+    height: 8vh;
+    border-bottom: 1px solid #05e981;
+}
+
+.logo img{
+    position: absolute;
+    left: 0px;
+    top: -10px;
+}
+
+header button{
+    width: 7vw;
+    height: 6vh;
+    margin-left: 5px;
+    background-color: #05e981;
+    border: none;
+}
+
+.links{
+    display: flex;
+    gap: 10px;
+    /*background-color: aqua;*/
+}
+
+.links a{
+    color: #05e981;
+}
+
+.conteudo{
+    display: grid;
+    margin: 10%;
+    justify-content: center;
+    column-gap: 10%;
+    grid-template-columns: repeat(auto-fit, minmax(80vw,1fr));
+    grid-template-rows: auto;
+    /*background-color: aquamarine;*/
+}
+footer{
+    display: grid;
+    background-color: black;
+    justify-content: center;
+    column-gap: 0%;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    grid-template-rows: auto;
+}
+.nos{
+    text-align: center;
+    grid-column: 1/3;
+}
+.footerIcon{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+#footerImg{
+    width: 20vw;
+}
