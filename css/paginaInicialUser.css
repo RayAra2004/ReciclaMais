@@ -2,9 +2,15 @@
   color: #05e981;
 }
 body{
-  background-image: linear-gradient(180deg, #201b2c, rgb(14, 0, 61));
+  background-image: linear-gradient(180deg, rgb(4, 0, 17), rgb(14, 0, 61));
 }
 
+.reciclaMaisIcon img{
+  position: absolute;
+  height: 70px;
+  top: -10px;
+  left: 0;
+}
 p{
   font-size: min(14px,20vw);
 }
@@ -110,13 +116,17 @@ footer{
   color: white;
 }
 
-.mainFooter .reciclaMaisIcon{
-  display: flex;
+.mainFooter .footerIcon{
   height:10vh;
+  width: 40vw;
 }
-.mainFooter .reciclaMaisIcon .material-icons{
-  font-size: 10vh;
-}
-.mainFooter .reciclaMaisIcon h1{
-  font-size: 10vh;
+/*.mainFooter .footerIcon img{
+  position: absolute;
+  height: 70px;
+  top: -10px;
+  left: 0;
+}*/
+#footerImg{
+  height: 15vh;
+  width: 50vw;
 }
