@@ -1,0 +1,105 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #201b2c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login{
+    background-color: #2f2841;
+    width: 316px;
+    height: 400px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 7px 10px;
+    position: relative;
+}
+
+.login > p{
+    position: absolute;
+    top: 10px;
+    color: #05e981;
+    font-size: 30px;
+}
+
+.login input{
+    width: 214px;
+    height: 51px;
+    background-color: #514869;
+    border: none;
+    border-radius: 7px;
+    color: #05e981;
+}
+
+.email{
+    position: absolute;
+    top: 90px;
+}
+
+.email p{
+    color: #FFFFFF;
+}
+
+.senha{
+    position: absolute;
+    top: 170px;
+}
+
+.senha p{
+    color:#FFFFFF;
+}
+
+.esqueceuSenha{
+    position: absolute;
+    top: 240px;
+    left: 50px;
+    color: #2c94ff;
+}
+
+.entrar{
+    position: absolute;
+    top: 300px;
+    background-color: #05e981;
+    border-radius: 7px;
+    width: 214px;
+    height: 50px;
+    border: none;
+    font-size: 20px;
+    color: #201b2c;
+}
+
+.naoPossuicadastro{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.naoPossuicadastro p{
+    color: #2c94ff;
+    font-size: 15px;
+}
+
+.naoPossuicadastro button{
+    margin-top: 10px;
+    width: 230px;
+    height: 52px;
+    border-radius: 7px;
+    border: none;
+    background-color: #05e981;
+    color: #201b2c;
+    font-size: 20px;
+}
+
+.entrarSemLogin{
+    margin-top: 30px;
+    font-size: 20px;
+    color: #2c94ff;
+}
