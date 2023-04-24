@@ -36,6 +36,12 @@ header button{
     border: none;
 }
 
+header > a{
+    position: absolute;
+    right: -10px;
+    top: 5px;
+}
+
 .links{
     position: absolute;
     right: 180px;
