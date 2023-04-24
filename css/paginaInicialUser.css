@@ -41,14 +41,15 @@ header{
   column-gap: 5%;
   align-items: center;
 }
-.menu .sairBtn{
+.menu .entrarBtn{
   background-color: #05e981;
-  color: black;
   padding-block: 1%;
   padding-inline: 2%;
   border-radius: 15%;
 }
-
+.entrarBtn a{
+  color: #000;
+}
 .conteudo{
   padding: 10%;
   padding-top: 1%;
