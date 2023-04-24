@@ -10,6 +10,10 @@ a{
     box-sizing: border-box;
 }
 
+.mobile{
+    display: none;
+}
+
 header{
     display: flex;
     align-items: center;
@@ -30,6 +34,12 @@ header button{
     height: 42px;
     background-color: #05e981;
     border: none;
+}
+
+header > a{
+    position: absolute;
+    right: -10px;
+    top: 5px;
 }
 
 .links{
