@@ -8,7 +8,7 @@ function header(){
         <a href="../index.html">Home</a>
         <a href="../telas/sobreNos.html">Sobre Nós</a>
         <a href="">Seja um validador</a>
-        <a href="">Ajuda</a>
+        <a href="../telas/ajuda.html">Ajuda</a>
     </div>
     <button>
         <a href="../telas/login.html">Entrar</a>
