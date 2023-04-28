@@ -3,6 +3,10 @@
     margin: 0px;
 }
 
+.header_mobile{
+    display: none;
+}
+
 body{
     background-color: #201b2c;
 }

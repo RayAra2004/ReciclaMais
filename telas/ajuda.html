@@ -5,21 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/ajuda.css">
+    <script src="../srcipt/ajuda.js"></script>
     <title>Document</title>
 </head>
-<header>
-        <div class="logo">
-            <img src="../imgs/logo_recicla_mais.svg" alt="">
-        </div>
-        <div class="links">
-            <a href="../index.html">Home</a>
-            <a href="../telas/sobreNos.html">Sobre Nós</a>
-            <a href="">Seja um validador</a>
-            <a href="">Ajuda</a>
-        </div>
-        <button><a href="../telas/login.html">Entrar</a></button>
-</header>
-<body>
+
+<body onload="header()">
+    <header class="header_desktop"></header>
+    <header class="header_mobile"></header>
+    
     <div class="conteudo">
         <div class="perguntas">
             <h1>O que é esse app de reciclagem?</h1>
