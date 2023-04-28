@@ -70,9 +70,10 @@ header{
 }
 .conteudo{
     text-align: center;
+    margin-bottom: 10vh;
 }
 .conteudo p{
-    text-align: start;
+    text-align: justify;
     font-size: 20px;
 }
 .conteudo h1{

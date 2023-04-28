@@ -24,6 +24,9 @@ a{
 p,h1{
   color: #05e981;
 }
+h1{
+  font-size: 30px;
+}
 
 header{
   display: flex;
@@ -57,9 +60,13 @@ header button{
   color: black;
 }
 .conteudo{
-  padding: 10%;
+  display: flex;
+  flex-direction: column;
+  width: min-content;
+  height: min-content;
+  justify-content: center;
   padding-top: 1%;
-  padding-left: 15%;
+  padding-left: 10vw;
   padding-bottom: 1%;
 }
 span{
@@ -70,67 +77,32 @@ span{
   font-size: min(24px,20vw);
 }
 
-.subtitle{
-  display: flex;
-  justify-self: start;
-  margin-right: min(285px, 40%);
-  font-size: 30px;
-}
-
-.optionGroup{
-  display: flex;
-  margin-bottom: 5%;
-  justify-content: start;
-  gap: min(300px, 15vw);
-  /*background-color: white;*/
-  width: 70vw;
+.opcoes{
+  display: grid;
+  justify-content: center;
+  width: 80vw;
+  grid-template-columns: repeat(auto-fit, minmax(210px,1fr));
+  grid-template-rows: auto;
+  margin-bottom: 2vh;
 }
 .option{
+  display: flex;
+  flex-direction: column;
   margin-top: 3%;
   text-align: center;
   background-color: #2f2841;
-  height: 100%;
-  width: min(40%, 200px);
+  height: min-content;
+  width: 160px;
   border-radius: 10%;
   cursor: pointer;
 }
 
 .material-icons{
-  font-size: min(160px, 26vw);
+  font-size: 160px;
 }
-footer{
+.grupo{
   display: flex;
   flex-direction: column;
-  background-color: #000;
-}
-.mainFooter{
-  display: flex;
-  margin-top: 1vh;
-  margin-left: min(10px, 5vw);
-  flex-direction: row;
-  justify-content: space-around;
-  gap:max(10px, 5vh)
-}
-.nos{
-  text-align: center;
-  color: white;
-}
-.informacoes{
-  display: flex;
-  justify-content:center;
   flex-direction: column;
-  align-items: start;
-}
-.informacoes p{
-  margin-bottom: 10px;
-  color: white;
-}
-
-.mainFooter .footerIcon{
-  height:10vh;
-  width: 40vw;
-}
-#footerImg{
-  height: 15vh;
-  width: 50vw;
+  align-items: center;
 }
