@@ -11,7 +11,6 @@
 }
 
 body{
-    margin-top: 0.3vh;
     background-color: #201b2c;
 }
 
@@ -37,13 +36,6 @@ header{
     width: 100%;
     height: 5vh;
     border-bottom: 1px solid #05e981;
-}
-
-.logo{
-    height: 5vh;
-}
-.logo img{
-    height: 100%;
 }
 
 header button{
