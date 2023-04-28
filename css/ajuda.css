@@ -3,14 +3,22 @@
     margin: 0px;
 }
 
+<<<<<<< HEAD
 .header_mobile{
     display: none;
 }
+=======
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+>>>>>>> ff8e1cbeed0837181fcb0f2b9c3335baf84e0c90
 
 body{
+    margin-top: 0.3vh;
     background-color: #201b2c;
 }
 
+a, h1, p{
+    font-family: 'Poppins', sans-serif;
+}
 a{
     text-decoration: none;
 }
@@ -25,22 +33,23 @@ p{
 header{
     display: flex;
     padding: 1%;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 8vh;
+    height: 5vh;
     border-bottom: 1px solid #05e981;
 }
 
+.logo{
+    height: 5vh;
+}
 .logo img{
-    position: absolute;
-    left: 0px;
-    top: -10px;
+    height: 100%;
 }
 
 header button{
     width: 7vw;
-    height: 6vh;
+    height: 4vh;
     margin-left: 5px;
     background-color: #05e981;
     border: none;
@@ -52,9 +61,13 @@ header button{
 }
 
 .links a{
+    text-align: center;
+    text-justify: center;
     color: #05e981;
 }
-
+.links button a{
+    color: black;
+}
 .conteudo{
     display: grid;
     margin: 10%;
