@@ -1,15 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+
 *{
     box-sizing: border-box;
     margin: 0px;
 }
 
-<<<<<<< HEAD
 .header_mobile{
     display: none;
 }
-=======
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
->>>>>>> ff8e1cbeed0837181fcb0f2b9c3335baf84e0c90
 
 body{
     margin-top: 0.3vh;
