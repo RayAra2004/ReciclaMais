@@ -7,36 +7,18 @@
     <title>Recicla +</title>
 
     <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/geral.css">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/index_mobile.css">
+
+    <script src="./srcipt/geral.js" defer></script>
 </head>
-<body>
-    <header class="desktop">
-        <div class="logo">
-            <img src="./imgs/logo_recicla_mais.svg" alt="">
-        </div>
-        <div class="links">
-            <!--<a href="">Home</a>-->
-            <a href="./telas/sobreNos.html">Sobre Nós</a>
-            <a href="">Seja um validador</a>
-            <a href="./telas/ajuda.html">Ajuda</a>
-        </div>
-        <a href="./telas/login.html">
-            <button>Entrar</button>
-        </a>
-    </header>
-    <header class="mobile">
-        <div class="logo">
-            <img src="./imgs/logo_recicla_mais.svg" alt="">
-        </div>
-        <button>Entrar</button>
-        <div class="menu">
-            <ion-icon name="menu-outline"></ion-icon>
-        </div>
-    </header>
+<body onload="header()">
+    <header class="header_desktop"></header>
+    <header class="header_mobile"></header>
 
     <div class="importancia_reciclagem">
-        <img src="./imgs/arvores_home.jpg" alt="">
+        <img src="./imgs/foto-site-sem-login.svg" alt="">
         <div class="infos_importancia">
             <div class="cards">
                 <img src="./imgs/arvores.png" alt="">

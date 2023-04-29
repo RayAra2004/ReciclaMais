@@ -3,10 +3,10 @@
     margin: 0px;
 }
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-
+/*
 .header_mobile{
     display: none;
-}
+}*/
 body{
     min-height: 100vh;
     background-image: linear-gradient(180deg, #201b2c, rgb(14, 0, 61));
@@ -23,6 +23,7 @@ a{
 p{
     font-size: min(14px,20vw);
 }
+/*
 header button{
     width: 7vw;
     height: 4vh;
@@ -52,6 +53,7 @@ header{
 .links button a{
     color: black;
 }
+*/
 .conteudo{
     display: flex;
     flex-direction: column;

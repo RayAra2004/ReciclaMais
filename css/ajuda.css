@@ -6,10 +6,6 @@
     margin: 0px;
 }
 
-.header_mobile{
-    display: none;
-}
-
 body{
     background-color: #201b2c;
 }
@@ -27,7 +23,7 @@ h1{
 p{
     color: #05e981;
 }
-
+/*
 header{
     display: flex;
     padding: 1%;
@@ -67,8 +63,9 @@ header button{
     column-gap: 10%;
     grid-template-columns: repeat(auto-fit, minmax(80vw,1fr));
     grid-template-rows: auto;
-    /*background-color: aquamarine;*/
+    /*background-color: aquamarine;
 }
+*/
 footer{
     background-color: black;
     text-align: center;
