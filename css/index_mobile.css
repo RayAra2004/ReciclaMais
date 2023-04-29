@@ -1,10 +1,10 @@
 @media (max-width: 600px){
 
-    .desktop{
+    .header_desktop{
         display: none;
     }
 
-    .mobile{
+    .header_mobile{
         display: flex;
     }
 

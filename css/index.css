@@ -68,7 +68,7 @@ a{
 }
 
 .porque_reciclar img{
-    width: 622px;
+    
     height: 578px;
 }
 
@@ -98,6 +98,7 @@ a{
     color: #FFFFFF;
     display: flex;
     align-items: center;
+    margin-top: 140px;
 }
 
 .mais_funcionalidades p {

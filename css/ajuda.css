@@ -55,6 +55,7 @@ header button{
 .links button a{
     color: black;
 }
+*/
 .conteudo{
     display: grid;
     margin: 10%;
@@ -63,9 +64,9 @@ header button{
     column-gap: 10%;
     grid-template-columns: repeat(auto-fit, minmax(80vw,1fr));
     grid-template-rows: auto;
-    /*background-color: aquamarine;
+    /*background-color: aquamarine;*/
 }
-*/
+
 footer{
     background-color: black;
     text-align: center;
