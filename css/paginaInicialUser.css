@@ -1,25 +1,15 @@
-*{
-  box-sizing: border-box;
-  margin: 0px;
-}
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
-/*
-.header_mobile{
-  display: none;
+*{
+  box-sizing: border-box;
 }
-*/
+
 body{
-  margin-top: 0.3vh;
   background-color: #201b2c;
 }
 
 a, h1, p{
   font-family: 'Poppins', sans-serif;
-}
-a{
-  text-decoration: none;
 }
 
 p,h1{
