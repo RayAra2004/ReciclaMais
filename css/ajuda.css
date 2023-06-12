@@ -91,3 +91,12 @@ footer{
 .informacoes h4{
     color: white;
 }
+
+.ReciclaStyle{
+    background-color: rgba(0, 0, 0, 0)!important;
+    color: #05e981!important;
+}
+button{
+    font-family: poppins;
+}
+div{font-family: poppins;}
