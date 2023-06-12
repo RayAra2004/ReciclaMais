@@ -12,7 +12,7 @@ function header(){
                     <a href="../telas/sobreNos.html" class="nav-link">Sobre Nós</a>
                     <a href="" class="nav-link">Seja um validador</a>
                     <a href="../telas/ajuda.html" class="nav-link">Ajuda</a>
-                    <a class="btn" href="#" role="button">Entrar</a>
+                    <a class="btn" href="../telas/login.html" role="button">Entrar</a>
                 </div>
             </div>
         </div>
