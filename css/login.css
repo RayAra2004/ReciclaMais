@@ -9,28 +9,28 @@ body{
     background-color: #201b2c;
 }
 .body{
-    margin-top: 10vh;
+    /* margin-top: 10vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; */
 }
 
 .login{
     background-color: #2f2841;
-    width: 316px;
+    /* width: 316px; */
     height: 400px;
     border-radius: 16px;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
     box-shadow: 4px 7px 10px;
-    position: relative;
+    /* position: relative; */
 }
 
 .login > p{
-    position: absolute;
-    top: 10px;
+    /* position: absolute;
+    top: 10px; */
     color: #05e981;
     font-size: 30px;
 }
@@ -45,8 +45,8 @@ body{
 }
 
 .email{
-    position: absolute;
-    top: 90px;
+    /* position: absolute;
+    top: 90px; */
 }
 
 .email p{
@@ -54,8 +54,8 @@ body{
 }
 
 .senha{
-    position: absolute;
-    top: 170px;
+    /* position: absolute;
+    top: 170px; */
 }
 
 .senha p{
@@ -63,18 +63,18 @@ body{
 }
 
 .esqueceuSenha{
-    position: absolute;
+    /* position: absolute;
     top: 240px;
-    left: 50px;
+    left: 50px; */
     color: #2c94ff;
 }
 
 .entrar{
-    position: absolute;
-    top: 300px;
+    /* position: absolute;
+    top: 300px; */
     background-color: #05e981;
     border-radius: 7px;
-    width: 214px;
+    /* width: 214px; */
     height: 50px;
     border: none;
     font-size: 20px;
@@ -83,9 +83,9 @@ body{
 
 .naoPossuicadastro{
     margin-top: 30px;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; */
 }
 
 .naoPossuicadastro p{

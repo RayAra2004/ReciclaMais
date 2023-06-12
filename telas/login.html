@@ -14,29 +14,35 @@
 </head>
 <body onload="header()">
     <header id="cabecalho"></header>
-    <div class="body">
-    <div class="login">
-        <p>Login</p>
-        <div class="email">
-            <p>Email</p>
-            <input type="email" name="" id="email" placeholder="Digite seu email:">
+    <div class="container-fluid row justify-content-center">
+        <div class="col-3">
+            <div class="login">
+                <p class="text-center">Login</p>
+                <div class="email d-flex flex-column justify-content-center">
+                    <p class="text-center">Email</p>
+                    <input type="email"class="form-control" name="" id="email" placeholder="Digite seu email:">
+                </div>
+                <div class="mb-3 text-center d-flex flex-column justify-content-end">
+                    <label style="color: white;" for="exampleFormControlInput1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                  </div>
+                <div class="senha">
+                    <p class="text-center">Senha</p>
+                    <input type="password" name="" id="senha" placeholder="Digite sua senha:">
+                </div>
+                <div class="esqueceuSenha">
+                    <p class="text-center">Esqueceu sua senha?</p>
+                </div>
+                <button class="entrar">Entrar</button>
+            </div>
+            <div class="naoPossuicadastro">
+                <p>Ainda não possui cadastro?</p>
+                <button class="cadastrar">Cadastre-se</button>
+            </div>
+            <div class="entrarSemLogin">
+                <p>ENTRAR SEM LOGIN</p>
+            </div>
         </div>
-        <div class="senha">
-            <p>Senha</p>
-            <input type="password" name="" id="senha" placeholder="Digite sua senha:">
-        </div>
-        <div class="esqueceuSenha">
-            <p>Esqueceu sua senha?</p>
-        </div>
-        <button class="entrar">Entrar</button>
-    </div>
-    <div class="naoPossuicadastro">
-        <p>Ainda não possui cadastro?</p>
-        <button class="cadastrar">Cadastre-se</button>
-    </div>
-    <div class="entrarSemLogin">
-        <p>ENTRAR SEM LOGIN</p>
-    </div>
     </div>
 </body>
 </html>
