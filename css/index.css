@@ -91,9 +91,9 @@ span{
 .acesso > div{
     background-color: #2f2841;
     /* width: 316px; */
-    height: 400px;
+    /* height: 400px; */
     border-radius: 16px;
-    margin-top: 262px;
+    /* margin-top: 262px; */
     /* margin-left: 15px; */
     /* display: flex;
     flex-direction: column;
@@ -118,16 +118,16 @@ span{
 }
 
 #pontos{
-    top: 210px;
-    left: 10vw;
+    /* top: 210px;
+    left: 10vw; */
 }
 .pontos span{
     font-size: 100px;
 }
 
 #infos{
-    top: 210px;
-    left: 43vw;
+    /* top: 210px;
+    left: 43vw; */
 }
 
 .infos span{
@@ -135,8 +135,8 @@ span{
 }
 
 #avaliacoes{
-    top: 210px;
-    left: 75vw;
+    /* top: 210px;
+    left: 75vw; */
 }
 
 .avaliacoes span{
@@ -149,32 +149,32 @@ span{
 }
 
 footer{
-    position: relative;
-    width: 100%;
-    height: 411px;
+    /* position: relative;
+    width: 100%; */
+    /* height: 411px; */
     background-color: #080707;
-    margin-top: 274px;
-    display: flex;
+    /* margin-top: 274px;
+    display: flex; */
 }
 
 .footer_reciclar img{
-    width: 518px;
+    /* width: 518px; */
     height: 184px;
 }
 
 .footer_reciclar p{
     color: #05e981;
-    margin-left: 100px;
+    /* margin-left: 100px; */
     font-size: 20px;
 }
 
 .footer_infos{
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: start;
+    align-items: start; */
     font-size: 20px;
-    margin-left: 90px;
+    /* margin-left: 90px; */
 }
 
 .footer_infos p{
@@ -186,12 +186,12 @@ footer{
 }
 
 .direitos_reservados{
-    position: absolute;
+    /* position: absolute;
     bottom: 0;
-    left: 40vw;
+    left: 40vw; */
     color: #FFFFFF;
 }
 
 .email{
-    margin-bottom: 40px;
+    /* margin-bottom: 40px; */
 }

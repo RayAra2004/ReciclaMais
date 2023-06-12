@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-    <script src="./srcipt/style/geral.js" defer></script>
+    <script src="./srcipt/cabecalho/geral.js" defer></script>
 </head>
 <body onload="header()">
     <header id="cabecalho"></header>
@@ -43,7 +43,7 @@
     </div>
 
     <div class="container-fluid row mt-3 justify-content-center">
-        <img class="img-fluid col-6" src="./imgs/foto-site-sem-login.svg" alt="">
+        <img class="img-fluid col-5" src="./imgs/foto-site-sem-login.svg" alt="">
         <div class="infos_pq_reciclar col-6">
             <div>
                 <p>Por que Reciclar?</p>
@@ -53,33 +53,25 @@
             </div>
         </div> 
     </div>
-
-    <div class="mais_funcionalidades container-fluid">
-        <p>Para ter acesso a mais funcionalidades</p>
-        <button>Clique Aqui</button>
-    </div>
-    <div class="acesso container row">
-        <div class="col-4">
-            <p id="pontos">PONTOS</p>
-            <div class="pontos">
+    <div class="acesso container-fluid row justify-content-around mt-4">
+        <div class="col-2">
+            <div class="pontos container text-center">
                 <span class="material-icons">
                     place
                 </span>
                 <p>Pontos de Coleta</p>
             </div>
         </div>
-        <div class="col-4">
-            <p id="infos">INFOS</p>
-            <div class="infos">
+        <div class="col-2">
+            <div class="infos text-center">
                 <span class="material-icons">
                     recycling
                 </span>
                 <p>Reciclagem <br> de Materias</p>
             </div>
         </div>
-        <div class="col-4">
-            <p id="avaliacoes">AVALIAÇÕES</p>
-            <div class="avaliacoes">
+        <div class="col-2">
+            <div class="avaliacoes text-center">
                 <span class="material-icons">
                     stars
                 </span>
@@ -89,22 +81,24 @@
     </div>
     
     <footer>
-        <div class="footer_reciclar">
-            <img src="./imgs/logo_recicla_mais.svg" alt="">
-            <p>Reciclar nunca foi tão fácil</p>
-        </div>
-        <div class="footer_infos">
-            <div class="email">
-                <p>Email de Suporte</p>
-                <span>reciclamaissuporte@gmail.com</span>
+        <div class="container-fluid row mt-5">
+            <div class="footer_reciclar col-6">
+                <img src="./imgs/logo_recicla_mais.svg" alt="">
+                <p>Reciclar nunca foi tão fácil</p>
             </div>
-            <div class="enderco">
-                <p>Endeeço</p>
-                <span>Av. dos Sabiás, 330 - Morada de Laranjeiras, Serra - ES, 29166-630</span>
+            <div class="footer_infos col-6 d-flex flex-column justify-content-center align-content-end">
+                <div class="email">
+                    <p>Email de Suporte</p>
+                    <span>reciclamaissuporte@gmail.com</span>
+                </div>
+                <div class="enderco">
+                    <p>Endeeço</p>
+                    <span>Av. dos Sabiás, 330 - Morada de Laranjeiras, Serra - ES, 29166-630</span>
+                </div>
             </div>
-        </div>
-        <div class="direitos_reservados">
-            <span>GRUPO RECICLA+ - IFES SERRA</span>
+            <div class="direitos_reservados m-auto">
+                <span>GRUPO RECICLA+ - IFES SERRA</span>
+            </div>
         </div>
     </footer>
     <!--<a href="https://www.flaticon.com/br/icones-gratis/reciclar" title="reciclar ícones">Reciclar ícones criados por Freepik - Flaticon</a>-->
