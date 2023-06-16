@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+body{
+    background-color: #201b2c;
+}
+
+a{
+    font-family: 'Poppins', sans-serif;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+span{
+    color: #05e981;
+}
+
+p{
+    color: #FFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.botoes button{
+    border: none;
+    background-color: #514869;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    color: #FFF;
+    width: 167px;
+    height: 45px;
+    margin-bottom: 25px;
+}
