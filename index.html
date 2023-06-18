@@ -18,89 +18,83 @@
 <body onload="header()">
     <header id="cabecalho"></header>
 
-    <div class="container">
-        <img class="img-fluid m-2" src="./imgs/Reciclagem-salva-o-planeta!.svg" alt="">
-        <div class="row justify-content-center">
-            <div class="col-3 align-content-center justify-content-center cards">
-                <span class="material-icons">
-                    forest
-                </span>
-                <p>Nosso grupo RECICLA+ é empenhado em melhorar o meio ambiente a cada dia!</p>
+    <div  id="navCards" class="container d-flex text-center justify-content-around pt-3">
+        <div class="card m-3">
+            <span class="material-icons">
+                forest
+            </span>
+            <div class="card-body">
+              <p class="card-text">Nosso grupo RECICLA+ é empenhado em melhorar o meio ambiente a cada dia!</p>
             </div>
-            <div class="col-3 align-content-center justify-content-center cards">
-                <span class="material-icons">
-                    recycling
-                </span>
-                <p>Aprenda a reciclar o material que você tem em casa de maneira rápida, não descarte o seu lixo de maneira incorreta.</p>
+        </div>
+        <div class="card m-3">
+            <span class="material-icons">
+                recycling
+            </span>
+            <div class="card-body">
+              <p>Aprenda a reciclar o material que você tem em casa de maneira rápida, não descarte o seu lixo de maneira incorreta.</p>
             </div>
-            <div class="col-3 align-content-center justify-content-center cards">
-                <span class="material-icons">
-                    delete_forever
-                </span>
-                <p>10,5 milhões de toneladas de resíduos sólidos urbanos foram destinados de forma inadequada no Brasil em 2019.</p>
+        </div>
+        <div class="card m-3">
+            <span class="material-icons">
+                delete_forever
+            </span>
+            <div class="card-body">
+              <p>10,5 milhões de toneladas de resíduos sólidos urbanos foram destinados de forma inadequada no Brasil em 2019.</p>
             </div>
         </div>
     </div>
+    <div class="card container">
+        <div id="img" class="row no-gutters">
+          <div class="col-md-5">
+            <img src="./imgs/foto-site-sem-login.svg" class="card-img" alt="...">
+          </div>
+          <div class="col-md-5">
+            <div class="card-body">
+              <h5 class="card-title">Por que Reciclar?</h5>
+              <p class="card-text">Quanto mais reciclar, mais diminuirá os custos com limpeza urbana, além de evitar a poluição reduzindo as emissões de gases de efeito estufa que provocam a mudança climática global, mantendo o Meio Ambiente sustentável para as gerações futuras.</p>
+            </div>  
+          </div>
+        </div>
+      </div>
 
-    <div class="container-fluid row mt-3 justify-content-center">
-        <img class="img-fluid col-5" src="./imgs/foto-site-sem-login.svg" alt="">
-        <div class="infos_pq_reciclar col-6">
-            <div>
-                <p>Por que Reciclar?</p>
-            </div>
-            <div>
-                <span>Quanto mais reciclar, mais diminuirá os custos com limpeza urbana, além de evitar a poluição reduzindo as emissões de gases de efeito estufa que provocam a mudança climática global, mantendo o Meio Ambiente sustentável para as gerações futuras.</span>
-            </div>
-        </div> 
-    </div>
-    <div class="acesso container-fluid row justify-content-around mt-4">
-        <div class="col-2">
-            <div class="pontos container text-center">
-                <span class="material-icons">
-                    place
-                </span>
-                <p>Pontos de Coleta</p>
+      <div  id="navCards" class="container d-flex text-center justify-content-around pt-3">
+        <div class="card m-3">
+            <span class="material-icons">
+                place
+            </span>
+            <div class="card-body">
+                <p class="card-text">Pontos de Coleta</p>
             </div>
         </div>
-        <div class="col-2">
-            <div class="infos text-center">
-                <span class="material-icons">
-                    recycling
-                </span>
-                <p>Reciclagem <br> de Materias</p>
+        <div class="card m-3">
+            <span class="material-icons">
+                recycling
+            </span>
+            <div class="card-body">
+                <p class="card-text">Reciclagem <br> de Materias</p>
             </div>
         </div>
-        <div class="col-2">
-            <div class="avaliacoes text-center">
-                <span class="material-icons">
-                    stars
-                </span>
-                <p>Ranking</p>
+        <div class="card m-3">
+            <span class="material-icons">
+                stars
+            </span>
+            <div class="card-body">
+                <p class="card-text">Ranking</p>
             </div>
         </div>
     </div>
-    
-    <footer>
-        <div class="container-fluid row mt-5">
-            <div class="footer_reciclar col-6">
+    <div id="rodape" class="container-fluid">
+        <footer class="d-flex flex-wrap justify-content-around align-items-center py-3 my-4 border-top">
+          <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-decoration-none lh-1">
                 <img src="./imgs/logo_recicla_mais.svg" alt="">
-                <p>Reciclar nunca foi tão fácil</p>
-            </div>
-            <div class="footer_infos col-6 d-flex flex-column justify-content-center align-content-end">
-                <div class="email">
-                    <p>Email de Suporte</p>
-                    <span>reciclamaissuporte@gmail.com</span>
-                </div>
-                <div class="enderco">
-                    <p>Endeeço</p>
-                    <span>Av. dos Sabiás, 330 - Morada de Laranjeiras, Serra - ES, 29166-630</span>
-                </div>
-            </div>
-            <div class="direitos_reservados m-auto">
-                <span>GRUPO RECICLA+ - IFES SERRA</span>
-            </div>
-        </div>
-    </footer>
+            </a>
+            <p class="mb-3 mb-md-0  temaGreen">reciclamaissuporte@gmail.com</p>
+          </div>
+        </footer>
+        <p class="text-center pb-3  temaGreen">Reciclar nunca foi tão fácil</p>
+    </div>
     <!--<a href="https://www.flaticon.com/br/icones-gratis/reciclar" title="reciclar ícones">Reciclar ícones criados por Freepik - Flaticon</a>-->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
