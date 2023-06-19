@@ -8,4 +8,11 @@ Dara Mendes Botecchia <br>
 Carlos Eduardo Souza Barbosa <br>
 Kauã Mateus de Barros Terra <br>
 Raynan Araujo da Silva <br>
+<br>
+<br>
+Telas que estão responsivas:
 
+
+<br>
+<br>
+Link infinityfree: http://reciclamais.great-site.net/index.html
