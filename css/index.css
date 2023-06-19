@@ -3,197 +3,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
 body{
-    background-color: #201b2c;
+    background-color: #2f2841;
 }
 
-a{
+.card span{
+    font-size: 100px;
+}
+
+a,p{
     font-family: 'Poppins', sans-serif;
-}
-
-*{
-    box-sizing: border-box;
 }
 
 span{
     color: #05e981;
 }
 
-
 .cards{
-    margin-right: 40px;
-    height: 250px;
     background-color: #2f2841;
-    border-radius: 16px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
 }
 
-
-.cards span{
-    font-size: 100px;
-}
-
-.cards p{
-    color: #FFFFFF;
-}
-
-
-.infos_pq_reciclar{
-    color: #FFFFFF;
-    background-color: #077f48;
-    padding-left: 10px;
-    /* width: 470px;
-    height: 560px; */
-}
-
-.infos_pq_reciclar div{
-    margin-bottom: 20px;
-}
-
-.infos_pq_reciclar p{
-    font-weight: bolder;
-    font-size: 60px;
-}
-
-.infos_pq_reciclar span{
-    font-size: 32px;
-}
-
-.mais_funcionalidades{
-    /*position: relative;*/
-    height: 578px;
-    background-color: #514869;
-    color: #FFFFFF;
-    display: flex;
-    align-items: center;
-    margin-top: 140px;
-}
-
-.mais_funcionalidades p {
-    font-weight: bolder;
-    font-size: 70px;
-    /*width: 800px;*/
-}
-
-.mais_funcionalidades button{
-    border: none;
-    background-color: #05e981;
-    font-weight: bolder;
-    width: 283px;
-    height: 177px;
-    border-radius: 7px;
-    color: #201b2c;
-    font-size: 32px;
-    margin-left: 200px;
-}
-
-
-.acesso > div{
-    background-color: #2f2841;
-    /* width: 316px; */
-    /* height: 400px; */
-    border-radius: 16px;
-    /* margin-top: 262px; */
-    /* margin-left: 15px; */
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
-}
-
-.acesso > p{
-    position: absolute;
-    font-size: 32px;
+.temaGreen{
     color: #05e981;
 }
-
-.acesso ion-icon{
-    width: 200px;
-    height: 200px;
+#navCards div{
+    background-color:#201b2c;
 }
-
-.acesso img{
-    width: 210px;
-    height: 210px;
+#img{
+    background-color:#201b2c;
 }
-
-#pontos{
-    /* top: 210px;
-    left: 10vw; */
-}
-.pontos span{
-    font-size: 100px;
-}
-
-#infos{
-    /* top: 210px;
-    left: 43vw; */
-}
-
-.infos span{
-    font-size: 100px;
-}
-
-#avaliacoes{
-    /* top: 210px;
-    left: 75vw; */
-}
-
-.avaliacoes span{
-    font-size: 100px;
-}
-
-.acesso > div p{
-    color: #05e981;
-    font-size: 32px;
-}
-
-footer{
-    /* position: relative;
-    width: 100%; */
-    /* height: 411px; */
-    background-color: #080707;
-    /* margin-top: 274px;
-    display: flex; */
-}
-
-.footer_reciclar img{
-    /* width: 518px; */
-    height: 184px;
-}
-
-.footer_reciclar p{
-    color: #05e981;
-    /* margin-left: 100px; */
-    font-size: 20px;
-}
-
-.footer_infos{
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start; */
-    font-size: 20px;
-    /* margin-left: 90px; */
-}
-
-.footer_infos p{
-    color: #05e981;
-}
-
-.footer_infos span{
+p{
     color: #FFFFFF;
 }
-
-.direitos_reservados{
-    /* position: absolute;
-    bottom: 0;
-    left: 40vw; */
-    color: #FFFFFF;
+#rodape{
+    background-color:#201b2c;
 }
-
-.email{
-    /* margin-bottom: 40px; */
+a{
+    text-decoration: none;
+}
+@media (max-width: 800px){
+    #navCards{
+        flex-direction: column;
+    }
+    footer div{
+        flex-direction: column;
+    }
 }
