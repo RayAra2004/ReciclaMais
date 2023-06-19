@@ -2,45 +2,32 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">  </head>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/reset.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="../srcipt/cabecalho/geral.js"></script>
     <link rel="stylesheet" href="../css/login.css">
-    <script src="../srcipt/cabecalho/geral.js" defer></script>
-    
+    <title>Aprender a reciclar</title>
 </head>
 <body onload="header()">
     <header id="cabecalho"></header>
-    <div class="container-fluid row justify-content-center">
-        <div class="col-3">
-            <div class="login">
-                <p class="text-center">Login</p>
-                <div class="email d-flex flex-column justify-content-center">
-                    <p class="text-center">Email</p>
-                    <input type="email"class="form-control" name="" id="email" placeholder="Digite seu email:">
+    <div class="container mt-5">
+        <div class="container d-flex justify-content-center">
+            <div class="col-md-6">
+                <div class="card px-5 py-3" id="form1">
+                    <div class="form-data">
+                        <div class="forms-inputs mb-2 d-flex flex-column verde"> Email usado pela conta <input type="text">
+                            <div class="invalid-email vermelho">Email inválido!</div>
+                        </div>
+                        <div class="forms-inputs mb-2 d-flex flex-column verde"> Senha <input type="password">
+                            <div class="invalid-password vermelho">Senha precisa ter 8 caracteres!</div>
+                        </div>
+                        <button click="submit" class="btn border-0 btn-dark container preto" onclick="alert('oi')">Login</button>
+                        <div id="opcoes" class="d-flex azul mt-3 text-center justify-content-around gap-2"><a class="" onclick="alert('pagina não criada')">Esqueci minha senha</a><a class="" href="" onclick="alert('pagina não criada')">Cadastre-se</a></div>
+                    </div>
                 </div>
-                <div class="mb-3 text-center d-flex flex-column justify-content-end">
-                    <label style="color: white;" for="exampleFormControlInput1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                  </div>
-                <div class="senha">
-                    <p class="text-center">Senha</p>
-                    <input type="password" name="" id="senha" placeholder="Digite sua senha:">
-                </div>
-                <div class="esqueceuSenha">
-                    <p class="text-center">Esqueceu sua senha?</p>
-                </div>
-                <button class="entrar">Entrar</button>
-            </div>
-            <div class="naoPossuicadastro">
-                <p>Ainda não possui cadastro?</p>
-                <button class="cadastrar">Cadastre-se</button>
-            </div>
-            <div class="entrarSemLogin">
-                <p>ENTRAR SEM LOGIN</p>
             </div>
         </div>
     </div>
