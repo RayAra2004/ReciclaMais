@@ -1,0 +1,43 @@
+
+
+.ranking-empresa{
+    width: 400px;
+    /* height: 137px; */
+    border-radius: 7px;
+    background-color: #2f2841;
+    border: #FFF solid 1px;
+}
+
+.ranking-empresa p{
+    color: #05e981;
+}
+
+.ranking-empresa ion-icon:nth-child(odd){
+    color: #05e981;
+    font-size: 30px;
+}
+
+.ranking-empresa ion-icon:nth-child(even){
+    color: #e1c021;
+    font-size: 20px;
+}
+
+.img-empresa{
+    height: 100px;
+}
+
+.card-title{
+    color: #FFF;
+}
+
+.btn-infos{
+    border: 0;
+    border-radius: 6px;
+    background-color: #05e981;
+    font-family: 'Poppins', sans-serif!important;
+
+}
+
+.infos-card{
+    padding: 0!important;
+}
