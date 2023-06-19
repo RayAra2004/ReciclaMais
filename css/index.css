@@ -37,6 +37,9 @@ p{
 #rodape{
     background-color:#201b2c;
 }
+a{
+    text-decoration: none;
+}
 @media (max-width: 800px){
     #navCards{
         flex-direction: column;
