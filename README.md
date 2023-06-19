@@ -3,7 +3,8 @@ Nosso sistema web/app é uma plataforma que permite aos usuários localizar faci
 Portanto, o usuário estará contribuindo para a preservação do meio ambiente, diminuindo o impacto negativo dos resíduos e promovendo a reciclagem adequada.
 <br>
 Nome dos integrantes do grupo:
-Dara Mendes Botecchia
-Carlos Eduardo Souza Barbosa
-Kauã Mateus de Barros Terra
-Raynan Araujo da Silva
+Dara Mendes Botecchia <br>
+Carlos Eduardo Souza Barbosa <br>
+Kauã Mateus de Barros Terra <br>
+Raynan Araujo da Silva <br>
+
