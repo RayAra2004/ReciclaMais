@@ -24,18 +24,20 @@ a{
     color: #2c94ff;
 }
 
-.vermelho{
-    font-family: 'Poppins', sans-serif;
-    color: #fa0000;
-}
-
 .preto{
     font-family: 'Poppins', sans-serif;
     color: #000000;
 }
 .invalid-password,.invalid-email{
     display: none;
+    font-family: 'Poppins', sans-serif;
+    color: #fa0000;
 }
 #form1{
     background-color:#201b2c;
+}
+@media screen and (max-width: 650px) {
+    #opcoes{
+        flex-direction: column;
+    }
 }
