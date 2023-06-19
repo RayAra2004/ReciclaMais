@@ -19,8 +19,12 @@ span{
 p{
     color: #FFF;
     font-family: 'Poppins', sans-serif;
-    font-size: 20px;
+    font-size: min(30px, 6vw);
     margin-bottom: 20px;
+}
+
+.botoes{
+    margin: 0!important;
 }
 
 .botoes button{
