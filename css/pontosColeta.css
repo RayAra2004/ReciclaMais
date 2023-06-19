@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background-color: #201b2c;
+}
+
+a, span, p{
+  font-family: 'Poppins', sans-serif;
+}
+
+p, span{
+  color: #fff;
+  font-size: 24px;
+}
+
+.info ion-icon{
+    color: #05e981;
+    font-size: 30px;
+}
+
+form span {
+    font-size: medium;
+}
+
+.checks p{
+    color: #05e981;
+    font-size: 12px;
+}
+
+.checks input{
+    margin-bottom: 5px;
+}
