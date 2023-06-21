@@ -8,28 +8,101 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="../srcipt/cabecalho/geral.js"></script>
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/cadastro.css">
+    <link rel="stylesheet" href="../css/geral.css">
     <title>Aprender a reciclar</title>
 </head>
-<body onload="header()">
+<body onload="header(); footer()">
     <header id="cabecalho"></header>
     <div class="container mt-5">
-        <div class="container d-flex justify-content-center">
-            <div class="col-md-6">
-                <div class="card px-5 py-3" id="form1">
-                    <div class="form-data">
-                        <div class="forms-inputs mb-2 d-flex flex-column verde"> Email usado pela conta <input type="text">
-                            <div class="invalid-email vermelho">Email inválido!</div>
+        <div name="divisao horisontal" class="container d-flex flex-wrap row">
+            <div class="container d-flex justify-content-center col-lg-6">
+                <div class="col-md-8">
+                    <div class="card px-5 py-3 bg-padrao" id="form1">
+                        <div class="form-data">
+                            <div class="forms-inputs mb-2 d-flex flex-column verde"> Nome empresarial <input type="text" placeholder="Digite seu nome empresarial">
+                                <div class="invalid-email vermelho">Email inválido!</div>
+                            </div>
+                            <div class="forms-inputs mb-2 d-flex flex-column verde"> CNPJ <input type="text" placeholder="Digite sua senha">
+                                <div class="invalid-password vermelho">Senha precisa ter 8 caracteres!</div>
+                            </div>
+                            <div class="forms-inputs mb-2 d-flex flex-column verde"> Telefone <input type="text" placeholder="Digite sua senha">
+                                <div class="invalid-password vermelho">Senha precisa ter 8 caracteres!</div>
+                            </div>
+                            <div class="forms-inputs mb-2 d-flex flex-column verde"> Email <input type="text" placeholder="Digite sua senha">
+                                <div class="invalid-password vermelho">Senha precisa ter 8 caracteres!</div>
+                            </div>
+                            <div class="forms-inputs mb-2 d-flex flex-column verde"> Senha <input type="password" placeholder="Digite sua senha">
+                                <div class="invalid-password vermelho">Senha precisa ter 8 caracteres!</div>
+                            </div>
+                            <div class="forms-inputs mb-2 d-flex flex-column verde"> Confirme sua senha <input type="password" placeholder="Digite sua senha">
+                                <div class="invalid-password vermelho">Senha precisa ter 8 caracteres!</div>
+                            </div>
                         </div>
-                        <div class="forms-inputs mb-2 d-flex flex-column verde"> Senha <input type="password">
-                            <div class="invalid-password vermelho">Senha precisa ter 8 caracteres!</div>
+                    </div>
+                </div>
+            </div>
+            <div class="container d-flex justify-content-center col-lg-6">
+                <div class="col-md-8">
+                    <div class="card px-5 py-3 bg-padrao" id="form1">
+                        <div class="form-data">
+                            <div class="forms-inputs mb-2 d-flex flex-column verde"> CEP <input type="text" placeholder="Digite seu nome empresarial">
+                                <div class="invalid-email vermelho">Email inválido!</div>
+                            </div>
+                            <div class="forms-inputs mb-2 d-flex flex-column verde"> Tipo Logradouro <input type="text" placeholder="Digite sua senha">
+                                <div class="invalid-password vermelho">Senha precisa ter 8 caracteres!</div>
+                            </div>
+                            <div class="forms-inputs mb-2 d-flex flex-column verde"> Logradouro <input type="text" placeholder="Digite sua senha">
+                                <div class="invalid-password vermelho">Senha precisa ter 8 caracteres!</div>
+                            </div>
+                            <div class="forms-inputs mb-2 d-flex flex-column verde"> Número <input type="text" placeholder="Digite sua senha">
+                                <div class="invalid-password vermelho">Senha precisa ter 8 caracteres!</div>
+                            </div>
+                            <div class="forms-inputs mb-2 d-flex flex-column verde"> Estado <input type="text" placeholder="Digite sua senha">
+                                <div class="invalid-password vermelho">Senha precisa ter 8 caracteres!</div>
+                            </div>
+                            <div class="forms-inputs mb-2 d-flex flex-column verde"> Cidade <input type="text" placeholder="Digite sua senha">
+                                <div class="invalid-password vermelho">Senha precisa ter 8 caracteres!</div>
+                            </div>
+                            <div class="forms-inputs mb-2 d-flex flex-column verde"> Bairro <input type="text" placeholder="Digite sua senha">
+                                <div class="invalid-password vermelho">Senha precisa ter 8 caracteres!</div>
+                            </div>
                         </div>
-                        <button click="submit" class="btn border-0 btn-dark container preto" onclick="alert('oi')">Login</button>
-                        <div id="opcoes" class="d-flex azul mt-3 text-center justify-content-around gap-2"><a class="" onclick="alert('pagina não criada')">Esqueci minha senha</a><a class="" href="" onclick="alert('pagina não criada')">Cadastre-se</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container col-md-4">
+                <div class="container justify-content-center mt-3 py-3 checks bg-padrao">
+                    <span>MATERIAIS QUE VOCÊ IRÁ DESCARTAR</span>
+                    <div class="container mt-2">
+                        <form action="">
+                            <fieldset>
+                                <input type="checkbox" name="" id="" value="VIDRO"><span> VIDRO</span><br>
+                                <input type="checkbox" name="" id="" value="PLÁSTICO"><span> PLÁSTICO</span><br>
+                                <input type="checkbox" name="" id="" value="MADEIRA"><span> MADEIRA</span><br>
+                                <input type="checkbox" name="" id="" value="ELETRÔNICO"><span> ELETRÔNICO</span><br>
+                                <input type="checkbox" name="" id="" value="METAIS"><span> METAIS</span><br>
+                                <input type="checkbox" name="" id="" value="PAPEL"><span> PAPEL</span><br>
+                                <input type="checkbox" name="" id="" value="ORGÂNICO"><span> ORGÂNICO</span><br>
+                                <input type="checkbox" name="" id="" value="HOSPITALAR"><span> HOSPITALAR</span><br>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <p class="mt-3"><span>DISTÂNCIA DO PONTO DE COLETA</span></p>
+                    <div class="container mt-2">
+                        <form action="">
+                            <fieldset>
+                                <input type="checkbox" name="" id="" value="3"><span> até 3KM</span><br>
+                                <input type="checkbox" name="" id="" value="7"><span> até 7KM</span><br>
+                                <input type="checkbox" name="" id="" value="12"><span> até 12KM</span><br>
+                                <input type="checkbox" name="" id="" value="+12"><span> +12KM</span><br>
+                            </fieldset>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div id="rodape" class="container-fluid"></div>
 </body>
 </html>

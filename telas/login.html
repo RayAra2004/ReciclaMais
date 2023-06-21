@@ -11,17 +11,17 @@
     <link rel="stylesheet" href="../css/login.css">
     <title>Aprender a reciclar</title>
 </head>
-<body onload="header()">
+<body onload="header(); footer()">
     <header id="cabecalho"></header>
     <div class="container mt-5">
         <div class="container d-flex justify-content-center">
             <div class="col-md-6">
                 <div class="card px-5 py-3" id="form1">
                     <div class="form-data">
-                        <div class="forms-inputs mb-2 d-flex flex-column verde"> Email usado pela conta <input type="text">
+                        <div class="forms-inputs mb-2 d-flex flex-column verde"> Email usado pela conta <input type="text" placeholder="Digite seu Email">
                             <div class="invalid-email vermelho">Email inválido!</div>
                         </div>
-                        <div class="forms-inputs mb-2 d-flex flex-column verde"> Senha <input type="password">
+                        <div class="forms-inputs mb-2 d-flex flex-column verde"> Senha <input type="password" placeholder="Digite sua senha">
                             <div class="invalid-password vermelho">Senha precisa ter 8 caracteres!</div>
                         </div>
                         <button click="submit" class="btn border-0 btn-dark container preto" onclick="alert('oi')">Login</button>
@@ -31,5 +31,6 @@
             </div>
         </div>
     </div>
+    <div id="rodape" class="container-fluid"></div>
 </body>
 </html>
