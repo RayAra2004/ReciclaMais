@@ -33,9 +33,15 @@ a{
     font-family: 'Poppins', sans-serif;
     color: #fa0000;
 }
+
 #form1{
     background-color:#201b2c;
 }
+
+label{
+    font-family: 'Poppins', sans-serif;
+}
+
 @media screen and (max-width: 650px) {
     #opcoes{
         flex-direction: column;
