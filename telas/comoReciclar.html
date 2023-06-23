@@ -10,26 +10,28 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="../srcipt/cabecalho/geral.js" defer></script>
     <link rel="stylesheet" href="../css/comoReciclar.css">
+    <link rel="stylesheet" href="./../css/geral.css">
     <title>Como Reciclar</title>
 </head>
-<body onload="header()">
+<body onload="header(); footer()">
     <header id="cabecalho"></header>
     <div class="container-fluid d-flex justify-content-center mt-4">
         <p class="text-center">QUAL DOS ITENS ABAIXO DESEJA APRENDER A RECICLAR?</p>
     </div>
     <div class="container-fluid row justify-content-center botoes">
         <div class="col-sm-3 d-flex flex-column flex-wrap align-content-center justify-content-center">
-            <button>VIDROS</button>
-            <button>PLÁSTICO</button>
-            <button>MADEIRAS</button>
-            <button>PILHAS E BATERIAS</button>
+            <a href="./descricaoDescarte.html"><button>VIDROS</button></a>
+            <a href="./descricaoDescarte.html"><button>PLÁSTICO</button></a>
+            <a href="./descricaoDescarte.html"><button>MADEIRAS</button></a>
+            <a href="./descricaoDescarte.html"><button>PILHAS E BATERIAS</button></a>
         </div>
         <div class="col-sm-3 d-flex flex-column flex-wrap align-content-center justify-content-center">
-            <button>METAIS</button>
-            <button>PAPÉIS E PAPELÕES</button>
-            <button>LIXO ORGÂNICO</button>
-            <button>LIXO HOSPITALAR</button>
+            <a href="./descricaoDescarte.html"><button>METAIS</button></a>
+            <a href="./descricaoDescarte.html"><button>PAPÉIS E PAPELÕES</button></a>
+            <a href="./descricaoDescarte.html"><button>LIXO ORGÂNICO</button></a>
+            <a href="./descricaoDescarte.html"><button>LIXO HOSPITALAR</button></a>
         </div>
     </div>
+    <div id="rodape" class="container-fluid"></div>
 </body>
 </html>
