@@ -26,6 +26,10 @@ span{
 .temaGreen{
     color: #05e981;
 }
+
+h5{
+    font-family: 'Poppins', sans-serif;
+}
 p{
     color: #FFF;
     font-family: 'Poppins', sans-serif;

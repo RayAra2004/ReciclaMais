@@ -28,9 +28,15 @@ span{
 #navCards div{
     background-color:#201b2c;
 }
-#img{
+.card-conteudo{
     background-color:#201b2c;
 }
+
+.card-title{
+    color: #05e981!important;
+    font-size: min(60px, 15vw);
+}
+
 p{
     color: #FFFFFF;
 }
