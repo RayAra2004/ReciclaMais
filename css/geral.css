@@ -31,12 +31,9 @@ span{
 h5{
     font-family: 'Poppins', sans-serif;
 }
-p{
-    color: #FFF;
-    font-family: 'Poppins', sans-serif;
-    font-size: 20px;
-    margin-bottom: 20px;
-}
+
 #rodape p{
     color: #05e981!important;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
 }

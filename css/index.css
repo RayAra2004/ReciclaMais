@@ -46,6 +46,9 @@ p{
 a{
     text-decoration: none;
 }
+p.card-text{
+    font-size: 18px;
+}
 @media (max-width: 800px){
     #navCards{
         flex-direction: column;

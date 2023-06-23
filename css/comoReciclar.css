@@ -19,7 +19,7 @@ span{
 p{
     color: #FFF;
     font-family: 'Poppins', sans-serif;
-    font-size: min(30px, 6vw);
+    font-size: min(50px, 8vw);
     margin-bottom: 20px;
 }
 
@@ -33,7 +33,12 @@ p{
     border-radius: 5px;
     font-family: 'Poppins', sans-serif;
     color: #FFF;
-    width: 167px;
-    height: 45px;
+    font-size: 20px;
+    width: 200px;
+    height: 60px;
     margin-bottom: 25px;
+}
+
+.teste{
+    min-height: 46vh;
 }
