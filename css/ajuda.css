@@ -66,24 +66,10 @@ header button{
     /*background-color: aquamarine;*/
 }
 
-footer{
-    background-color: black;
-    text-align: center;
-}
-.footerGrid{
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-    grid-template-rows: auto;
-}
-.footerIcon{
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-#footerImg{
-    width: 250px;
-}
+
+
+
+
 .informacoes{
     text-align: start;
     margin-top: 1%;
