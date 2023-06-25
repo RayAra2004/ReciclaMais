@@ -21,12 +21,12 @@
                 <div class="card px-5 py-3" id="form1">
                     <form id="form-login" action=""  class="d-flex flex-column">
                         <label for="input-email" class="mb-2">Digite seu email:</label>
-                        <input class="mb-3" type="text" name="input-email" id="input-email" placeholder="Digite seu Email" required>
+                        <input class="mb-3" type="email" name="input-email" id="input-email" placeholder="Digite seu Email" required pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
                         <div class="invalid-email vermelho">Email inválido!</div>
 
                         <label for="input-senha" class="mb-2">Digite sua senha:</label>
-                        <input class="mb-3" type="password" name="input-senha" id="input-senha" placeholder="Digite sua senha" required>
-                        <div class="invalid-password vermelho">Senha precisa ter 8 caracteres!</div>
+                        <input class="mb-3" type="password" name="input-senha" id="input-senha" placeholder="Digite sua senha" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
+                        <div class="invalid-password vermelho">Senha precisa ter ao menos 8 caracteres, com dígitos !</div>
 
                         <button click="submit" class="btn border-0 btn-dark container preto">Login</button>
                         <div id="opcoes" class="d-flex azul mt-3 text-center justify-content-around gap-2"><a class="" onclick="alert('pagina não criada')">Esqueci minha senha</a><a class="" href="./cadastro.html">Cadastre-se</a></div>

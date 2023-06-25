@@ -28,6 +28,7 @@ a{
     font-family: 'Poppins', sans-serif;
     color: #000000;
 }
+
 .invalid-password,.invalid-email{
     display: none;
     font-family: 'Poppins', sans-serif;
