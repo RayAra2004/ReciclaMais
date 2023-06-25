@@ -1,7 +1,15 @@
 const formLogin = document.getElementById('form-login');
 const inputEmail = document.getElementById('input-email');
-const inputSenha = document.querySelector('input[type=password]');
+const inputSenha = document.getElementById('input-senha');
+const mostrarSenha = document.querySelector('.lnr-eye');
 
+mostrarSenha.addEventListener('click', () => {
+    if(inputSenha.getAttribute('type') === 'password'){
+        inputSenha.setAttribute('type', 'text');
+    }else{
+        inputSenha.setAttribute('type', 'password');
+    }
+});
 
 inputSenha.oninvalid = inputSenha.onfocus = inputSenha.focusout = function(){
     // remove mensagens de erro antigas

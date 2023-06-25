@@ -49,6 +49,11 @@ fieldset{
     padding-inline-end: 0em;
     padding-block-end: 0em;
 }
+
+.lnr-eye{
+    cursor: pointer;
+}
+
 @media screen and (max-width: 650px) {
     #opcoes{
         flex-direction: column;
