@@ -19,10 +19,10 @@
     <div class="container mt-5">
         <div class="container d-flex justify-content-center">
             <div class="col-md-4">
-                <div class="card px-5 py-3" id="form1">
+                <div class="card px-5 py-3 form1">
                     <form id="form-login" action=""  class="d-flex flex-column">
                         <label for="input-email" class="mb-2">Digite seu email:</label>
-                        <input class="mb-3" type="email" name="input-email" id="input-email" placeholder="Digite seu Email" required pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
+                        <input class="mb-3" type="email" name="input-email" id="input-email" placeholder="Digite seu Email" required >
                         
     
                         <label for="input-senha" class="mb-2">Digite sua senha:</label>
@@ -32,6 +32,18 @@
                         <button click="submit" class="btn border-0 btn-dark container preto">Login</button>
                         <div id="opcoes" class="d-flex azul mt-3 text-center justify-content-around gap-2"><a class="" onclick="alert('pagina não criada')">Esqueci minha senha</a><a class="" href="./cadastro.html">Cadastre-se</a></div>
                     </form>
+                </div>
+                <div class="card px-5 py-3 h-50 d-none justify-content-center align-content-center flex-wrap invalid-email" id="invalid-email">
+                    <div class="container-progress">
+                        <div class="progress-bar"></div>
+                    </div>
+                    <p class="text-center">EMAIL NÃO CADASTRADO NO SISTEMA</p>
+                </div>
+                <div class="card px-5 py-3 h-50 d-none justify-content-center align-content-center flex-wrap invalid-email" id="invalid-password">
+                    <div class="container-progress">
+                        <div class="progress-bar"></div>
+                    </div>
+                    <p class="text-center">SENHA INCORRETA</p>
                 </div>
             </div>
         </div>

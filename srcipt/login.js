@@ -26,5 +26,29 @@ inputSenha.oninvalid = inputSenha.onfocus = inputSenha.focusout = function(){
 formLogin.addEventListener('submit', e => {
     e.preventDefault();
 
-    window.location.href = './../telas/paginaInicialUser.html'
+    const keys = Object.keys(localStorage)
+    const cadastros = [];
+
+    for (const key of keys){
+        const cadastro = JSON.parse(localStorage.getItem(key));
+        cadastros.push(cadastro);
+    }
+    console.log(cadastros)
+    const login = cadastros.find(cad => cad.email === inputEmail.value);
+    if(login){
+        if(login.senha === inputSenha.value){
+            window.location.href = './../telas/paginaInicialUser.html'
+        }else{
+            document.getElementById('invalid-password').classList.add('show');
+        setTimeout(() =>{
+            document.getElementById('invalid-password').classList.remove('show');
+        }, 1500)
+        }
+    }else{
+        document.getElementById('invalid-email').classList.add('show');
+        setTimeout(() =>{
+            document.getElementById('invalid-email').classList.remove('show');
+        }, 1500)
+    }
+
 })

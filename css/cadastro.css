@@ -37,9 +37,9 @@ a{
 .bg-padrao{
     background-color: #201b2c;
 }
-span{
+span, label{
     color: #05e981;
-    font-family: Poppins;
+    font-family: 'Poppins', sans-serif;
 }
 fieldset{
     margin-inline-start: 2px;

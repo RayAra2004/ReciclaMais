@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
     <script src="./../srcipt/cabecalho/geral.js" defer></script>
-    <script src="./../srcipt/cadastro.js"></script>
+    <script src="./../srcipt/cadastro.js" defer></script>
     <link rel="stylesheet" href="../css/cadastro.css">
     <link rel="stylesheet" href="../css/geral.css">
     <title>Aprender a reciclar</title>
@@ -54,7 +54,53 @@
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="tp_logradouro">TIPO LOGRADOURO</label>
-                                <input type="text" name="tp_logradouro" id="tp_logradouro" placeholder="" required>
+                                <select id="tp_logradouro" name="tp_logradouro">
+                                    <option value=""></option>
+                                    <option value="aeroporto">aeroporto</option>
+                                    <option value="alameda">alameda</option>
+                                    <option value="area">área</option>
+                                    <option value="avenida">avenida</option>
+                                    <option value="campo">campo</option>
+                                    <option value="chacara">chácara</option>
+                                    <option value="colonia">colônia</option>
+                                    <option value="condominio">condomínio</option>
+                                    <option value="conjunto">conjunto</option>
+                                    <option value="distrito">distrito</option>
+                                    <option value="esplanada">esplanada</option>
+                                    <option value="estacao">estação</option>
+                                    <option value="estrada">estrada</option>
+                                    <option value="favela">favela</option>
+                                    <option value="fazenda">fazenda</option>
+                                    <option value="feira">feira</option>
+                                    <option value="jardim">jardim</option>
+                                    <option value="ladeira">ladeira</option>
+                                    <option value="lago">lago</option>
+                                    <option value="lagoa">lagoa</option>
+                                    <option value="largo">largo</option>
+                                    <option value="loteamento">loteamento</option>
+                                    <option value="morro">morro</option>
+                                    <option value="nucleo">núcleo</option>
+                                    <option value="parque">parque</option>
+                                    <option value="passarela">passarela</option>
+                                    <option value="patio">pátio</option>
+                                    <option value="praca">praça</option>
+                                    <option value="quadra">quadra</option>
+                                    <option value="recanto">recanto</option>
+                                    <option value="residencial">residencial</option>
+                                    <option value="rodovia">rodovia</option>
+                                    <option value="rua">rua</option>
+                                    <option value="setor">setor</option>
+                                    <option value="sitio">sítio</option>
+                                    <option value="travessa">travessa</option>
+                                    <option value="trecho">trecho</option>
+                                    <option value="trevo">trevo</option>
+                                    <option value="vale">vale</option>
+                                    <option value="vereda">vereda</option>
+                                    <option value="via">via</option>
+                                    <option value="viaduto">viaduto</option>
+                                    <option value="viela">viela</option>
+                                    <option value="vila">vila</option>
+                                </select>                                    
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="logradouro">LOGRADOURO</label>
@@ -66,7 +112,36 @@
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="uf">ESTADO</label>
-                                <input type="text" name="uf" id="uf" placeholder="" required>
+                                <select id="uf" name="uf">
+                                    <option value=""></option>
+                                    <option value="AC">Acre</option>
+                                    <option value="AL">Alagoas</option>
+                                    <option value="AP">Amapá</option>
+                                    <option value="AM">Amazonas</option>
+                                    <option value="BA">Bahia</option>
+                                    <option value="CE">Ceará</option>
+                                    <option value="DF">Distrito Federal</option>
+                                    <option value="ES">Espírito Santo</option>
+                                    <option value="GO">Goiás</option>
+                                    <option value="MA">Maranhão</option>
+                                    <option value="MT">Mato Grosso</option>
+                                    <option value="MS">Mato Grosso do Sul</option>
+                                    <option value="MG">Minas Gerais</option>
+                                    <option value="PA">Pará</option>
+                                    <option value="PB">Paraíba</option>
+                                    <option value="PR">Paraná</option>
+                                    <option value="PE">Pernambuco</option>
+                                    <option value="PI">Piauí</option>
+                                    <option value="RJ">Rio de Janeiro</option>
+                                    <option value="RN">Rio Grande do Norte</option>
+                                    <option value="RS">Rio Grande do Sul</option>
+                                    <option value="RO">Rondônia</option>
+                                    <option value="RR">Roraima</option>
+                                    <option value="SC">Santa Catarina</option>
+                                    <option value="SP">São Paulo</option>
+                                    <option value="SE">Sergipe</option>
+                                    <option value="TO">Tocantins</option>
+                                </select>
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="cidade">CIDADE</label>

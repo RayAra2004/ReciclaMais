@@ -30,16 +30,21 @@ a{
 }
 
 .invalid-password,.invalid-email{
-    display: none;
     font-family: 'Poppins', sans-serif;
     color: #fa0000;
+    background-color:#201b2c;
+    position: relative;
+    top: -200px;
+    left: 0;
+    border: #fff 2px solid;
 }
 
-#form1{
+.form1{
     background-color:#201b2c;
 }
 
 label{
+    color: #05e981;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -48,6 +53,40 @@ label{
     position: relative;
     top: -35px;
     left: 340px;
+}
+
+.show{
+    display: flex!important;
+}
+
+.hidden{
+    display: none!important;
+}
+
+.container-progress {
+    height: 10px;
+    background-color: transparent;
+    position: relative;
+    top: -62px;
+    width: 420px;
+    border-radius: 2px;
+  }
+
+.container-progress .progress-bar {
+    position: absolute;
+    height: 100%;
+    background-color: #fa0000;
+    animation: progress-animation 1500ms infinite;
+    border-radius: 4px;
+}
+
+@keyframes progress-animation {
+    100% {
+        width: 0%;
+    }
+    0% {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 650px) {
