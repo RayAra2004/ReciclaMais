@@ -37,6 +37,11 @@ a{
 .bg-padrao{
     background-color: #201b2c;
 }
+
+.w-92{
+    width: 92%;
+}
+
 span, label{
     color: #05e981;
     font-family: 'Poppins', sans-serif;
