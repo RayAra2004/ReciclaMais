@@ -80,6 +80,10 @@ label{
     border-radius: 4px;
 }
 
+.todo{
+    min-height: 55vh;
+}
+
 @keyframes progress-animation {
     100% {
         width: 0%;
