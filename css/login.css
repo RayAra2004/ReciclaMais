@@ -48,15 +48,8 @@ label{
     font-family: 'Poppins', sans-serif;
 }
 
-/*.lnr-eye{
+.lnr-eye{
     cursor: pointer;
-    position: relative;
-    top: -35px;
-    left: 17.5vw;
-}*/
-
-.show{
-    display: flex!important;
 }
 
 .hidden{
