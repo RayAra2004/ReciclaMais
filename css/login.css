@@ -52,7 +52,7 @@ label{
     cursor: pointer;
     position: relative;
     top: -35px;
-    left: 340px;
+    left: 17.5vw;
 }
 
 .show{
@@ -76,12 +76,12 @@ label{
     position: absolute;
     height: 100%;
     background-color: #fa0000;
-    animation: progress-animation 1500ms infinite;
+    animation: progress-animation 1500ms;
     border-radius: 4px;
 }
 
 .todo{
-    min-height: 55vh;
+    min-height: 54vh;
 }
 
 @keyframes progress-animation {
