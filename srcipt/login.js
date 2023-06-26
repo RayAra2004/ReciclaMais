@@ -33,7 +33,6 @@ formLogin.addEventListener('submit', e => {
         const cadastro = JSON.parse(localStorage.getItem(key));
         cadastros.push(cadastro);
     }
-    console.log(cadastros)
     const login = cadastros.find(cad => cad.email === inputEmail.value);
     if(login){
         if(login.senha === inputSenha.value){
