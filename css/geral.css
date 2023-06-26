@@ -40,3 +40,12 @@ header h5{
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
 }
+#rodape{
+    background-color:#201b2c;
+}
+
+@media (max-width: 800px){
+    footer div{
+        flex-direction: column;
+    }
+}
