@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,53 +10,51 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../css/paginaInicialUser.css">
     <script src="../srcipt/paginaInicialUser.js" defer></script>
-    <script src="../srcipt/style/geral.js" defer></script>
+    <script src="../srcipt/cabecalho/geral.js" defer></script>
     <title>Recicla+</title>
 </head>
-<body onload="header()">
+<body onload="header(); footer()">
     <header id="cabecalho"></header>
     <div class="conteudo">
         <div class="opcoes">
-        <div class="grupo">
-        <h1>Pontos</h1>
-        <div class="option">
-            <span class="material-icons">
-                location_on
-            </span>
-            <p>Pontos De Coleta</p>
-        </div>
-        </div>
-        <div class="grupo">
-        <br>
-        <br>
-        <div class="option">
-            <span class="material-icons">
-                add_circle_outline
-            </span>
-            <p>Adicionar Ponto</p>
-        </div>
-        </div>
+            <div class="grupo">
+                <div class="option">
+                    <span class="material-icons">
+                        location_on
+                    </span>
+                    <p>Pontos De Coleta</p>
+                </div>
+            </div>
+            <div class="grupo">
+                <br>
+                <br>
+                <div class="option">
+                    <span class="material-icons">
+                        add_circle_outline
+                    </span>
+                    <p>Adicionar Ponto</p>
+                </div>
+            </div>
         </div>
         <div class="opcoes">
-        <div class="grupo">
-        <h1>Infos</h1>
-        <div class="option">
-            <span class="material-icons">
-                recycling
-            </span>
-            <p>Reciclagem de Materiais</p>
-        </div>
-        </div>
-        <div class="grupo">
-            <h1>Ranking</h1>
-        <div class="option">
-            <span class="material-icons">
-                stars
-            </span>
-            <p>Melhores Avaliações</p>
-        </div>
-        </div>
+            <div class="grupo">
+                <div class="option">
+                    <span class="material-icons">
+                        recycling
+                    </span>
+                    <p>Reciclagem de Materiais</p>
+                </div>
+            </div>
+            <div class="grupo">
+                <div class="option">
+                    <span class="material-icons">
+                        stars
+                    </span>
+                    <p>Melhores Avaliações</p>
+                </div>
+            </div>
         </div>
     </div>
+    <div id="rodape" class="container-fluid"></div>
 </body>
 </html>

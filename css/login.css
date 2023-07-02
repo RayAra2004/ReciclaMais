@@ -79,6 +79,10 @@ label{
 .w-92{
     width: 90%;
 }
+/* NÃO APAGAR*/
+.mostrar{
+    display: flex!important;
+}
 
 @keyframes progress-animation {
     100% {

@@ -44,9 +44,10 @@ formLogin.addEventListener('submit', e => {
         }, 1500)
         }
     }else{
-        document.getElementById('invalid-email').classList.add('show');
+        console.log('oi')
+        document.getElementById('invalid-email').classList.add('mostrar');
         setTimeout(() =>{
-            document.getElementById('invalid-email').classList.remove('show');
+            document.getElementById('invalid-email').classList.remove('mostrar');
         }, 1500)
     }
 
