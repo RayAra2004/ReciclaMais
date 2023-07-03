@@ -27,10 +27,14 @@ form span {
 }
 
 .checks p{
-    color: #05e981;
-    font-size: 12px;
+  color: #05e981;
+  font-size: 12px;
 }
 
 .checks input{
-    margin-bottom: 5px;
+  margin-bottom: 5px;
+}
+
+.maps img{
+  border-radius: 15px;
 }
