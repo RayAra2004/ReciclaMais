@@ -10,9 +10,9 @@ Kauã Mateus de Barros Terra <br>
 Raynan Araujo da Silva <br>
 <br>
 <br>
-Telas que estão responsivas:
+Telas que estão responsivas: Todas
 
 
 <br>
 <br>
-Link infinityfree: http://reciclamais.great-site.net/index.html
+Link infinityfree: https://reciclamais.great-site.net/index.html
