@@ -15,7 +15,7 @@ class BuscaCest
     {
 		$I->amOnPage('/');
 		$I->click('Buscar');
-		$I->see('resultados encontdos');
+		$I->see('Nosso');
     }
 }
 
