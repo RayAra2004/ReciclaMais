@@ -6,7 +6,7 @@
 
 actor: AcceptanceTester
 modules:
-    enabled:
+    #enabled:
 #        - PhpBrowser:
 #            url: https://reciclamais.great-site.net/index.html #http://ifes.edu.br
     enabled:
