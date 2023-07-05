@@ -4,7 +4,7 @@ namespace Tests\Acceptance;
 
 use Tests\Support\AcceptanceTester;
 
-class BuscaCest
+class IndexTesteCest
 {
     public function _before(AcceptanceTester $I)
     {
