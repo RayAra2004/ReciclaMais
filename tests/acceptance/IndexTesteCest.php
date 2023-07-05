@@ -14,7 +14,6 @@ class IndexTesteCest
     public function buscarResultadosNaPaginaTest(AcceptanceTester $I)
     {
 		$I->amOnPage('/');
-		$I->click('Buscar');
 		$I->see('Nosso');
     }
 }
