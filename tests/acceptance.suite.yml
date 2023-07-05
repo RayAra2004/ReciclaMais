@@ -8,10 +8,10 @@ actor: AcceptanceTester
 modules:
     #enabled:
 #        - PhpBrowser:
-#            url: https://reciclamais.great-site.net #http://ifes.edu.br
+#            url: https://reciclamais.great-site.net/ #http://ifes.edu.br
     enabled:
         - WebDriver:
-            url:https://reciclamais.great-site.net #'http://ifes.edu.br' 
+            url:https://reciclamais.great-site.net/ #'http://ifes.edu.br' 
             browser: 'firefox' # ou 'firefox'
             host: '127.0.0.1'
             port: 4444
