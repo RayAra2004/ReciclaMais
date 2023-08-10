@@ -20,16 +20,16 @@
     </div>
     <div class="container-fluid row justify-content-center botoes teste">
         <div class="col-sm-3 d-flex flex-column flex-wrap align-content-center justify-content-center">
-            <a href="./descricaoDescarte.html"><button>VIDROS</button></a>
-            <a href="./descricaoDescarte.html"><button>PLÁSTICO</button></a>
-            <a href="./descricaoDescarte.html"><button>MADEIRAS</button></a>
-            <a href="./descricaoDescarte.html"><button>PILHAS E BATERIAS</button></a>
+            <a href="./descricaoDescarte.php"><button>VIDROS</button></a>
+            <a href="./descricaoDescarte.php"><button>PLÁSTICO</button></a>
+            <a href="./descricaoDescarte.php"><button>MADEIRAS</button></a>
+            <a href="./descricaoDescarte.php"><button>PILHAS E BATERIAS</button></a>
         </div>
         <div class="col-sm-3 d-flex flex-column flex-wrap align-content-center justify-content-center">
-            <a href="./descricaoDescarte.html"><button>METAIS</button></a>
-            <a href="./descricaoDescarte.html"><button>PAPÉIS E PAPELÕES</button></a>
-            <a href="./descricaoDescarte.html"><button>LIXO ORGÂNICO</button></a>
-            <a href="./descricaoDescarte.html"><button>LIXO HOSPITALAR</button></a>
+            <a href="./descricaoDescarte.php"><button>METAIS</button></a>
+            <a href="./descricaoDescarte.php"><button>PAPÉIS E PAPELÕES</button></a>
+            <a href="./descricaoDescarte.php"><button>LIXO ORGÂNICO</button></a>
+            <a href="./descricaoDescarte.php"><button>LIXO HOSPITALAR</button></a>
         </div>
     </div>
     <div id="rodape" class="container-fluid"></div>

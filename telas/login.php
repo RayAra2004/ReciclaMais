@@ -35,7 +35,7 @@
                         </div>
 
                         <button click="submit" class="btn border-0 btn-dark container preto">Login</button>
-                        <div id="opcoes" class="d-flex azul mt-3 text-center justify-content-around gap-2"><a class="" href="./esqueciSenha.html">Esqueci minha senha</a><a class="" href="./cadastro.html">Cadastre-se</a></div>
+                        <div id="opcoes" class="d-flex azul mt-3 text-center justify-content-around gap-2"><a class="" href="./esqueciSenha.php">Esqueci minha senha</a><a class="" href="./cadastro.php">Cadastre-se</a></div>
                     </form>
                 </div>
                 <div class="card px-5 py-3 h-50 d-none justify-content-center align-content-center flex-wrap invalid-email" id="invalid-email">

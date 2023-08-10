@@ -36,7 +36,7 @@ formLogin.addEventListener('submit', e => {
     const login = cadastros.find(cad => cad.email === inputEmail.value);
     if(login){
         if(login.senha === inputSenha.value){
-            window.location.href = './../telas/paginaInicialUser.html'
+            window.location.href = './../telas/paginaInicialUser.php'
         }else{
             document.getElementById('invalid-password').classList.add('show');
         setTimeout(() =>{

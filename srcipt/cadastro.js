@@ -48,7 +48,7 @@ formGeral.addEventListener("submit", e =>{
     const novoCadstroSerializado = JSON.stringify(novoCadstro);
     localStorage.setItem(nomeEmpresa.value, novoCadstroSerializado);
 
-    window.location.href = './../telas/paginaInicialUser.html';
+    window.location.href = './../telas/paginaInicialUser.php';
 })
 
 /*

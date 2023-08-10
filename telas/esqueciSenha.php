@@ -24,7 +24,7 @@
                         <input class="mb-3" type="text" name="input-email" id="input-email" placeholder="Digite seu Email" required>
                         <div class="invalid-email vermelho">Email inválido!</div>
 
-                        <a href="./esqueciSenha2.html"><div class="btn border-0 btn-dark container preto">Enviar codigo de verificação</div></a>
+                        <a href="./esqueciSenha2.php"><div class="btn border-0 btn-dark container preto">Enviar codigo de verificação</div></a>
                     </form>
                 </div>
             </div>

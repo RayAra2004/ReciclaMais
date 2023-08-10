@@ -3,16 +3,16 @@ function header(){
     `
     <nav class="navbar navbar-expand-sm bg-body-tertiary" data-bs-theme="dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="./../index.html"><img src="../imgs/logo_recicla_mais.svg" class="logo-top" alt=""></a>
+            <a class="navbar-brand" href="./../index.php"><img src="../imgs/logo_recicla_mais.svg" class="logo-top" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-md-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a href="../index.html" class="nav-link">Home</a>
-                    <a href="../telas/sobreNos.html" class="nav-link">Sobre Nós</a>
-                    <a href="../telas/ajuda.html" class="nav-link">Ajuda</a>
-                    <a class="btn" href="./../telas/login.html" role="button">Entrar</a>
+                    <a href="../index.php" class="nav-link">Home</a>
+                    <a href="../telas/sobreNos.php" class="nav-link">Sobre Nós</a>
+                    <a href="../telas/ajuda.php" class="nav-link">Ajuda</a>
+                    <a class="btn" href="./../telas/login.php" role="button">Entrar</a>
                 </div>
             </div>
         </div>

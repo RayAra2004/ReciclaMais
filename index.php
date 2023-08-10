@@ -19,16 +19,16 @@
     <header id="cabecalho">
         <nav class="navbar navbar-expand-sm bg-body-tertiary" data-bs-theme="dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="./index.html"><img src="../imgs/logo_recicla_mais.svg" class="logo-top" alt=""></a>
+                <a class="navbar-brand" href="./index.php"><img src="../imgs/logo_recicla_mais.svg" class="logo-top" alt=""></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-md-end" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a href="./index.html" class="nav-link temaGreen">Home</a>
-                        <a href="./telas/sobreNos.html" class="nav-link temaGreen">Sobre Nós</a>
-                        <a href="./telas/ajuda.html" class="nav-link temaGreen">Ajuda</a>
-                        <a class="btn" href="./telas/login.html" role="button">Entrar</a>
+                        <a href="./index.php" class="nav-link temaGreen">Home</a>
+                        <a href="./telas/sobreNos.php" class="nav-link temaGreen">Sobre Nós</a>
+                        <a href="./telas/ajuda.php" class="nav-link temaGreen">Ajuda</a>
+                        <a class="btn" href="./telas/login.php" role="button">Entrar</a>
                     </div>
                 </div>
             </div>
@@ -76,7 +76,7 @@
       </div>
 
       <div  id="navCards" class="container d-flex text-center justify-content-around pt-3">
-        <a href="./telas/pontosColeta.html">
+        <a href="./telas/pontosColeta.php">
             <div class="card m-3">
                 <span class="material-icons">
                     place
@@ -86,7 +86,7 @@
                 </div>
             </div>
         </a>
-        <a href="./telas/comoReciclar.html">
+        <a href="./telas/comoReciclar.php">
             <div class="card m-3">
                 <span class="material-icons">
                     recycling
@@ -96,7 +96,7 @@
                 </div>
             </div>
         </a>
-        <a href="./telas/ranking.html">
+        <a href="./telas/ranking.php">
             <div class="card m-3">
                 <span class="material-icons">
                     stars

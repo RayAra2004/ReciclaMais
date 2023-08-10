@@ -18,7 +18,7 @@ for(let i = 0; i < 10; i++){
                         <ion-icon class="" name="pint-outline"></ion-icon>
                         <ion-icon class="ms-3" name="star"></ion-icon>
                         <span>4.8/5</span>
-                        <a href="./descricaoPonto.html">
+                        <a href="./descricaoPonto.php">
                             <button class="btn-infos ms-3">Ver mais</button>
                         </a>
                     </p>
