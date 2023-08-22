@@ -72,9 +72,9 @@
             </div>
             <div class="grupo">
                 <div class="option">
-                    <span class="material-icons">
-                        stars
-                    </span>
+                <span class="material-symbols-outlined">
+                    shopping_cart_checkout
+                </span>
                     <p>Suas negociações</p>
                 </div>
             </div>
