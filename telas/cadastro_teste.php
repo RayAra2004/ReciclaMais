@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-    <script src="./../srcipt/cabecalho/geral.js" defer></script>
-    <script src="./../srcipt/cadastro.js" defer></script>
+    <script src="./../script/cabecalho/geral.js" defer></script>
+    <script src="./../script/cadastro.js" defer></script>
     <link rel="stylesheet" href="../css/cadastro.css">
     <link rel="stylesheet" href="../css/geral.css">
     <title>Aprender a reciclar</title>

@@ -9,8 +9,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css"> <!--olinho-->
     <link rel="stylesheet" href="../css/login.css">
-    <script src="./../srcipt/login.js" defer></script>
-    <script src="../srcipt/cabecalho/geral.js" defer></script>
+    <script src="./../script/login.js" defer></script>
+    <script src="../script/cabecalho/geral.js" defer></script>
     <link rel="stylesheet" href="./../css/geral.css">
 
 

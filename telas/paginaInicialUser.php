@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../css/paginaInicialUser.css">
-    <script src="../srcipt/paginaInicialUser.js" defer></script>
+    <script src="../script/paginaInicialUser.js" defer></script>
     <script src="../srcipt/cabecalho/geral.js" defer></script>
     <title>Recicla+</title>
 </head>

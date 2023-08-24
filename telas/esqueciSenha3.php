@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
     <link rel="stylesheet" href="../css/esqueciSenha.css">
     <link rel="stylesheet" href="./../css/geral.css">
-    <script src="../srcipt/cabecalho/geral.js" defer></script>
+    <script src="../script/cabecalho/geral.js" defer></script>
     <title>Aprender a reciclar</title>
 </head>
 <body onload="header(); footer()">

@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../css/sobreNos.css">
-    <script src="../srcipt/cabecalho/geral.js" defer></script>
-    <script src="./../srcipt/sobreNos.js" defer></script>
+    <script src="../script/cabecalho/geral.js" defer></script>
+    <script src="./../script/sobreNos.js" defer></script>
     <link rel="stylesheet" href="./../css/geral.css">
     <title>Sobre Nós</title>
 </head>

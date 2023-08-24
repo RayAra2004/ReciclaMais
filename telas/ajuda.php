@@ -8,10 +8,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous" defer></script>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/ajuda.css">
-    <script src="../srcipt/ajuda.js" defer></script>
+    <script src="../script/ajuda.js" defer></script>
 
     <link rel="stylesheet" href="./../css/geral.css">
-    <script src="./../srcipt/cabecalho/geral.js" defer></script>
+    <script src="./../script/cabecalho/geral.js" defer></script>
 
     <title>Ajuda - Recicla+</title>
 </head>
