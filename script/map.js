@@ -1,5 +1,3 @@
-console.log("map")
-
 function success(pos){
     console.log(pos)
     const latitude = (pos.coords.latitude)
@@ -21,7 +19,7 @@ function initMap(latitude, longitude){
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map);
 
     const icon = L.icon({
-        iconUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhW4grvWirg5guWifTaCfiIJIlYUPWtWFh5A&usqp=CAU',
+        iconUrl: '../imgs/silver_pin.svg',
         iconSize: [38, 95],
         iconAnchor: [22, 94]
     })
