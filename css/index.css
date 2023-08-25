@@ -18,6 +18,11 @@ span{
     color: #05e981;
 }
 
+.btn:hover {
+    background-color: #05e981;
+    color: black;
+}
+
 .cards{
     background-color: #2f2841;
 }

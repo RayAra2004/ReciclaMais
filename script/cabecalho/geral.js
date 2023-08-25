@@ -32,7 +32,7 @@ function header(){
 function footer(){
     const footer = document.getElementById("rodape").innerHTML =
     `   
-    <footer class="d-flex flex-wrap justify-content-around align-items-center py-3 my-4 border-top">
+    <footer class="d-flex flex-wrap justify-content-around align-items-center py-3 my-4">
         <div class="d-flex align-items-center">
             <a href="#" class="">
                 <img src="./../imgs/logo_recicla_mais.svg" alt="" class="logo-bottom">
