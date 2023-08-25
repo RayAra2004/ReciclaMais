@@ -38,3 +38,7 @@ form span {
 .maps img{
   border-radius: 15px;
 }
+
+#map{
+  height: 400px;
+}
