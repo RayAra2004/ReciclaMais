@@ -24,7 +24,7 @@
         <ion-icon name="filter-outline"></ion-icon>
         <p class="ms-2">FILTRO DOS PONTOS</p>
     </div>
-    <div class=" row m-0 p-0">
+    <div class="row m-0 p-0">
         <div class="container ms-3 me-3 mt-3 checks col-4">
             <p>MATERIAIS QUE VOCÊ IRÁ DESCARTAR</p>
             <div class="container mt-2">
@@ -53,11 +53,10 @@
                 </form>
             </div>
         </div>
-        <div class="col-5 maps">
-            
+        <div class="container col-5 maps">
+            <div id="map"></div>
         </div>
     </div>
-    <div id="map"></div>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </body>
 </html>
