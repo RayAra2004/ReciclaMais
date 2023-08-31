@@ -5,13 +5,24 @@
     box-sizing: border-box;
 }
 
+html, body{
+    height: 100%;
+}
+
 body{
     background-color: #2f2841;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 a{
     font-family: 'Poppins', sans-serif;
     text-decoration: none;
+}
+
+.bg_verde{
+    background-color: #05e981!important;
 }
 
 .verde{
@@ -41,6 +52,27 @@ a{
 
 .form1{
     background-color:#201b2c;
+    border-radius: 0px 6px 6px 0px;
+    height: 600px;
+    border: none;
+}
+
+.form1 form{
+    margin-top: 100px;
+}
+
+form input{
+    background-color: #514869;
+    height: 40px;
+    border: none;
+    border-radius: 4px;
+    padding-left: 5px;
+}
+
+form input::placeholder{
+    font-family: 'Poppins', sans-serif;
+    font-size: small;
+    color: #fff;
 }
 
 label{
@@ -97,4 +129,22 @@ label{
     #opcoes{
         flex-direction: column;
     }
+}
+
+
+.img-login{
+    height: 600px;
+    border-radius: 6px 0px 0px 6px;
+}
+
+.btn-cadastre{
+    background-color: #05e981;
+    color: #000000;
+    border-radius: 5px;
+    height: 35px;
+    width: 155px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
 }

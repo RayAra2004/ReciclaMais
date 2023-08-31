@@ -16,26 +16,38 @@
 
     <title>Aprender a reciclar</title>
 </head>
-<body onload="header(); footer()">
-    <header id="cabecalho"></header>
+<body>
     <div class="container mt-5 todo">
         <div class="container d-flex justify-content-center">
+            <div>
+                <img class="img-fluid img-login" src="./../imgs/login_desktop.png"/>
+            </div>
             <div class="col-md-4">
                 <div class="card px-5 py-3 form1">
+                    <div class="d-flex justify-content-center">
+                        <a href="../index.php">
+                            <img src="./../imgs/logo_recicla_mais2.svg"/>
+                        </a>
+                    </div>
                     <form id="form-login" action=""  class="d-flex flex-column">
                         <label for="input-email" class="mb-2">Digite seu email:</label>
                         <input class="mb-3" type="email" name="input-email" id="input-email" placeholder="Digite seu Email" required >
                         
-    
                         <label for="input-senha" class="mb-2">Digite sua senha:</label>
-                        <div>
-                            <input class="mb-3 w-92" type="password" name="input-senha" id="input-senha" placeholder="Digite sua senha" 
-                            required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
-                        <span class="lnr lnr-eye"></span><!--olinho-->
+                        <input class="mb-2" type="password" name="input-senha" id="input-senha" placeholder="Digite sua senha" 
+                        required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
+                        
+                        <a class="mb-4" href="./esqueciSenha.php">Esqueci minha senha</a>
+                        <!-- <span class="lnr lnr-eye"></span>  olinho -->
+                        <button click="submit" class="btn border-0 container bg_verde preto">Login</button>
+                        <div id="opcoes" class="azul mt-3 text-center justify-content-around gap-2">
+                            <p class="azul">Ainda não possui cadastro?</p>
+                            <a class="d-flex justify-content-center" href="./cadastro.php">
+                                <div class="btn-cadastre">
+                                    <p>Cadastre-se</p>
+                                </div>
+                            </a>
                         </div>
-
-                        <button click="submit" class="btn border-0 btn-dark container preto">Login</button>
-                        <div id="opcoes" class="d-flex azul mt-3 text-center justify-content-around gap-2"><a class="" href="./esqueciSenha.php">Esqueci minha senha</a><a class="" href="./cadastro.php">Cadastre-se</a></div>
                     </form>
                 </div>
                 <div class="card px-5 py-3 h-50 d-none justify-content-center align-content-center flex-wrap invalid-email" id="invalid-email">
@@ -53,6 +65,5 @@
             </div>
         </div>
     </div>
-    <div id="rodape" class="container-fluid"></div>
 </body>
 </html>
