@@ -4,19 +4,26 @@ body{
     background-color: #2f2841;
 }
 
-header .logo-top{
+.header{
+    border-bottom: 1px solid #05e981;
+}
+.header .logo-top{
 	width: 200px;
 }
 .logo-bottom{
 	width: 270px;
 }
 
-header .btn{
+.header .btn{
     background-color: #05e981;
     color: black;
 }
-header a{
+.header a{
     font-family: 'Poppins', sans-serif;
+}
+
+.header img{
+    margin-top: -20px;
 }
 
 *{

@@ -18,6 +18,10 @@ span{
     color: #05e981;
 }
 
+.btn{
+    font-family: 'Poppins', sans-serif;
+}
+
 .btn:hover {
     background-color: #05e981;
     color: black;

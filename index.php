@@ -1,9 +1,10 @@
 <?php 
-    include './telas/componentes/header.php'
+    include '../ReciclaMais/telas/componentes/header.php'
 ?>
     <section class="body_content">
-        <?php echo
-        `<div  id="navCards" class="container d-flex text-center justify-content-around pt-3">
+        <?php echo 
+        '
+        <div  id="navCards" class="container d-flex text-center justify-content-around pt-3">
             <div class="card m-3">
                 <span class="material-icons">
                     forest
@@ -42,7 +43,6 @@
             </div>
             </div>
         </div>
-
         <div  id="navCards" class="container d-flex text-center justify-content-around pt-3">
             <a href="./telas/pontosColeta.php">
                 <div class="card m-3">
@@ -75,22 +75,9 @@
                 </div>
             </a>
         </div>
-        <div id="rodape" class="container-fluid">
-            <div id="rodape" class="container-fluid">
-                <footer class="d-flex flex-wrap justify-content-around align-items-center py-3 my-4 border-top">
-                    <div class="d-flex align-items-center">
-                    <a href="#" class="">
-                        <img src="./imgs/logo_recicla_mais.svg" alt="" class="logo-bottom">
-                    </a>
-                    <p class="mb-3 mb-md-0  temaGreen">reciclamaissuporte@gmail.com</p>
-                    </div>
-                </footer>
-                <p class="text-center pb-4  temaGreen">Reciclar nunca foi tão fácil!</p>
-            </div>
-        </div>
-        <!--<a href="https://www.flaticon.com/br/icones-gratis/reciclar" title="reciclar ícones">Reciclar ícones criados por Freepik - Flaticon</a>-->
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>`;?>
+        '
+    ?>
     </section>
-</body>
-</html>
+<?php
+    include '../ReciclaMais/telas/componentes/footer.php'
+?>
