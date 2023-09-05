@@ -40,6 +40,12 @@ a{
     color: #000000;
 }
 
+@media (max-width: 730px) {
+    .conteudo{
+        flex-wrap: wrap;
+    }
+}
+
 .invalid-password,.invalid-email{
     font-family: 'Poppins', sans-serif;
     color: #fa0000;
@@ -53,14 +59,27 @@ a{
 .form1{
     background-color:#201b2c;
     border-radius: 0px 6px 6px 0px;
-    height: 600px;
     border: none;
+    height: 600px;
+    /*max-height: 600px;
+    width: min(424px, 30vw);*/
+}
+
+@media (max-width:995px) {
+    .form1{
+        height: 560px;
+    }
 }
 
 .form1 form{
     margin-top: 100px;
 }
 
+@media (max-width: 995px) {
+    .form1 form{
+        margin-top: 65px;
+    }
+}
 form input{
     background-color: #514869;
     height: 40px;
@@ -131,9 +150,15 @@ label{
     }
 }
 
+.div-img-login{
+    max-width: 480px;
+
+}
 
 .img-login{
-    height: 600px;
+    height: auto;
+    max-height: 600px;
+    width: auto;
     border-radius: 6px 0px 0px 6px;
 }
 

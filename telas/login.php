@@ -18,12 +18,12 @@
 </head>
 <body>
     <div class="container mt-5 todo">
-        <div class="container d-flex justify-content-center">
-            <div>
+        <div class="container d-flex justify-content-center conteudo">
+            <div class="container-fluid m-0 p-0 div-img-login">
                 <img class="img-fluid img-login" src="./../imgs/login_desktop.png"/>
             </div>
             <div class="col-md-4">
-                <div class="card px-5 py-3 form1">
+                <div class="container card px-5 py-3 form1">
                     <div class="d-flex justify-content-center">
                         <a href="../index.php">
                             <img src="./../imgs/logo_recicla_mais2.svg"/>
