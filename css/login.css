@@ -40,12 +40,6 @@ a{
     color: #000000;
 }
 
-@media (max-width: 730px) {
-    .conteudo{
-        flex-wrap: wrap;
-    }
-}
-
 .invalid-password,.invalid-email{
     font-family: 'Poppins', sans-serif;
     color: #fa0000;
@@ -54,6 +48,18 @@ a{
     top: -200px;
     left: 0;
     border: #fff 2px solid;
+}
+
+@media (max-width: 790px) {
+    .div-img-login{
+        margin-top: 480px!important;
+    }
+}
+
+@media (max-width: 790px) {
+    .div-form{
+        width: 480px;
+    }
 }
 
 .form1{
@@ -161,6 +167,12 @@ label{
     width: auto;
     border-radius: 6px 0px 0px 6px;
 }
+@media (max-width: 790px) {
+    .img-login{
+        border-radius: 6px;
+    }
+}
+
 
 .btn-cadastre{
     background-color: #05e981;
