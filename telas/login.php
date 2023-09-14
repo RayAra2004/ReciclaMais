@@ -12,9 +12,7 @@
     <script src="./../script/login.js" defer></script>
     <script src="../script/cabecalho/geral.js" defer></script>
     <link rel="stylesheet" href="./../css/geral.css">
-
-
-    <title>Aprender a reciclar</title>
+    <title>Login</title>
 </head>
 <body>
     <div class="container mt-5 todo">
