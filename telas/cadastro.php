@@ -8,7 +8,7 @@
         <div class="card px-4 py-3 bg-padrao">
             <form id="form_infos_geral" class="form-data">
                 <div class="container-fluid row">
-                    <div class="col-lg-4">
+                    <div class="">
                         <div class="mb-3 d-flex flex-column verde">
                             <label for="nome_empresa">NOME DA EMPRESA</label>
                             <input type="text" name="nome_empresa" id="nome_empresa" placeholder="Digite seu nome empresarial" required>
@@ -28,18 +28,19 @@
                         <div class="mb-3 d-flex flex-column verde">
                             <label for="senha">SENHA</label>
                             <div>
-                                <input class="w-92" type="password" name="senha" id="senha" placeholder="Digite sua senha empresarial" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
+                                <input class="" type="password" name="senha" id="senha" placeholder="Digite sua senha empresarial" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
                                 <span class="lnr lnr-eye" type="senha"></span>
                             </div>
                         </div>
                         <div class="mb-3 d-flex flex-column verde">
                             <label for="confirmar_senha">CONFIRME SUA SENHA</label>
                             <div>
-                                <input class="w-92" type="password" name="confirmar_senha" id="confirmar_senha" placeholder="Confirme sua senha empresarial" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
+                                <input class="" type="password" name="confirmar_senha" id="confirmar_senha" placeholder="Confirme sua senha empresarial" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
                                 <span class="lnr lnr-eye" type="confirmar_senha"></span>
                             </div>
-                        </div> 
-                        <div class="mb-3 d-flex flex-column verde">
+                        </div>
+                         
+                        <!-- <div class="mb-3 d-flex flex-column verde">
                             <label for="cep">CEP</label>
                             <input type="number" name="cep" id="cep" placeholder="Digie seu CEP empresarial" required pattern="\b\d{5}[-.]\d{3}">
                         </div>              
@@ -162,7 +163,7 @@
                             <input type="radio" name="select_hospitalar" id="select_hospitalar" required value="HOSPITALAR"><span> HOSPITALAR</span><br>
                         </fieldset>
                         <button type="submit" class="btn-cadastro" form="form_infos_geral">CADASTRAR-SE</button>
-                    </div>
+                    </div> -->
                 </div>
             </form>
         </div>
