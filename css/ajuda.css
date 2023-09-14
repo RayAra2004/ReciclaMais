@@ -56,13 +56,15 @@ header button{
 }
 */
 .conteudo{
-    display: grid;
+    min-height: 62.3vh;
+    padding-top: 10vh;
+    /*display: grid;
     margin: 10%;
     margin-bottom: 0%;
     justify-content: center;
     column-gap: 10%;
     grid-template-columns: repeat(auto-fit, minmax(80vw,1fr));
-    grid-template-rows: auto;
+    grid-template-rows: auto;*/
     /*background-color: aquamarine;*/
 }
 

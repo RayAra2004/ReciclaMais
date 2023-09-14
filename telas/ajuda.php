@@ -19,7 +19,7 @@
 <body onload="header(); footer()">
   <header id="cabecalho"></header>
     
-    <div class="accordion m-5" id="accordionExample">
+    <div class="accordion mx-5 conteudo" id="accordionExample">
         <div class="accordion-item text-center ReciclaStyle">
           <h2 class="accordion-header" id="headingOne">
             <button class="accordion-button ReciclaStyle d-block text-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
