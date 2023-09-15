@@ -15,6 +15,7 @@ body{
 }
 
 .header .btn{
+    font-family: 'Poppins', sans-serif;
     background-color: #05e981;
     color: black;
 }
@@ -25,6 +26,7 @@ body{
 .header img{
     margin-top: -20px;
 }
+
 
 *{
     box-sizing: border-box;

@@ -8,44 +8,58 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css"> <!--olinho-->
-    <link rel="stylesheet" href="../css/login.css">
-    <script src="./../script/login.js" defer></script>
+    <link rel="stylesheet" href="../css/assinatura.css">
+    <!--<script src="./../script/login.js" defer></script>-->
     <script src="../script/cabecalho/geral.js" defer></script>
     <link rel="stylesheet" href="./../css/geral.css">
-    <title>Login</title>
+
+
+    <title>Aprender a reciclar</title>
 </head>
 <body>
     <div class="container mt-5 todo">
-        <div class="container d-flex justify-content-center flex-wrap">
+        <div class="container justify-content-center conteudo d-flex flex-column align-items-center">
             <div class="container-fluid m-0 p-0 div-img-login">
                 <img class="img-fluid img-login" src="./../imgs/login_desktop.png"/>
             </div>
-            <div class="col-lg-4 div-form">
+            <div class="col-md-4">
                 <div class="container card px-5 py-3 form1">
                     <div class="d-flex justify-content-center">
                         <a href="../index.php">
                             <img src="./../imgs/logo_recicla_mais2.svg"/>
                         </a>
                     </div>
-                    <form id="form-login" action=""  class="d-flex flex-column">
-                        <label for="input-email" class="mb-2">Digite seu email:</label>
+                    <form id="form-login" action=""  class="row">
+                        <label for="input-email" class="mb-2">Número do Cartão:</label>
                         <input class="mb-3" type="email" name="input-email" id="input-email" placeholder="Digite seu Email" required >
                         
-                        <label for="input-senha" class="mb-2">Digite sua senha:</label>
+                        <label for="input-senha" class="mb-2">Data de Vencimento:</label>
                         <input class="mb-2" type="password" name="input-senha" id="input-senha" placeholder="Digite sua senha" 
                         required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
-                        
-                        <a class="mb-4" href="./esqueciSenha.php">Esqueci minha senha</a>
-                        <!-- <span class="lnr lnr-eye"></span>  olinho -->
-                        <button click="submit" class="btn border-0 container bg_verde preto">Login</button>
-                        <div id="opcoes" class="azul mt-3 text-center justify-content-around gap-2">
-                            <p class="azul">Ainda não possui cadastro?</p>
-                            <a class="d-flex justify-content-center" href="./cadastro.php">
-                                <div class="btn-cadastre">
-                                    <p>Cadastre-se</p>
-                                </div>
-                            </a>
+
+                        <label for="input-email" class="mb-2">CPF:</label>
+                        <input class="mb-3" type="email" name="input-email" id="input-email" placeholder="Digite seu Email" required >
+
+                        <label for="input-email" class="mb-2">CVV:</label>
+                        <input class="mb-3" type="email" name="input-email" id="input-email" placeholder="Digite seu Email" required >
+
+                        <label for="input-email" class="mb-2">Nome do Titular:</label>
+                        <input class="mb-3" type="email" name="input-email" id="input-email" placeholder="Digite seu Email" required >
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Débito
+                            </label>
+                            </div>
+                            <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Crédito
+                            </label>
                         </div>
+                        
+                        <button click="submit" class="btn border-0 container bg_verde preto">Finalizar</button>
                     </form>
                 </div>
                 <div class="card px-5 py-3 h-50 d-none justify-content-center align-content-center flex-wrap invalid-email" id="invalid-email">

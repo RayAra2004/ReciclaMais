@@ -1,26 +1,14 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">  </head>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous" defer></script>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-    <script src="./../script/cabecalho/geral.js" defer></script>
-    <script src="./../script/cadastro.js" defer></script>
-    <link rel="stylesheet" href="../css/cadastro.css">
-    <link rel="stylesheet" href="../css/geral.css">
-    <title>Aprender a reciclar</title>
-</head>
-<body onload="header(); footer()">
-    <header id="cabecalho"></header>
+<?php 
+    $css = '<link rel="stylesheet" href="../css/cadastro.css"> <script src="./../script/cadastro.js" defer></script>';
+    include './componentes/header.php';
+?>    
+    
+<section class="body_content">
     <div class="container mt-5">
         <div class="card px-4 py-3 bg-padrao">
             <form id="form_infos_geral" class="form-data">
                 <div class="container-fluid row">
-                    <div class="col-lg-4">
+                    <div class="">
                         <div class="mb-3 d-flex flex-column verde">
                             <label for="nome_empresa">NOME DA EMPRESA</label>
                             <input type="text" name="nome_empresa" id="nome_empresa" placeholder="Digite seu nome empresarial" required>
@@ -40,18 +28,19 @@
                         <div class="mb-3 d-flex flex-column verde">
                             <label for="senha">SENHA</label>
                             <div>
-                                <input class="w-92" type="password" name="senha" id="senha" placeholder="Digite sua senha empresarial" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
+                                <input class="" type="password" name="senha" id="senha" placeholder="Digite sua senha empresarial" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
                                 <span class="lnr lnr-eye" type="senha"></span>
                             </div>
                         </div>
                         <div class="mb-3 d-flex flex-column verde">
                             <label for="confirmar_senha">CONFIRME SUA SENHA</label>
                             <div>
-                                <input class="w-92" type="password" name="confirmar_senha" id="confirmar_senha" placeholder="Confirme sua senha empresarial" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
+                                <input class="" type="password" name="confirmar_senha" id="confirmar_senha" placeholder="Confirme sua senha empresarial" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
                                 <span class="lnr lnr-eye" type="confirmar_senha"></span>
                             </div>
-                        </div> 
-                        <div class="mb-3 d-flex flex-column verde">
+                        </div>
+                         
+                        <!-- <div class="mb-3 d-flex flex-column verde">
                             <label for="cep">CEP</label>
                             <input type="number" name="cep" id="cep" placeholder="Digie seu CEP empresarial" required pattern="\b\d{5}[-.]\d{3}">
                         </div>              
@@ -174,11 +163,12 @@
                             <input type="radio" name="select_hospitalar" id="select_hospitalar" required value="HOSPITALAR"><span> HOSPITALAR</span><br>
                         </fieldset>
                         <button type="submit" class="btn-cadastro" form="form_infos_geral">CADASTRAR-SE</button>
-                    </div>
+                    </div> -->
                 </div>
             </form>
         </div>
     </div>
-    <div id="rodape" class="container-fluid"></div>
-</body>
-</html>
+</section>
+<?php
+    include './componentes/footer.php'
+?> 

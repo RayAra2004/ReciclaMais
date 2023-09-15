@@ -23,7 +23,7 @@ p{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-self : center;
+    align-items: center;
     width: max(300px, 50vw);
     padding-top: 2vh;
     

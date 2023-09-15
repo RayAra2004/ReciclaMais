@@ -1,9 +1,8 @@
 <?php 
-    include '../ReciclaMais/telas/componentes/header.php'
+    $css = '<link rel="stylesheet" href="../ReciclaMais/css/index.css">';
+    include '../ReciclaMais/telas/componentes/header.php';
 ?>
     <section class="body_content">
-        <?php echo 
-        '
         <div  id="navCards" class="container d-flex text-center justify-content-around pt-3">
             <div class="card m-3">
                 <span class="material-icons">
@@ -75,8 +74,6 @@
                 </div>
             </a>
         </div>
-        '
-    ?>
     </section>
 <?php
     include '../ReciclaMais/telas/componentes/footer.php'
