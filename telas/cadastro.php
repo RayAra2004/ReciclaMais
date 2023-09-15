@@ -4,39 +4,44 @@
 ?>    
     
 <section class="body_content">
-    <div class="container mt-5">
-        <div class="card px-4 py-3 bg-padrao">
+    <div class="container mt-5 d-flex justify-content-center">
+        <div class="card px-4 py-3 bg-padrao w-90">
             <form id="form_infos_geral" class="form-data">
                 <div class="container-fluid row">
-                    <div class="">
-                        <div class="mb-3 d-flex flex-column verde">
-                            <label for="nome_empresa">NOME DA EMPRESA</label>
-                            <input type="text" name="nome_empresa" id="nome_empresa" placeholder="Digite seu nome empresarial" required>
-                        </div>
-                        <div class="mb-3 d-flex flex-column verde">
-                            <label for="cnpj">CNPJ</label>
-                            <input type="text" name="cnpj" id="cnpj" placeholder="Ex. XX.XXX.XXX/000X-XX" required pattern="^\d{2}.\d{3}.\d{3}\/\d{4}-\d{2}$">
-                        </div>
-                        <div class="mb-3 d-flex flex-column verde">
-                            <label for="telefone">TELEFONE</label>
-                            <input type="text" name="telefone" id="telefone" placeholder="Ex. (XX)XXXX-XXXX" required pattern="([(][0-9]{2}[)])[0-9]{5}\-[0-9]{4}%">
-                        </div>
-                        <div class="mb-3 d-flex flex-column verde">
-                            <label for="email">EMAIL</label>
-                            <input type="email" name="email" id="email" placeholder="Digite seu email empresarial" required pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
-                        </div>
-                        <div class="mb-3 d-flex flex-column verde">
-                            <label for="senha">SENHA</label>
-                            <div>
-                                <input class="" type="password" name="senha" id="senha" placeholder="Digite sua senha empresarial" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
-                                <span class="lnr lnr-eye" type="senha"></span>
+                        <div class="div-cad-1 d-flex justify-content-between flex-wrap">
+                            <div class="mb-3 d-flex flex-column w-100 verde">
+                                <label for="nome_empresa">NOME (da empresa)</label>
+                                <input type="text" class="nome-empresa" name="nome_empresa" id="nome_empresa" placeholder="Digite seu nome empresarial" required>
                             </div>
-                        </div>
-                        <div class="mb-3 d-flex flex-column verde">
-                            <label for="confirmar_senha">CONFIRME SUA SENHA</label>
                             <div>
-                                <input class="" type="password" name="confirmar_senha" id="confirmar_senha" placeholder="Confirme sua senha empresarial" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
-                                <span class="lnr lnr-eye" type="confirmar_senha"></span>
+                                <div class="mb-3 d-flex flex-column verde">
+                                    <label for="cnpj">CNPJ</label>
+                                    <input type="text" name="cnpj" id="cnpj" placeholder="Ex. XX.XXX.XXX/000X-XX" required pattern="^\d{2}.\d{3}.\d{3}\/\d{4}-\d{2}$">
+                                </div>
+                                <div class="mb-3 d-flex flex-column verde">
+                                    <label for="telefone">TELEFONE</label>
+                                    <input type="text" name="telefone" id="telefone" placeholder="Ex. (XX)XXXX-XXXX" required pattern="([(][0-9]{2}[)])[0-9]{5}\-[0-9]{4}%">
+                                </div>
+                                <div class="mb-3 d-flex flex-column verde">
+                                    <label for="email">EMAIL</label>
+                                    <input type="email" name="email" id="email" placeholder="Digite seu email empresarial" required pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="mb-3 d-flex flex-column verde">
+                                    <label for="senha">SENHA</label>
+                                    <div>
+                                        <input class="" type="password" name="senha" id="senha" placeholder="Digite sua senha empresarial" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
+                                        <span class="lnr lnr-eye" type="senha"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3 d-flex flex-column verde">
+                                    <label for="confirmar_senha">CONFIRME SUA SENHA</label>
+                                    <div>
+                                        <input class="" type="password" name="confirmar_senha" id="confirmar_senha" placeholder="Confirme sua senha empresarial" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
+                                        <span class="lnr lnr-eye" type="confirmar_senha"></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                          
