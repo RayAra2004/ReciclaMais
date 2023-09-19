@@ -18,39 +18,39 @@
 </head>
 <body>
     <div class="container mt-5 todo">
-    <div class="row form1">
-      <div class="col-md-10">
-        <h1 class="verde"><a>Cadastro de cartão</a></h1>
-        <form action="/cadastro" method="post">
-          <div class="mb-3">
-            <label for="numero_cartao" class="form-label">Número do cartão</label>
-            <input type="text" class="form-control" id="numero_cartao" name="numero_cartao" style="width: 100%;">
-          </div>
-          <div class="mb-3">
-            <label for="nome_titular" class="form-label">Nome do titular</label>
-            <input type="text" class="form-control" id="nome_titular" name="nome_titular" style="width: 100%;">
-          </div>
-          <div class="mb-3">
-            <label for="validade" class="form-label">Validade</label>
-            <input type="date" class="form-control" id="validade" name="validade" style="width: 100%;">
-          </div>
-          <div class="mb-3">
-            <label for="cvv" class="form-label">CVV</label>
-            <input type="text" class="form-control" id="cvv" name="cvv" style="width: 100%;">
-          </div>
-          <div class="mb-3">
-            <label for="bandeira" class="form-label">Bandeira</label>
-            <select class="form-control" id="bandeira" name="bandeira">
-              <option value="visa">Visa</option>
-              <option value="mastercard">Mastercard</option>
-              <option value="elo">Elo</option>
-              <option value="hipercard">Hipercard</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-primary">Cadastrar</button>
-        </form>
+      <div class="row form1">
+        <div class="col-md-10">
+          <h1 class="verde"><a>Cadastro de cartão</a></h1>
+          <form action="/cadastro" method="post">
+            <div class="mb-3">
+              <label for="numero_cartao" class="form-label">Número do cartão</label>
+              <input type="text" class="form-control" id="numero_cartao" name="numero_cartao" style="width: 100%;">
+            </div>
+            <div class="mb-3">
+              <label for="nome_titular" class="form-label">Nome do titular</label>
+              <input type="text" class="form-control" id="nome_titular" name="nome_titular" style="width: 100%;">
+            </div>
+            <div class="mb-3">
+              <label for="validade" class="form-label">Validade</label>
+              <input type="date" class="form-control" id="validade" name="validade" style="width: 100%;">
+            </div>
+            <div class="mb-3">
+              <label for="cvv" class="form-label">CVV</label>
+              <input type="text" class="form-control" id="cvv" name="cvv" style="width: 100%;">
+            </div>
+            <div class="mb-3">
+              <label for="bandeira" class="form-label">Bandeira</label>
+              <select class="form-control" id="bandeira" name="bandeira">
+                <option value="visa">Visa</option>
+                <option value="mastercard">Mastercard</option>
+                <option value="elo">Elo</option>
+                <option value="hipercard">Hipercard</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+          </form>
+        </div>
       </div>
-    </div>
     </div>
 </body>
 </html>

@@ -56,7 +56,7 @@ a{
     color: #fa0000;
     background-color:#201b2c;
     position: relative;
-    top: -200px;
+    /*top: -200px;*/
     left: 0;
     border: #fff 2px solid;
 }
@@ -65,9 +65,6 @@ a{
     background-color:#201b2c;
     border-radius: 0px 6px 6px 0px;
     border: none;
-    /*height: 600px;*/
-    /*max-height: 600px;
-    width: min(424px, 30vw);*/
 }
 
 @media (max-width:995px) {
@@ -75,10 +72,6 @@ a{
         height: 560px;
     }
 }
-
-/*.form1 form{
-    margin-top: 100px;
-}*/
 
 @media (max-width: 995px) {
     .form1 form{
@@ -130,6 +123,7 @@ label{
 }
 
 .todo{
+    display: flex;
     min-height: 54vh;
 }
 .w-92{
@@ -177,4 +171,5 @@ label{
     align-items: center;
     justify-content: center;
     margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
 }

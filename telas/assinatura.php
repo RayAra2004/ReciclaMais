@@ -18,49 +18,38 @@
 </head>
 <body>
     <div class="container mt-5 todo">
-        <div class="container justify-content-center conteudo d-flex flex-column align-items-center">
+        <div class="container d-flex justify-content-center flex-wrap">
             <div class="container-fluid m-0 p-0 div-img-login">
                 <img class="img-fluid img-login" src="./../imgs/login_desktop.png"/>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 div-form">
                 <div class="container card px-5 py-3 form1">
-                    <div class="d-flex justify-content-center">
-                        <a href="../index.php">
-                            <img src="./../imgs/logo_recicla_mais2.svg"/>
-                        </a>
+                <form action="/cadastro" method="post">
+                    <div class="mb-3">
+                    <label for="numero_cartao" class="form-label">Número do cartão</label>
+                    <input type="text" class="form-control" id="numero_cartao" name="numero_cartao" style="width: 100%;">
                     </div>
-                    <form id="form-login" action=""  class="row">
-                        <label for="input-email" class="mb-2">Número do Cartão:</label>
-                        <input class="mb-3" type="email" name="input-email" id="input-email" placeholder="Digite seu Email" required >
-                        
-                        <label for="input-senha" class="mb-2">Data de Vencimento:</label>
-                        <input class="mb-2" type="password" name="input-senha" id="input-senha" placeholder="Digite sua senha" 
-                        required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
-
-                        <label for="input-email" class="mb-2">CPF:</label>
-                        <input class="mb-3" type="email" name="input-email" id="input-email" placeholder="Digite seu Email" required >
-
-                        <label for="input-email" class="mb-2">CVV:</label>
-                        <input class="mb-3" type="email" name="input-email" id="input-email" placeholder="Digite seu Email" required >
-
-                        <label for="input-email" class="mb-2">Nome do Titular:</label>
-                        <input class="mb-3" type="email" name="input-email" id="input-email" placeholder="Digite seu Email" required >
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Débito
-                            </label>
-                            </div>
-                            <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                Crédito
-                            </label>
-                        </div>
-                        
-                        <button click="submit" class="btn border-0 container bg_verde preto">Finalizar</button>
-                    </form>
+                    <div class="mb-3">
+                    <label for="nome_titular" class="form-label">Nome do titular</label>
+                    <input type="text" class="form-control" id="nome_titular" name="nome_titular" style="width: 100%;">
+                    </div>
+                    <div class="mb-3">
+                    <label for="validade" class="form-label">Validade</label>
+                    <input type="month" class="form-control" id="validade" name="validade" style="width: 100%;">
+                    </div>
+                    <div class="mb-3">
+                    <label for="cvv" class="form-label">CVV</label>
+                    <input type="text" class="form-control" id="cvv" name="cvv" style="width: 100%;">
+                    </div>
+                    <div class="mb-3">
+                    <label for="bandeira" class="form-label">Tipo</label>
+                    <select class="form-control preto" id="bandeira" name="bandeira">
+                        <option value="visa" class="preto">Crédito</option>
+                        <option value="mastercard" class="preto">Débito</option>
+                    </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-cadastre" id="finaliza_cartão">Cadastrar</button>
+                </form>
                 </div>
                 <div class="card px-5 py-3 h-50 d-none justify-content-center align-content-center flex-wrap invalid-email" id="invalid-email">
                     <div class="container-progress">
