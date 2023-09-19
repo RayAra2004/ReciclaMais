@@ -15,7 +15,7 @@
             <div class="card m-3">
                 <span class="material-icons">
                     recycling
-                </span>
+                </span>  
                 <div class="card-body">
                 <p>Aprenda a reciclar o material que você tem em casa de maneira rápida, não descarte o seu lixo de maneira incorreta.</p>
                 </div>
