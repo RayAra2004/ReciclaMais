@@ -13,9 +13,11 @@ const cidade = document.getElementById('cidade');
 const bairro = document.getElementById('bairro');
 const complemento = document.getElementById('complemento');
 const formGeral = document.getElementById('form_infos_geral');
+const btnContinuar1 = document.getElementById("btn-continuar1");
+
 
 const cadastros = [];
-
+/*
 cep.addEventListener("change", e => {
 	fetch(`https://brasilapi.com.br/api/cep/v2/${e.target.value}`)
 	.then(res => res.json())
@@ -49,6 +51,11 @@ formGeral.addEventListener("submit", e =>{
     localStorage.setItem(nomeEmpresa.value, novoCadstroSerializado);
 
     window.location.href = './../telas/paginaInicialUser.php';
+})
+*/
+btnContinuar1.addEventListener("click", e =>{
+    e.preventDefault();
+    console.log("oiiii");
 })
 
 /*
