@@ -3,8 +3,8 @@
     include './componentes/header.php';
 ?>    
     
-<section class="body_content">
-    <div class="container d-flex justify-content-center">
+<section class="body_content d-flex align-items-center">
+    <div class="container h-fit-content d-flex justify-content-center">
         <div class="card px-4 py-3 bg-padrao w-90">
             <form id="form_infos_geral" class="form-data">
                 <div class="container-fluid row">

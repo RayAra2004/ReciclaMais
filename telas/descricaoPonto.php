@@ -3,7 +3,7 @@
     include './componentes/header.php';
 ?>
 <section class="body_content">
-    <div class="container d-flex flex-wrap flex-column align-content-center mt-4">
+    <div class="container d-flex flex-wrap flex-column align-content-center pt-4">
         <div class="container d-flex justify-content-center">
             <p>INFORMAÇÕES DO PONTO SELECIONADO</p>
         </div>

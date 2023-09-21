@@ -3,7 +3,7 @@
     include './componentes/header.php';
 ?>
 <section class="body_content">
-    <div class="container row m-auto">
+    <div class="container row mx-auto">
         <p class="text-center text-white my-4">RANKING</p>
         <div class="p-0 d-flex flex-desktop">
             <div id="ranking1" class="container col-6 d-flex flex-column flex-wrap align-content-center"></div>

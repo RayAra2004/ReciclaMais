@@ -26,15 +26,13 @@ p{
     align-items: center;
     width: max(300px, 50vw);
     padding-top: 2vh;
-    
+    text-align: center;
+    padding-bottom: 8vh;
 }
 .conteudo h1,.conteudo p{
     color: white;
 }
-.conteudo{
-    text-align: center;
-    margin-bottom: 8vh;
-}
+
 .conteudo p{
     text-align: justify;
     font-size: 20px;

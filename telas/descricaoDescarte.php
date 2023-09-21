@@ -4,7 +4,7 @@
 ?>
 
 <section class="body_content">
-    <div class="container d-flex justify-content-center mb-4 mt-4">
+    <div class="container d-flex justify-content-center pb-4 pt-4">
         <p>DESCRIÇÃO DO DESCARTE</p>
     </div>
     <div class="container d-flex justify-content-center">

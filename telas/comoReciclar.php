@@ -3,7 +3,7 @@
     include './componentes/header.php';
 ?>
 <section class="body_content">
-    <div class="container-fluid d-flex justify-content-center mt-4">
+    <div class="container-fluid d-flex justify-content-center pt-4">
         <p class="text-center">QUAL DOS ITENS ABAIXO DESEJA APRENDER A RECICLAR?</p>
     </div>
     <div class="container-fluid row justify-content-center botoes teste">
