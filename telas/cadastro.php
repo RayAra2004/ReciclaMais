@@ -1,10 +1,10 @@
 <?php 
-    $css = '<link rel="stylesheet" href="../css/cadastro.css"> <script src="./../script/cadastro.js" defer></script>';
+    $css = '<link rel="stylesheet" href="../css/cadastro.css"> <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> <script src="./../script/cadastro.js" defer></script>';
     include './componentes/header.php';
 ?>    
     
 <section class="body_content">
-    <div class="container mt-5 d-flex justify-content-center">
+    <div class="container d-flex justify-content-center">
         <div class="card px-4 py-3 bg-padrao w-90">
             <form id="form_infos_geral" class="form-data">
                 <div class="container-fluid row">
@@ -163,19 +163,23 @@
                             <button type="submit" class="btn-continuar" id="btn-continuar2">Próxima</button>
                         </div>
                     </div>               
-                    <div id="div-cad-3" class="div-cad-3 d-none">
-                        <div class="col-lg-4">
-                            <span>MATERIAIS QUE VOCÊ IRÁ DESCARTAR</span>
-                            <fieldset>
-                                <input type="radio" name="select_vidro" id="select_vidro" required value="VIDRO"><span> VIDRO</span><br>
-                                <input type="radio" name="select_plastico" id="select_plastico" required value="PLÁSTICO"><span> PLÁSTICO</span><br>
-                                <input type="radio" name="select_madeira" id="select_madeira" required value="MADEIRA"><span> MADEIRA</span><br>
-                                <input type="radio" name="select_eletronico" id="select_eletronico" required value="ELETRÔNICO"><span> ELETRÔNICO</span><br>
-                                <input type="radio" name="select_metais" id="select_metais" required value="METAIS"><span> METAIS</span><br>
-                                <input type="radio" name="select_papel" id="select_papel" required value="PAPEL"><span> PAPEL</span><br>
-                                <input type="radio" name="select_organico" id="select_organico" required value="ORGÂNICO"><span> ORGÂNICO</span><br>
-                                <input type="radio" name="select_hospitalar" id="select_hospitalar" required value="HOSPITALAR"><span> HOSPITALAR</span><br>
-                            </fieldset>
+                    <div id="div-cad-3" class="div-cad-3 d-none flex-wrap">
+                        <div class="d-flex flex-column w-100">
+                            <span>QUAIS MATERIAIS SUA EMPRESA RECICLA?</span>
+                            <div class="w-100 div-trash">
+                                <span class="material-symbols-outlined">delete</span>
+                                <span class="material-symbols-outlined">delete</span>
+                                <span class="material-symbols-outlined">delete</span>
+                                <span class="material-symbols-outlined">delete</span>
+                            </div>
+                            <div class="w-100 div-trash">
+                                <span class="material-symbols-outlined">delete</span>
+                                <span class="material-symbols-outlined">delete</span>
+                                <span class="material-symbols-outlined">delete</span>
+                                <span class="material-symbols-outlined">delete</span>
+                            </div>
+                        </div>
+                        <div class="w-100">
                             <button type="submit" class="btn-cadastro" form="form_infos_geral">CADASTRAR-SE</button>
                         </div>
                     </div>
