@@ -70,7 +70,7 @@ fieldset{
     font-family: 'Poppins', sans-serif;
 }
 
-form input{
+form input, select{
     background-color: #514869;
     width: 400px;
     height: 40px;
@@ -83,13 +83,21 @@ form input{
     background-color: #05e981;
     border: none;
     border-radius: 3px;
-    width: 100%;
+    width: 25%;
     height: 40px;
     color: #FFF
 }
 
 .nome-empresa{
     width: 100%;
+}
+
+.hide{
+    display: none!important;
+}
+
+.show{
+    display: flex!important;
 }
 
 form input::placeholder{

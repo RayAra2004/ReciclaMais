@@ -14,10 +14,10 @@ const bairro = document.getElementById('bairro');
 const complemento = document.getElementById('complemento');
 const formGeral = document.getElementById('form_infos_geral');
 const btnContinuar1 = document.getElementById("btn-continuar1");
-
+const btnContinuar2 = document.getElementById("btn-continuar2");
 
 const cadastros = [];
-/*
+
 cep.addEventListener("change", e => {
 	fetch(`https://brasilapi.com.br/api/cep/v2/${e.target.value}`)
 	.then(res => res.json())
@@ -52,10 +52,17 @@ formGeral.addEventListener("submit", e =>{
 
     window.location.href = './../telas/paginaInicialUser.php';
 })
-*/
+
 btnContinuar1.addEventListener("click", e =>{
     e.preventDefault();
-    console.log("oiiii");
+    document.getElementById("div-cad-1").classList.add("hide");
+    document.getElementById("div-cad-2").classList.add("show");
+})
+
+btnContinuar2.addEventListener("click", e =>{
+    e.preventDefault();
+    document.getElementById("div-cad-2").classList.remove("show");
+    document.getElementById("div-cad-3").classList.add("show");
 })
 
 /*

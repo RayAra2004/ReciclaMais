@@ -8,7 +8,7 @@
         <div class="card px-4 py-3 bg-padrao w-90">
             <form id="form_infos_geral" class="form-data">
                 <div class="container-fluid row">
-                    <div class="div-cad-1 d-flex justify-content-between flex-wrap">
+                    <div id="div-cad-1" class="div-cad-1 d-flex justify-content-between flex-wrap">
                         <div class="mb-3 d-flex flex-column w-100 verde">
                             <label for="nome_empresa">NOME (da empresa)</label>
                             <input type="text" class="nome-empresa" name="nome_empresa" id="nome_empresa" placeholder="Digite seu nome empresarial" required>
@@ -42,15 +42,17 @@
                                     <span class="lnr lnr-eye" type="confirmar_senha"></span>
                                 </div>
                             </div>
+                        </div> 
+                        <div class="w-100 d-flex justify-content-end">
                             <button type="submit" class="btn-continuar" id="btn-continuar1">Próxima</button>
-                        </div>                            
+                        </div>                           
                     </div>
-                    <div class="div-cad-2 d-none">
-                        <div class="mb-3 d-flex flex-column verde">
-                            <label for="cep">CEP</label>
-                            <input type="number" name="cep" id="cep" placeholder="Digie seu CEP empresarial" required pattern="\b\d{5}[-.]\d{3}">
-                        </div>               
-                        <div class="col-lg-4">                      
+                    <div id="div-cad-2" class="div-cad-2 d-none flex-wrap justify-content-between">
+                        <div class="">
+                            <div class="mb-3 d-flex flex-column verde">
+                                <label for="cep">CEP</label>
+                                <input type="number" name="cep" id="cep" placeholder="Digie seu CEP empresarial" required pattern="\b\d{5}[-.]\d{3}">
+                            </div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="tp_logradouro">TIPO LOGRADOURO</label>
                                 <select id="tp_logradouro" name="tp_logradouro">
@@ -109,6 +111,8 @@
                                 <label for="numero">NÚMERO</label>
                                 <input type="number" name="numero" id="numero" placeholder="Digite o número" required>
                             </div>
+                        </div>
+                        <div class="">
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="uf">ESTADO</label>
                                 <select id="uf" name="uf">
@@ -155,8 +159,11 @@
                                 <input type="text" name="complemento" id="complemento" placeholder="Digite o complemento">
                             </div>
                         </div>
-                    </div>
-                    <div class="div-cad-3 d-none">
+                        <div class="w-100 d-flex justify-content-end">
+                            <button type="submit" class="btn-continuar" id="btn-continuar2">Próxima</button>
+                        </div>
+                    </div>               
+                    <div id="div-cad-3" class="div-cad-3 d-none">
                         <div class="col-lg-4">
                             <span>MATERIAIS QUE VOCÊ IRÁ DESCARTAR</span>
                             <fieldset>
