@@ -2,7 +2,7 @@
     $css = '<link rel="stylesheet" href="../css/sobreNos.css"> <script src="./../script/sobreNos.js" defer></script>';
     include './componentes/header.php';
 ?>
-<section class="body_content">
+<section class="body_content d-flex justify-content-center">
     <div class="conteudo">
         <h1>Sobre Nós</h1>
         <img src="../imgs/logo_recicla_mais.svg" alt="" id="headerImg">
