@@ -24,7 +24,7 @@ p{
     width: max(300px, 50vw);
     padding-top: 2vh;
     text-align: center;
-    padding-bottom: 8vh;
+    /*padding-bottom: 8vh;*/
 }
 .conteudo h1,.conteudo p{
     color: white;
