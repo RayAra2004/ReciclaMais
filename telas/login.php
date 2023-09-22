@@ -14,6 +14,30 @@
     <link rel="stylesheet" href="./../css/geral.css">
     <title>Login</title>
 </head>
+
+<?php
+    $erros = array();
+
+    if(isset($_POST["btn-login"])){
+        $email = $_POST["input-email"];
+        $senha = $_POST["input-senha"];
+    
+
+        if(!(filter_var($email, FILTER_VALIDATE_EMAIL))){
+            $erros[] = "Email inválido";
+        }
+
+        $format = array("options" => array("regexp" => "/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/"));
+        if(! filter_var($senha, FILTER_VALIDATE_REGEXP, $format)){
+            $erros[] = "Senha inválida";
+        }
+
+        if(empty($erros)){
+            header('Location: ./../index.php');
+        }
+
+    }
+?>
 <body>
     <div class="container pt-5 todo">
         <div class="container d-flex justify-content-center flex-wrap">
@@ -27,17 +51,18 @@
                             <img src="./../imgs/logo_recicla_mais2.svg"/>
                         </a>
                     </div>
-                    <form id="form-login" action=""  class="d-flex flex-column">
+                    <form id="form-login" action="login.php" method="post"  class="d-flex flex-column">
                         <label for="input-email" class="mb-2">Digite seu email:</label>
-                        <input class="mb-3" type="email" name="input-email" id="input-email" placeholder="Digite seu Email" required >
+                        <input class="mb-3" type="email"  name="input-email" id="input-email" placeholder="Digite seu Email" required
+                        pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
                         
                         <label for="input-senha" class="mb-2">Digite sua senha:</label>
-                        <input class="mb-2" type="password" name="input-senha" id="input-senha" placeholder="Digite sua senha" 
+                        <input class="mb-2" type="password" name="input-senha" id="input-senha" placeholder="Digite sua senha"
                         required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
                         
                         <a class="mb-4" href="./esqueciSenha.php">Esqueci minha senha</a>
                         <!-- <span class="lnr lnr-eye"></span>  olinho -->
-                        <button click="submit" class="btn border-0 container bg_verde preto">Login</button>
+                        <button name="btn-login" click="submit" class="btn border-0 container bg_verde preto">Login</button>
                         <div id="opcoes" class="azul mt-3 text-center justify-content-around gap-2">
                             <p class="azul">Ainda não possui cadastro?</p>
                             <a class="d-flex justify-content-center" href="./cadastro.php">
@@ -47,6 +72,15 @@
                             </a>
                         </div>
                     </form>
+                </div>
+                <div>
+                    <?php 
+                        if(!empty($erros)){
+                            foreach($erros as $erro){
+                                echo "<li> $erro </li>";
+                            }
+                        }
+                    ?>
                 </div>
                 <div class="card px-5 py-3 h-50 d-none justify-content-center align-content-center flex-wrap invalid-email" id="invalid-email">
                     <div class="container-progress">
