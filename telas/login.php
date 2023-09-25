@@ -21,9 +21,9 @@
     if(isset($_POST["btn-login"])){
         $email = $_POST["input-email"];
         $senha = $_POST["input-senha"];
-    
-
-        if(!(filter_var($email, FILTER_VALIDATE_EMAIL))){
+        
+        $clean_email = filter_var($email, FILTER_SANITIZE_EMAIL);// TODO: Não está funcionando
+        if(!(filter_var($clean_email, FILTER_VALIDATE_EMAIL))){
             $erros[] = "Email inválido";
         }
 
@@ -53,8 +53,8 @@
                     </div>
                     <form id="form-login" action="login.php" method="post"  class="d-flex flex-column">
                         <label for="input-email" class="mb-2">Digite seu email:</label>
-                        <input class="mb-3" type="email"  name="input-email" id="input-email" placeholder="Digite seu Email" required
-                        pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
+                        <input class="mb-3"   name="input-email" id="input-email" placeholder="Digite seu Email" required
+                        >
                         
                         <label for="input-senha" class="mb-2">Digite sua senha:</label>
                         <input class="mb-2" type="password" name="input-senha" id="input-senha" placeholder="Digite sua senha"
