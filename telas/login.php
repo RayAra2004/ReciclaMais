@@ -72,16 +72,17 @@
                             </a>
                         </div>
                     </form>
-                </div>
-                <div>
-                    <?php 
-                        if(!empty($erros)){
-                            foreach($erros as $erro){
-                                echo "<li> $erro </li>";
+                    <div class="d-flex mt-3 div-error">
+                        <?php 
+                            if(!empty($erros)){
+                                foreach($erros as $erro){
+                                    echo "<li> $erro </li>";
+                                }
                             }
-                        }
-                    ?>
+                        ?>
+                    </div>
                 </div>
+                
                 <div class="card px-5 py-3 h-50 d-none justify-content-center align-content-center flex-wrap invalid-email" id="invalid-email">
                     <div class="container-progress">
                         <div class="progress-bar"></div>

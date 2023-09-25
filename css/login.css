@@ -173,7 +173,6 @@ label{
     }
 }
 
-
 .btn-cadastre{
     background-color: #05e981;
     color: #000000;
@@ -184,4 +183,9 @@ label{
     align-items: center;
     justify-content: center;
     margin-top: 10px;
+}
+
+.div-error{
+    color: #05e981;
+    font-size: larger;
 }
