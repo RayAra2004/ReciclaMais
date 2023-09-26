@@ -1,7 +1,88 @@
 <?php 
     $css = '<link rel="stylesheet" href="../css/cadastro.css"> <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> <script src="./../script/cadastro.js" defer></script>';
     include './componentes/header.php';
-?>    
+?>
+
+<?php
+    $erros = array();
+
+    if(isset($_POST["btn-cadastro"])){ 
+        $nome_empresa = $_POST["nome-empresa"];
+        $cnpj = $_POST["cnpj"];
+        $telefone = $_POST["telefone"];
+        $email = $_POST["email"];
+        $senha = $_POST["senha"];
+        $cep = $_POST["cep"];
+        $tp_logradouro = $_POST["tp-logradouro"];
+        $logradouro = $_POST["logradouro"];
+        $numero = $_POST["numero"];
+        $uf = $_POST["uf"];
+        $cidade = $_POST["cidade"];
+        $bairro = $_POST["bairro"];
+        $complemento = $_POST["complemento"];
+
+        $formatName = array("options" => array("regexp" => "/([\wÀ-ÿ&-0-9])/"));
+        if(! filter_var($nome_empresa, FILTER_VALIDATE_REGEXP, $formatName)){
+            $erros[] = "Nome inválido";
+        }
+
+        $formatCNPJ = array("options" => array("regexp" => "/^\d{2}.\d{3}.\d{3}\/\d{4}-\d{2}$/"));
+        if(! filter_var($cnpj, FILTER_VALIDATE_REGEXP, $formatCNPJ)){
+            $erros[] = "CNPJ inválido";
+        }
+
+        $formatTelemovel = array("options" => array("regexp" => "/([(][0-9]{2}[)])[0-9]{5}\-[0-9]{4}%/"));
+        if(! filter_var($telefone, FILTER_VALIDATE_REGEXP, $formatTelemovel)){
+            $erros[] = "Telefone inválido";
+        }
+
+        $email = filter_var($email, FILTER_SANITIZE_EMAIL);// TODO: Não está funcionando
+        if(!(filter_var($email, FILTER_VALIDATE_EMAIL))){
+            $erros[] = "Email inválido";
+        }
+
+        $formatPassword = array("options" => array("regexp" => "/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/"));
+        if(! filter_var($senha, FILTER_VALIDATE_REGEXP, $formatPassword)){
+            $erros[] = "Senha inválida";
+        }
+
+        $formatCEP = array("options" => array("regexp" => "/([(][0-9]{2}[)])[0-9]{5}\-[0-9]{4}%/"));
+        if(! filter_var($cep, FILTER_VALIDATE_REGEXP, $formatCEP)){
+            $erros[] = "CEP inválido";
+        }
+
+        $formatLogradouro = array("options" => array("regexp" => "/([\wÀ-ÿ&-0-9])/"));
+        if(! filter_var($logradouro, FILTER_VALIDATE_REGEXP, $formatLogradouro)){
+            $erros[] = "Logradouro inválido";
+        }
+
+        $formatNumero = array("options" => array("regexp" => "/[0-9]/"));
+        if(! filter_var($numero, FILTER_VALIDATE_REGEXP, $formatNumero)){
+            $erros[] = "Número inválido";
+        }
+
+        
+        
+        $formatCidade = array("options" => array("regexp" => "/([\wÀ-ÿ&-0-9])/"));
+        if(! filter_var($cidade, FILTER_VALIDATE_REGEXP, $formatCidade)){
+            $erros[] = "Cidade inválida";
+        }
+
+        $formatBairro = array("options" => array("regexp" => "/([\wÀ-ÿ&-0-9])/"));
+        if(! filter_var($bairro, FILTER_VALIDATE_REGEXP, $formatBairro)){
+            $erros[] = "Bairro inválido";
+        }
+        $formatComplemento = array("options" => array("regexp" => "/([\wÀ-ÿ&-0-9])/"));
+        if(! filter_var($complemento, FILTER_VALIDATE_REGEXP, $formatComplemento)){
+            $erros[] = "Complemento inválido";
+        }
+
+        if(empty($erros)){
+            header('Location: ./login.php');
+        }
+    }
+?>
+
     
 <section class="body_content d-flex align-items-center">
     <div class="container h-fit-content d-flex justify-content-center">
@@ -10,7 +91,7 @@
                 <div class="container-fluid row">
                     <div id="div-cad-1" class="div-cad-1 d-flex justify-content-between flex-wrap">
                         <div class="mb-3 d-flex flex-column w-100 verde">
-                            <label for="nome_empresa">NOME (da empresa)</label>
+                            <label for="nome-empresa">NOME (da empresa)</label>
                             <input type="text" class="nome-empresa" name="nome-empresa" id="nome-empresa" placeholder="Digite seu nome empresarial" required>
                         </div>
                         <div>
@@ -36,9 +117,9 @@
                                 </div>
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
-                                <label for="confirmar_senha">CONFIRME SUA SENHA</label>
+                                <label for="confirmar-senha">CONFIRME SUA SENHA</label>
                                 <div>
-                                    <input class="" type="password" name="confirmar_senha" id="confirmar_senha" placeholder="Confirme sua senha empresarial" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
+                                    <input class="" type="password" name="confirmar-senha" id="confirmar_senha" placeholder="Confirme sua senha empresarial" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
                                     <span class="lnr lnr-eye" type="confirmar_senha"></span>
                                 </div>
                             </div>
@@ -54,8 +135,8 @@
                                 <input type="number" name="cep" id="cep" placeholder="Digie seu CEP empresarial" required pattern="\b\d{5}[-.]\d{3}">
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
-                                <label for="tp_logradouro">TIPO LOGRADOURO</label>
-                                <select id="tp_logradouro" name="tp_logradouro">
+                                <label for="tp-logradouro">TIPO LOGRADOURO</label>
+                                <select id="tp_logradouro" name="tp-logradouro">
                                     <option value=""></option>
                                     <option value="aeroporto">aeroporto</option>
                                     <option value="alameda">alameda</option>
@@ -180,7 +261,7 @@
                             </div>
                         </div>
                         <div class="w-100">
-                            <button type="submit" class="btn-cadastro" form="form_infos_geral">CADASTRAR-SE</button>
+                            <button type="submit" name="btn-cadastro" class="btn-cadastro" form="form_infos_geral">CADASTRAR-SE</button>
                         </div>
                     </div>
                 </div>
