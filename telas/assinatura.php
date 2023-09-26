@@ -19,10 +19,10 @@
 <body>
     <div class="container mt-5 todo">
         <div class="container d-flex justify-content-center flex-wrap">
-            <!--<div class="container-fluid m-0 p-0 div-img-login">
-                <img class="img-fluid img-login" src="./../imgs/login_desktop.png"/>
-            </div>-->
                 <div class="container card px-5 py-5 form1">
+                    <div class="container-fluid m-0 p-0 mb-3 justify-content-center d-flex">
+                        <img class="img-fluid img-login" src="./../imgs/logo-recicla+-business.svg"/>
+                    </div>
                     <form action="/cadastro" method="post">
                         <div class="d-flex flex-wrap justify-content-evenly">
                             <div class="fr">
