@@ -11,7 +11,7 @@
                     <div id="div-cad-1" class="div-cad-1 d-flex justify-content-between flex-wrap">
                         <div class="mb-3 d-flex flex-column w-100 verde">
                             <label for="nome_empresa">NOME (da empresa)</label>
-                            <input type="text" class="nome-empresa" name="nome_empresa" id="nome_empresa" placeholder="Digite seu nome empresarial" required>
+                            <input type="text" class="nome-empresa" name="nome-empresa" id="nome-empresa" placeholder="Digite seu nome empresarial" required>
                         </div>
                         <div>
                             <div class="mb-3 d-flex flex-column verde">
