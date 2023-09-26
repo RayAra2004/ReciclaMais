@@ -11,8 +11,6 @@ html, body{
 
 body{
     background-color: #2f2841;
-    display: flex;
-    justify-content: center;
     align-items: center;
 }
 
