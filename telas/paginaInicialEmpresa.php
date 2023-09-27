@@ -1,5 +1,5 @@
 <?php 
-    $css = '<link rel="stylesheet" href="./../css\paginaInicialEmpresa.css">';
+    $css = '<link rel="stylesheet" href="/ReciclaMais/css\paginaInicialEmpresa.css">';
     include './componentes/header.php';
 ?>
 <section class="body_content">

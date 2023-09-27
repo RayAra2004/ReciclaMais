@@ -1,5 +1,5 @@
 <?php 
-    $css = '<link rel="stylesheet" href="../css/login.css"> <script src="../script/login.js" defer></script>';
+    $css = '<link rel="stylesheet" href="/ReciclaMais/css/login.css"> <script src="/ReciclaMais/script/login.js" defer></script>';
     include './componentes/header.php';
 ?>
 <?php
@@ -29,13 +29,13 @@
     <div class="container pt-5 todo">
         <div class="container d-flex justify-content-center flex-wrap">
             <div class="container-fluid m-0 p-0 div-img-login">
-                <img class="img-fluid img-login" src="./../imgs/login_desktop.png"/>
+                <img class="img-fluid img-login" src="/ReciclaMais/imgs/login_desktop.png"/>
             </div>
             <div class="col-lg-4 div-form">
                 <div class="container card px-5 py-3 form1">
                     <div class="d-flex justify-content-center">
                         <a href="../index.php">
-                            <img src="./../imgs/logo_recicla_mais2.svg"/>
+                            <img src="/ReciclaMais/imgs/logo_recicla_mais2.svg"/>
                         </a>
                     </div>
                     <form id="form-login" action="login.php" method="post"  class="d-flex flex-column">

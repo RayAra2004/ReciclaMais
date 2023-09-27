@@ -1,5 +1,5 @@
 <?php 
-    $css = '<link rel="stylesheet" href="./../css/descricaoDescarte.css">';
+    $css = '<link rel="stylesheet" href="/ReciclaMais/css/descricaoDescarte.css">';
     include './componentes/header.php';
 ?>
 

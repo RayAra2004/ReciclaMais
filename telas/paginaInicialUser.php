@@ -1,5 +1,5 @@
 <?php 
-    $css = '<link rel="stylesheet" href="../css/paginaInicialUser.css"> <script src="../script/paginaInicialUser.js" defer></script>';
+    $css = '<link rel="stylesheet" href="/ReciclaMais/css/paginaInicialUser.css"> <script src="/ReciclaMais/script/paginaInicialUser.js" defer></script>';
     include './componentes/header.php';
 ?>
 <section class="body_content">
