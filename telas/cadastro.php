@@ -61,8 +61,6 @@
             $erros[] = "Número inválido";
         }
 
-        
-        
         $formatCidade = array("options" => array("regexp" => "/([\wÀ-ÿ&-0-9])/"));
         if(! filter_var($cidade, FILTER_VALIDATE_REGEXP, $formatCidade)){
             $erros[] = "Cidade inválida";
@@ -77,8 +75,10 @@
             $erros[] = "Complemento inválido";
         }
 
+
+
         if(empty($erros)){
-            header('Location: ./login.php');
+            header('Location: /ReciclaMais/telas/login.php');
         }
     }
 ?>
@@ -87,7 +87,7 @@
 <section class="body_content d-flex align-items-center">
     <div class="container h-fit-content d-flex justify-content-center">
         <div class="card px-4 py-3 bg-padrao w-90">
-            <form id="form_infos_geral" class="form-data">
+            <form id="form_infos_geral" action="cadastro.php" method="post" class="form-data">
                 <div class="container-fluid row">
                     <div id="div-cad-1" class="div-cad-1 d-flex justify-content-between flex-wrap">
                         <div class="mb-3 d-flex flex-column w-100 verde">
@@ -101,11 +101,11 @@
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="telefone">TELEFONE</label>
-                                <input type="text" name="telefone" id="telefone" placeholder="Ex. (XX)XXXX-XXXX" required pattern="([(][0-9]{2}[)])[0-9]{5}\-[0-9]{4}%">
+                                <input type="text" name="telefone" id="telefone" placeholder="Ex. (XX)XXXX-XXXX" required pattern="^\([(][0-9]{2}[)])[0-9]{5}\-[0-9]{4}$">
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="email">EMAIL</label>
-                                <input type="email" name="email" id="email" placeholder="Digite seu email empresarial" required pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
+                                <input type="email" name="email" id="email" placeholder="Digite seu email empresarial" required>
                             </div>
                         </div>
                         <div>
@@ -136,7 +136,7 @@
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="tp-logradouro">TIPO LOGRADOURO</label>
-                                <select id="tp_logradouro" name="tp-logradouro">
+                                <select id="tp_logradouro" name="tp-logradouro" disabled>
                                     <option value=""></option>
                                     <option value="aeroporto">aeroporto</option>
                                     <option value="alameda">alameda</option>
@@ -186,7 +186,7 @@
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="logradouro">LOGRADOURO</label>
-                                <input type="text" name="logradouro" id="logradouro" placeholder="Digite seu logradouro empresarial" required>
+                                <input type="text" name="logradouro" id="logradouro" placeholder="Digite seu logradouro empresarial" required readonly>
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="numero">NÚMERO</label>
@@ -196,7 +196,7 @@
                         <div class="">
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="uf">ESTADO</label>
-                                <select id="uf" name="uf">
+                                <select id="uf" name="uf" disabled>
                                     <option value=""></option>
                                     <option value="AC">Acre</option>
                                     <option value="AL">Alagoas</option>
@@ -229,11 +229,11 @@
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="cidade">CIDADE</label>
-                                <input type="text" name="cidade" id="cidade" placeholder="Digite a cidade" required>
+                                <input type="text" name="cidade" id="cidade" placeholder="Digite a cidade" required readonly>
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="bairro">BAIRRO</label>
-                                <input type="text" name="bairro" id="bairro" placeholder="Digite o bairro" required>
+                                <input type="text" name="bairro" id="bairro" placeholder="Digite o bairro" required readonly>
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="complemento">COMPLEMENTO</label>
@@ -261,11 +261,20 @@
                             </div>
                         </div>
                         <div class="w-100">
-                            <button type="submit" name="btn-cadastro" class="btn-cadastro" form="form_infos_geral">CADASTRAR-SE</button>
+                            <button click="submit" name="btn-cadastro" class="btn-cadastro" form="form_infos_geral">CADASTRAR-SE</button>
                         </div>
                     </div>
                 </div>
             </form>
+            <div class="d-flex mt-3 div-error">
+                <?php 
+                    if(!empty($erros)){
+                        foreach($erros as $erro){
+                            echo "<li> $erro </li>";
+                        }
+                    }
+                ?>
+            </div>
         </div>
     </div>
 </section>

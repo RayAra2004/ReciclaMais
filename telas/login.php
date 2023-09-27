@@ -8,8 +8,6 @@
     if(isset($_POST["btn-login"])){
         $email = filter_input(INPUT_POST,'input-email',FILTER_SANITIZE_EMAIL);
         $senha = $_POST["input-senha"];
-        echo $email.'<br>';
-        echo $senha;
         
         if(!(filter_var($email, FILTER_VALIDATE_EMAIL))){
             $erros[] = "Email inválido";
@@ -41,7 +39,7 @@
                     </div>
                     <form id="form-login" action="login.php" method="post"  class="d-flex flex-column">
                         <label for="input-email" class="mb-2">Digite seu email:</label>
-                        <input class="mb-3" type="text"  name="input-email" id="input-email" placeholder="Digite seu Email" required
+                        <input class="mb-3" type="email"  name="input-email" id="input-email" placeholder="Digite seu Email" required
                         >
                         
                         <label for="input-senha" class="mb-2">Digite sua senha:</label>

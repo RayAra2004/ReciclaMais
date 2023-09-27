@@ -1,4 +1,4 @@
-const nomeEmpresa = document.getElementById('nome_empresa');
+const nomeEmpresa = document.getElementById('nome-empresa');
 const cnpj = document.getElementById('cnpj');
 const telefone = document.getElementById('telefone');
 const email = document.getElementById('email');
@@ -18,7 +18,7 @@ const btnContinuar2 = document.getElementById("btn-continuar2");
 
 const cadastros = [];
 
-cep.addEventListener("change", e => {
+cep.addEventListener("input", e => {
 	fetch(`https://brasilapi.com.br/api/cep/v2/${e.target.value}`)
 	.then(res => res.json())
 	.then(dados => {
@@ -29,6 +29,26 @@ cep.addEventListener("change", e => {
         const tp_lograduro = dados.street.split(" ");
         tpLogradouro.value = (tp_lograduro[0]).toLowerCase();
 	});
+});
+
+cnpj.addEventListener("input", e => {
+    //remove caracteres não numéricos
+    const result = cnpj.value.replace(/\D/g, "");
+    if(result.length === 14){
+        cnpj.value = result.substring(0, 2) + "." + result.substring(2, 5) + "." + result.substring(5, 8) + "/" + result.substring(8, 12) + "-" + result.substring(12, 14);
+    }
+});
+
+telefone.addEventListener("input", e => {
+    //remove caracteres não numéricos
+    const result = telefone.value.replace(/\D/g, "");
+
+    if (result.length === 11) {
+        // Formate o telefone com parênteses e traço
+        telefone.value = "(" + result.substring(0, 2) + ")" + result.substring(2, 7) + "-" + result.substring(7, 11);
+    }else if(result.length === 10){
+        telefone.value = "(" + result.substring(0, 2) + ")" + result.substring(2, 6) + "-" + result.substring(6, 10);
+    }
 });
 
 formGeral.addEventListener("submit", e =>{
@@ -51,18 +71,60 @@ formGeral.addEventListener("submit", e =>{
     localStorage.setItem(nomeEmpresa.value, novoCadstroSerializado);
 
     window.location.href = './../telas/paginaInicialUser.php';
-})
+});
 
 btnContinuar1.addEventListener("click", e =>{
     e.preventDefault();
-    document.getElementById("div-cad-1").classList.add("hide");
-    document.getElementById("div-cad-2").classList.add("show");
+    let isValid = true;
+
+    if(!(nomeEmpresa.checkValidity())){
+        isValid = false;
+        console.log('nome')
+    }
+    if(!(cnpj.checkValidity())){
+        isValid = false;
+        console.log('cnpj')
+    }
+    if(!(telefone.checkValidity())){
+        isValid = false;
+        console.log('telefone')
+    }
+    if(!(email.checkValidity())){
+        isValid = false;
+        console.log('email')
+    }
+    if(!(senha.checkValidity())){
+        isValid = false;
+        console.log('senha')
+    }
+    if(senha.value !== confirmarSenha.value){
+        isValid = false;
+        console.log('senhas iguais', senha, confirmarSenha)
+    }
+
+    if(isValid){
+        document.getElementById("div-cad-1").classList.add("hide");
+        document.getElementById("div-cad-2").classList.add("show");
+    }
+    
 })
 
 btnContinuar2.addEventListener("click", e =>{
     e.preventDefault();
-    document.getElementById("div-cad-2").classList.remove("show");
-    document.getElementById("div-cad-3").classList.add("show");
+    let isValid = true;
+
+    if(!(cep.checkValidity())){
+        isValid = false;
+    }
+
+    if(!(cep.checkValidity())){
+        isValid = false;
+    }
+    if(isValid){
+        document.getElementById("div-cad-2").classList.remove("show");
+        document.getElementById("div-cad-3").classList.add("show");
+    }
+    
 })
 
 /*
