@@ -34,7 +34,7 @@
             <div class="col-lg-4 div-form">
                 <div class="container card px-5 py-3 form1">
                     <div class="d-flex justify-content-center">
-                        <a href="../index.php">
+                        <a href="/ReciclaMais/index.php">
                             <img src="/ReciclaMais/imgs/logo_recicla_mais2.svg"/>
                         </a>
                     </div>

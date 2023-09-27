@@ -74,13 +74,16 @@ a{
 }
 
 .form1 form{
-    margin-top: 100px;
+    margin-top: 10px;
 }
 
 @media (max-width: 995px) {
     .form1 form{
         margin-top: 65px;
     }
+}
+.form1 div a img{
+    height: 130px;
 }
 form input{
     background-color: #514869;
