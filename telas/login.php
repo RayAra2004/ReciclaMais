@@ -20,7 +20,7 @@
         }
 
         if(empty($erros)){
-            header('Location: ./../index.php');
+            header('Location: /ReciclaMais/index.php');
         }
 
     }
