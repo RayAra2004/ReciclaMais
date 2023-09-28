@@ -31,6 +31,26 @@ cep.addEventListener("input", e => {
 	});
 });
 
+async function validaCNPJ(cnpj) {
+    try {
+        const result = cnpj.value.replace(/\D/g, "");
+
+        const response = await fetch(`https://brasilapi.com.br/api/cnpj/v1/${result}`);
+        
+        if (!response.ok) {
+            throw new Error(`Erro de status: ${response.status}`);
+        }
+
+        const dados = await response.json();
+
+        return true;
+    } catch (err) {
+        return false;
+    }
+}
+
+
+
 cnpj.addEventListener("input", e => {
     //remove caracteres não numéricos
     const result = cnpj.value.replace(/\D/g, "");
@@ -73,35 +93,64 @@ formGeral.addEventListener("submit", e =>{
     window.location.href = './../telas/paginaInicialUser.php';
 });
 
-btnContinuar1.addEventListener("click", e =>{
+btnContinuar1.addEventListener("click", async (e) =>{
     e.preventDefault();
     let isValid = true;
 
+    /*
     if(!(nomeEmpresa.checkValidity())){
         isValid = false;
+        nomeEmpresa.setCustomValidity("É necessário informar um nome!!");
+        nomeEmpresa.reportValidity();
         console.log('nome')
+    }*/
+    const validCNPJ = await validaCNPJ(cnpj);
+    if(!(validCNPJ)){
+        cnpj.setCustomValidity("CNPJ inválido!!");
+        cnpj.reportValidity();
     }
+
     if(!(cnpj.checkValidity())){
         isValid = false;
-        console.log('cnpj')
+        
     }
+
     if(!(telefone.checkValidity())){
         isValid = false;
-        console.log('telefone')
+        telefone.setCustomValidity('telefone');
+        console.log("erro")   
+    }else{
+        telefone.setCustomValidity('');
+        console.log("acertouu")
     }
+
+    telefone.reportValidity();
+
     if(!(email.checkValidity())){
         isValid = false;
         console.log('email')
     }
+
+   /*
     if(!(senha.checkValidity())){
         isValid = false;
-        console.log('senha')
+        
+        senha.setCustomValidity("senha incorreta");
+        senha.reportValidity();
+        console.log(senha.value)
+    }else{
+        console.log("conserteiii")
+        senha.setCustomValidity("");
+        isValid = true;
     }
+    */
+    /*
     if(senha.value !== confirmarSenha.value){
         isValid = false;
-        console.log('senhas iguais', senha, confirmarSenha)
+        console.log('senhas iguais')
     }
-
+    */
+    console.log(isValid)
     if(isValid){
         document.getElementById("div-cad-1").classList.add("hide");
         document.getElementById("div-cad-2").classList.add("show");

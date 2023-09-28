@@ -112,7 +112,7 @@
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="senha">SENHA</label>
                                 <div>
-                                    <input class="" type="password" name="senha" id="senha" placeholder="Digite sua senha empresarial" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
+                                    <input class="" type="password" name="senha" id="senha" placeholder="Digite sua senha empresarial" required pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&+=!]).{8,}$">
                                     <span class="lnr lnr-eye" type="senha"></span>
                                 </div>
                             </div>
