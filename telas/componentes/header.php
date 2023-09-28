@@ -18,7 +18,7 @@
     <body>
         <nav class="navbar navbar-expand-sm header" data-bs-theme="dark">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="./../index.php">
+                    <a class="navbar-brand" href="/ReciclaMais/index.php">
                         <img src="/ReciclaMais/imgs/logo_recicla_mais.svg" class="logo-top" alt="">
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +29,8 @@
                             <a href="/ReciclaMais/index.php" class="nav-link temaGreen">Home</a>
                             <a href="/ReciclaMais/telas/sobreNos.php" class="nav-link temaGreen">Sobre Nós</a>
                             <a href="/ReciclaMais/telas/ajuda.php" class="nav-link temaGreen">Ajuda</a>
-                            <a class="btn temaGreen" href="/ReciclaMais/telas/login.php" role="button">Entrar</a>
+                            <!--<a class="btn temaGreen" href="/ReciclaMais/telas/login.php" role="button">Entrar</a>-->
+                            <?php echo $_SESSION['comp_header'] ?>
                         </div>
                     </div>
                 </div>
