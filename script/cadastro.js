@@ -18,6 +18,8 @@ const btnContinuar2 = document.getElementById("btn-continuar2");
 
 const cadastros = [];
 
+let isValid = true;
+
 cep.addEventListener("input", e => {
 	fetch(`https://brasilapi.com.br/api/cep/v2/${e.target.value}`)
 	.then(res => res.json())
@@ -31,11 +33,9 @@ cep.addEventListener("input", e => {
 	});
 });
 
-async function validaCNPJ(cnpj) {
+async function validaCNPJ(cnpjConsulta) {
     try {
-        const result = cnpj.value.replace(/\D/g, "");
-
-        const response = await fetch(`https://brasilapi.com.br/api/cnpj/v1/${result}`);
+        const response = await fetch(`https://brasilapi.com.br/api/cnpj/v1/${cnpjConsulta}`);
         
         if (!response.ok) {
             throw new Error(`Erro de status: ${response.status}`);
@@ -43,22 +43,42 @@ async function validaCNPJ(cnpj) {
 
         const dados = await response.json();
 
-        return true;
+         return true;
+        
     } catch (err) {
+       
         return false;
     }
 }
 
 
-
-cnpj.addEventListener("input", e => {
+/*
+cnpj.addEventListener("input", async (e) => {
     //remove caracteres não numéricos
     const result = cnpj.value.replace(/\D/g, "");
+    
     if(result.length === 14){
         cnpj.value = result.substring(0, 2) + "." + result.substring(2, 5) + "." + result.substring(5, 8) + "/" + result.substring(8, 12) + "-" + result.substring(12, 14);
     }
-});
 
+    if(result.length !== 14){
+        isValid = false;
+        cnpj.setCustomValidity("CNPJ inválido!!");
+        cnpj.reportValidity();
+    }else{
+        isValid = true;
+        cnpj.setCustomValidity("");
+        const res = await validaCNPJ(result);
+        if(res){
+            cnpj.setCustomValidity("");
+        }else{
+            cnpj.setCustomValidity("CNPJ inválido!!");
+            cnpj.reportValidity();
+            isValid = false;
+        }
+    }
+});
+*/
 telefone.addEventListener("input", e => {
     //remove caracteres não numéricos
     const result = telefone.value.replace(/\D/g, "");
@@ -95,15 +115,18 @@ formGeral.addEventListener("submit", e =>{
 
 btnContinuar1.addEventListener("click", async (e) =>{
     e.preventDefault();
-    let isValid = true;
-
     /*
-    if(!(nomeEmpresa.checkValidity())){
+    if(nomeEmpresa.value === "" || nomeEmpresa.value.length < 3){
         isValid = false;
         nomeEmpresa.setCustomValidity("É necessário informar um nome!!");
         nomeEmpresa.reportValidity();
         console.log('nome')
-    }*/
+    }else{
+        nomeEmpresa.setCustomValidity("");
+    }
+    */
+
+    /*
     const validCNPJ = await validaCNPJ(cnpj);
     if(!(validCNPJ)){
         cnpj.setCustomValidity("CNPJ inválido!!");
@@ -131,7 +154,7 @@ btnContinuar1.addEventListener("click", async (e) =>{
         console.log('email')
     }
 
-   /*
+
     if(!(senha.checkValidity())){
         isValid = false;
         
@@ -143,8 +166,7 @@ btnContinuar1.addEventListener("click", async (e) =>{
         senha.setCustomValidity("");
         isValid = true;
     }
-    */
-    /*
+
     if(senha.value !== confirmarSenha.value){
         isValid = false;
         console.log('senhas iguais')
