@@ -21,16 +21,19 @@ const cadastros = [];
 let isValid = true;
 
 cep.addEventListener("input", e => {
-	fetch(`https://brasilapi.com.br/api/cep/v2/${e.target.value}`)
-	.then(res => res.json())
-	.then(dados => {
-		cidade.value = dados.city;
-        bairro.value = dados.neighborhood;
-        uf.value = dados.state;
-        logradouro.value = dados.street.split(' ').slice(1).join(' ');
-        const tp_lograduro = dados.street.split(" ");
-        tpLogradouro.value = (tp_lograduro[0]).toLowerCase();
+    if(e.target.value.length === 8){
+        fetch(`https://brasilapi.com.br/api/cep/v2/${e.target.value}`)
+        .then(res => res.json())
+        .then(dados => {
+            cidade.value = dados.city;
+            bairro.value = dados.neighborhood;
+            uf.value = dados.state;
+            logradouro.value = dados.street.split(' ').slice(1).join(' ');
+            const tp_lograduro = dados.street.split(" ");
+            tpLogradouro.value = (tp_lograduro[0]).toLowerCase();
 	});
+    }
+	
 });
 
 async function validaCNPJ(cnpjConsulta) {
@@ -165,15 +168,16 @@ btnContinuar1.addEventListener("click", async (e) =>{
 
 btnContinuar2.addEventListener("click", e =>{
     e.preventDefault();
-    let isValid = true;
 
-    if(!(cep.checkValidity())){
+    if(cep.value < 0 || cep.value.length !== 8){
         isValid = false;
+        cep.setCustomValidity('CEP inválido!!');
+        cep.reportValidity();
+    }else{
+        cep.setCustomValidity('');
+        isValid = true;
     }
 
-    if(!(cep.checkValidity())){
-        isValid = false;
-    }
     if(isValid){
         document.getElementById("div-cad-2").classList.remove("show");
         document.getElementById("div-cad-3").classList.add("show");
