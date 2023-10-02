@@ -90,7 +90,7 @@
         <div class="card px-4 py-3 bg-padrao w-90">
             <form id="form_infos_geral" action="cadastro.php" method="post" class="form-data">
                 <div class="container-fluid row">
-                    <div id="div-cad-1" class="div-cad-1 d-flex justify-content-between flex-wrap">
+                    <div id="div-cad-1" class="div-cad-1 d-none justify-content-between flex-wrap">
                         <div class="mb-3 d-flex flex-column w-100 verde">
                             <label for="nome-empresa">NOME (da empresa)</label>
                             <input type="text" class="nome-empresa" name="nome-empresa" id="nome-empresa" placeholder="Digite seu nome empresarial" required>
@@ -245,23 +245,39 @@
                             <button type="submit" class="btn-continuar" id="btn-continuar2">Próxima</button>
                         </div>
                     </div>               
-                    <div id="div-cad-3" class="div-cad-3 d-none flex-wrap">
-                        <div class="d-flex flex-column w-100">
-                            <span>QUAIS MATERIAIS SUA EMPRESA RECICLA?</span>
-                            <div class="w-100 div-trash">
-                                <span class="material-symbols-outlined">delete</span>
-                                <span class="material-symbols-outlined">delete</span>
-                                <span class="material-symbols-outlined">delete</span>
-                                <span class="material-symbols-outlined">delete</span>
+                    <div id="div-cad-3" class="div-cad-3 d-flex justify-content-center aling-items-center flex-wrap">
+                        <div class="d-flex flex-column justify-content-center aling-items-center w-100">
+                            <span class="">QUAIS MATERIAIS SUA EMPRESA RECICLA?</span>
+                            <div class="w-100 d-flex mt-3">
+                                <div class="div-trash">
+                                    <img class="img-fluid" src="/ReciclaMais/imgs/lixeira_eletronicos.svg" alt="">
+                                </div>
+                                <div class="div-trash">
+                                    <img class="img-fluid" src="/ReciclaMais/imgs/lixeira_hospitalar.svg" alt="">
+                                </div>
+                                <div class="div-trash">
+                                    <img class="img-fluid" src="/ReciclaMais/imgs/lixeira_madeira.svg" alt="">
+                                </div>
+                                <div class="div-trash">
+                                    <img class="img-fluid" src="/ReciclaMais/imgs/lixeira_metal.svg" alt="">
+                                </div>
                             </div>
-                            <div class="w-100 div-trash">
-                                <span class="material-symbols-outlined">delete</span>
-                                <span class="material-symbols-outlined">delete</span>
-                                <span class="material-symbols-outlined">delete</span>
-                                <span class="material-symbols-outlined">delete</span>
+                            <div class="w-100 d-flex mt-3">
+                                <div class="div-trash">
+                                    <img class="img-fluid" src="/ReciclaMais/imgs/lixeira_organico.svg" alt="">
+                                </div>
+                                <div class="div-trash">
+                                    <img class="img-fluid" src="/ReciclaMais/imgs/lixeira_papel.svg" alt="">
+                                </div>
+                                <div class="div-trash">
+                                    <img class="img-fluid" src="/ReciclaMais/imgs/lixeira_plastico.svg" alt="">
+                                </div>
+                                <div class="div-trash">
+                                    <img class="img-fluid" src="/ReciclaMais/imgs/lixeira_vidro.svg" alt="">
+                                </div>
                             </div>
                         </div>
-                        <div class="w-100">
+                        <div class="w-100 d-flex justify-content-end">
                             <button click="submit" name="btn-cadastro" class="btn-cadastro" form="form_infos_geral">CADASTRAR-SE</button>
                         </div>
                     </div>
