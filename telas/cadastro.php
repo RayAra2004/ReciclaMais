@@ -98,11 +98,11 @@
                         <div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="cnpj">CNPJ</label>
-                                <input type="text" name="cnpj" id="cnpj" placeholder="Ex. XX.XXX.XXX/000X-XX" required pattern="^\d{2}.\d{3}.\d{3}\/\d{4}-\d{2}$">
+                                <input type="text" name="cnpj" id="cnpj" placeholder="Ex. XX.XXX.XXX/000X-XX" required maxlength="18">
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="telefone">TELEFONE</label>
-                                <input type="text" name="telefone" id="telefone" placeholder="Ex. (XX)XXXX-XXXX" required pattern="^\([(][0-9]{2}[)])[0-9]{5}\-[0-9]{4}$">
+                                <input type="text" name="telefone" id="telefone" placeholder="Ex. (XX)XXXX-XXXX" required maxlength=14>
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="email">EMAIL</label>
@@ -113,14 +113,14 @@
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="senha">SENHA</label>
                                 <div>
-                                    <input class="" type="password" name="senha" id="senha" placeholder="Digite sua senha empresarial" required pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&+=!]).{8,}$">
+                                    <input class="" type="password" name="senha" id="senha" placeholder="Digite sua senha empresarial" required>
                                     <span class="lnr lnr-eye" type="senha"></span>
                                 </div>
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="confirmar-senha">CONFIRME SUA SENHA</label>
                                 <div>
-                                    <input class="" type="password" name="confirmar-senha" id="confirmar_senha" placeholder="Confirme sua senha empresarial" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
+                                    <input class="" type="password" name="confirmar-senha" id="confirmar_senha" placeholder="Confirme sua senha empresarial" required>
                                     <span class="lnr lnr-eye" type="confirmar_senha"></span>
                                 </div>
                             </div>
