@@ -100,9 +100,9 @@ form input, select{
     display: flex!important;
 }
 
-.div-trash span{
-    font-size: 200px;
-    color: rgb(143, 143, 143)
+.div-trash img{
+    width: 200px;
+    cursor: pointer;
 }
 form input::placeholder{
     font-family: 'Poppins', sans-serif;

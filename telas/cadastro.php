@@ -1,4 +1,5 @@
-<?php 
+<?php
+    session_start();
     $css = '<link rel="stylesheet" href="/ReciclaMais/css/cadastro.css"> <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> <script src="./../script/cadastro.js" defer></script>';
     include './componentes/header.php';
 ?>
@@ -95,7 +96,7 @@
         <div class="card px-4 py-3 bg-padrao w-90">
             <form id="form_infos_geral" action="cadastro.php" method="post" class="form-data">
                 <div class="container-fluid row">
-                    <div id="div-cad-1" class="div-cad-1 d-flex justify-content-between flex-wrap">
+                    <div id="div-cad-1" class="div-cad-1 d-none justify-content-between flex-wrap">
                         <div class="mb-3 d-flex flex-column w-100 verde">
                             <label for="nome-empresa">NOME (da empresa)</label>
                             <input type="text" class="nome-empresa" name="nome-empresa" id="nome-empresa" placeholder="Digite seu nome empresarial" required>
@@ -103,11 +104,11 @@
                         <div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="cnpj">CNPJ</label>
-                                <input type="text" name="cnpj" id="cnpj" placeholder="Ex. XX.XXX.XXX/000X-XX" required pattern="^\d{2}.\d{3}.\d{3}\/\d{4}-\d{2}$">
+                                <input type="text" name="cnpj" id="cnpj" placeholder="Ex. XX.XXX.XXX/000X-XX" required maxlength="18">
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="telefone">TELEFONE</label>
-                                <input type="text" name="telefone" id="telefone" placeholder="Ex. (XX)XXXX-XXXX" required pattern="^\([(][0-9]{2}[)])[0-9]{5}\-[0-9]{4}$">
+                                <input type="text" name="telefone" id="telefone" placeholder="Ex. (XX)XXXX-XXXX" required maxlength=14>
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="email">EMAIL</label>
@@ -118,14 +119,14 @@
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="senha">SENHA</label>
                                 <div>
-                                    <input class="" type="password" name="senha" id="senha" placeholder="Digite sua senha empresarial" required pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&+=!]).{8,}$">
+                                    <input class="" type="password" name="senha" id="senha" placeholder="Digite sua senha empresarial" required>
                                     <span class="lnr lnr-eye" type="senha"></span>
                                 </div>
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="confirmar-senha">CONFIRME SUA SENHA</label>
                                 <div>
-                                    <input class="" type="password" name="confirmar-senha" id="confirmar_senha" placeholder="Confirme sua senha empresarial" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
+                                    <input class="" type="password" name="confirmar-senha" id="confirmar_senha" placeholder="Confirme sua senha empresarial" required>
                                     <span class="lnr lnr-eye" type="confirmar_senha"></span>
                                 </div>
                             </div>
@@ -250,23 +251,39 @@
                             <button type="submit" class="btn-continuar" id="btn-continuar2">Próxima</button>
                         </div>
                     </div>               
-                    <div id="div-cad-3" class="div-cad-3 d-none flex-wrap">
-                        <div class="d-flex flex-column w-100">
-                            <span>QUAIS MATERIAIS SUA EMPRESA RECICLA?</span>
-                            <div class="w-100 div-trash">
-                                <span class="material-symbols-outlined">delete</span>
-                                <span class="material-symbols-outlined">delete</span>
-                                <span class="material-symbols-outlined">delete</span>
-                                <span class="material-symbols-outlined">delete</span>
+                    <div id="div-cad-3" class="div-cad-3 d-flex justify-content-center aling-items-center flex-wrap">
+                        <div class="d-flex flex-column justify-content-center aling-items-center w-100">
+                            <span class="">QUAIS MATERIAIS SUA EMPRESA RECICLA?</span>
+                            <div class="w-100 d-flex mt-3">
+                                <div class="div-trash">
+                                    <img class="img-fluid" src="/ReciclaMais/imgs/lixeira_eletronicos.svg" alt="">
+                                </div>
+                                <div class="div-trash">
+                                    <img class="img-fluid" src="/ReciclaMais/imgs/lixeira_hospitalar.svg" alt="">
+                                </div>
+                                <div class="div-trash">
+                                    <img class="img-fluid" src="/ReciclaMais/imgs/lixeira_madeira.svg" alt="">
+                                </div>
+                                <div class="div-trash">
+                                    <img class="img-fluid" src="/ReciclaMais/imgs/lixeira_metal.svg" alt="">
+                                </div>
                             </div>
-                            <div class="w-100 div-trash">
-                                <span class="material-symbols-outlined">delete</span>
-                                <span class="material-symbols-outlined">delete</span>
-                                <span class="material-symbols-outlined">delete</span>
-                                <span class="material-symbols-outlined">delete</span>
+                            <div class="w-100 d-flex mt-3">
+                                <div class="div-trash">
+                                    <img class="img-fluid" src="/ReciclaMais/imgs/lixeira_organico.svg" alt="">
+                                </div>
+                                <div class="div-trash">
+                                    <img class="img-fluid" src="/ReciclaMais/imgs/lixeira_papel.svg" alt="">
+                                </div>
+                                <div class="div-trash">
+                                    <img class="img-fluid" src="/ReciclaMais/imgs/lixeira_plastico.svg" alt="">
+                                </div>
+                                <div class="div-trash">
+                                    <img class="img-fluid" src="/ReciclaMais/imgs/lixeira_vidro.svg" alt="">
+                                </div>
                             </div>
                         </div>
-                        <div class="w-100">
+                        <div class="w-100 d-flex justify-content-end">
                             <button click="submit" name="btn-cadastro" class="btn-cadastro" form="form_infos_geral">CADASTRAR-SE</button>
                         </div>
                     </div>
