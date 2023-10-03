@@ -22,25 +22,31 @@
         $bairro = $_POST["bairro"];
         $complemento = $_POST["complemento"];
 
+        $nome_empresa = filter_var($nome_empresa, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+        $cnpj = filter_var($cnpj, FILTER_SANITIZE_NUMBER_INT);
+        $telefone = filter_var($telefone, FILTER_SANITIZE_NUMBER_INT);
+        $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+        $senha = filter_var($senha, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+        $cep = filter_var($cep, FILTER_SANITIZE_NUMBER_INT);
+        $logradouro = filter_var($logradouro, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+        $numero = filter_var($numero, FILTER_SANITIZE_NUMBER_INT);
+        $cidade = filter_var($cidade, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+        $bairro = filter_var($cidade, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+        $complemento = filter_var($cidade, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+
         $formatName = array("options" => array("regexp" => "/([\wÀ-ÿ&-0-9])/"));
-        //sanitização de string
         if(! filter_var($nome_empresa, FILTER_VALIDATE_REGEXP, $formatName)){
             $erros[] = "Nome inválido";
         }
 
-        $formatCNPJ = array("options" => array("regexp" => "/^\d{2}.\d{3}.\d{3}\/\d{4}-\d{2}$/"));
-        //sanitização de numeros only
-        if(! filter_var($cnpj, FILTER_VALIDATE_REGEXP, $formatCNPJ)){
+        if(strlen($cnpj)!=14){
             $erros[] = "CNPJ inválido";
         }
 
-        $formatTelemovel = array("options" => array("regexp" => "/([(][0-9]{2}[)])[0-9]{5}\-[0-9]{4}%/"));
-        //sanitização de numeros only
-        if(! filter_var($telefone, FILTER_VALIDATE_REGEXP, $formatTelemovel)){
+        if((strlen($telefone)!=10) or (strlen($telefone)!=11)){
             $erros[] = "Telefone inválido";
         }
-
-        $email = filter_var($email, FILTER_SANITIZE_EMAIL);// TODO: Não está funcionando
+        
         if(!(filter_var($email, FILTER_VALIDATE_EMAIL))){
             $erros[] = "Email inválido";
         }
@@ -50,19 +56,16 @@
             $erros[] = "Senha inválida";
         }
 
-        $formatCEP = array("options" => array("regexp" => "/([(][0-9]{2}[)])[0-9]{5}\-[0-9]{4}%/"));
-        //sanitização de numeros only
-        if(! filter_var($cep, FILTER_VALIDATE_REGEXP, $formatCEP)){
+        if(strlen($cep)!=8){
             $erros[] = "CEP inválido";
         }
-
+        
         $formatLogradouro = array("options" => array("regexp" => "/([\wÀ-ÿ&-0-9])/"));
         if(! filter_var($logradouro, FILTER_VALIDATE_REGEXP, $formatLogradouro)){
             $erros[] = "Logradouro inválido";
         }
 
         $formatNumero = array("options" => array("regexp" => "/[0-9]/"));
-        //sanitização de numeros only
         if(! filter_var($numero, FILTER_VALIDATE_REGEXP, $formatNumero)){
             $erros[] = "Número inválido";
         }
@@ -77,7 +80,6 @@
             $erros[] = "Bairro inválido";
         }
         $formatComplemento = array("options" => array("regexp" => "/([\wÀ-ÿ&-0-9])/"));
-        //sanitização sem caracteres especiais
         if(! filter_var($complemento, FILTER_VALIDATE_REGEXP, $formatComplemento)){
             $erros[] = "Complemento inválido";
         }
