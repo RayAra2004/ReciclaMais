@@ -256,30 +256,30 @@
                             <span class="">QUAIS MATERIAIS SUA EMPRESA RECICLA?</span>
                             <div class="w-100 d-flex mt-3">
                                 <div class="div-trash">
-                                    <img class="img-fluid" src="/ReciclaMais/imgs/lixeira_eletronicos.svg" alt="">
+                                    <img onclick="selecionar(this, 'eletronicos')" class="img-fluid" src="/ReciclaMais/imgs/lixeira_eletronicos.svg" alt="">
                                 </div>
                                 <div class="div-trash">
-                                    <img class="img-fluid" src="/ReciclaMais/imgs/lixeira_hospitalar.svg" alt="">
+                                    <img onclick="selecionar(this, 'hospitalar')" class="img-fluid" src="/ReciclaMais/imgs/lixeira_hospitalar.svg" alt="">
                                 </div>
                                 <div class="div-trash">
-                                    <img class="img-fluid" src="/ReciclaMais/imgs/lixeira_madeira.svg" alt="">
+                                    <img onclick="selecionar(this, 'madeira')" class="img-fluid" src="/ReciclaMais/imgs/lixeira_madeira.svg" alt="">
                                 </div>
                                 <div class="div-trash">
-                                    <img class="img-fluid" src="/ReciclaMais/imgs/lixeira_metal.svg" alt="">
+                                    <img onclick="selecionar(this, 'metal')" class="img-fluid" src="/ReciclaMais/imgs/lixeira_metal.svg" alt="">
                                 </div>
                             </div>
                             <div class="w-100 d-flex mt-3">
                                 <div class="div-trash">
-                                    <img class="img-fluid" src="/ReciclaMais/imgs/lixeira_organico.svg" alt="">
+                                    <img onclick="selecionar(this, 'organico')" class="img-fluid" src="/ReciclaMais/imgs/lixeira_organico.svg" alt="">
                                 </div>
                                 <div class="div-trash">
-                                    <img class="img-fluid" src="/ReciclaMais/imgs/lixeira_papel.svg" alt="">
+                                    <img onclick="selecionar(this, 'papel')" class="img-fluid" src="/ReciclaMais/imgs/lixeira_papel.svg" alt="">
                                 </div>
                                 <div class="div-trash">
-                                    <img class="img-fluid" src="/ReciclaMais/imgs/lixeira_plastico.svg" alt="">
+                                    <img onclick="selecionar(this, 'plastico')" class="img-fluid" src="/ReciclaMais/imgs/lixeira_plastico.svg" alt="">
                                 </div>
                                 <div class="div-trash">
-                                    <img class="img-fluid" src="/ReciclaMais/imgs/lixeira_vidro.svg" alt="">
+                                    <img onclick="selecionar(this, 'vidro')" class="img-fluid" src="/ReciclaMais/imgs/lixeira_vidro.svg" alt="">
                                 </div>
                             </div>
                         </div>

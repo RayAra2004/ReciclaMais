@@ -20,6 +20,16 @@ const cadastros = [];
 
 let isValid = true;
 
+function selecionar(e){
+    e.classList.toggle('ativo');
+    if(e.classList.contains('ativo')){
+        e.src = e.src.replace('.svg', '_ativo.svg');
+    }else{
+        e.src = e.src.replace('_ativo.svg', '.svg');
+    }
+    
+}
+
 cep.addEventListener("input", e => {
     if(e.target.value.length === 8){
         fetch(`https://brasilapi.com.br/api/cep/v2/${e.target.value}`)
@@ -184,6 +194,8 @@ btnContinuar2.addEventListener("click", e =>{
     }
     
 })
+
+
 
 /*
 mostrarSenha.addEventListener('click', () => {
