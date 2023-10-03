@@ -18,16 +18,19 @@ const btnContinuar2 = document.getElementById("btn-continuar2");
 
 const cadastros = [];
 
-let isValid = true;
 
-function selecionar(e){
+let isValid = true;
+let selecionados = 0;
+
+function selecionar(e, material){
     e.classList.toggle('ativo');
     if(e.classList.contains('ativo')){
         e.src = e.src.replace('.svg', '_ativo.svg');
+        selecionados++;
     }else{
         e.src = e.src.replace('_ativo.svg', '.svg');
+        selecionados--;
     }
-    
 }
 
 cep.addEventListener("input", e => {

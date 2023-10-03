@@ -81,9 +81,7 @@
         if(! filter_var($complemento, FILTER_VALIDATE_REGEXP, $formatComplemento)){
             $erros[] = "Complemento inválido";
         }
-
-
-
+        
         if(empty($erros)){
             header('Location: /ReciclaMais/telas/login.php');
         }
@@ -96,7 +94,7 @@
         <div class="card px-4 py-3 bg-padrao w-90">
             <form id="form_infos_geral" action="cadastro.php" method="post" class="form-data">
                 <div class="container-fluid row">
-                    <div id="div-cad-1" class="div-cad-1 d-none justify-content-between flex-wrap">
+                    <div id="div-cad-1" class="div-cad-1 d-flex justify-content-between flex-wrap">
                         <div class="mb-3 d-flex flex-column w-100 verde">
                             <label for="nome-empresa">NOME (da empresa)</label>
                             <input type="text" class="nome-empresa" name="nome-empresa" id="nome-empresa" placeholder="Digite seu nome empresarial" required>
@@ -251,7 +249,7 @@
                             <button type="submit" class="btn-continuar" id="btn-continuar2">Próxima</button>
                         </div>
                     </div>               
-                    <div id="div-cad-3" class="div-cad-3 d-flex justify-content-center aling-items-center flex-wrap">
+                    <div id="div-cad-3" class="div-cad-3 d-none justify-content-center aling-items-center flex-wrap">
                         <div class="d-flex flex-column justify-content-center aling-items-center w-100">
                             <span class="">QUAIS MATERIAIS SUA EMPRESA RECICLA?</span>
                             <div class="w-100 d-flex mt-3">
