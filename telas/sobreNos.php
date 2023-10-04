@@ -1,4 +1,4 @@
-<?php 
+<?php
     $css = '<link rel="stylesheet" href="../css/sobreNos.css"> <script src="./../script/sobreNos.js" defer></script>';
     include './componentes/header.php';
 ?>

@@ -1,5 +1,4 @@
 <?php
-    session_start();
     $css = '<link rel="stylesheet" href="/ReciclaMais/css/login.css"> <script src="/ReciclaMais/script/login.js" defer></script>';
     include './componentes/header.php';
 ?>
@@ -20,7 +19,7 @@
         }
 
         if(empty($erros)){
-            $_SESSION['comp_header'] = '<a href="" class="nav-link temaGreen">'.$email.'</a>';
+            $_SESSION['comp_header'] = '<a href="/ReciclaMais/telas/componentes/encerrar_sessao.php" class="nav-link temaGreen">'.$email.'</a>';
             header('Location: /ReciclaMais/index.php');
         }
 

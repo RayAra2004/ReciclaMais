@@ -1,4 +1,4 @@
-<?php 
+<?php
     $css = '<link rel="stylesheet" href="/ReciclaMais/css\paginaInicialEmpresa.css">';
     include './componentes/header.php';
 ?>
