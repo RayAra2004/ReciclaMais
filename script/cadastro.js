@@ -106,9 +106,8 @@ formGeral.addEventListener("submit", e =>{
         complemento: complemento.value
     }
     const novoCadstroSerializado = JSON.stringify(novoCadstro);
-    localStorage.setItem(nomeEmpresa.value, novoCadstroSerializado);
+    localStorage.setItem("usuario", novoCadstroSerializado);
 
-    window.location.href = './../telas/paginaInicialUser.php';
 });
 
 btnContinuar1.addEventListener("click", async (e) =>{

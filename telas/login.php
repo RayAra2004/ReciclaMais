@@ -19,7 +19,17 @@
         }
 
         if(empty($erros)){
-            $_SESSION['comp_header'] = '<a href="/ReciclaMais/telas/componentes/encerrar_sessao.php" class="nav-link temaGreen">'.$email.'</a>';
+            $_SESSION['comp_header'] = '
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        '.$email.'
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Meu Perfil</a>
+                        <a class="dropdown-item" href="/ReciclaMais/telas/componentes/encerrar_sessao.php">Encerrar Sessão</a>
+                    </div>
+                </div>
+            ';
             header('Location: /ReciclaMais/index.php');
         }
 
