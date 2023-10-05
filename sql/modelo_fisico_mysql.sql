@@ -239,10 +239,6 @@ ALTER TABLE Pertence ADD CONSTRAINT FK_Pertence_2
     REFERENCES MATERIAL_RECICLAVEL (ID)
     ON DELETE CASCADE;
 
-
---inserçõoes
-
-
 INSERT INTO TIPO_USUARIO (descricao)
 VALUES ('Administrador'),
 	('Pessoa Física'),
