@@ -26,7 +26,7 @@
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="#">Meu Perfil</a>
-                        <a class="dropdown-item" href="/ReciclaMais/telas/componentes/encerrar_sessao.php">Encerrar Sessão</a>
+                        <a class="dropdown-item" href="/ReciclaMais/telas/funcoes/encerrar_sessao.php">Encerrar Sessão</a>
                     </div>
                 </div>
             ';
