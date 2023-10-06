@@ -65,7 +65,7 @@ CREATE TABLE COMENTARIOS (
 );
 
 CREATE TABLE MATERIAL_RECICLAVEL (
-    PESOESTIMADO VARCHAR(30),
+    PESO_ESTIMADO VARCHAR(30),
     ID INT AUTO_INCREMENT PRIMARY KEY,
     DESCRICAO VARCHAR(300),
     FK_USUARIO_PESSOA_FISICA_FK_USUARIO_ID INT,
@@ -368,7 +368,7 @@ VALUES
   (39, '2001-05-29'),
   (40, '2001-06-30');
 
-INSERT INTO ENDERECO (CEP, FK_TIPO_LOGRADOURO_ID, LOGRADOURO, FK_Estado_ID, FK_Cidade_ID, FK_Bairro_ID, Numero, Longitude, Latitude)
+INSERT INTO ENDERECO (CEP, FK_TIPO_LOGRADOURO_ID, LOGRADOURO, FK_ESTADO_ID, FK_CIDADE_ID, FK_BAIRRO_ID, NUMERO, LONGITUDE, LATITUDE)
 VALUES ('29010-001', 1, 'Rua Sete de Setembro', 1, 1, 1, 123, -40.123456, -20.987654),
        ('29020-002', 2, 'Avenida Vitória', 1, 1, 2, 456, -40.123456, -20.987654),
        ('29030-003', 3, 'Travessa Bela Vista', 1, 1, 3, 789, -40.123456, -20.987654),
@@ -410,7 +410,7 @@ VALUES ('29010-001', 1, 'Rua Sete de Setembro', 1, 1, 1, 123, -40.123456, -20.98
        ('29130-039', 3, 'Travessa das Violetas', 1, 2, 7, 753, -40.123456, -20.987654),
        ('29140-040', 4, 'Alameda das Margaridas', 1, 2, 8, 951, -40.123456, -20.987654);
 
-INSERT INTO USUARIO_INSTITUICAO (CNPJ, Logo, FK_USUARIO_ID, FK_ENDERECO_ID, FK_TIPO_ASSINATURA_ID, data_cadastro,  data_expiracao)
+INSERT INTO USUARIO_INSTITUICAO (CNPJ, LOGO, FK_USUARIO_ID, FK_ENDERECO_ID, FK_TIPO_ASSINATURA_ID, DATA_CADASTRO,  DATA_EXPIRACAO)
 VALUES 
   ('11111111111111', 'logo1.jpg', 1, 1, 2, '2023-06-09', '2023-07-09'),
   ('22222222222222', 'logo2.jpg', 2, 2, 1, '2023-07-08', '2023-08-08'),
@@ -424,7 +424,7 @@ VALUES
   ('10101010101010', 'logo10.jpg', 10, 10, 2, '2023-10-16', '2023-11-16');
 
 
-INSERT INTO CATEGORIAS_DE_MATERIAIS_RECICLADOS (descricao)
+INSERT INTO CATEGORIAS_DE_MATERIAIS_RECICLADOS (DESCRICAO)
 VALUES ('Plástico'),
        ('Papel'),
        ('Vidro'),
@@ -434,13 +434,13 @@ VALUES ('Plástico'),
        ('Madeira'),
        ('Eletrônicos');
 
-INSERT INTO COLETADO (descricao)
+INSERT INTO COLETADO (DESCRICAO)
 	VALUES  ('disponível'),
 		('indisponível'),
 		('em transação');
 
 
-INSERT INTO CADASTRO_PONTO_COLETA (FK_USUARIO_INSTITUICAO_FK_USUARIO_ID, FK_ENDERECO_ID, FK_USUARIO_ID, data, nome)
+INSERT INTO CADASTRO_PONTO_COLETA (FK_USUARIO_INSTITUICAO_FK_USUARIO_ID, FK_ENDERECO_ID, FK_USUARIO_ID, DATA, NOME)
 VALUES 
 (1, 11, 15, '2019-03-10', 'Ponto Vermelho'),
        (2, 12, 16, '2018-07-20', 'Ponto Azul'),
@@ -503,7 +503,7 @@ VALUES (1, 1),
 (7, 19),
 (6, 20);
 
-INSERT INTO VALIDA (FK_USUARIO_ID, fk_CADASTRO_PONTO_COLETA_ID,data, resposta) 
+INSERT INTO VALIDA (FK_USUARIO_ID, FK_CADASTRO_PONTO_COLETA_ID,DATA, RESPOSTA) 
 values(11,1,'2022-06-01 00:00:00', true),
 (12, 1 ,'2022-07-15 12:30:45',true),
 (13, 1, '2022-08-20 18:15:00',false),
@@ -525,14 +525,14 @@ values(11,1,'2022-06-01 00:00:00', true),
 (29, 2, '2023-12-25 19:30:00',true),
 (30, 3, '2024-01-01 13:50:50',true);
 
-INSERT INTO COMENTARIOS (conteudo,data, nota,fk_USUARIO_PESSOA_FISICA_FK_USUARIO_ID,FK_PONTO_COLETA_ID) 
+INSERT INTO COMENTARIOS (CONTEUDO,DATA, NOTA,FK_USUARIO_PESSOA_FISICA_FK_USUARIO_ID,FK_PONTO_COLETA_ID) 
 values('Muito bom, só foi difícil encontrar','2023-06-10 08:30:45',4,16,3),
 ('Não tinha o que eu estava procurando e estava todo sujo','2023-06-20 14:15:00',1,38,10),
 ('O melhor ponto que já visitei, tinha até cafézinho','2023-07-05 16:45:20',5,13,6),
 ('Este ponto disse que coletava plástico mas não coleta','2023-07-15 12:00:00',3,31,1),
 ('O pior ponto de coleta que já visitei','2023-06-10 08:30:45',4,16,3);
 
-INSERT INTO MATERIAL_RECICLAVEL(pesoEstimado, descricao, fk_usuario_pessoa_fisica_fk_usuario_id, fk_usuario_instituicao_fk_usuario_id, latitude, longitude, fk_coletado_id)
+INSERT INTO MATERIAL_RECICLAVEL(PESO_ESTIMADO, DESCRICAO, FK_USUARIO_PESSOA_FISICA_FK_USUARIO_ID, FK_USUARIO_INSTITUICAO_FK_USUARIO_ID, LATITUDE, LONGITUDE, FK_COLETADO_ID)
 	VALUES  ('120kg', 'geladeira duas portas, em perfeito estado', 13, 4, -10.02912, 14.2812, 1),
 		('60kg', 'fogão 4 bocas completo', 11, 5, -10.02912, 14.2812, 2),
 		('120kg', 'lote de garrafa pet', 25, 6, -10.02912, 14.2812, 3),
@@ -543,7 +543,7 @@ INSERT INTO MATERIAL_RECICLAVEL(pesoEstimado, descricao, fk_usuario_pessoa_fisic
 		('15kg', 'lote de papelão', 22, null, -10.04012, 14.4012, 1),
 		('13kg', 'lote de brinquedos de plástico', 26, 1, -10.04012, 14.4012, 1);
 
-INSERT INTO PERTENCE (fk_categorias_de_materiais_reciclados_id, fk_material_reciclavel_id)
+INSERT INTO PERTENCE (FK_CATEGORIAS_DE_MATERIAIS_RECICLADOS_ID, FK_MATERIAL_RECICLAVEL_ID)
 	VALUES (1, 1),
 		(3, 1),
 		(4, 1),
