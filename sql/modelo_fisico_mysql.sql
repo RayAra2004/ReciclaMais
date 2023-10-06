@@ -18,7 +18,7 @@ CREATE TABLE USUARIO_INSTITUICAO (
 );
 
 CREATE TABLE USUARIO_PESSOA_FISICA (
-    DATANASCIMENTO DATE,
+    DATA_NASCIMENTO DATE,
     FK_USUARIO_ID INT PRIMARY KEY
 );
 
@@ -84,7 +84,7 @@ CREATE TABLE TIPO_ASSINATURA (
 
 CREATE TABLE TIPO_LOGRADOURO (
     ID INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    TIPOLOGRADOURO VARCHAR(30)
+    TIPO_LOGRADOURO VARCHAR(30)
 );
 
 CREATE TABLE ESTADO (
@@ -240,7 +240,7 @@ ALTER TABLE PERTENCE ADD CONSTRAINT FK_PERTENCE_3
     ON DELETE CASCADE;
 
 
-INSERT INTO TIPO_USUARIO (descricao)
+INSERT INTO TIPO_USUARIO (DESCRICAO)
 VALUES ('Administrador'),
 	('Pessoa Física'),
 	('Instituição');
@@ -250,22 +250,22 @@ INSERT INTO TIPO_ASSINATURA( NOME, DESCRICAO, VALOR)
 	VALUES  ('GRATUITO', 'SEM BENEFÍCIOS', 0),
 		('PLATINUM', 'RELATÓRIO GERAL SOBRE OS MATERIAIS MAIS PUBLICADOS. RELATÓRIO GERAL SOBRE OS BAIRROS COM MAIS MATERIAIS PUBLICADOS. RELATÓRIO GERAL SOBRE OS BAIRROS COM MAIS PONTOS DE COLETA. RELATÓRIO GERAL SOBRE OS TIPOS DE MATERIAIS RECICLADOS EM CADA BAIRRO. RELATÓRIO GERAL SOBRE OS LOCAIS COM MAIS USUÁRIOS. DESTAQUE EM NOSSA PÁGINA PRINCIPAL.', 119.9);
 
-INSERT INTO Estado (Estado)
+INSERT INTO ESTADO (ESTADO)
 VALUES ('ES');
 
-INSERT INTO TipoLogradouro (TipoLogradouro)
+INSERT INTO TIPO_LOGRADOURO (TIPO_LOGRADOURO)
 VALUES ('Rua'),
        ( 'Avenida'),
        ('Travessa'),
        ('Alameda');
 
-INSERT INTO Cidade (Cidade)
+INSERT INTO CIDADE (CIDADE)
 VALUES ('Vitória'),
        ('Vila Velha'),
        ('Cariacica'),
        ('Serra');
 
-INSERT INTO Bairro (Bairro)
+INSERT INTO BAIRRO (BAIRRO)
 VALUES ('Centro'),
        ('Jardim Camburi'),
        ('Praia do Canto'),
@@ -283,7 +283,7 @@ VALUES ('Centro'),
        ('Jardim Limoeiro'),
        ('Bairro de Fátima');
 
-INSERT INTO USUARIO (Login, Senha, Nome, Telefone, FK_TIPO_USUARIO_ID)
+INSERT INTO USUARIO (LOGIN, SENHA, NOME, TELEFONE, FK_TIPO_USUARIO_ID)
 VALUES ('Reciclus_LTDA', 'senha123', 'Reciclus LTDA', 1234567890, 3),
        ('Port_Recicla', 'senha456', 'Port Recicla', 9876543210, 3),
        ('Zocata_Recicla', 'senha789', 'Zocata Recicla', 5555555555,3),
@@ -292,9 +292,9 @@ VALUES ('Reciclus_LTDA', 'senha123', 'Reciclus LTDA', 1234567890, 3),
        ('EcoRevive', 'senha789', 'EcoRevive Reciclagem', 5555555555, 3),
        ('GreenTech', 'senha123', 'GreenTech Reciclagem', 1234567890, 3),
        ('EcoCycle', 'senha456', 'EcoCycle Sustentabilidade', 9876543210, 3),
-('EcoRevolution', 'senha789', 'EcoRevolution Recicláveis', 5555555555,3),
-('Salvando_o_verde', 'verde_237', 'Salvando_o_verde', 7777777777, 3),
-('Joao_Silva', 'Joao13', 'João Silva', 1111111111, 3),
+	('EcoRevolution', 'senha789', 'EcoRevolution Recicláveis', 5555555555,3),
+	('Salvando_o_verde', 'verde_237', 'Salvando_o_verde', 7777777777, 3),
+	('Joao_Silva', 'Joao13', 'João Silva', 1111111111, 3),
       ('Maria_Souza', 'Maria13', 'Maria Souza', 2222222222, 2),
       ('Pedro_Santos', 'Pedro13', 'Pedro Santos', 3333333333, 2),
       ('Ana_Oliveira', 'Ana13', 'Ana Oliveira', 4444444444, 2),
@@ -335,7 +335,7 @@ VALUES ('Reciclus_LTDA', 'senha123', 'Reciclus LTDA', 1234567890, 3),
       ('Rodrigo_Almeida', 'Rodrigo13', 'Rodrigo Almeida', 3939393939, 2),
       ('Leticia_Rocha', 'Leticia13', 'Letícia Rocha', 4040404040, 2);
 
-INSERT INTO USUARIO_PESSOA_FISICA (FK_USUARIO_ID, DataNascimento)
+INSERT INTO USUARIO_PESSOA_FISICA (FK_USUARIO_ID, DATA_NASCIMENTO)
 VALUES
   (11, '1980-01-01'),
   (12, '1981-02-02'),
@@ -368,7 +368,7 @@ VALUES
   (39, '2001-05-29'),
   (40, '2001-06-30');
 
-INSERT INTO ENDERECO (CEP, FK_TipoLogradouro_ID, Logradouro, FK_Estado_ID, FK_Cidade_ID, FK_Bairro_ID, Numero, Longitude, Latitude)
+INSERT INTO ENDERECO (CEP, FK_TIPO_LOGRADOURO_ID, LOGRADOURO, FK_Estado_ID, FK_Cidade_ID, FK_Bairro_ID, Numero, Longitude, Latitude)
 VALUES ('29010-001', 1, 'Rua Sete de Setembro', 1, 1, 1, 123, -40.123456, -20.987654),
        ('29020-002', 2, 'Avenida Vitória', 1, 1, 2, 456, -40.123456, -20.987654),
        ('29030-003', 3, 'Travessa Bela Vista', 1, 1, 3, 789, -40.123456, -20.987654),
