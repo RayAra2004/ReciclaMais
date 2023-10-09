@@ -20,7 +20,7 @@
         $cidade = $_POST["cidade"];
         $bairro = $_POST["bairro"];
         $complemento = $_POST["complemento"];
-
+        /*
         $nome_empresa = filter_var($nome_empresa, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
         $cnpj = filter_var($cnpj, FILTER_SANITIZE_NUMBER_INT);
         $telefone = filter_var($telefone, FILTER_SANITIZE_NUMBER_INT);
@@ -32,6 +32,19 @@
         $cidade = filter_var($cidade, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
         $bairro = filter_var($cidade, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
         $complemento = filter_var($cidade, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+        */
+        
+        $nome_empresa = preg_replace('/[^A-Za-z0-9\s]/', '', $nome_empresa);
+        $cnpj = preg_replace('/[^0-9]/', '', $cnpj);
+        $telefone = preg_replace('/[^0-9]/', '', $telefone);
+        $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+        $senha = preg_replace('/[^A-Za-z0-9]/', '', $senha);
+        $cep = preg_replace('/[^0-9]/', '', $cep);
+        $logradouro = preg_replace('/[^A-Za-z0-9\s]/', '', $logradouro);
+        $numero = preg_replace('/[^0-9]/', '', $numero);
+        $cidade = preg_replace('/[^A-Za-z\s]/', '', $cidade);
+        $bairro = preg_replace('/[^A-Za-z\s]/', '', $bairro);
+        $complemento = preg_replace('/[^A-Za-z0-9\s]/', '', $complemento);
 
         $formatName = array("options" => array("regexp" => "/([\wÀ-ÿ&-0-9])/"));
         if(! filter_var($nome_empresa, FILTER_VALIDATE_REGEXP, $formatName)){
