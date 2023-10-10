@@ -5,7 +5,7 @@ const email = document.getElementById('email');
 const senha = document.getElementById('senha');
 const confirmarSenha = document.getElementById('confirmar_senha');
 const cep = document.getElementById('cep');
-const tpLogradouro = document.getElementById('tp_logradouro');
+const tpLogradouro = document.getElementById('tp-logradouro');
 const logradouro = document.getElementById('logradouro');
 const numero = document.getElementById('numero');
 const uf = document.getElementById('uf');
@@ -88,7 +88,7 @@ telefone.addEventListener("input", e => {
         telefone.value = "(" + result.substring(0, 2) + ")" + result.substring(2, 6) + "-" + result.substring(6, 10);
     }
 });
-
+/*
 formGeral.addEventListener("submit", e =>{
     e.preventDefault();
     const novoCadstro = {
@@ -109,7 +109,7 @@ formGeral.addEventListener("submit", e =>{
     localStorage.setItem("usuario", novoCadstroSerializado);
 
 });
-
+*/
 btnContinuar1.addEventListener("click", async (e) =>{
     e.preventDefault();
     

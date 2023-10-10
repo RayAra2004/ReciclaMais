@@ -62,7 +62,7 @@
                         <button name="btn-login" click="submit" class="btn border-0 container bg_verde preto">Login</button>
                         <div id="opcoes" class="azul mt-3 text-center justify-content-around gap-2">
                             <p class="azul">Ainda não possui cadastro?</p>
-                            <a class="d-flex justify-content-center" href="./cadastro.php">
+                            <a class="d-flex justify-content-center" href="/ReciclaMais/telas/empresa/cadastroEmpresa.php">
                                 <div class="btn-cadastre">
                                     <p>Cadastre-se</p>
                                 </div>

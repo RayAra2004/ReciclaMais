@@ -1,161 +1,73 @@
 <?php
-    $css = '<link rel="stylesheet" href="/ReciclaMais/css/cadastro.css"> <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> <script src="./../script/cadastro.js" defer></script>';
-    include './componentes/header.php';
-?>
+    $css = '<link rel="stylesheet" href="/ReciclaMais/css/cadastro.css"> <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> <script src="/ReciclaMais/script/cadastro.js" defer></script>';
+    include './../componentes/header.php';
+    include './validacaoEmpresa.php';
+    if(!empty($_POST)){
+        $erros = validacaoEmpresa($_POST);
 
-<?php
-    $erros = array();
-
-    if(isset($_POST["btn-cadastro"])){ 
-        $nome_empresa = $_POST["nome-empresa"];
-        $cnpj = $_POST["cnpj"];
-        $telefone = $_POST["telefone"];
-        $email = $_POST["email"];
-        $senha = $_POST["senha"];
-        $cep = $_POST["cep"];
-        $tp_logradouro = $_POST["tp-logradouro"];
-        $logradouro = $_POST["logradouro"];
-        $numero = $_POST["numero"];
-        $uf = $_POST["uf"];
-        $cidade = $_POST["cidade"];
-        $bairro = $_POST["bairro"];
-        $complemento = $_POST["complemento"];
-        /*
-        $nome_empresa = filter_var($nome_empresa, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
-        $cnpj = filter_var($cnpj, FILTER_SANITIZE_NUMBER_INT);
-        $telefone = filter_var($telefone, FILTER_SANITIZE_NUMBER_INT);
-        $email = filter_var($email, FILTER_SANITIZE_EMAIL);
-        $senha = filter_var($senha, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
-        $cep = filter_var($cep, FILTER_SANITIZE_NUMBER_INT);
-        $logradouro = filter_var($logradouro, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
-        $numero = filter_var($numero, FILTER_SANITIZE_NUMBER_INT);
-        $cidade = filter_var($cidade, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
-        $bairro = filter_var($cidade, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
-        $complemento = filter_var($cidade, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
-        */
-        
-        $nome_empresa = preg_replace('/[^A-Za-z0-9\s]/', '', $nome_empresa);
-        $cnpj = preg_replace('/[^0-9]/', '', $cnpj);
-        $telefone = preg_replace('/[^0-9]/', '', $telefone);
-        $email = filter_var($email, FILTER_SANITIZE_EMAIL);
-        $senha = preg_replace('/[^A-Za-z0-9]/', '', $senha);
-        $cep = preg_replace('/[^0-9]/', '', $cep);
-        $logradouro = preg_replace('/[^A-Za-z0-9\s]/', '', $logradouro);
-        $numero = preg_replace('/[^0-9]/', '', $numero);
-        $cidade = preg_replace('/[^A-Za-z\s]/', '', $cidade);
-        $bairro = preg_replace('/[^A-Za-z\s]/', '', $bairro);
-        $complemento = preg_replace('/[^A-Za-z0-9\s]/', '', $complemento);
-
-        $formatName = array("options" => array("regexp" => "/([\wÀ-ÿ&-0-9])/"));
-        if(! filter_var($nome_empresa, FILTER_VALIDATE_REGEXP, $formatName)){
-            $erros[] = "Nome inválido";
-        }
-
-        if(strlen($cnpj)!=14){
-            $erros[] = "CNPJ inválido";
-        }
-
-        if((strlen($telefone)!=10) or (strlen($telefone)!=11)){
-            $erros[] = "Telefone inválido";
-        }
-        
-        if(!(filter_var($email, FILTER_VALIDATE_EMAIL))){
-            $erros[] = "Email inválido";
-        }
-
-        $formatPassword = array("options" => array("regexp" => "/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/"));
-        if(! filter_var($senha, FILTER_VALIDATE_REGEXP, $formatPassword)){
-            $erros[] = "Senha inválida";
-        }
-
-        if(strlen($cep)!=8){
-            $erros[] = "CEP inválido";
-        }
-        
-        $formatLogradouro = array("options" => array("regexp" => "/([\wÀ-ÿ&-0-9])/"));
-        if(! filter_var($logradouro, FILTER_VALIDATE_REGEXP, $formatLogradouro)){
-            $erros[] = "Logradouro inválido";
-        }
-
-        $formatNumero = array("options" => array("regexp" => "/[0-9]/"));
-        if(! filter_var($numero, FILTER_VALIDATE_REGEXP, $formatNumero)){
-            $erros[] = "Número inválido";
-        }
-
-        $formatCidade = array("options" => array("regexp" => "/([\wÀ-ÿ&-0-9])/"));
-        if(! filter_var($cidade, FILTER_VALIDATE_REGEXP, $formatCidade)){
-            $erros[] = "Cidade inválida";
-        }
-
-        $formatBairro = array("options" => array("regexp" => "/([\wÀ-ÿ&-0-9])/"));
-        if(! filter_var($bairro, FILTER_VALIDATE_REGEXP, $formatBairro)){
-            $erros[] = "Bairro inválido";
-        }
-        $formatComplemento = array("options" => array("regexp" => "/([\wÀ-ÿ&-0-9])/"));
-        if(! filter_var($complemento, FILTER_VALIDATE_REGEXP, $formatComplemento)){
-            $erros[] = "Complemento inválido";
-        }
-        
         if(empty($erros)){
             header('Location: /ReciclaMais/telas/login.php');
         }
     }
+    
 ?>
+
+
 
     
 <section class="body_content d-flex align-items-center">
     <div class="container h-fit-content d-flex justify-content-center">
         <div class="card px-4 py-3 bg-padrao w-90">
-            <form id="form_infos_geral" action="cadastro.php" method="post" class="form-data">
+            <form id="form_infos_geral" action="./cadastroEmpresa.php" method="post" class="form-data">
                 <div class="container-fluid row">
                     <div id="div-cad-1" class="div-cad-1 d-flex justify-content-between flex-wrap">
                         <div class="mb-3 d-flex flex-column w-100 verde">
                             <label for="nome-empresa">NOME (da empresa)</label>
-                            <input type="text" class="nome-empresa" name="nome-empresa" id="nome-empresa" placeholder="Digite seu nome empresarial" required>
+                            <input value ="recicla"  type="text" class="nome-empresa" name="nome-empresa" id="nome-empresa" placeholder="Digite seu nome empresarial" required>
                         </div>
                         <div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="cnpj">CNPJ</label>
-                                <input type="text" name="cnpj" id="cnpj" placeholder="Ex. XX.XXX.XXX/000X-XX" required maxlength="18">
+                                <input value ="00000000000191" type="text" name="cnpj" id="cnpj" placeholder="Ex. XX.XXX.XXX/000X-XX" required maxlength="18">
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="telefone">TELEFONE</label>
-                                <input type="text" name="telefone" id="telefone" placeholder="Ex. (XX)XXXX-XXXX" required maxlength=14>
+                                <input value="27995273201" type="text" name="telefone" id="telefone" placeholder="Ex. (XX)XXXX-XXXX" required maxlength=14>
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="email">EMAIL</label>
-                                <input type="email" name="email" id="email" placeholder="Digite seu email empresarial" required>
+                                <input value="recicla@gmail.com" type="email" name="email" id="email" placeholder="Digite seu email empresarial" required>
                             </div>
                         </div>
                         <div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="senha">SENHA</label>
                                 <div>
-                                    <input class="" type="password" name="senha" id="senha" placeholder="Digite sua senha empresarial" required>
+                                    <input value="Recicla2023+" class="" type="password" name="senha" id="senha" placeholder="Digite sua senha empresarial" required>
                                     <span class="lnr lnr-eye" type="senha"></span>
                                 </div>
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="confirmar-senha">CONFIRME SUA SENHA</label>
                                 <div>
-                                    <input class="" type="password" name="confirmar-senha" id="confirmar_senha" placeholder="Confirme sua senha empresarial" required>
+                                    <input value="Recicla2023+" class="" type="password" name="confirmar-senha" id="confirmar_senha" placeholder="Confirme sua senha empresarial" required>
                                     <span class="lnr lnr-eye" type="confirmar_senha"></span>
                                 </div>
                             </div>
                         </div> 
                         <div class="w-100 d-flex justify-content-end">
-                            <button type="submit" class="btn-continuar" id="btn-continuar1">Próxima</button>
+                            <button  class="btn-continuar" id="btn-continuar1">Próxima</button>
                         </div>                           
                     </div>
                     <div id="div-cad-2" class="div-cad-2 d-none flex-wrap justify-content-between">
                         <div class="">
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="cep">CEP</label>
-                                <input type="number" name="cep" id="cep" placeholder="Digie seu CEP empresarial" required pattern="\b\d{5}[-.]\d{3}">
+                                <input value="29116150" type="number" name="cep" id="cep" placeholder="Digie seu CEP empresarial" required pattern="\b\d{5}[-.]\d{3}">
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="tp-logradouro">TIPO LOGRADOURO</label>
-                                <select id="tp_logradouro" name="tp-logradouro" disabled>
+                                <select id="tp-logradouro" name="tp-logradouro" disabled>
                                     <option value=""></option>
                                     <option value="aeroporto">aeroporto</option>
                                     <option value="alameda">alameda</option>
@@ -209,7 +121,7 @@
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="numero">NÚMERO</label>
-                                <input type="number" name="numero" id="numero" placeholder="Digite o número" required>
+                                <input value="225" type="number" name="numero" id="numero" placeholder="Digite o número" required>
                             </div>
                         </div>
                         <div class="">
@@ -260,7 +172,7 @@
                             </div>
                         </div>
                         <div class="w-100 d-flex justify-content-end">
-                            <button type="submit" class="btn-continuar" id="btn-continuar2">Próxima</button>
+                            <button class="btn-continuar" id="btn-continuar2">Próxima</button>
                         </div>
                     </div>               
                     <div id="div-cad-3" class="div-cad-3 d-none justify-content-center aling-items-center flex-wrap">
@@ -296,7 +208,7 @@
                             </div>
                         </div>
                         <div class="w-100 d-flex justify-content-end">
-                            <button click="submit" name="btn-cadastro" class="btn-cadastro" form="form_infos_geral">CADASTRAR-SE</button>
+                            <button type="submit" name="btn-cadastro" class="btn-cadastro" form="form_infos_geral">CADASTRAR-SE</button>
                         </div>
                     </div>
                 </div>
@@ -314,5 +226,5 @@
     </div>
 </section>
 <?php
-    include './componentes/footer.php'
+    include './../componentes/footer.php'
 ?> 
