@@ -1,20 +1,26 @@
 <?php
     $css = '<link rel="stylesheet" href="/ReciclaMais/css/cadastro.css"> <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> <script src="/ReciclaMais/script/cadastro.js" defer></script>';
     include './../componentes/header.php';
-    include './validacaoEmpresa.php';
-    if(!empty($_POST)){
-        $erros = validacaoEmpresa($_POST);
 
-        if(empty($erros)){
-            header('Location: /ReciclaMais/telas/login.php');
+    include './validacaoEmpresa.php';
+    include './../../sql/web/empresa/cadastroEmpresa_mysql.php';
+    include_once '/ReciclaMais/sql/database/connection.php';
+
+    if(!empty($_POST)){
+        $response = validacaoEmpresa($_POST);
+
+        if(isset($response['erros'])){
+            $erros = $response['erros'];
+        }else{
+
+            //TODO: Fazer o cadastro no banco
+            cadastrarEmpresa($connect, $response);
         }
+        
     }
     
 ?>
-
-
-
-    
+ 
 <section class="body_content d-flex align-items-center">
     <div class="container h-fit-content d-flex justify-content-center">
         <div class="card px-4 py-3 bg-padrao w-90">
@@ -214,13 +220,15 @@
                 </div>
             </form>
             <div class="d-flex mt-3 div-error">
-                <?php 
-                    if(!empty($erros)){
-                        foreach($erros as $erro){
-                            echo "<li> $erro </li>";
+                <ul>
+                    <?php 
+                        if(!empty($erros)){
+                            foreach($erros as $erro){
+                                echo "<li> $erro </li>";
+                            }
                         }
-                    }
-                ?>
+                    ?>
+                </ul>
             </div>
         </div>
     </div>

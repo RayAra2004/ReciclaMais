@@ -16,21 +16,8 @@ function validacaoEmpresa($dadosEmpresa){
         $cidade = $dadosEmpresa["cidade"];
         $bairro = $dadosEmpresa["bairro"];
         $complemento = $dadosEmpresa["complemento"];
-        /*
-        $nome_empresa = filter_var($nome_empresa, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
-        $cnpj = filter_var($cnpj, FILTER_SANITIZE_NUMBER_INT);
-        $telefone = filter_var($telefone, FILTER_SANITIZE_NUMBER_INT);
-        $email = filter_var($email, FILTER_SANITIZE_EMAIL);
-        $senha = filter_var($senha, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
-        $cep = filter_var($cep, FILTER_SANITIZE_NUMBER_INT);
-        $logradouro = filter_var($logradouro, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
-        $numero = filter_var($numero, FILTER_SANITIZE_NUMBER_INT);
-        $cidade = filter_var($cidade, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
-        $bairro = filter_var($cidade, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
-        $complemento = filter_var($cidade, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
-        */
         
-        $nome_empresa = preg_replace('/[^A-Za-z0-9\s]/', '', $nome_empresa);
+        $nome_empresa = filter_var($nome_empresa, FILTER_SANITIZE_SPECIAL_CHARS);
         $cnpj = preg_replace('/[^0-9]/', '', $cnpj);
         $telefone = preg_replace('/[^0-9]/', '', $telefone);
         $email = filter_var($email, FILTER_SANITIZE_EMAIL);
@@ -40,7 +27,11 @@ function validacaoEmpresa($dadosEmpresa){
         $numero = preg_replace('/[^0-9]/', '', $numero);
         $cidade = preg_replace('/[^A-Za-z\s]/', '', $cidade);
         $bairro = preg_replace('/[^A-Za-z\s]/', '', $bairro);
+        $tp_logradouro = preg_replace('/[^A-Za-z\s]/', '', $tp_logradouro);
+        $uf = preg_replace('/[^A-Za-z\s]/', '', $uf);
         $complemento = preg_replace('/[^A-Za-z0-9\s]/', '', $complemento);
+        $senha = filter_var($senha, FILTER_SANITIZE_SPECIAL_CHARS);
+
 
         $formatName = array("options" => array("regexp" => "/([\wÀ-ÿ&-0-9])/"));
         if(! filter_var($nome_empresa, FILTER_VALIDATE_REGEXP, $formatName)){
@@ -51,7 +42,7 @@ function validacaoEmpresa($dadosEmpresa){
             $erros[] = "CNPJ inválido";
         }
 
-        if((strlen($telefone) < 10) or (strlen($telefone) == 11)){
+        if((strlen($telefone) < 10 || strlen($telefone) >11)){
             $erros[] = "Telefone inválido";
         }
         
@@ -87,13 +78,31 @@ function validacaoEmpresa($dadosEmpresa){
         if(! filter_var($bairro, FILTER_VALIDATE_REGEXP, $formatBairro)){
             $erros[] = "Bairro inválido";
         }
-        // $formatComplemento = array("options" => array("regexp" => "/([\wÀ-ÿ&-0-9])/"));
-        // if(! filter_var($complemento, FILTER_VALIDATE_REGEXP, $formatComplemento)){
-        //     $erros[] = "Complemento inválido";
-        // }
     }
 
-    return $erros;
+    $response = [];
+
+    if(empty($erros)){
+        $response = [
+            'nome_empresa' => $nome_empresa,
+            'cnpj' => $cnpj,
+            'telefone' => $telefone,
+            'email' => $email,
+            'senha' => $senha,
+            'cep' => $cep,
+            'logradouro' => $logradouro,
+            'numero' => $numero,
+            'cidade' => $cidade,
+            'bairro' => $bairro,
+            'tp_logradouro' => $tp_logradouro,
+            'uf' => $uf,
+            'complemento' => $complemento
+        ];
+    }else{
+        $response['erros'] = $erros;
+    }
+
+    return $response;
 }
     
 ?>
