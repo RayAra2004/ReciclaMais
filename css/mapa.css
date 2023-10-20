@@ -1,163 +1,26 @@
-/*importando a fonte lemonmilk*/
-@import url('https://fonts.cdnfonts.com/css/lemonmilk');
 
-/*definindo a formatacao padrao dos elementos*/
-
-.desaparecer {
-    display: none;
-}
-
-
-/*classe que faz o menu crescer quando ativado*/
-.menuSelecionado {
+.options{
     width: 100%;
-}
-
-
-/*estiliza e posiona o menu lateral onde fica a barra de pesquisa*/
-#menuLateral {
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    overflow: visible;
-    z-index: 2;
-    position: absolute;
-    margin-top: 20px;
-    margin-left: 20px;
-    display: flex !important;
-    min-width: 450px !important;
-    width: 30vw !important;
-}
-
-/*container para posicionar a barra de pesquisa*/
-#containerPesquisa {
-    width: 90%;
-    padding-left: 10px;
-    padding-right: 10px;
-    z-index: 3;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: width 0.3s ease-in-out;
+    justify-content: center;
 }
-
-
-
-#sugestoes {
-    background-color: white;
-    padding: 10px;
-    border-radius: 5px;
-    margin-top: 10px;
+.search_input{
+    width: 40vw;
+    height: 6vh;
+    border-radius: 15px;
+    border-color: #000;
+}
+.search_btn{
+    width: 10vw;
+    height: 6vh;
+    border-radius: 15px;
+    border-color: #000;
+}
+.search_btn:hover{
+    background-color: #fff;
+}
+#map{
     width: 100%;
-    display: none;
-}
-
-#sugestoes div {
-    padding: 5px;
-    cursor: pointer;
-}
-
-#sugestoes div:hover {
-    background-color: grey;
-}
-
-/*classe do campo de pesquisa*/
-#inpPesquisa {
-    height: 40px;
-    width: 100%;
-    display: block;
-    padding-left: 5px;
-    outline: 0;
-    border-radius: 10px;
-    border: 1px solid #00427F;
-    font-size: 16px;
-}
-
-/*place holder do campo de pesquisa*/
-#inpPesquisa::placeholder {
-    font-size: 18px;
-}
-
-/*definindo o mapa como o elemento mais atras nas camadas*/
-#mapa {
-    z-index: -1;
-    position: absolute;
-}
-
-.perfil-estabelecimento {
-    width: 20rem;
-    z-index: 5;
-    position: absolute !important;
-    margin-top: 5rem;
-    margin-left: 2rem;
-    background-color: red;
-}
-
-@media only screen and (max-width: 470px) {
-    .menuConfig {
-        display: none;
-    }
-
-    .opConfigNav {
-        border: 0 !important;
-        color: #397FBF;
-        display: block;
-    }
-
-    #inpPesquisa {
-        height: 40px;
-        width: calc(100vw - 50px) !important;
-        display: block;
-        padding-left: 5px;
-        outline: 0;
-        border-radius: 10px;
-        border: 1px solid #00427F;
-        font-size: 16px;
-    }
-
-    #menuLateral {
-        align-items: center;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        overflow: visible;
-        z-index: 2;
-        position: absolute;
-        display: flex !important;
-        width: calc(100vw - 50px) !important;
-        min-width: calc(100vw - 50px) !important;
-        margin-top: 10px;
-        margin-left: 0;
-        padding: 0 10px
-    }
-
-    #containerPesquisa {
-        width: 100%;
-        padding-left: 10px;
-        padding-right: 10px;
-        z-index: 3;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        transition: width 0.3s ease-in-out;
-    }
-
-    .perfil-estabelecimento {
-        position: fixed !important;
-        bottom: 0 !important;
-        left: 0;
-        margin: 0;
-        width: 100vw !important;
-        z-index: 5;
-    }
-
-    #dadosPerfMobile {
-        width: 100vw;
-    }
-
-
-    #dadosPerf {
-        width: 100vw;
-    }
-
-
+    height: 56vh;
+    background: #555;
 }
