@@ -32,8 +32,8 @@
                     <div class="collapse navbar-collapse justify-content-md-end" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
                             <a href="/ReciclaMais/index.php" class="nav-link temaGreen">Home</a>
-                            <a href="/ReciclaMais/telas/sobreNos.php" class="nav-link temaGreen">Sobre Nós</a>
-                            <a href="/ReciclaMais/telas/ajuda.php" class="nav-link temaGreen">Ajuda</a>
+                            <a href="/ReciclaMais/telas/entidades/sobreNos/sobreNos.php" class="nav-link temaGreen">Sobre Nós</a>
+                            <a href="/ReciclaMais/telas/entidades/ajuda/ajuda.php" class="nav-link temaGreen">Ajuda</a>
                             <!--<a class="btn temaGreen" href="/ReciclaMais/telas/login.php" role="button">Entrar</a>-->
                             <?php echo $_SESSION['comp_header'] ?>
                         </div>

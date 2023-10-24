@@ -1,6 +1,6 @@
 <?php
     $css = '<link rel="stylesheet" href="/ReciclaMais/css/login.css"> <script src="/ReciclaMais/script/login.js" defer></script>';
-    include './componentes/header.php';
+    include './../../componentes/header.php';
 ?>
 <?php
     $erros = array();
@@ -62,7 +62,7 @@
                         <button name="btn-login" click="submit" class="btn border-0 container bg_verde preto">Login</button>
                         <div id="opcoes" class="azul mt-3 text-center justify-content-around gap-2">
                             <p class="azul">Ainda não possui cadastro?</p>
-                            <a class="d-flex justify-content-center" href="/ReciclaMais/telas/empresa/cadastroEmpresa.php">
+                            <a class="d-flex justify-content-center" href="/ReciclaMais/telas/entidades/empresa/cadastroEmpresa.php">
                                 <div class="btn-cadastre">
                                     <p>Cadastre-se</p>
                                 </div>
@@ -97,5 +97,5 @@
     </div>
 </section>
 <?php
-    include './componentes/footer.php'
+    include './../../componentes/footer.php'
 ?>    

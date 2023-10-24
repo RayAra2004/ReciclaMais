@@ -1,5 +1,5 @@
 <?php 
-    
+    echo "achei";
     function cadastrarEmpresa($connect, $dados) {
         $nome_empresa = mysqli_real_escape_string($connect, $dados['nome_empresa']);
         $cnpj = mysqli_real_escape_string($connect, $dados['cnpj']);

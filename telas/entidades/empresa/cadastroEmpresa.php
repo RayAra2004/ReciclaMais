@@ -1,10 +1,10 @@
 <?php
     $css = '<link rel="stylesheet" href="/ReciclaMais/css/cadastro.css"> <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> <script src="/ReciclaMais/script/cadastro.js" defer></script>';
-    include './../componentes/header.php';
+    include './../../componentes/header.php';
 
     include './validacaoEmpresa.php';
-    include './../../sql/web/empresa/cadastroEmpresa_mysql.php';
-    include_once '/ReciclaMais/sql/database/connection.php';
+    include './../../../sql/web/empresa/cadastroEmpresa_mysql.php';
+    include_once './../../../sql/database/connection.php';
 
     if(!empty($_POST)){
         $response = validacaoEmpresa($_POST);
@@ -18,7 +18,6 @@
         }
         
     }
-    
 ?>
  
 <section class="body_content d-flex align-items-center">
@@ -234,5 +233,5 @@
     </div>
 </section>
 <?php
-    include './../componentes/footer.php'
+    include './../../componentes/footer.php'
 ?> 
