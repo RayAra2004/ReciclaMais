@@ -1,7 +1,7 @@
 <?php
 	//Configurações do banco de dados.
-	define('DB_HOST','localhost');
-	define('DB_NAME','drivent');
-	define('DB_USER','postgre');
-	define('DB_PASS','raynan');
+	define('DB_HOST','silly.db.elephantsql.com');
+	define('DB_NAME','uvkpyiik');
+	define('DB_USER','uvkpyiik');
+	define('DB_PASS','TZgVp21AeXJOpRBjTgV_jK9ybRW5WmGo');
 ?>
