@@ -3,8 +3,8 @@
     include './../../componentes/header.php';
 
     include './validacaoEmpresa.php';
-    include './../../../sql/web/empresa/cadastroEmpresa_mysql.php';
-    include_once './../../../sql/database/connection.php';
+    //include './../../../sql/web/empresa/cadastroEmpresa_mysql.php';
+    //include_once './../../../sql/database/connection.php';
 
     if(!empty($_POST)){
         $response = validacaoEmpresa($_POST);
