@@ -6,7 +6,7 @@
     $css = '<link rel="stylesheet" href="../ReciclaMais/css/index.css">';
     include '../ReciclaMais/telas/componentes/header.php';
 
-    include './sql/entidades/Usuario.php';
+    include './sql/entidades/usuario/Usuario.php';
 ?>
     <section class="body_content">
         <?php 
