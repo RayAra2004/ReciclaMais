@@ -9,13 +9,56 @@ searchBtn.addEventListener("click", ()=>{
     geocodeQuery(searchInput.value);
 });
 
+function clicado(content){
+    console.log(content);
+}
+
 function getMap(){
-    var locIfes = new Microsoft.Maps.Location(-20.197329691804068, -40.2170160437478);
-    var jaymeDosSantosNeves = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(-20.199232504534884, -40.227077110956316), {
+    const locIfes = new Microsoft.Maps.Location(-20.197329691804068, -40.2170160437478);
+
+
+    const ifes = new Microsoft.Maps.Pushpin(locIfes, {
+        color: "green",
+        title: "Ifes Campus Serra",
+        icon: "/ReciclaMais/imgs/silver_pin.svg"
+    });
+    console.log(ifes);
+    //ifes.addEventListener('click', clicado);
+    const jaymeDosSantosNeves = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(-20.199232504534884, -40.227077110956316), {
         color: "red",
         title: "Hospital Jayme dos Santos Neves",
-        icon: "/ReciclaMais/imgs/icone-ponto-prata.png"
+        icon: "/ReciclaMais/imgs/silver_pin.svg"
     });
+
+    const cafeArrumado = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(-20.19826402415827, -40.224856532079116), {
+        color: "blue",
+        title: "Café Arrumado",
+        icon: "/ReciclaMais/imgs/silver_pin.svg"
+
+    });
+
+    const locaisProprios = {};
+
+    locaisProprios[1] = {
+        "nome": "Ifes campus Serra",
+        "pushpin": ifes,
+        "imagem": "/ReciclaMais/imgs/arvores.png"
+    };
+    locaisProprios[2] = {
+        "nome": "Jayme dos Santos Neves",
+        "pushpin": jaymeDosSantosNeves,
+        "imagem": "/ReciclaMais/imgs/arvores.png"
+    };
+
+    locaisProprios[3] = {
+        "nome": "Café Arrumado",
+        "pushpin": cafeArrumado,
+        "imagem": "/ReciclaMais/imgs/arvores.png"
+    };
+
+    /*for (let item in locaisProprios) {
+        map.entities.push(locaisProprios[item]["pushpin"]);
+    };*/
 
     /*
     var locaisProprios = {};
@@ -39,10 +82,13 @@ function getMap(){
         navigationBarOrientation: "horizontal",
         credentials: 'Ak_PJnVWlG661PnFrGXTK6jXXiZz9b3Ocn4R5X9BXIhfGRcR7zSvm27_YE30YHHK',
     });
-    /*for (let item in locaisProprios) {
+    for (let item in locaisProprios) {
         map.entities.push(locaisProprios[item]["pushpin"]);
-    }*/
-    map.entities.push(jaymeDosSantosNeves);
+    }
+    Microsoft.Maps.Events.addHandler(ifes, 'click', function () { clicado(ifes.getAnchor()); });
+    /*map.entities.push(jaymeDosSantosNeves);
+    map.entities.push(cafeArrumado);
+    map.entities.push(ifes);*/
 };
 
 function geocodeQuery(query){
