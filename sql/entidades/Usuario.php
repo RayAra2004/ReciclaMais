@@ -2,7 +2,7 @@
     require_once './sql/database/crud.php';
 
     class Usuario extends CRUD{
-        protected $table = 'cadastro_ponto_coleta';
+        protected $table = 'usuario';
         
         private $login;
         private $senha;
