@@ -1,5 +1,5 @@
 <?php
-    require_once "./sql/entidades/usuario/Usuario.php";
+    require_once "./../usuario/Usuario.php";
 
     class Pessoa_Fisica extends Usuario{
         protected $table = "usuario_pessoa_fisica";
