@@ -1,5 +1,5 @@
 <?php
-	require_once './sql/database/database.php';
+	require_once 'database.php';
 	
 /*************************************************************
 Objetivo: Classe responsável por representar uma tabela genérica do banco de dados.

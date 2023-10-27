@@ -1,5 +1,5 @@
 <?php
-    require_once './sql/database/crud.php';
+    require_once __DIR__ . '/../../database/crud.php';
 
     class Usuario extends CRUD{
         protected $table = 'usuario';
