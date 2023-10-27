@@ -43,8 +43,8 @@ delete - exclui um registro pelo id
 		Objetivo: Método que consulta todos clientes
 		Parâmetro de saída: Retorna a tabela com registros. Em caso de falha na consulta, retorna falso.
 		***************/		
-		public function  findAll(){
-			$sql = "SELECT * FROM $this->table ";
+		public static function  findAll($tableName){
+			$sql = "SELECT * FROM $tableName ";
 			$stmt = Database::prepare($sql);			
 			$stmt->execute();
 			//retorna um array com os registros da tabela indexado pelo nome da coluna da tabela e por um número

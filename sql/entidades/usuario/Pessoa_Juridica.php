@@ -2,7 +2,7 @@
     require_once(dirname(__FILE__) ."./Usuario.php");
 
     class Pessoa_Juridica extends Usuario {
-        protected $table ="usuario_pessoa_juridica";
+        protected static $table ="usuario_pessoa_juridica";
         private $cnpj;
         private $logo;
         private $data_cadastro;
@@ -20,6 +20,11 @@
             $this->logo = $logo;
             $this->id_endereco = $id_endereco;
             $this->id_tipo_assinatura = $id_tipo_assinatura;
+        }
+
+
+        public static function findAllJuridicPeople(){
+            return parent::findAll(self::$table);
         }
 
         public function insert(){

@@ -56,6 +56,8 @@ if(autenticar($db_con)) {
 			// Se o produto foi inserido corretamente no servidor, o cliente 
 			// recebe a chave "sucesso" com valor 1
 			$resposta["sucesso"] = 1;
+			http_response_code(200);
+			
 		} else {
 			// Se o produto nao foi inserido corretamente no servidor, o cliente 
 			// recebe a chave "sucesso" com valor 0. A chave "erro" indica o 

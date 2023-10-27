@@ -1,22 +1,9 @@
 <?php
-function validacaoEmpresa($dadosEmpresa){
-    $erros = array();
+function validacaoEmpresa($nome_empresa, $cnpj, $telefone, $email, $senha, $cep, $tp_logradouro, $logradouro, 
+    $numero, $uf, $cidade, $bairro, $complemento){
+    
+        $erros = array();
 
-    if(isset($dadosEmpresa["btn-cadastro"])){ 
-        $nome_empresa = $dadosEmpresa["nome-empresa"];
-        $cnpj = $dadosEmpresa["cnpj"];
-        $telefone = $dadosEmpresa["telefone"];
-        $email = $dadosEmpresa["email"];
-        $senha = $dadosEmpresa["senha"];
-        $cep = $dadosEmpresa["cep"];
-        $tp_logradouro = $dadosEmpresa["tp-logradouro"];
-        $logradouro = $dadosEmpresa["logradouro"];
-        $numero = $dadosEmpresa["numero"];
-        $uf = $dadosEmpresa["uf"];
-        $cidade = $dadosEmpresa["cidade"];
-        $bairro = $dadosEmpresa["bairro"];
-        $complemento = $dadosEmpresa["complemento"];
-        
         $nome_empresa = filter_var($nome_empresa, FILTER_SANITIZE_SPECIAL_CHARS);
         $cnpj = preg_replace('/[^0-9]/', '', $cnpj);
         $telefone = preg_replace('/[^0-9]/', '', $telefone);
@@ -78,31 +65,30 @@ function validacaoEmpresa($dadosEmpresa){
         if(! filter_var($bairro, FILTER_VALIDATE_REGEXP, $formatBairro)){
             $erros[] = "Bairro inválido";
         }
-    }
 
-    $response = [];
+        $response = [];
 
-    if(empty($erros)){
-        $response = [
-            'nome_empresa' => $nome_empresa,
-            'cnpj' => $cnpj,
-            'telefone' => $telefone,
-            'email' => $email,
-            'senha' => $senha,
-            'cep' => $cep,
-            'logradouro' => $logradouro,
-            'numero' => $numero,
-            'cidade' => $cidade,
-            'bairro' => $bairro,
-            'tp_logradouro' => $tp_logradouro,
-            'uf' => $uf,
-            'complemento' => $complemento
-        ];
-    }else{
-        $response['erros'] = $erros;
-    }
+        if(empty($erros)){
+            $response = [
+                'nome_empresa' => $nome_empresa,
+                'cnpj' => $cnpj,
+                'telefone' => $telefone,
+                'email' => $email,
+                'senha' => $senha,
+                'cep' => $cep,
+                'logradouro' => $logradouro,
+                'numero' => $numero,
+                'cidade' => $cidade,
+                'bairro' => $bairro,
+                'tp_logradouro' => $tp_logradouro,
+                'uf' => $uf,
+                'complemento' => $complemento
+            ];
+        }else{
+            $response['erros'] = $erros;
+        }
 
-    return $response;
+        return $response;
 }
     
 ?>

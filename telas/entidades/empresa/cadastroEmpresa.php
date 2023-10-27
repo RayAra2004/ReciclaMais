@@ -5,7 +5,10 @@
     include './validacaoEmpresa.php';
     //include './../../../sql/web/empresa/cadastroEmpresa_mysql.php';
     //include_once './../../../sql/database/connection.php';
+    include './sql/entidades/usuario/Pessoa_Juridica.php';
 
+    Pessoa_Juridica::findAllJuridicPeople();
+    
     if(!empty($_POST)){
         $response = validacaoEmpresa($_POST);
 
