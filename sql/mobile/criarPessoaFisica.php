@@ -1,7 +1,7 @@
 <?php 
 
-    require_once('./../entidades/usuario/Pessoa_Fisica.php');
-    require_once('./../entidades/usuario/Usuario.php');
+    require_once './../entidades/usuario/Pessoa_Fisica.php';
+    require_once './../entidades/usuario/Usuario.php';
 
     // array de resposta
     $resposta = array();
