@@ -1,5 +1,5 @@
 <?php 
-    require_once(dirname(__FILE__) ."./Usuario.php");
+    require_once("./Usuario.php");
 
     class Pessoa_Juridica extends Usuario {
         protected static $table ="usuario_pessoa_juridica";
