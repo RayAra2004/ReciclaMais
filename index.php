@@ -9,16 +9,7 @@
     include './sql/entidades/usuario/Usuario.php';
 ?>
     <section class="body_content">
-        <?php 
-            $usuarios = new Usuario();
-            $tabela_usuarios = $usuarios->findAll();
-
-            if(count($tabela_usuarios) > 0){
-                foreach($tabela_usuarios as $usuario){
-                    echo $usuario['nome'];
-                }
-            }
-        ?>
+        
         <div  id="navCards" class="container d-flex text-center justify-content-around pt-3">
             <div class="card m-3">
                 <span class="material-icons">
