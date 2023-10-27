@@ -8,12 +8,18 @@
         private $senha;
         private $nome;
         private $telefone;
+        private $id;
 
-        public function __construct($login = null, $senha = null, $nome = null, $telefone = null){
+        public function __construct($login = null, $senha = null, $nome = null, $telefone = null, $id = null){
             $this->login = $login;
             $this->senha = $senha;
             $this->nome = $nome;
             $this->telefone = $telefone;
+            $this->id = $id;
+        }
+
+        public function getId(){
+            return $this->id;
         }
 
 
@@ -25,7 +31,14 @@
             $stmt->bindParam(':nome', $this->nome);
             $stmt->bindParam(':telefone', $this->telefone);
 
-            return $stmt->execute();
+            if ($stmt->execute()) {
+                // Recupere o ID inserido
+                $this->id = Database::getInstance()->lastInsertId();
+    
+                return true;
+            }
+    
+            return false;
         }
 
         public function update($id){
