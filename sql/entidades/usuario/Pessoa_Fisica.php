@@ -11,18 +11,32 @@
         }
 
         public function insert(){
-            //chama o insert de Usuario
-            if (parent::insert()) {
-                // Agora, vamos inserir os dados específicos de pessoa física (data de nascimento).
-                $sql = "INSERT INTO $this->table (fk_usuario_id, data_nascimento) VALUES (:id, :dataNascimento);";
-                $stmt = Database::prepare($sql);
-                $stmt->bindParam(':id', $this->getId(), PDO::PARAM_INT); // Obtém o ID do usuário
-                $stmt->bindParam(':dataNascimento', $this->dataNascimento);
-                
-                return $stmt->execute();
-            }
-            
-            return false; // Retorna false em caso de falha na inserção dos dados comuns. 
+            try {
+                // Inicia uma transação
+                Database::getInstance()->beginTransaction();
+    
+                // Tenta inserir o usuário
+                if (parent::insert()) {
+    
+                    // Tenta inserir os dados específicos de pessoa física (data de nascimento)
+                    $sql = "INSERT INTO $this->table (fk_usuario_id, data_nascimento) VALUES (:id, :dataNascimento);";
+                    $stmt = Database::prepare($sql);
+                    $stmt->bindParam(':id', $this->getId(), PDO::PARAM_INT); // Obtém o ID do usuário
+                    $stmt->bindParam(':dataNascimento', $this->dataNascimento);
+    
+                    if ($stmt->execute()) {
+                        // Confirma a transação
+                        Database::getInstance()->commit();
+                        return true;
+                    }
+                }
+                // Reverte a transação em caso de falha
+                Database::getInstance()->rollBack();
+                return false;
+            } catch (PDOException $e) {
+                // Lidar com exceções de banco de dados, se necessário
+                return false;
+            } 
         }
 
         public function update($id){
