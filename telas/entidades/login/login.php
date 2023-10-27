@@ -1,6 +1,6 @@
 <?php
     $css = '<link rel="stylesheet" href="/ReciclaMais/css/login.css"> <script src="/ReciclaMais/script/login.js" defer></script>';
-    include './../../componentes/header.php';
+    include './../componentes/header.php';
 ?>
 <?php
     $erros = array();

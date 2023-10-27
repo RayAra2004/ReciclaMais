@@ -1,6 +1,6 @@
 <?php
     $css = '<link rel="stylesheet" href="/ReciclaMais/css/ajuda.css"> <script src="../script/ajuda.js" defer></script>';
-    include './componentes/header.php';
+    include '../../componentes/header.php';
 ?>
 
 <section class="body_content">
@@ -56,5 +56,5 @@
     </div>
 </section>
 <?php
-    include './componentes/footer.php'
+    include '../../componentes/footer.php'
 ?>    
