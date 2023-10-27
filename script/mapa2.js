@@ -13,15 +13,14 @@ function clicado(content){
 }
 
 function getMap(){
-    const locIfes = new Microsoft.Maps.Location(-20.197329691804068, -40.2170160437478);
 
 
-    const ifes = new Microsoft.Maps.Pushpin(locIfes, {
+    const ifes = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(-20.197329691804068, -40.2170160437478), {
         color: "green",
+        subTitle: 'id_do_coiso',
         title: "Ifes Campus Serra",
         icon: "/ReciclaMais/imgs/silver_pin.svg"
     });
-    console.log(ifes);
     //ifes.addEventListener('click', clicado);
     const jaymeDosSantosNeves = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(-20.199232504534884, -40.227077110956316), {
         color: "red",
@@ -36,24 +35,10 @@ function getMap(){
 
     });
 
-    const locaisProprios = {};
-
-    locaisProprios[1] = {
-        "nome": "Ifes campus Serra",
-        "pushpin": ifes,
-        "imagem": "/ReciclaMais/imgs/arvores.png"
-    };
-    locaisProprios[2] = {
-        "nome": "Jayme dos Santos Neves",
-        "pushpin": jaymeDosSantosNeves,
-        "imagem": "/ReciclaMais/imgs/arvores.png"
-    };
-
-    locaisProprios[3] = {
-        "nome": "Café Arrumado",
-        "pushpin": cafeArrumado,
-        "imagem": "/ReciclaMais/imgs/arvores.png"
-    };
+    const locais = [];
+    locais.push(ifes)
+    locais.push(jaymeDosSantosNeves);
+    locais.push(cafeArrumado);
 
     /*for (let item in locaisProprios) {
         map.entities.push(locaisProprios[item]["pushpin"]);
@@ -75,55 +60,49 @@ function getMap(){
     */
     map = new Microsoft.Maps.Map('#map', {
         // You need your key.
-        center: locIfes,
+        center: new Microsoft.Maps.Location(-20.197329691804068, -40.2170160437478),
         zoom: 16,
         NavigationBarMode: "minified",
         navigationBarOrientation: "horizontal",
         credentials: 'Ak_PJnVWlG661PnFrGXTK6jXXiZz9b3Ocn4R5X9BXIhfGRcR7zSvm27_YE30YHHK',
     });
-    for (let item in locaisProprios) {
-        map.entities.push(locaisProprios[item]["pushpin"]);
+    for (let item of locais) {
+        map.entities.push(item);
+        //console.log(item);
     }
-    Microsoft.Maps.Events.addHandler(ifes, 'click', function () { clicado(ifes.getAnchor()); });
-    /*map.entities.push(jaymeDosSantosNeves);
-    map.entities.push(cafeArrumado);
-    map.entities.push(ifes);*/
+    Microsoft.Maps.Events.addHandler(ifes, 'click', function () { clicado(ifes['entity']); });
 };
+//Função que recentraliza o mapa
+/*function geocodeQuery(query){
+    map.setView({
+        center: jaymeDosSantosNeves.getLocation()
+    });
+};*/
+
 
 function geocodeQuery(query){
-    console.log("oi")
+    if (!searchManager) {
+        Microsoft.Maps.loadModule('Microsoft.Maps.Search', function () {
+            searchManager = new Microsoft.Maps.Search.SearchManager(map);
+            geocodeQuery(query);
+        });
+    } else {
+        let searchRequest = {
+            where: query,
+            callback: function (r) {
+                if (r && r.results && r.results.length > 0) {
+                    var pin = new Microsoft.Maps.Pushpin(r.results[0].location);
+                    map.entities.push(pin);
+                  map.setView({ bounds: r.results[0].bestView });
+                };
+            },
+            errorCallback: function (e) {
+                alert("No results found.");
+            }
+        };
+        searchManager.geocode(searchRequest);
+    };
 };
-
-
-
-
-
-
-
-// function geocodeQuery(query){
-//     if (!searchManager) {
-//         Microsoft.Maps.loadModule('Microsoft.Maps.Search', function () {
-//             searchManager = new Microsoft.Maps.Search.SearchManager(map);
-//             geocodeQuery(query);
-//         });
-//     } else {
-//         let searchRequest = {
-//             where: query,
-//             callback: function (r) {
-//                 if (r && r.results && r.results.length > 0) {
-//                     var pin = new Microsoft.Maps.Pushpin(r.results[0].location);
-//                     map.entities.push(pin);
-
-//                     map.setView({ bounds: r.results[0].bestView });
-//                 };
-//             },
-//             errorCallback: function (e) {
-//                 alert("No results found.");
-//             }
-//         };
-//         searchManager.geocode(searchRequest);
-//     };
-// };
 
 
 /*Microsoft.Maps.Events.addHandler(map, 'viewchangeend', function (e) {
