@@ -10,7 +10,7 @@
         private $telefone;
         private $id;
 
-        public function __construct($login = null, $senha = null, $nome = null, $telefone = null, $id = null){
+        public function __construct($login, $senha, $nome, $telefone, $id = null){
             $this->login = $login;
             $this->senha = $senha;
             $this->nome = $nome;
@@ -50,6 +50,15 @@
             $stmt->bindParam(":id", $id, PDO::PARAM_INT);
     
             return $stmt->execute();
+        }
+
+        public static function findByLogin($login){
+            $sql = "SELECT * FROM " . self::$table . " WHERE login = :login;";
+            $stmt = Database::prepare($sql);
+            $stmt->bindParam(":login", $login);
+            $stmt->execute();
+        
+            return $stmt->fetch(PDO::FETCH_BOTH);
         }
     }
 ?>

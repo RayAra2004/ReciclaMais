@@ -10,9 +10,8 @@
 
         private $id_endereco;
         private $id_tipo_assinatura;
-        public function __construct($login = null, $senha = null, $nome = null, $telefone = null, 
-            $cnpj = null, $logo = null, $data_cadastro = null, $data_expiracao = null, 
-            $id_endereco = null, $id_tipo_assinatura = null) {
+        public function __construct($login, $senha, $nome, $telefone, $cnpj, $logo, $data_cadastro, $data_expiracao, $id_endereco, $id_tipo_assinatura) {
+            
             parent::__construct($login, $senha, $nome, $telefone);
             $this->data_cadastro = $data_cadastro;
             $this->data_expiracao = $data_expiracao;

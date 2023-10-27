@@ -10,7 +10,7 @@
     Pessoa_Juridica::findAllJuridicPeople();
     
     if(!empty($_POST)){
-        $response = validacaoEmpresa($_POST);
+        //$response = validacaoEmpresa($_POST);
 
         if(isset($response['erros'])){
             $erros = $response['erros'];

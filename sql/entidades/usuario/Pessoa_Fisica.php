@@ -4,9 +4,9 @@
     class Pessoa_Fisica extends Usuario{
         protected $table = "usuario_pessoa_fisica";
         private $dataNascimento;
-        public function __construct($login = null, $senha = null, $nome = null, $telefone = null, $dataNascimento = null) {
+        public function __construct($login, $senha, $nome, $telefone, $dataNascimento) {
+            
             parent::__construct($login, $senha, $nome, $telefone);
-
             $this->dataNascimento = $dataNascimento;
         }
 
@@ -42,5 +42,6 @@
         public function update($id){
            
         }
+
     }
 ?>
