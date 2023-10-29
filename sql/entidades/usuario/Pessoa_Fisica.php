@@ -4,38 +4,26 @@
     class Pessoa_Fisica extends Usuario{
         protected $table = "usuario_pessoa_fisica";
         private $dataNascimento;
-        public function __construct($login, $senha, $nome, $telefone, $dataNascimento) {
+        private $fk_id_user;
+        public function __construct($dataNascimento, $fk_id_user = null) {
             
-            parent::__construct($login, $senha, $nome, $telefone);
             $this->dataNascimento = $dataNascimento;
+            $this->fk_id_user = $fk_id_user;
         }
 
         public function insert(){
             try {
-                // Inicia uma transação
-                Database::getInstance()->beginTransaction();
+                // Tenta inserir os dados específicos de pessoa física (data de nascimento)
+                $sql = "INSERT INTO $this->table (fk_usuario_id, data_nascimento) VALUES (:id, :dataNascimento);";
+                $stmt = Database::prepare($sql);
+                $stmt->bindParam(':id',$this->fk_id_user, PDO::PARAM_INT); // Obtém o ID do usuário
+                $stmt->bindParam(':dataNascimento', $this->dataNascimento);
     
-                // Tenta inserir o usuário
-                if (parent::insert()) {
-    
-                    // Tenta inserir os dados específicos de pessoa física (data de nascimento)
-                    $sql = "INSERT INTO $this->table (fk_usuario_id, data_nascimento) VALUES (:id, :dataNascimento);";
-                    $stmt = Database::prepare($sql);
-                    $stmt->bindParam(':id', $this->getId(), PDO::PARAM_INT); // Obtém o ID do usuário
-                    $stmt->bindParam(':dataNascimento', $this->dataNascimento);
-    
-                    if ($stmt->execute()) {
-                        // Confirma a transação
-                        Database::getInstance()->commit();
-                        return true;
-                    }
-                }
-                // Reverte a transação em caso de falha
-                Database::getInstance()->rollBack();
-                return false;
+                return $stmt->execute();
+                    
             } catch (PDOException $e) {
                 // Lidar com exceções de banco de dados, se necessário
-                return false;
+                return $e->getMessage();
             } 
         }
 

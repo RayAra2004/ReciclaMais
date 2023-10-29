@@ -24,8 +24,9 @@ delete - exclui um registro pelo id
 		abstract public function insert();
 		abstract public function update($id);
 		
-		
-		
+		public function __construct($table){
+			$this->table = $table;
+		}
 		/***************
 		Objetivo: Método que consulta pelo id
 		Parâmetro de saída: Retorna o registro da tabela. Em caso de falha na consulta ou não existir o registro, retorna falso.

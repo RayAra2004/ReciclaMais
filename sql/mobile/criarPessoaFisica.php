@@ -25,9 +25,30 @@
         $usuario_existe = Usuario::findByLogin($login);
         if ($usuario_existe == false) { // se não existe
             try{
-                $PessoaFisica = new Pessoa_Fisica($login, $senha_hash, $nome, $telefone, $data);
-                $PessoaFisica->insert();
-                $resposta["status"] = "1";
+                Database::getInstance()->beginTransaction();
+
+                $usuario = new Usuario();
+                $usuario->setValues($login, $senha_hash, $nome, $telefone);
+                if($usuario->insert()){
+                    $user_id = $usuario->getId();
+                    $pessoaFisica = new Pessoa_Fisica($data, $user_id);
+            
+                    if($pessoaFisica->insert()){
+                        Database::getInstance()->commit();  
+                        $resposta["status"] = "1";
+                    }else{
+                        Database::getInstance()->rollBack();
+                        $resposta["status"] = "0";
+                        $resposta["messagem"] = "Erro ao cadastrar usuário";
+                    }
+                    
+                }else{
+                    Database::getInstance()->rollBack();
+                    $resposta["status"] = "0";
+                    $resposta["messagem"] = "Erro ao cadastrar usuário";
+                }
+
+                
             }catch(Exception $e){
                 $resposta["status"] = "0";
                 $resposta["message"] = $e->getMessage();
