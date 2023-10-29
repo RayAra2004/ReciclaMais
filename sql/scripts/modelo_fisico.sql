@@ -1,240 +1,235 @@
+drop table if exists usuario, usuario_instituicao, usuario_pessoa_fisica, categoria_de_materiais_reciclados, tipo_usuario, endereco, bairro, cidade, estado, cadastro_ponto_coleta, comentario, recicla, valida, tipo_assinatura, material_reciclavel, pertence, coletado, tipo_logradouro;
 
-CREATE TABLE USUARIO (
-    Login varchar(90),
-    Senha varchar(30),
-    ID serial PRIMARY KEY,
-    Nome varchar(50),
-    Telefone bigint,
-    FK_TIPO_USUARIO_ID int
+create table usuario (
+    login varchar(90) not null unique,
+    senha text not null,
+    id serial primary key,
+    nome varchar(50) not null,
+    telefone bigint not null,
+    fk_tipo_usuario_id int not null
 );
 
-CREATE TABLE USUARIO_INSTITUICAO (
-    CNPJ varchar(18),
-    Logo varchar(400),
-    FK_USUARIO_ID int PRIMARY KEY,
-    FK_ENDERECO_ID int,
-    FK_TIPO_ASSINATURA_ID int,
-    data_cadastro date,
-    data_expiracao date
+create table usuario_instituicao (
+    cnpj varchar(18) not null unique,
+    logo text,
+    fk_usuario_id int primary key,
+    fk_endereco_id int not null,
+    fk_tipo_assinatura_id int not null,
+    data_cadastro date not null default(now()),
+    data_expiracao date not null default(now())
 );
 
-CREATE TABLE USUARIO_PESSOA_FISICA (
-    DataNascimento date,
-    FK_USUARIO_ID int PRIMARY KEY
+create table usuario_pessoa_fisica (
+    data_nascimento date not null,
+    fk_usuario_id int primary key
 );
 
-CREATE TABLE CATEGORIAS_DE_MATERIAIS_RECICLADOS (
-    ID serial PRIMARY KEY,
-    descricao varchar(20)
+create table categoria_de_materiais_reciclados (
+    id serial primary key,
+    descricao varchar(20) not null unique
 );
 
-CREATE TABLE TIPO_USUARIO (
-    ID serial PRIMARY KEY,
-    descricao varchar(20)
+create table tipo_usuario (
+    id serial primary key,
+    descricao varchar(20) not null unique
 );
 
-CREATE TABLE ENDERECO (
-    CEP varchar(20),
-    FK_TipoLogradouro_ID int,
-    Logradouro varchar(50),
-    FK_Estado_ID int,
-    FK_Cidade_ID int,
-    FK_Bairro_ID int,
-    Numero int,
-    ID serial PRIMARY KEY,
-    Longitude bigint,
-    Latitude bigint
+create table endereco (
+    cep varchar(20) not null,
+    fk_tipo_logradouro_id int not null,
+    logradouro varchar(50) not null,
+    fk_estado_id int not null,
+    fk_cidade_id int not null,
+    fk_bairro_id int not null,
+    numero int not null,
+    complemento text,
+    id serial primary key,
+    longitude bigint not null,
+    latitude bigint not null
 );
 
-CREATE TABLE CADASTRO_PONTO_COLETA (
-    Nome varchar(30),
-    ID serial PRIMARY KEY,
-    Imagem varchar,
-    FK_USUARIO_INSTITUICAO_FK_USUARIO_ID int,
-    FK_ENDERECO_ID int,
-    FK_USUARIO_ID int,
-    data timestamp
+create table cadastro_ponto_coleta (
+    nome varchar(30) not null,
+    id serial primary key,
+    imagem text,
+    fk_usuario_instituicao_fk_usuario_id int not null,
+    fk_endereco_id int not null,
+    fk_usuario_id int not null,
+    data_cadastro timestamp default(now())
 );
 
-CREATE TABLE COMENTARIOS (
-    conteudo varchar(500),
-    ID serial PRIMARY KEY,
-    data timestamp,
-    nota int,
-    FK_USUARIO_PESSOA_FISICA_FK_USUARIO_ID int,
-    FK_PONTO_COLETA_ID int
+create table comentario (
+    conteudo varchar(500) not null,
+    id serial primary key,
+    data_postagem timestamp not null default(now()),
+    nota int not null,
+    fk_usuario_pessoa_fisica_fk_usuario_id int not null,
+    fk_ponto_coleta_id int not null
 );
 
-CREATE TABLE MATERIAL_RECICLAVEL (
-    PesoEstimado varchar(30),
-    ID serial PRIMARY KEY,
-    Descricao varchar(300),
-    FK_USUARIO_PESSOA_FISICA_FK_USUARIO_ID int,
-    FK_USUARIO_INSTITUICAO_FK_USUARIO_ID int,
-    latitude float,
-    longitude float,
-    FK_COLETADO_ID int
+create table material_reciclavel (
+    peso_estimado varchar(30) not null,
+    id serial primary key,
+    descricao varchar(300) not null,
+    fk_usuario_pessoa_fisica_fk_usuario_id int not null,
+    fk_usuario_instituicao_fk_usuario_id int not null,
+    latitude bigint not null,
+    longitude bigint not null,
+    fk_coletado_id int not null
 );
 
-
-
-
-CREATE TABLE TIPO_ASSINATURA (
-    ID serial PRIMARY KEY,
-    nome varchar(20),
-    descricao varchar(500),
-    valor int
+create table tipo_assinatura (
+    id serial primary key,
+    nome varchar(20) not null unique,
+    descricao varchar(500) not null,
+    valor int not null
 );
 
-CREATE TABLE TipoLogradouro (
-    ID serial NOT NULL PRIMARY KEY,
-    TipoLogradouro varchar(30)
+create table tipo_logradouro (
+    id serial not null primary key,
+    tipo_logradouro varchar(30) not null unique
 );
 
-CREATE TABLE Estado (
-    ID serial NOT NULL PRIMARY KEY,
-    Estado varchar(2)
+create table estado (
+    id serial not null primary key,
+    estado varchar(2) not null unique
 );
 
-CREATE TABLE Cidade (
-    ID serial NOT NULL PRIMARY KEY,
-    Cidade varchar(30)
+create table cidade (
+    id serial not null primary key,
+    cidade varchar(30) not null unique
 );
 
-CREATE TABLE Bairro (
-   ID serial NOT NULL PRIMARY KEY,
-    Bairro varchar(30)
+create table bairro (
+    id serial not null primary key,
+    bairro varchar(30) not null unique
 );
 
-CREATE TABLE Recicla (
-    fk_CATEGORIAS_DE_MATERIAIS_RECICLADOS_ID int,
-    fk_PONTO_COLETA_ID int
+create table recicla (
+    fk_categoria_de_materiais_reciclados_id int not null,
+    fk_ponto_coleta_id int not null
 );
 
-CREATE TABLE Valida (
-    fk_USUARIO_ID int,
-    fk_CADASTRO_PONTO_COLETA_ID int,
-    data timestamp,
-    resposta boolean
+create table valida (
+    fk_usuario_id int not null,
+    fk_cadastro_ponto_coleta_id int not null,
+    data_validacao timestamp default(now()),
+    resposta boolean not null
 );
 
-CREATE TABLE Pertence (
-    fk_CATEGORIAS_DE_MATERIAIS_RECICLADOS_ID int,
-    fk_MATERIAL_RECICLAVEL_ID int
+create table pertence (
+    fk_categoria_de_materiais_reciclados_id int not null,
+    fk_material_reciclavel_id int not null
 );
 
-CREATE TABLE COLETADO (
-    ID serial PRIMARY KEY,
-    descricao varchar(30)
+create table coletado (
+    id serial primary key,
+    descricao varchar(30) not null
 );
 
+alter table usuario add constraint fk_usuario_2
+    foreign key (fk_tipo_usuario_id)
+    references tipo_usuario (id)
+    on delete cascade;
 
- 
-ALTER TABLE USUARIO ADD CONSTRAINT FK_USUARIO_2
-    FOREIGN KEY (FK_TIPO_USUARIO_ID)
-    REFERENCES TIPO_USUARIO (ID)
-    ON DELETE CASCADE;
- 
-ALTER TABLE USUARIO_INSTITUICAO ADD CONSTRAINT FK_USUARIO_INSTITUICAO_2
-    FOREIGN KEY (FK_USUARIO_ID)
-    REFERENCES USUARIO (ID)
-    ON DELETE CASCADE;
- 
-ALTER TABLE USUARIO_INSTITUICAO ADD CONSTRAINT FK_USUARIO_INSTITUICAO_3
-    FOREIGN KEY (FK_ENDERECO_ID)
-    REFERENCES ENDERECO (ID)
-    ON DELETE CASCADE;
- 
-ALTER TABLE USUARIO_INSTITUICAO ADD CONSTRAINT FK_USUARIO_INSTITUICAO_4
-    FOREIGN KEY (FK_TIPO_ASSINATURA_ID)
-    REFERENCES TIPO_ASSINATURA (ID)
-    ON DELETE SET NULL;
- 
-ALTER TABLE USUARIO_PESSOA_FISICA ADD CONSTRAINT FK_USUARIO_PESSOA_FISICA_2
-    FOREIGN KEY (FK_USUARIO_ID)
-    REFERENCES USUARIO (ID)
-    ON DELETE CASCADE;
- 
-ALTER TABLE ENDERECO ADD CONSTRAINT FK_ENDERECO_2
-    FOREIGN KEY (FK_TipoLogradouro_ID)
-    REFERENCES TipoLogradouro (ID)
-    ON DELETE NO ACTION;
- 
-ALTER TABLE ENDERECO ADD CONSTRAINT FK_ENDERECO_3
-    FOREIGN KEY (FK_Estado_ID)
-    REFERENCES Estado (ID)
-    ON DELETE NO ACTION;
- 
-ALTER TABLE ENDERECO ADD CONSTRAINT FK_ENDERECO_4
-    FOREIGN KEY (FK_Cidade_ID)
-    REFERENCES Cidade (ID)
-    ON DELETE NO ACTION;
- 
-ALTER TABLE ENDERECO ADD CONSTRAINT FK_ENDERECO_5
-    FOREIGN KEY (FK_Bairro_ID)
-    REFERENCES Bairro (ID)
-    ON DELETE NO ACTION;
- 
-ALTER TABLE CADASTRO_PONTO_COLETA ADD CONSTRAINT FK_CADASTRO_PONTO_COLETA_2
-    FOREIGN KEY (FK_USUARIO_INSTITUICAO_FK_USUARIO_ID)
-    REFERENCES USUARIO_INSTITUICAO (FK_USUARIO_ID);
- 
-ALTER TABLE CADASTRO_PONTO_COLETA ADD CONSTRAINT FK_CADASTRO_PONTO_COLETA_3
-    FOREIGN KEY (FK_ENDERECO_ID)
-    REFERENCES ENDERECO (ID);
- 
-ALTER TABLE CADASTRO_PONTO_COLETA ADD CONSTRAINT FK_CADASTRO_PONTO_COLETA_4
-    FOREIGN KEY (FK_USUARIO_ID)
-    REFERENCES USUARIO (ID);
- 
-ALTER TABLE COMENTARIOS ADD CONSTRAINT FK_COMENTARIOS_2
-    FOREIGN KEY (FK_USUARIO_PESSOA_FISICA_FK_USUARIO_ID)
-    REFERENCES USUARIO_PESSOA_FISICA (FK_USUARIO_ID)
-    ON DELETE CASCADE;
- 
-ALTER TABLE COMENTARIOS ADD CONSTRAINT FK_COMENTARIOS_3
-    FOREIGN KEY (FK_PONTO_COLETA_ID)
-    REFERENCES CADASTRO_PONTO_COLETA(ID);
- 
-ALTER TABLE MATERIAL_RECICLAVEL ADD CONSTRAINT FK_MATERIAL_RECICLAVEL_2
-    FOREIGN KEY (FK_USUARIO_PESSOA_FISICA_FK_USUARIO_ID)
-    REFERENCES USUARIO_PESSOA_FISICA (FK_USUARIO_ID)
-    ON DELETE CASCADE;
- 
-ALTER TABLE MATERIAL_RECICLAVEL ADD CONSTRAINT FK_MATERIAL_RECICLAVEL_3
-    FOREIGN KEY (FK_USUARIO_INSTITUICAO_FK_USUARIO_ID)
-    REFERENCES USUARIO_INSTITUICAO (FK_USUARIO_ID)
-    ON DELETE CASCADE;
- 
-ALTER TABLE Recicla ADD CONSTRAINT FK_Recicla_1
-    FOREIGN KEY (fk_CATEGORIAS_DE_MATERIAIS_RECICLADOS_ID)
-    REFERENCES CATEGORIAS_DE_MATERIAIS_RECICLADOS (ID)
-    ON DELETE RESTRICT;
- 
-ALTER TABLE Recicla ADD CONSTRAINT FK_Recicla_2
-    FOREIGN KEY (fk_PONTO_COLETA_ID)
-    REFERENCES CADASTRO_PONTO_COLETA(ID);
- 
-ALTER TABLE Valida ADD CONSTRAINT FK_Valida_1
-    FOREIGN KEY (fk_USUARIO_ID)
-    REFERENCES USUARIO (ID)
-    ON DELETE SET NULL;
- 
-ALTER TABLE Pertence ADD CONSTRAINT FK_Pertence_1
-    FOREIGN KEY (fk_CATEGORIAS_DE_MATERIAIS_RECICLADOS_ID)
-    REFERENCES CATEGORIAS_DE_MATERIAIS_RECICLADOS (ID)
-    ON DELETE RESTRICT;
- 
-ALTER TABLE Pertence ADD CONSTRAINT FK_Pertence_2
-    FOREIGN KEY (fk_MATERIAL_RECICLAVEL_ID)
-    REFERENCES MATERIAL_RECICLAVEL (ID)
-    ON DELETE SET NULL;
+alter table usuario_instituicao add constraint fk_usuario_instituicao_2
+    foreign key (fk_usuario_id)
+    references usuario (id)
+    on delete cascade;
 
-ALTER TABLE MATERIAL_RECICLAVEL ADD CONSTRAINT FK_MATERIAL_RECICLAVEL_5
-    FOREIGN KEY (FK_COLETADO_ID)
-    REFERENCES COLETADO (ID);
+alter table usuario_instituicao add constraint fk_usuario_instituicao_3
+    foreign key (fk_endereco_id)
+    references endereco (id)
+    on delete cascade;
 
+alter table usuario_instituicao add constraint fk_usuario_instituicao_4
+    foreign key (fk_tipo_assinatura_id)
+    references tipo_assinatura (id)
+    on delete set null;
 
+alter table usuario_pessoa_fisica add constraint fk_usuario_pessoa_fisica_2
+    foreign key (fk_usuario_id)
+    references usuario (id)
+    on delete cascade;
+
+alter table endereco add constraint fk_endereco_2
+    foreign key (fk_tipo_logradouro_id)
+    references tipo_logradouro (id)
+    on delete no action;
+
+alter table endereco add constraint fk_endereco_3
+    foreign key (fk_estado_id)
+    references estado (id)
+    on delete no action;
+
+alter table endereco add constraint fk_endereco_4
+    foreign key (fk_cidade_id)
+    references cidade (id)
+    on delete no action;
+
+alter table endereco add constraint fk_endereco_5
+    foreign key (fk_bairro_id)
+    references bairro (id)
+    on delete no action;
+
+alter table cadastro_ponto_coleta add constraint fk_cadastro_ponto_coleta_2
+    foreign key (fk_usuario_instituicao_fk_usuario_id)
+    references usuario_instituicao (fk_usuario_id);
+
+alter table cadastro_ponto_coleta add constraint fk_cadastro_ponto_coleta_3
+    foreign key (fk_endereco_id)
+    references endereco (id);
+
+alter table cadastro_ponto_coleta add constraint fk_cadastro_ponto_coleta_4
+    foreign key (fk_usuario_id)
+    references usuario (id);
+
+alter table comentario add constraint fk_comentarios_2
+    foreign key (fk_usuario_pessoa_fisica_fk_usuario_id)
+    references usuario_pessoa_fisica (fk_usuario_id)
+    on delete cascade;
+
+alter table comentario add constraint fk_comentarios_3
+    foreign key (fk_ponto_coleta_id)
+    references cadastro_ponto_coleta(id);
+
+alter table material_reciclavel add constraint fk_material_reciclavel_2
+    foreign key (fk_usuario_pessoa_fisica_fk_usuario_id)
+    references usuario_pessoa_fisica (fk_usuario_id)
+    on delete cascade;
+
+alter table material_reciclavel add constraint fk_material_reciclavel_3
+    foreign key (fk_usuario_instituicao_fk_usuario_id)
+    references usuario_instituicao (fk_usuario_id)
+    on delete cascade;
+
+alter table recicla add constraint fk_recicla_1
+    foreign key (fk_categoria_de_materiais_reciclados_id)
+    references categoria_de_materiais_reciclados (id)
+    on delete restrict;
+
+alter table recicla add constraint fk_recicla_2
+    foreign key (fk_ponto_coleta_id)
+    references cadastro_ponto_coleta(id);
+
+alter table valida add constraint fk_valida_1
+    foreign key (fk_usuario_id)
+    references usuario (id)
+    on delete set null;
+
+alter table pertence add constraint fk_pertence_1
+    foreign key (fk_categoria_de_materiais_reciclados_id)
+    references categoria_de_materiais_reciclados (id)
+    on delete restrict;
+
+alter table pertence add constraint fk_pertence_2
+    foreign key (fk_material_reciclavel_id)
+    references material_reciclavel (id)
+    on delete set null;
+
+alter table material_reciclavel add constraint fk_material_reciclavel_5
+    foreign key (fk_coletado_id)
+    references coletado (id);
 
 
 
@@ -242,29 +237,34 @@ ALTER TABLE MATERIAL_RECICLAVEL ADD CONSTRAINT FK_MATERIAL_RECICLAVEL_5
 /* Inserção de dados */
 
 INSERT INTO TIPO_USUARIO (descricao)
-VALUES ('Administrador'),
+VALUES 
+    ('Administrador'),
 	('Pessoa Física'),
 	('Instituição');
 
 
 INSERT INTO TIPO_ASSINATURA( NOME, DESCRICAO, VALOR)
-	VALUES  ('GRATUITO', 'SEM BENEFÍCIOS', 0),
+	VALUES  
+        ('GRATUITO', 'SEM BENEFÍCIOS', 0),
 		('PLATINUM', 'RELATÓRIO GERAL SOBRE OS MATERIAIS MAIS PUBLICADOS. RELATÓRIO GERAL SOBRE OS BAIRROS COM MAIS MATERIAIS PUBLICADOS. RELATÓRIO GERAL SOBRE OS BAIRROS COM MAIS PONTOS DE COLETA. RELATÓRIO GERAL SOBRE OS TIPOS DE MATERIAIS RECICLADOS EM CADA BAIRRO. RELATÓRIO GERAL SOBRE OS LOCAIS COM MAIS USUÁRIOS. DESTAQUE EM NOSSA PÁGINA PRINCIPAL.', 119.9);
 
 INSERT INTO Estado (Estado)
-VALUES ('ES');
+VALUES 
+    ('ES');
 
-INSERT INTO TipoLogradouro (TipoLogradouro)
-VALUES ('Rua'),
-       ( 'Avenida'),
-       ('Travessa'),
-       ('Alameda');
+INSERT INTO Tipo_Logradouro (Tipo_Logradouro)
+VALUES 
+    ('Rua'),
+    ('Avenida'),
+    ('Travessa'),
+    ('Alameda');
 
 INSERT INTO Cidade (Cidade)
-VALUES ('Vitória'),
-       ('Vila Velha'),
-       ('Cariacica'),
-       ('Serra');
+VALUES 
+    ('Vitória'),
+    ('Vila Velha'),
+    ('Cariacica'),
+    ('Serra');
 
 INSERT INTO Bairro (Bairro)
 VALUES ('Centro'),
@@ -285,17 +285,18 @@ VALUES ('Centro'),
        ('Bairro de Fátima');
 
 INSERT INTO USUARIO (Login, Senha, Nome, Telefone, FK_TIPO_USUARIO_ID)
-VALUES ('Reciclus_LTDA', 'senha123', 'Reciclus LTDA', 1234567890, 3),
-       ('Port_Recicla', 'senha456', 'Port Recicla', 9876543210, 3),
-       ('Zocata_Recicla', 'senha789', 'Zocata Recicla', 5555555555,3),
-       ('GreenCycle', 'senha123', 'GreenCycle Ltda', 1234567890, 3),
-       ('EcoRecycle', 'senha456', 'EcoRecycle S.A.', 9876543210, 3),
-       ('EcoRevive', 'senha789', 'EcoRevive Reciclagem', 5555555555, 3),
-       ('GreenTech', 'senha123', 'GreenTech Reciclagem', 1234567890, 3),
-       ('EcoCycle', 'senha456', 'EcoCycle Sustentabilidade', 9876543210, 3),
-('EcoRevolution', 'senha789', 'EcoRevolution Recicláveis', 5555555555,3),
-('Salvando_o_verde', 'verde_237', 'Salvando_o_verde', 7777777777, 3),
-('Joao_Silva', 'Joao13', 'João Silva', 1111111111, 3),
+VALUES 
+    ('Reciclus_LTDA', 'senha123', 'Reciclus LTDA', 1234567890, 3),
+    ('Port_Recicla', 'senha456', 'Port Recicla', 9876543210, 3),
+    ('Zocata_Recicla', 'senha789', 'Zocata Recicla', 5555555555,3),
+    ('GreenCycle', 'senha123', 'GreenCycle Ltda', 1234567890, 3),
+    ('EcoRecycle', 'senha456', 'EcoRecycle S.A.', 9876543210, 3),
+    ('EcoRevive', 'senha789', 'EcoRevive Reciclagem', 5555555555, 3),
+    ('GreenTech', 'senha123', 'GreenTech Reciclagem', 1234567890, 3),
+    ('EcoCycle', 'senha456', 'EcoCycle Sustentabilidade', 9876543210, 3),
+    ('EcoRevolution', 'senha789', 'EcoRevolution Recicláveis', 5555555555,3),
+    ('Salvando_o_verde', 'verde_237', 'Salvando_o_verde', 7777777777, 3),
+        ('Joao_Silva', 'Joao13', 'João Silva', 1111111111, 3),
       ('Maria_Souza', 'Maria13', 'Maria Souza', 2222222222, 2),
       ('Pedro_Santos', 'Pedro13', 'Pedro Santos', 3333333333, 2),
       ('Ana_Oliveira', 'Ana13', 'Ana Oliveira', 4444444444, 2),
@@ -336,7 +337,7 @@ VALUES ('Reciclus_LTDA', 'senha123', 'Reciclus LTDA', 1234567890, 3),
       ('Rodrigo_Almeida', 'Rodrigo13', 'Rodrigo Almeida', 3939393939, 2),
       ('Leticia_Rocha', 'Leticia13', 'Letícia Rocha', 4040404040, 2);
 
-INSERT INTO USUARIO_PESSOA_FISICA (FK_USUARIO_ID, DataNascimento)
+INSERT INTO USUARIO_PESSOA_FISICA (FK_USUARIO_ID, Data_Nascimento)
 VALUES
   (11, '1980-01-01'),
   (12, '1981-02-02'),
@@ -369,7 +370,7 @@ VALUES
   (39, '2001-05-29'),
   (40, '2001-06-30');
 
-INSERT INTO ENDERECO (CEP, FK_TipoLogradouro_ID, Logradouro, FK_Estado_ID, FK_Cidade_ID, FK_Bairro_ID, Numero, Longitude, Latitude)
+INSERT INTO ENDERECO (CEP, FK_Tipo_Logradouro_ID, Logradouro, FK_Estado_ID, FK_Cidade_ID, FK_Bairro_ID, Numero, Longitude, Latitude)
 VALUES ('29010-001', 1, 'Rua Sete de Setembro', 1, 1, 1, 123, -40.123456, -20.987654),
        ('29020-002', 2, 'Avenida Vitória', 1, 1, 2, 456, -40.123456, -20.987654),
        ('29030-003', 3, 'Travessa Bela Vista', 1, 1, 3, 789, -40.123456, -20.987654),
@@ -425,7 +426,7 @@ VALUES
   ('10101010101010', 'logo10.jpg', 10, 10, 2, '2023-10-16', '2023-11-16');
 
 
-INSERT INTO CATEGORIAS_DE_MATERIAIS_RECICLADOS (descricao)
+INSERT INTO CATEGORIA_DE_MATERIAIS_RECICLADOS (descricao)
 VALUES ('Plástico'),
        ('Papel'),
        ('Vidro'),
@@ -441,7 +442,7 @@ INSERT INTO COLETADO (descricao)
 		('em transação');
 
 
-INSERT INTO CADASTRO_PONTO_COLETA (FK_USUARIO_INSTITUICAO_FK_USUARIO_ID, FK_ENDERECO_ID, FK_USUARIO_ID, data, nome)
+INSERT INTO CADASTRO_PONTO_COLETA (FK_USUARIO_INSTITUICAO_FK_USUARIO_ID, FK_ENDERECO_ID, FK_USUARIO_ID, data_cadastro, nome)
 VALUES 
 (1, 11, 15, '2019-03-10', 'Ponto Vermelho'),
        (2, 12, 16, '2018-07-20', 'Ponto Azul'),
@@ -504,7 +505,7 @@ VALUES (1, 1),
 (7, 19),
 (6, 20);
 
-INSERT INTO VALIDA (FK_USUARIO_ID, fk_CADASTRO_PONTO_COLETA_ID,data, resposta) 
+INSERT INTO VALIDA (FK_USUARIO_ID, fk_CADASTRO_PONTO_COLETA_ID,data_validacao, resposta) 
 values(11,1,'2022-06-01 00:00:00', true),
 (12, 1 ,'2022-07-15 12:30:45',true),
 (13, 1, '2022-08-20 18:15:00',false),
@@ -526,14 +527,14 @@ values(11,1,'2022-06-01 00:00:00', true),
 (29, 2, '2023-12-25 19:30:00',true),
 (30, 3, '2024-01-01 13:50:50',true);
 
-INSERT INTO COMENTARIOS (conteudo,data, nota,fk_USUARIO_PESSOA_FISICA_FK_USUARIO_ID,FK_PONTO_COLETA_ID) 
+INSERT INTO COMENTARIO (conteudo,data_postagem, nota,fk_USUARIO_PESSOA_FISICA_FK_USUARIO_ID,FK_PONTO_COLETA_ID) 
 values('Muito bom, só foi difícil encontrar','2023-06-10 08:30:45',4,16,3),
 ('Não tinha o que eu estava procurando e estava todo sujo','2023-06-20 14:15:00',1,38,10),
 ('O melhor ponto que já visitei, tinha até cafézinho','2023-07-05 16:45:20',5,13,6),
 ('Este ponto disse que coletava plástico mas não coleta','2023-07-15 12:00:00',3,31,1),
 ('O pior ponto de coleta que já visitei','2023-06-10 08:30:45',4,16,3);
 
-INSERT INTO MATERIAL_RECICLAVEL(pesoEstimado, descricao, fk_usuario_pessoa_fisica_fk_usuario_id, fk_usuario_instituicao_fk_usuario_id, latitude, longitude, fk_coletado_id)
+INSERT INTO MATERIAL_RECICLAVEL(peso_Estimado, descricao, fk_usuario_pessoa_fisica_fk_usuario_id, fk_usuario_instituicao_fk_usuario_id, latitude, longitude, fk_coletado_id)
 	VALUES  ('120kg', 'geladeira duas portas, em perfeito estado', 13, 4, -10.02912, 14.2812, 1),
 		('60kg', 'fogão 4 bocas completo', 11, 5, -10.02912, 14.2812, 2),
 		('120kg', 'lote de garrafa pet', 25, 6, -10.02912, 14.2812, 3),
@@ -544,7 +545,7 @@ INSERT INTO MATERIAL_RECICLAVEL(pesoEstimado, descricao, fk_usuario_pessoa_fisic
 		('15kg', 'lote de papelão', 22, null, -10.04012, 14.4012, 1),
 		('13kg', 'lote de brinquedos de plástico', 26, 1, -10.04012, 14.4012, 1);
 
-INSERT INTO PERTENCE (fk_categorias_de_materiais_reciclados_id, fk_material_reciclavel_id)
+INSERT INTO PERTENCE (fk_categoria_de_materiais_reciclados_id, fk_material_reciclavel_id)
 	VALUES (1, 1),
 		(3, 1),
 		(4, 1),
