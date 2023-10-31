@@ -39,13 +39,13 @@
                     }else{
                         Database::getInstance()->rollBack();
                         $resposta["status"] = "0";
-                        $resposta["messagem"] = "Erro ao cadastrar usuário";
+                        $resposta["message"] = "Erro ao cadastrar usuário";
                     }
                     
                 }else{
                     Database::getInstance()->rollBack();
                     $resposta["status"] = "0";
-                    $resposta["messagem"] = "Erro ao cadastrar usuário";
+                    $resposta["message"] = "Erro ao cadastrar usuário";
                 }
 
                 
