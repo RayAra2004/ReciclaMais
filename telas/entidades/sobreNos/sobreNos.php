@@ -1,6 +1,6 @@
 <?php
-    $css = '<link rel="stylesheet" href="../css/sobreNos.css"> <script src="./../script/sobreNos.js" defer></script>';
-    include './componentes/header.php';
+    $css = '<link rel="stylesheet" href="/ReciclaMais/css/sobreNos.css"> <script src="/ReciclaMais/script/sobreNos.js" defer></script>';
+    include './../../componentes/header.php';
 ?>
 <section class="body_content d-flex justify-content-center">
     <div class="conteudo">
@@ -13,5 +13,5 @@
     </div>
 </section>
 <?php
-    include './componentes/footer.php'
+    include './../../componentes/footer.php'
 ?>

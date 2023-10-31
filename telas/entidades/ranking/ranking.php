@@ -1,6 +1,6 @@
 <?php 
     $css = '<link rel="stylesheet" href="/ReciclaMais/css/ranking.css"> <script src="/ReciclaMais/script/componentes/CardRanking.js" defer></script>';
-    include './componentes/header.php';
+    include './../../componentes/header.php';
 ?>
 <section class="body_content">
     <div class="container row mx-auto">
@@ -13,5 +13,5 @@
     </div>
 </section>
 <?php
-    include './componentes/footer.php'
+    include './../../componentes/footer.php'
 ?>
