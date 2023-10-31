@@ -1,6 +1,6 @@
 <?php 
     $css = '<link rel="stylesheet" href="/ReciclaMais/css/comoReciclar.css">';
-    include './componentes/header.php';
+    include './../../componentes/header.php';
 ?>
 <section class="body_content">
     <div class="container-fluid d-flex justify-content-center pt-4">
@@ -22,5 +22,5 @@
     </div>
 </section>
 <?php
-    include './componentes/footer.php'
+    include './../../componentes/footer.php'
 ?>

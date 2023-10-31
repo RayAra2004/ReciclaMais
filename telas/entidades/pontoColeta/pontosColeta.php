@@ -1,6 +1,6 @@
 <?php
     $css = '<script src="/ReciclaMais/script/map.js" defer></script><link rel="stylesheet" href="/ReciclaMais/css/pontosColeta.css"><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">';
-    include './componentes/header.php';
+    include './../../componentes/header.php';
 ?>
     <section class="body_content">
     <div class="container d-flex info">
@@ -43,5 +43,5 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </section>
 <?php
-    include './componentes/footer.php'
+    include './../../componentes/footer.php'
 ?>

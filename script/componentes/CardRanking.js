@@ -7,7 +7,7 @@ for(let i = 0; i < 10; i++){
     <div class="card mb-3 ranking-empresa">
         <div class="row g-0">
             <div class="col-md-4 img-empresa">
-                <img src="./../imgs/logoMA.png" class="img-empresa img-fluid rounded-start">
+                <img src="/ReciclaMais/imgs/logoMA.png" class="img-empresa img-fluid rounded-start">
             </div>
             <div class="col-md-8">
                 <div class="card-header">
