@@ -4,7 +4,7 @@
         $_SESSION['comp_header'] = '<a class="btn temaGreen" href="/ReciclaMais/telas/entidades/login/login.php" role="button">Entrar</a>';
     }
     $css = '<link rel="stylesheet" href="../ReciclaMais/css/index.css">';
-    include '../ReciclaMais/telas/componentes/header.php';
+    include './telas/componentes/header.php';
 
     include './sql/entidades/usuario/Usuario.php';
 ?>
@@ -50,7 +50,7 @@
             </div>
         </div>
         <div  id="navCards" class="container d-flex text-center justify-content-around pt-3">
-            <a href="./telas/pontosColeta.php">
+            <a href="./telas/entidades/pontoColeta/pontosColeta.php">
                 <div class="card m-3">
                     <span class="material-icons">
                         place
@@ -60,7 +60,7 @@
                     </div>
                 </div>
             </a>
-            <a href="./telas/comoReciclar.php">
+            <a href="./telas/entidades/comoReciclar/comoReciclar.php">
                 <div class="card m-3">
                     <span class="material-icons">
                         recycling
@@ -70,7 +70,7 @@
                     </div>
                 </div>
             </a>
-            <a href="./telas/ranking.php">
+            <a href="./telas/entidades/ranking/ranking.php">
                 <div class="card m-3">
                     <span class="material-icons">
                         stars
@@ -83,5 +83,5 @@
         </div>
     </section>
 <?php
-    include '../ReciclaMais/telas/componentes/footer.php'
+    include './telas/componentes/footer.php'
 ?>
