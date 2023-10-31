@@ -71,5 +71,23 @@
         
             return $stmt->fetch(PDO::FETCH_BOTH);
         }
+
+        public static function login($login, $password){
+            $tempUser = new Usuario();
+            $tableName = $tempUser->getTableName();
+
+            $sql = "SELECT * FROM " . $tableName . " WHERE login = :login;";
+            $stmt = Database::prepare($sql);
+            $stmt->bindParam(":login", $login);
+            $stmt->execute();
+
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+            if($user){
+                return password_verify($password, $user["senha"]);
+            }else{
+                return false;
+            }
+            
+        }
     }
 ?>
