@@ -13,12 +13,21 @@
         public function __construct(){}
         
         public function setValues($login, $senha, $nome, $telefone, $id = null){
-            $this->login = $login;
-            $this->senha = $senha;
-            $this->nome = $nome;
-            $this->telefone = $telefone;
+            $validatedData = $this->validarDados($login, $senha, $nome, $telefone);
+        
+            if (isset($validatedData['erros'])) {
+                // Lida com os erros, como retornar uma mensagem de erro ou lançar uma exceção
+                return $validatedData['erros'];
+            }
+        
+            // Configure as propriedades do usuário com os dados validados
+            $this->login = $validatedData['email'];
+            $this->senha = $validatedData['senha'];
+            $this->nome = $validatedData['nome'];
+            $this->telefone = $validatedData['telefone'];
             $this->id = $id;
         }
+        
 
         public function getId(){
             return $this->id;
@@ -26,6 +35,49 @@
 
         public function getTableName(){
             return $this->table;
+        }
+
+        private function validarDados($login, $senha, $nome, $telefone){
+            $erros = array();
+
+            $nome = filter_var($nome, FILTER_SANITIZE_SPECIAL_CHARS);
+            $telefone = preg_replace('/[^0-9]/', '', $telefone);
+            $email = filter_var($login, FILTER_SANITIZE_EMAIL);
+            $senha = preg_replace('/[^A-Za-z0-9]/', '', $senha);
+            $senha = filter_var($senha, FILTER_SANITIZE_SPECIAL_CHARS);
+
+            $formatName = array("options" => array("regexp" => "/([\wÀ-ÿ&-0-9])/"));
+            if(! filter_var($nome, FILTER_VALIDATE_REGEXP, $formatName)){
+                $erros[] = "Nome inválido\n";
+            }
+
+            if((strlen($telefone) < 10 || strlen($telefone) >11)){
+                $erros[] = "Telefone inválido\n";
+            }
+            
+            if(!(filter_var($email, FILTER_VALIDATE_EMAIL))){
+                $erros[] = "Email inválido\n";
+            }
+
+            $formatPassword = array("options" => array("regexp" => "/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/"));
+            if(! filter_var($senha, FILTER_VALIDATE_REGEXP, $formatPassword)){
+                $erros[] = "Senha inválida\n";
+            }
+
+            $response = [];
+
+            if(empty($erros)){
+                $response = [
+                    'nome' => $nome,
+                    'telefone' => $telefone,
+                    'email' => $email,
+                    'senha' => $senha
+                ];
+            }else{
+                $response['erros'] = $erros;
+            }
+
+            return $response;
         }
 
         public function insert(){
