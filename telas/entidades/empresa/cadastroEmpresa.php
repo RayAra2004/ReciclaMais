@@ -2,7 +2,7 @@
     $css = '<link rel="stylesheet" href="/ReciclaMais/css/cadastro.css"> <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> <script src="/ReciclaMais/script/cadastro.js" defer></script>';
     include './../../componentes/header.php';
 
-    include './validacaoEmpresa.php';
+    include './../../../sql/validacao/validacaoEmpresa.php';
     //include './../../../sql/web/empresa/cadastroEmpresa_mysql.php';
     //include_once './../../../sql/database/connection.php';
     include './../../../sql/entidades/usuario/Pessoa_Juridica.php';
