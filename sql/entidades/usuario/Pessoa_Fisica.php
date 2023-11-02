@@ -5,7 +5,7 @@
         protected $table = "usuario_pessoa_fisica";
         private $dataNascimento;
         private $fk_id_user;
-        public function __construct($dataNascimento, $fk_id_user = null) {
+        public function __construct($dataNascimento, $fk_id_user) {
             
             $this->dataNascimento = $dataNascimento;
             $this->fk_id_user = $fk_id_user;
