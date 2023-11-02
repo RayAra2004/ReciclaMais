@@ -28,27 +28,35 @@
                 Database::getInstance()->beginTransaction();
 
                 $usuario = new Usuario();
-                $usuario->setValues($login, $senha_hash, $nome, $telefone);
-                if($usuario->insert()){
-                    $user_id = $usuario->getId();
-                    $pessoaFisica = new Pessoa_Fisica($data, $user_id);
-            
-                    if($pessoaFisica->insert()){
-                        Database::getInstance()->commit();  
-                        $resposta["status"] = "1";
+                $erro = $usuario->setValues($login, $senha_hash, $nome, $telefone);
+                if($erro !== null){ //se entrar é pq houve algum erro
+
+                    $mensagemErro = "Erro:<br>";
+                    foreach ($erro as $erroItem) {
+                        $mensagemErro .= $erroItem . "<br>";
+                    }
+                    $resposta["status"] = "0";
+                    $resposta["message"] = $mensagemErro ;
+                }else{
+                    if($usuario->insert()){
+                        $user_id = $usuario->getId();
+                        $pessoaFisica = new Pessoa_Fisica($data, $user_id);
+                
+                        if($pessoaFisica->insert()){
+                            Database::getInstance()->commit();  
+                            $resposta["status"] = "1";
+                        }else{
+                            Database::getInstance()->rollBack();
+                            $resposta["status"] = "0";
+                            $resposta["message"] = "Erro ao cadastrar usuário";
+                        }
+                        
                     }else{
                         Database::getInstance()->rollBack();
                         $resposta["status"] = "0";
                         $resposta["message"] = "Erro ao cadastrar usuário";
                     }
-                    
-                }else{
-                    Database::getInstance()->rollBack();
-                    $resposta["status"] = "0";
-                    $resposta["message"] = "Erro ao cadastrar usuário";
-                }
-
-                
+                }       
             }catch(Exception $e){
                 $resposta["status"] = "0";
                 $resposta["message"] = $e->getMessage();
