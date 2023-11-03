@@ -35,7 +35,7 @@ create table tipo_usuario (
 );
 
 create table endereco (
-    cep varchar(20) not null,
+    cep bigint not null,
     fk_tipo_logradouro_id int not null,
     logradouro varchar(50) not null,
     fk_estado_id int not null,
@@ -236,17 +236,29 @@ alter table material_reciclavel add constraint fk_material_reciclavel_5
 
 /* Inserção de dados */
 
-INSERT INTO TIPO_USUARIO (descricao)
-VALUES 
-    ('Administrador'),
-	('Pessoa Física'),
-	('Instituição');
+insert into tipo_usuario (id, descricao) values 
+    (1, 'Administrador'),
+	(2, 'Pessoa Física'),
+	(3, 'Instituição');
 
 
-INSERT INTO TIPO_ASSINATURA( NOME, DESCRICAO, VALOR)
-	VALUES  
-        ('GRATUITO', 'SEM BENEFÍCIOS', 0),
-		('PLATINUM', 'RELATÓRIO GERAL SOBRE OS MATERIAIS MAIS PUBLICADOS. RELATÓRIO GERAL SOBRE OS BAIRROS COM MAIS MATERIAIS PUBLICADOS. RELATÓRIO GERAL SOBRE OS BAIRROS COM MAIS PONTOS DE COLETA. RELATÓRIO GERAL SOBRE OS TIPOS DE MATERIAIS RECICLADOS EM CADA BAIRRO. RELATÓRIO GERAL SOBRE OS LOCAIS COM MAIS USUÁRIOS. DESTAQUE EM NOSSA PÁGINA PRINCIPAL.', 119.9);
+insert into tipo_assinatura(id, nome, descricao, valor) values  
+    (1, 'GRATUITO', 'SEM BENEFÍCIOS', 0),
+    (2, 'PLATINUM', 'RELATÓRIO GERAL SOBRE OS MATERIAIS MAIS PUBLICADOS. RELATÓRIO GERAL SOBRE OS BAIRROS COM MAIS MATERIAIS PUBLICADOS. RELATÓRIO GERAL SOBRE OS BAIRROS COM MAIS PONTOS DE COLETA. RELATÓRIO GERAL SOBRE OS TIPOS DE MATERIAIS RECICLADOS EM CADA BAIRRO. RELATÓRIO GERAL SOBRE OS LOCAIS COM MAIS USUÁRIOS. DESTAQUE EM NOSSA PÁGINA PRINCIPAL.', 119.9);
+
+insert into categoria_de_materiais_reciclados (id, descricao) values 
+    (1, 'Plástico'),
+    (2, 'Papel'),
+    (3, 'Vidro'),
+    (4, 'Metal'),
+    (5, 'Tecido'),
+    (6, 'Borracha'),
+    (7, 'Madeira'),
+    (8, 'Eletrônicos');
+
+insert into coletado (id, descricao) values  (1, 'disponível'),
+    (2, 'indisponível'),
+    (3, 'em transação');
 
 INSERT INTO Estado (Estado)
 VALUES 
@@ -426,20 +438,7 @@ VALUES
   ('10101010101010', 'logo10.jpg', 10, 10, 2, '2023-10-16', '2023-11-16');
 
 
-INSERT INTO CATEGORIA_DE_MATERIAIS_RECICLADOS (descricao)
-VALUES ('Plástico'),
-       ('Papel'),
-       ('Vidro'),
-       ('Metal'),
-       ('Tecido'),
-       ('Borracha'),
-       ('Madeira'),
-       ('Eletrônicos');
 
-INSERT INTO COLETADO (descricao)
-	VALUES  ('disponível'),
-		('indisponível'),
-		('em transação');
 
 
 INSERT INTO CADASTRO_PONTO_COLETA (FK_USUARIO_INSTITUICAO_FK_USUARIO_ID, FK_ENDERECO_ID, FK_USUARIO_ID, data_cadastro, nome)
