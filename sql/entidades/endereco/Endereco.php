@@ -108,6 +108,35 @@
         
             return false;
         }
+
+        private function getGeolocationByAdress(){
+            $endereco = $this->numero . "," . $this->bairro . "," . $this->cidade . ",brazil," . $this->cep;
+            $api_key = "AIzaSyATenWPcH_IiPOpjK_3HHmUVfby-PVS1Ko";
+
+            // Construa a URL da API com o endereço e a chave de API
+            $url = "https://maps.googleapis.com/maps/api/geocode/json?address=" . urlencode($endereco) . "&key=" . $api_key;
+
+            // Faça a solicitação à API
+            $response = file_get_contents($url);
+
+            // Decodifique a resposta JSON
+            $data = json_decode($response);
+
+            // Verifique se a solicitação foi bem-sucedida e obtenha a latitude e a longitude
+            if ($data->status === "OK") {
+                $latitude = $data->results[0]->geometry->location->lat;
+                $longitude = $data->results[0]->geometry->location->lng;
+
+                $this->latitude = $latitude;
+                $this->longitude = $longitude;
+                
+                return true;
+
+            } else {
+                // Trate os erros, por exemplo, se o endereço não pôde ser geocodificado
+                return false;
+            }
+        }
         
 
         public function insert(){
@@ -120,6 +149,10 @@
             if($this->fk_tipo_logradouro === false || $this->fk_estado_id === false 
                 || $this->fk_cidade_id === false || $this->fk_bairro_id === false){
                     return false;
+            }
+
+            if(!($this->getGeolocationByAdress())){
+                return false;
             }
 
             $sql = "INSERT INTO $this->table (cep, fk_tipo_logradouro, logradouro, fk_estado_id,
