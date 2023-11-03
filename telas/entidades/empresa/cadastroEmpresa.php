@@ -17,7 +17,7 @@
         }else{
 
             //TODO: Fazer o cadastro no banco
-            cadastrarEmpresa($connect, $response);
+            
         }
         
     }

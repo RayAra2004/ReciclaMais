@@ -95,8 +95,58 @@
             return $response;
         }
 
+        private function insertAdjacent($tableName, $value){
+            $sql = "INSERT INTO " . $tableName . "(" . $tableName . ") VALUES (:value) ON CONFLICT (" . $tableName . ") DO NOTHING RETURNING id;";
+            $stmt = Database::prepare($sql);
+            $stmt->bindParam(':value', $value);
+        
+            if ($stmt->execute()) {
+                // Usa fetchColumn para obter o valor retornado
+                $id = $stmt->fetchColumn();
+                return $id;
+            }
+        
+            return false;
+        }
+        
+
         public function insert(){
+
+            $this->fk_tipo_logradouro = $this->insertAdjacent("tipo_logradouro", $this->tipo_logradouro);         
+            $this->fk_estado_id = $this->insertAdjacent("estado", $this->estado);      
+            $this->fk_cidade_id = $this->insertAdjacent("cidade", $this->cidade);        
+            $this->fk_bairro_id = $this->insertAdjacent("bairro", $this->bairro);
+      
+            if($this->fk_tipo_logradouro === false || $this->fk_estado_id === false 
+                || $this->fk_cidade_id === false || $this->fk_bairro_id === false){
+                    return false;
+            }
+
+            $sql = "INSERT INTO $this->table (cep, fk_tipo_logradouro, logradouro, fk_estado_id,
+                fk_cidade_id, fk_bairro_id, numero, complemento, longitude, latitude) 
+                VALUES (:cep, :fk_tipo_logradouro, :logradouro, :fk_estado_id,
+                    :fk_cidade_id, :fk_bairro_id, :numero, :complemento, :longitude, :latitude);";
             
+            $stmt = Database::prepare($sql);
+            $stmt->bindParam(':cep', $this->cep, PDO::PARAM_INT);
+            $stmt->bindParam(':fk_tipo_logradouro', $this->fk_tipo_logradouro, PDO::PARAM_INT);
+            $stmt->bindParam(':logradouro', $this->logradouro);
+            $stmt->bindParam(':fk_estado_id', $this->fk_estado_id);
+            $stmt->bindParam(':fk_cidade_id', $this->fk_cidade_id, PDO::PARAM_INT);
+            $stmt->bindParam(':fk_bairro_id', $this->fk_bairro_id, PDO::PARAM_INT);
+            $stmt->bindParam(':numero', $this->numero, PDO::PARAM_INT);
+            $stmt->bindParam(':complemento', $this->complemento);
+            $stmt->bindParam(':longitude', $this->latitude, PDO::PARAM_INT);
+            $stmt->bindParam(':latitude', $this->longitude, PDO::PARAM_INT);
+
+            if ($stmt->execute()) {
+                // Recupere o ID inserido
+                $this->id = Database::getInstance()->lastInsertId();
+    
+                return true;
+            }
+    
+            return false;
         }
 
         public function update($id){
