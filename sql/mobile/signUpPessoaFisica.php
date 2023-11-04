@@ -16,9 +16,6 @@
         $nome = trim($_POST['nome']);
         $telefone = trim($_POST['telefone']);
         
-        // o bd não armazena diretamente a senha do usuário, mas sim 
-        // um código hash que é gerado a partir da senha.
-        $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
         
         // antes de registrar o novo usuário, verificamos se ele já
         // não existe.
@@ -28,7 +25,7 @@
                 Database::getInstance()->beginTransaction();
 
                 $usuario = new Usuario();
-                $erro = $usuario->setValues($login, $senha_hash, $nome, $telefone);
+                $erro = $usuario->setValues($login, $senha, $nome, $telefone);
                 if($erro !== null){ //se entrar é pq houve algum erro
 
                     $mensagemErro = "Erro:<br>";

@@ -43,8 +43,8 @@
             $nome = filter_var($nome, FILTER_SANITIZE_SPECIAL_CHARS);
             $telefone = preg_replace('/[^0-9]/', '', $telefone);
             $email = filter_var($login, FILTER_SANITIZE_EMAIL);
-            $senha = preg_replace('/[^A-Za-z0-9]/', '', $senha);
-            $senha = filter_var($senha, FILTER_SANITIZE_SPECIAL_CHARS);
+            //$senha = preg_replace('/[^A-Za-z0-9]/', '', $senha);
+            //$senha = filter_var($senha, FILTER_SANITIZE_SPECIAL_CHARS);
 
             $formatName = array("options" => array("regexp" => "/([\wÀ-ÿ&-0-9])/"));
             if(! filter_var($nome, FILTER_VALIDATE_REGEXP, $formatName)){
@@ -64,6 +64,8 @@
                 $erros[] = "Senha inválida\n";
             }
 
+            $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+
             $response = [];
 
             if(empty($erros)){
@@ -71,7 +73,7 @@
                     'nome' => $nome,
                     'telefone' => $telefone,
                     'email' => $email,
-                    'senha' => $senha
+                    'senha' => $senha_hash
                 ];
             }else{
                 $response['erros'] = $erros;
@@ -134,7 +136,8 @@
             $stmt->execute();
 
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
-            if($user){
+
+            if($user !== false){
                 return password_verify($password, $user["senha"]);
             }else{
                 return false;

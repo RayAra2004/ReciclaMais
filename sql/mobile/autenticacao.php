@@ -39,7 +39,7 @@ function autenticar() {
 	// Verifica antes se o parâmetro de login foi enviado ao servidor
 	if(!is_null($login)) {
 		$res = Usuario::login($login, $senha);
-
+		
 		return $res;
 	}else{
 		return false;
