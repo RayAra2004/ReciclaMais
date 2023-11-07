@@ -52,7 +52,7 @@ create table cadastro_ponto_coleta (
     nome varchar(30) not null,
     id serial primary key,
     imagem text,
-    fk_usuario_instituicao_fk_usuario_id int not null,
+    fk_usuario_instituicao_fk_usuario_id int,
     fk_endereco_id int not null,
     fk_usuario_id int not null,
     data_cadastro timestamp default(now())
