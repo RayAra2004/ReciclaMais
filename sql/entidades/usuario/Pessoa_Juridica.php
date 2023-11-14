@@ -10,9 +10,10 @@
 
         private $id_endereco;
         private $id_tipo_assinatura;
+        private $fk_usuario_id;
         public function __construct() {}
 
-        public function setValuesPJ($cnpj, $urlLogo, $id_endereco, $id_tipo_assinatura){
+        public function setValuesPJ($cnpj, $urlLogo, $id_endereco, $id_tipo_assinatura, $fk_usuario_id){
             
             $validatedData = $this->validarDados($cnpj, $urlLogo);
         
@@ -25,6 +26,7 @@
             $this->logo = $validatedData['logo'];
             $this->id_endereco = $id_endereco;
             $this->id_tipo_assinatura = $id_tipo_assinatura;
+            $this->fk_usuario_id = $fk_usuario_id;
         }
         
         private function validarDados($cnpj, $url){
@@ -61,6 +63,10 @@
             return $this->table;
         }
 
+        public function getId(){
+            return $this->fk_usuario_id;
+        }
+
         public static function findAllJuridicPeople(){
             $tempUser = new Pessoa_Juridica();
             $tableName = $tempUser->getTableName();
@@ -74,7 +80,7 @@
                     VALUES (:fk_usuario_id, :fk_endereco_id, :fk_tipo_assinatura_id, :cnpj, :logo);";
                 
                 $stmt = Database::prepare($sql);
-                $stmt->bindParam(':fk_usuario_id', $this->getId(), PDO::PARAM_INT); // Obtém o ID do usuário
+                $stmt->bindParam(':fk_usuario_id', $this->fk_usuario_id, PDO::PARAM_INT); // Obtém o ID do usuário
                 $stmt->bindParam(':fk_endereco_id', $this->id_endereco, PDO::PARAM_INT);
                 $stmt->bindParam(':fk_tipo_assinatura_id', $this->id_tipo_assinatura, PDO::PARAM_INT);
                 $stmt->bindParam(':cnpj', $this->cnpj, PDO::PARAM_INT);

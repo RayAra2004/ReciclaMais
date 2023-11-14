@@ -43,6 +43,10 @@
                 $this->complemento = $validatedData['complemento'];
         }
 
+        public function getId(){
+            return $this->id;
+        }
+
         private function validarDados($cep, $logradouro, $tipo_logradouro, $estado, $cidade, 
             $bairro, $numero, $complemento = null){
 
@@ -91,7 +95,7 @@
             }else{
                 $response['erros'] = $erros;
             }
-
+            var_dump($response);
             return $response;
         }
 

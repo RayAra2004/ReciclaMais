@@ -2,24 +2,87 @@
     $css = '<link rel="stylesheet" href="/ReciclaMais/css/cadastro.css"> <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> <script src="/ReciclaMais/script/cadastro.js" defer></script>';
     include './../../componentes/header.php';
 
-    include './../../../sql/validacao/validacaoEmpresa.php';
-    //include './../../../sql/web/empresa/cadastroEmpresa_mysql.php';
-    //include_once './../../../sql/database/connection.php';
+    include './../../../sql/entidades/usuario/Usuario.php';
     include './../../../sql/entidades/usuario/Pessoa_Juridica.php';
-
-    Pessoa_Juridica::findAllJuridicPeople();
+    include './../../../sql/entidades/endereco/Endereco.php';
     
+    $erros = array();
+    $nome = '';
+    $cnpj = '';
+    $telefone = '';
+    $email = '';
+    $senha= '';
+    $cep = '';
+    $tipo_logradouro = '';
+    $logradouro = '';
+    $numero = '';
+    $estado = '';
+    $cidade = '';
+    $bairro = '';
+    $complemento = '';
     if(!empty($_POST)){
-        //$response = validacaoEmpresa($_POST);
-
-        if(isset($response['erros'])){
-            $erros = $response['erros'];
-        }else{
-
-            //TODO: Fazer o cadastro no banco
-            
+        var_dump($_POST);
+        if(isset($_POST['btn-parte-1'])){
+            $nome = $_POST['nome-empresa'];
+            $cnpj = $_POST['cnpj'];
+            $telefone = $_POST['telefone'];
+            $email = $_POST['email'];
+            $senha = $_POST['senha'];
         }
+        if(isset($_POST['btn-parte-2'])){
+            $cep = $_POST['cep'];
+            $tipo_logradouro = $_POST['tpLogradouro'];
+            $logradouro = $_POST['$logradouro'];
+            $numero = $_POST['numero'];
+            $estado = $_POST['uf'];
+            $cidade = $_POST['cidade'];
+            $bairro = $_POST['bairro'];
+            $complemnto = $_POST['complemento'];
+        }
+
+        $usuario_existe = Usuario::findByLogin($email);
+
+        if ($usuario_existe == false) { // se não existe
         
+            $newEndereco = new Endereco();
+
+            $isValid = $newEndereco->setValues($cep, $logradouro, $tipo_logradouro, $estado, 
+                $cidade, $bairro, $numero, $complemento);
+         
+            /*
+            if(isset($isValid['erros'])){
+                $erros = $isValid['erros'];
+                return;
+            }
+            
+            $isInserted = $newEndereco->insert();
+
+            if($isInserted){
+                $endereco_id = $newEndereco->getId();
+
+                $newUsuario = new Usuario();
+                $isValid = $newUsuario->setValues($email, $senha, $nome, $telefone);
+                if($isValid['erros']){
+                    $erros = $isValid['erros'];
+                    return;
+                }
+                $isInserted = $newUsuario->insert();
+
+                if($isInserted){
+
+                    $usuario_id = $newUsuario->getId();
+                   
+                    $newEmpresa = new Pessoa_Juridica();
+
+                    $newEmpresa->setValuesPJ($cnpj, '', $endereco_id, 1, $usuario_id);
+                    $newEmpresa->insert();
+                }
+            }
+            */
+        
+        }else{
+            $erros['erro'] = 'Este usuário já existe!!';
+        }
     }
 ?>
  
@@ -64,7 +127,7 @@
                             </div>
                         </div> 
                         <div class="w-100 d-flex justify-content-end">
-                            <button  class="btn-continuar" id="btn-continuar1">Próxima</button>
+                            <button name="btn-parte-1"  class="btn-continuar" id="btn-continuar1">Próxima</button>
                         </div>                           
                     </div>
                     <div id="div-cad-2" class="div-cad-2 d-none flex-wrap justify-content-between">
@@ -74,8 +137,8 @@
                                 <input value="29116150" type="number" name="cep" id="cep" placeholder="Digie seu CEP empresarial" required pattern="\b\d{5}[-.]\d{3}">
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
-                                <label for="tp-logradouro">TIPO LOGRADOURO</label>
-                                <select id="tp-logradouro" name="tp-logradouro" disabled>
+                                <label for="tpLogradouro">TIPO LOGRADOURO</label>
+                                <select id="tp-logradouro" name="tpLogradouro">
                                     <option value=""></option>
                                     <option value="aeroporto">aeroporto</option>
                                     <option value="alameda">alameda</option>
@@ -135,7 +198,7 @@
                         <div class="">
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="uf">ESTADO</label>
-                                <select id="uf" name="uf" disabled>
+                                <select id="uf" name="uf">
                                     <option value=""></option>
                                     <option value="AC">Acre</option>
                                     <option value="AL">Alagoas</option>
@@ -180,7 +243,7 @@
                             </div>
                         </div>
                         <div class="w-100 d-flex justify-content-end">
-                            <button class="btn-continuar" id="btn-continuar2">Próxima</button>
+                            <button name="btn-parte-2" class="btn-continuar" id="btn-continuar2">Próxima</button>
                         </div>
                     </div>               
                     <div id="div-cad-3" class="div-cad-3 d-none justify-content-center aling-items-center flex-wrap">
