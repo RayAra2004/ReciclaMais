@@ -9,6 +9,12 @@
   include '../componentes/header.php';
 ?>
 <section id="containerMapa">
+  <div id="divtot">
+    <div id="divzada">
+      <img id="imgPonto" src="/ReciclaMais/imgs/arvores_home.jpg" alt="">
+      <p id="text1"></p>
+    </div>
+  </div>
   <div class="options">
       <input class="search_input" placeholder="Search">
       <button class="search_btn">Search</button>
