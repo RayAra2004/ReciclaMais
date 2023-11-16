@@ -25,13 +25,13 @@
     background: #555;
 }
 #divzada{
-    display: block;
+    display: none;
     background-color: cyan;
-    height: 80vh;
-    width: 80vw;
+    height: 50vh;
+    width: 300px;
     position: fixed;
-    left: 0;
-    top: 0;
+    left: 1vw;
+    top: 20vh;
     z-index: 2;
 }
 #divtot{
@@ -46,4 +46,8 @@
 #imgPonto{
     width: inherit;
     max-height: 200px;
+}
+#btnClose{
+    position: fixed;
+    z-index: 2;
 }

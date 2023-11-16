@@ -1,17 +1,18 @@
 "use strict"
 const searchInput = document.querySelector(".search_input");
 const searchBtn = document.querySelector(".search_btn");
-const divtot = document.getElementById("divtot");
+//const divtot = document.getElementById("divtot");
 const divzada = document.getElementById("divzada");
 const text1 = document.getElementById("text1");
 const imgPonto = document.getElementById("imgPonto");
-divtot.addEventListener("click", ()=>{
+const btnClose = document.getElementById("btnClose");
+btnClose.addEventListener("click", ()=>{
     divzada.style.display = "none";
     divtot.style.display = "none";
 });
-divzada.addEventListener("click", ()=>{
+/*divzada.addEventListener("click", ()=>{
     console.log("oi")
-});
+});*/
 
 const Pontos = {
     "-20.197329691804068, -40.2170160437478": {
@@ -22,12 +23,12 @@ const Pontos = {
     "-20.199232504534884, -40.227077110956316":{
         title: "Hospital Jayme dos Santos Neves",
         icon: "/ReciclaMais/imgs/silver_pin.svg",
-        img: "/ReciclaMais/imgs/arvores_home.jpg"
+        img: "/ReciclaMais/imgs/simbolo-de-reciclagem.png"
     },
     "-20.19826402415827, -40.224856532079116":{
         title: "Café Arrumado",
         icon: "/ReciclaMais/imgs/silver_pin.svg",
-        img: "/ReciclaMais/imgs/arvores_home.jpg"
+        img: "/ReciclaMais/imgs/logoMA.png"
     }};
 
 let map, searchManager;
@@ -40,7 +41,7 @@ function clicado(content,Pontos){
     let location = content.getLocation().latitude + ", "+ content.getLocation().longitude;
     console.log(location);
     console.log(Pontos[location]);
-    divtot.style.display = "block";
+    //divtot.style.display = "block";
     divzada.style.display = "block";
     text1.textContent = Pontos[location]["title"]
     imgPonto.setAttribute('src',Pontos[location]["img"])
@@ -64,12 +65,12 @@ function getMap(){
         "-20.199232504534884, -40.227077110956316":{
             title: "Hospital Jayme dos Santos Neves",
             icon: "/ReciclaMais/imgs/silver_pin.svg",
-            img: "/ReciclaMais/imgs/arvores_home.jpg"
+            img: "/ReciclaMais/imgs/simbolo-de-reciclagem.png"
         },
         "-20.19826402415827, -40.224856532079116":{
             title: "Café Arrumado",
             icon: "/ReciclaMais/imgs/silver_pin.svg",
-            img: "/ReciclaMais/imgs/arvores_home.jpg"
+            img: "/ReciclaMais/imgs/logoMA.png"
         }};
 
     for (const key in Pontos) {
