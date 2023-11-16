@@ -51,13 +51,11 @@
             $bairro, $numero, $complemento = null){
 
             $cep = preg_replace('/[^0-9]/', '', $cep);
-            $logradouro = preg_replace('/[^A-Za-z0-9\s]/', '', $logradouro);
             $numero = preg_replace('/[^0-9]/', '', $numero);
-            $cidade = preg_replace('/[^A-Za-z\s]/', '', $cidade);
-            $bairro = preg_replace('/[^A-Za-z\s]/', '', $bairro);
             $tipo_logradouro = preg_replace('/[^A-Za-z\s]/', '', $tipo_logradouro);
             $estado = preg_replace('/[^A-Za-z\s]/', '', $estado);
-            $complemento = preg_replace('/[^A-Za-z0-9\s]/', '', $complemento);
+
+            
 
             $formatLogradouro = array("options" => array("regexp" => "/([\wÀ-ÿ&-0-9])/"));
             if(! filter_var($logradouro, FILTER_VALIDATE_REGEXP, $formatLogradouro)){
@@ -95,22 +93,42 @@
             }else{
                 $response['erros'] = $erros;
             }
-            var_dump($response);
             return $response;
         }
 
         private function insertAdjacent($tableName, $value){
-            $sql = "INSERT INTO " . $tableName . "(" . $tableName . ") VALUES (:value) ON CONFLICT (" . $tableName . ") DO NOTHING RETURNING id;";
+            $sql = "SELECT * FROM " . $tableName . " WHERE " . $tableName . " = :value;";
             $stmt = Database::prepare($sql);
             $stmt->bindParam(':value', $value);
-        
-            if ($stmt->execute()) {
-                // Usa fetchColumn para obter o valor retornado
-                $id = $stmt->fetchColumn();
-                return $id;
+            $teste = $stmt->execute();
+
+            if ($teste === false) {
+                // Erro ao executar a consulta
+                // Faça o tratamento apropriado para o erro aqui
+            } else {
+                $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                if ($result) {
+                    // A cidade já existe, retorne o id
+                    $id = $result['id'];
+                    return $id;
+                } else {
+                    // A cidade não existe, faça a inserção
+                    $sql = "INSERT INTO " . $tableName . "(" . $tableName . ") VALUES (:value) RETURNING id;";
+                    $stmt = Database::prepare($sql);
+                    $stmt->bindParam(':value', $value);
+
+                    if ($stmt->execute()) {
+                        // Usa fetchColumn para obter o valor retornado
+                        $id = $stmt->fetchColumn();
+                        return $id;
+                    } else {
+                        // Erro ao executar a inserção
+                        // Faça o tratamento apropriado para o erro aqui
+                    }
+                }
             }
-        
-            return false;
+
         }
 
         private function getGeolocationByAdress(){
@@ -149,7 +167,12 @@
             $this->fk_estado_id = $this->insertAdjacent("estado", $this->estado);      
             $this->fk_cidade_id = $this->insertAdjacent("cidade", $this->cidade);        
             $this->fk_bairro_id = $this->insertAdjacent("bairro", $this->bairro);
-      
+            
+            /*var_dump($this->fk_tipo_logradouro);
+            var_dump($this->fk_estado_id);
+            var_dump($this->fk_cidade_id);
+            var_dump($this->fk_bairro_id);*/
+
             if($this->fk_tipo_logradouro === false || $this->fk_estado_id === false 
                 || $this->fk_cidade_id === false || $this->fk_bairro_id === false){
                     return false;
@@ -159,14 +182,14 @@
                 return false;
             }
 
-            $sql = "INSERT INTO $this->table (cep, fk_tipo_logradouro, logradouro, fk_estado_id,
+            $sql = "INSERT INTO $this->table (cep, fk_tipo_logradouro_id, logradouro, fk_estado_id,
                 fk_cidade_id, fk_bairro_id, numero, complemento, longitude, latitude) 
-                VALUES (:cep, :fk_tipo_logradouro, :logradouro, :fk_estado_id,
+                VALUES (:cep, :fk_tipo_logradouro_id, :logradouro, :fk_estado_id,
                     :fk_cidade_id, :fk_bairro_id, :numero, :complemento, :longitude, :latitude);";
             
             $stmt = Database::prepare($sql);
             $stmt->bindParam(':cep', $this->cep, PDO::PARAM_INT);
-            $stmt->bindParam(':fk_tipo_logradouro', $this->fk_tipo_logradouro, PDO::PARAM_INT);
+            $stmt->bindParam(':fk_tipo_logradouro_id', $this->fk_tipo_logradouro, PDO::PARAM_INT);
             $stmt->bindParam(':logradouro', $this->logradouro);
             $stmt->bindParam(':fk_estado_id', $this->fk_estado_id);
             $stmt->bindParam(':fk_cidade_id', $this->fk_cidade_id, PDO::PARAM_INT);

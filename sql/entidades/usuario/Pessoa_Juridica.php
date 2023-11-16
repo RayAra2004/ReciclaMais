@@ -35,15 +35,15 @@
             $url = "https://reciclabrasilararaquara.com.br/wp-content/uploads/2021/04/Ilustracao-Recicla-Brasil-2.png";
 
             $cnpj = preg_replace('/[^0-9]/', '', $cnpj);
-            $urlIsValid = preg_match('/^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/', $url);
+            //$urlIsValid = preg_match('/^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/', $url);
 
             if(strlen($cnpj)!=14){
                 $erros[] = "CNPJ inválido";
             }
 
-            if(!$urlIsValid){
+            /*if(!$urlIsValid){
                 $erros[] = "URL inválida";
-            }
+            }*/
 
             $response = [];
 

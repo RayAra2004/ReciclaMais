@@ -20,25 +20,24 @@
     $cidade = '';
     $bairro = '';
     $complemento = '';
+    
     if(!empty($_POST)){
-        var_dump($_POST);
-        if(isset($_POST['btn-parte-1'])){
-            $nome = $_POST['nome-empresa'];
-            $cnpj = $_POST['cnpj'];
-            $telefone = $_POST['telefone'];
-            $email = $_POST['email'];
-            $senha = $_POST['senha'];
-        }
-        if(isset($_POST['btn-parte-2'])){
-            $cep = $_POST['cep'];
-            $tipo_logradouro = $_POST['tpLogradouro'];
-            $logradouro = $_POST['$logradouro'];
-            $numero = $_POST['numero'];
-            $estado = $_POST['uf'];
-            $cidade = $_POST['cidade'];
-            $bairro = $_POST['bairro'];
-            $complemnto = $_POST['complemento'];
-        }
+
+        $nome = $_POST['nome-empresa'];
+        $cnpj = $_POST['cnpj'];
+        $telefone = $_POST['telefone'];
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];
+
+        $cep = $_POST['cep'];
+        $tipo_logradouro = $_POST['tpLogradouro'];
+        $logradouro = $_POST['logradouro'];
+        $numero = $_POST['numero'];
+        $estado = $_POST['uf'];
+        $cidade = $_POST['cidade'];
+        $bairro = $_POST['bairro'];
+        $complemnto = $_POST['complemento'];
+
 
         $usuario_existe = Usuario::findByLogin($email);
 
@@ -49,20 +48,21 @@
             $isValid = $newEndereco->setValues($cep, $logradouro, $tipo_logradouro, $estado, 
                 $cidade, $bairro, $numero, $complemento);
          
-            /*
+            
             if(isset($isValid['erros'])){
                 $erros = $isValid['erros'];
+                var_dump($erros);
                 return;
             }
             
             $isInserted = $newEndereco->insert();
-
+       
             if($isInserted){
                 $endereco_id = $newEndereco->getId();
 
                 $newUsuario = new Usuario();
                 $isValid = $newUsuario->setValues($email, $senha, $nome, $telefone);
-                if($isValid['erros']){
+                if(isset($isValid['erros'])){
                     $erros = $isValid['erros'];
                     return;
                 }
@@ -78,7 +78,7 @@
                     $newEmpresa->insert();
                 }
             }
-            */
+            
         
         }else{
             $erros['erro'] = 'Este usuário já existe!!';

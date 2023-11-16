@@ -44,8 +44,8 @@ create table endereco (
     numero int not null,
     complemento text,
     id serial primary key,
-    longitude bigint not null,
-    latitude bigint not null
+    longitude float not null,
+    latitude float not null
 );
 
 create table cadastro_ponto_coleta (

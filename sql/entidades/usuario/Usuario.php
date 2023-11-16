@@ -123,7 +123,7 @@
             $stmt->bindParam(":login", $login);
             $stmt->execute();
         
-            return $stmt->fetch(PDO::FETCH_BOTH);
+            return $stmt->fetch(PDO::FETCH_ASSOC);
         }
 
         public static function login($login, $password){
