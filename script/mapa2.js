@@ -31,48 +31,12 @@ const Pontos = {
         img: "/ReciclaMais/imgs/logoMA.png"
     }};
 
-let map, searchManager;
+    let map, searchManager;
 
 searchBtn.addEventListener("click", ()=>{
     geocodeQuery(searchInput.value);
 });
-
-function clicado(content,Pontos){
-    let location = content.getLocation().latitude + ", "+ content.getLocation().longitude;
-    console.log(location);
-    console.log(Pontos[location]);
-    //divtot.style.display = "block";
-    divzada.style.display = "block";
-    text1.textContent = Pontos[location]["title"]
-    imgPonto.setAttribute('src',Pontos[location]["img"])
-}
-
-function getMap(){
-    map = new Microsoft.Maps.Map('#map', {
-        center: new Microsoft.Maps.Location(-20.197329691804068, -40.2170160437478),
-        zoom: 16,
-        NavigationBarMode: "minified",
-        navigationBarOrientation: "horizontal",
-        credentials: 'Ak_PJnVWlG661PnFrGXTK6jXXiZz9b3Ocn4R5X9BXIhfGRcR7zSvm27_YE30YHHK',
-    });
-
-    const Pontos = {
-        "-20.197329691804068, -40.2170160437478": {
-            title: "Ifes Campus Serra",
-            icon: "/ReciclaMais/imgs/silver_pin.svg",
-            img: "/ReciclaMais/imgs/arvores_home.jpg"
-        },
-        "-20.199232504534884, -40.227077110956316":{
-            title: "Hospital Jayme dos Santos Neves",
-            icon: "/ReciclaMais/imgs/silver_pin.svg",
-            img: "/ReciclaMais/imgs/simbolo-de-reciclagem.png"
-        },
-        "-20.19826402415827, -40.224856532079116":{
-            title: "Café Arrumado",
-            icon: "/ReciclaMais/imgs/silver_pin.svg",
-            img: "/ReciclaMais/imgs/logoMA.png"
-        }};
-
+window.onload = function(){
     for (const key in Pontos) {
         const value = Pontos[key];
         // Process the key and value
@@ -93,6 +57,66 @@ function getMap(){
         Microsoft.Maps.Events.addHandler(pushpin, 'click', function () {clicado(pushpin,Pontos);});
     }
 };
+
+function clicado(content,Pontos){
+    let location = content.getLocation().latitude + ", "+ content.getLocation().longitude;
+    console.log(location);
+    console.log(Pontos[location]);
+    //divtot.style.display = "block";
+    divzada.style.display = "block";
+    text1.textContent = Pontos[location]["title"]
+    imgPonto.setAttribute('src',Pontos[location]["img"])
+}
+
+function getMap(){
+    map = new Microsoft.Maps.Map('#map', {
+        center: new Microsoft.Maps.Location(-20.197329691804068, -40.2170160437478),
+        zoom: 16,
+        NavigationBarMode: "minified",
+        navigationBarOrientation: "horizontal",
+        credentials: 'Ak_PJnVWlG661PnFrGXTK6jXXiZz9b3Ocn4R5X9BXIhfGRcR7zSvm27_YE30YHHK',
+    });
+
+    /*const Pontos = {
+        "-20.197329691804068, -40.2170160437478": {
+            title: "Ifes Campus Serra",
+            icon: "/ReciclaMais/imgs/silver_pin.svg",
+            img: "/ReciclaMais/imgs/arvores_home.jpg"
+        },
+        "-20.199232504534884, -40.227077110956316":{
+            title: "Hospital Jayme dos Santos Neves",
+            icon: "/ReciclaMais/imgs/silver_pin.svg",
+            img: "/ReciclaMais/imgs/simbolo-de-reciclagem.png"
+        },
+        "-20.19826402415827, -40.224856532079116":{
+            title: "Café Arrumado",
+            icon: "/ReciclaMais/imgs/silver_pin.svg",
+            img: "/ReciclaMais/imgs/logoMA.png"
+        }};*/
+};
+
+function fillMap(Pontos){
+    for (const key in Pontos) {
+        const value = Pontos[key];
+        // Process the key and value
+        const coordenadas = key.split(",");
+        const latitude = parseFloat(coordenadas[0]);
+        const longitude = parseFloat(coordenadas[1]);
+        
+        const pushpin = new Microsoft.Maps.Pushpin(
+          new Microsoft.Maps.Location(latitude, longitude),{
+            title: value.title,
+            icon: value.icon
+          }
+        );
+        
+        map.entities.push(pushpin);
+      
+        // Adiciona o evento de clique
+        Microsoft.Maps.Events.addHandler(pushpin, 'click', function () {clicado(pushpin,Pontos);});
+    }
+}
+
 //Função que recentraliza o mapa
 function geocodeQuery(query){
     map.setView({
