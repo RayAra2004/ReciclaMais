@@ -14,7 +14,13 @@ btnClose.addEventListener("click", ()=>{
     console.log("oi")
 });*/
 
-const Pontos = {
+const listPontos = document.getElementById("listPntos");
+const Pontos = JSON.parse(listPontos.textContent);
+
+
+
+
+/*const Pontos = {
     "-20.197329691804068, -40.2170160437478": {
         title: "Ifes Campus Serra",
         icon: "/ReciclaMais/imgs/silver_pin.svg",
@@ -29,9 +35,10 @@ const Pontos = {
         title: "Café Arrumado",
         icon: "/ReciclaMais/imgs/silver_pin.svg",
         img: "/ReciclaMais/imgs/logoMA.png"
-    }};
+    }
+};*/
 
-    let map, searchManager;
+let map, searchManager;
 
 searchBtn.addEventListener("click", ()=>{
     geocodeQuery(searchInput.value);

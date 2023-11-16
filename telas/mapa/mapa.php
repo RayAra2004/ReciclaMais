@@ -22,7 +22,9 @@
       "title" => "Café Arrumado",
       "icon" => "/ReciclaMais/imgs/silver_pin.svg"
   ];
+  echo "<div id='listPntos'>";
   echo json_encode($dicionario);
+  echo "</div>";
   
   $css = '<link rel="stylesheet" href="/ReciclaMais/css/mapa.css">
     <script src="/ReciclaMais/script/mapa2.js" defer></script>
