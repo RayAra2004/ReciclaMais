@@ -51,7 +51,6 @@
             
             if(isset($isValid['erros'])){
                 $erros = $isValid['erros'];
-                var_dump($erros);
                 return;
             }
             
