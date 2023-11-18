@@ -46,6 +46,8 @@
             $pms = json_decode($out,true);
             $img_url=$pms['data']['link']; //uso este pra salvar no BD
             
+            Database::getInstance()->beginTransaction();
+
             $newEndereco = new Endereco();
 
             $isValid = $newEndereco->setValues($cep, $logradouro, $tipo_logradouro, $estado, 
@@ -54,6 +56,7 @@
             
             if(isset($isValid['erros'])){
                 $erros = $isValid['erros'];
+                Database::getInstance()->rollBack();
                 return;
             }
             
@@ -70,9 +73,11 @@
                 $isInserted = $newPontoColeta->insert();
 
                 if($isInserted){
+                    Database::getInstance()->commit();
                     $resposta["status"] = 1;
                     $resposta["mensagem"] = "OK";
                 }else{
+                    Database::getInstance()->rollBack();
                     $resposta["status"] = 0;
                     $resposta["mensagem"] = "ERROR";
                 }

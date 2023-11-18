@@ -44,9 +44,11 @@
                 $this->id = Database::getInstance()->lastInsertId();
                 
                 if(self::cadastrar_materiais_reciclados()){
-
+                    return true;
+                }else{
+                    return false;
                 }
-                return true;
+                
             }
     
             return false;
@@ -58,15 +60,25 @@
 
         private function cadastrar_materiais_reciclados(){
             foreach ($this->materiais_reciclados as $material){
-                $sql = "INSERT INTO categoria_de_materiais_reciclados (descricao)
-                VALUES (:material);";
+                $sql = "SELECT * FROM categoria_de_materiais_reciclados WHERE descricao = :material;";
                 $stmt = Database::prepare($sql);
                 $stmt->bindParam(":material", $material);
-                if($stmt->execute()){
-                    $id = Database::getInstance()->lastInsertId();
-                    
+                $stmt->execute();
+                $material = $stmt->fetch(PDO::FETCH_ASSOC);
+                
+                $id_material = $material['id'];
+
+                $sql = "INSERT INTO recicla (fk_categoria_de_materiais_reciclados_id, fk_ponto_coleta_id)
+                    VALUES(:fk_categoria_de_materiais_reciclados_id, :fk_ponto_coleta_id);";
+                $stmt = Database::prepare($sql);
+                $stmt->bindParam(":fk_categoria_de_materiais_reciclados_id", $id_material);
+                $stmt->bindParam(":fk_ponto_coleta_id", $this->id);
+                if($stmt->execute() === false){
+                    return false;
                 }
             }
+
+            return true;
         }
     }
 
