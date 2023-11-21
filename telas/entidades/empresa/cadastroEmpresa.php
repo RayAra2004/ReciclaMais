@@ -39,7 +39,7 @@
         $bairro = $_POST['bairro'];
         $complemnto = $_POST['complemento'];
         $materiais = explode(';', $_POST['materiais_selecionados']);
-        var_dump($materiais);
+        array_pop($materiais);
 
         $usuario_existe = Usuario::findByLogin($email);
 
@@ -72,12 +72,13 @@
                 if($isInserted){
 
                     $usuario_id = $newUsuario->getId();
-                   
+                    var_dump($usuario_id);
                     $newEmpresa = new Pessoa_Juridica();
 
                     $newEmpresa->setValuesPJ($cnpj, '', $endereco_id, 1, $usuario_id);
                     
                     if($newEmpresa->insert()){
+                        var_dump('oi');
                         $newPontoColeta = new PontoColeta();
                         $newPontoColeta->setValues(null, $nome, '', $usuario_id, $endereco_id, $usuario_id, $materiais);
                         $newPontoColeta->insert();
