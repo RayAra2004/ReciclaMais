@@ -1,6 +1,7 @@
 <?php
     $css = '<link rel="stylesheet" href="/ReciclaMais/css/login.css"> <script src="/ReciclaMais/script/login.js" defer></script>';
     include './../../componentes/header.php';
+    include './../../../sql/entidades/usuario/Usuario.php';
 ?>
 <?php
     $erros = array();
@@ -19,7 +20,8 @@
         }
 
         if(empty($erros)){
-            $_SESSION['comp_header'] = '
+            if(Usuario::login($email, $senha)){
+                $_SESSION['comp_header'] = '
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         '.$email.'
@@ -31,6 +33,7 @@
                 </div>
             ';
             header('Location: /ReciclaMais/index.php');
+            } 
         }
 
     }
