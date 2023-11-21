@@ -22,7 +22,7 @@
         $usuario_existe = Usuario::findByLogin($login);
         if ($usuario_existe == false) { // se não existe
             try{
-                Database::getInstance()->beginTransaction();
+            
 
                 $usuario = new Usuario();
                 $erro = $usuario->setValues($login, $senha, $nome, $telefone);
@@ -40,16 +40,17 @@
                         $pessoaFisica = new Pessoa_Fisica($data, $user_id);
                 
                         if($pessoaFisica->insert()){
-                            Database::getInstance()->commit();  
+                         
+                            var_dump('oiii');
                             $resposta["status"] = "1";
                         }else{
-                            Database::getInstance()->rollBack();
+                       
                             $resposta["status"] = "0";
                             $resposta["message"] = "Erro ao cadastrar usuário";
                         }
                         
                     }else{
-                        Database::getInstance()->rollBack();
+                 
                         $resposta["status"] = "0";
                         $resposta["message"] = "Erro ao cadastrar usuário";
                     }
