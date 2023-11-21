@@ -251,7 +251,7 @@ insert into categoria_de_materiais_reciclados (id, descricao) values
     (2, 'Papel'),
     (3, 'Vidro'),
     (4, 'Metal'),
-    (5, 'Tecido'),
+    (5, 'Orgânico'),
     (6, 'Borracha'),
     (7, 'Madeira'),
     (8, 'Eletrônicos');

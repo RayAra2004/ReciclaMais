@@ -15,6 +15,7 @@ const complemento = document.getElementById('complemento');
 const formGeral = document.getElementById('form_infos_geral');
 const btnContinuar1 = document.getElementById("btn-continuar1");
 const btnContinuar2 = document.getElementById("btn-continuar2");
+const inputMateriaisSelecionados = document.getElementById("materiaisInput");
 
 const cadastros = [];
 
@@ -27,9 +28,12 @@ function selecionar(e, material){
     if(e.classList.contains('ativo')){
         e.src = e.src.replace('.svg', '_ativo.svg');
         selecionados++;
+        inputMateriaisSelecionados.value += material + ';';
     }else{
         e.src = e.src.replace('_ativo.svg', '.svg');
         selecionados--;
+        const materiais = inputMateriaisSelecionados.value;
+        inputMateriaisSelecionados.value = materiais.replace(material + ';', '');
     }
 }
 

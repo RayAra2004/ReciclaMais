@@ -5,6 +5,7 @@
     include './../../../sql/entidades/usuario/Usuario.php';
     include './../../../sql/entidades/usuario/Pessoa_Juridica.php';
     include './../../../sql/entidades/endereco/Endereco.php';
+    include './../../../sql/entidades/pontoColeta/PontoColeta.php';
     
     $erros = array();
     $nome = '';
@@ -37,7 +38,8 @@
         $cidade = $_POST['cidade'];
         $bairro = $_POST['bairro'];
         $complemnto = $_POST['complemento'];
-
+        $materiais = explode(';', $_POST['materiais_selecionados']);
+        var_dump($materiais);
 
         $usuario_existe = Usuario::findByLogin($email);
 
@@ -74,7 +76,12 @@
                     $newEmpresa = new Pessoa_Juridica();
 
                     $newEmpresa->setValuesPJ($cnpj, '', $endereco_id, 1, $usuario_id);
-                    $newEmpresa->insert();
+                    
+                    if($newEmpresa->insert()){
+                        $newPontoColeta = new PontoColeta();
+                        $newPontoColeta->setValues(null, $nome, '', $usuario_id, $endereco_id, $usuario_id, $materiais);
+                        $newPontoColeta->insert();
+                    }
                 }
             }
             
@@ -250,32 +257,35 @@
                             <span class="">QUAIS MATERIAIS SUA EMPRESA RECICLA?</span>
                             <div class="w-100 d-flex mt-3">
                                 <div class="div-trash">
-                                    <img onclick="selecionar(this, 'eletronicos')" class="img-fluid" src="/ReciclaMais/imgs/lixeira_eletronicos.svg" alt="">
+                                    <img onclick="selecionar(this, 'Eletrônicos')" class="img-fluid" src="/ReciclaMais/imgs/lixeira_eletronicos.svg" alt="">
                                 </div>
                                 <div class="div-trash">
-                                    <img onclick="selecionar(this, 'hospitalar')" class="img-fluid" src="/ReciclaMais/imgs/lixeira_hospitalar.svg" alt="">
+                                    <img onclick="selecionar(this, 'Hospitalar')" class="img-fluid" src="/ReciclaMais/imgs/lixeira_hospitalar.svg" alt="">
                                 </div>
                                 <div class="div-trash">
-                                    <img onclick="selecionar(this, 'madeira')" class="img-fluid" src="/ReciclaMais/imgs/lixeira_madeira.svg" alt="">
+                                    <img onclick="selecionar(this, 'Madeira')" class="img-fluid" src="/ReciclaMais/imgs/lixeira_madeira.svg" alt="">
                                 </div>
                                 <div class="div-trash">
-                                    <img onclick="selecionar(this, 'metal')" class="img-fluid" src="/ReciclaMais/imgs/lixeira_metal.svg" alt="">
+                                    <img onclick="selecionar(this, 'Metal')" class="img-fluid" src="/ReciclaMais/imgs/lixeira_metal.svg" alt="">
                                 </div>
                             </div>
                             <div class="w-100 d-flex mt-3">
                                 <div class="div-trash">
-                                    <img onclick="selecionar(this, 'organico')" class="img-fluid" src="/ReciclaMais/imgs/lixeira_organico.svg" alt="">
+                                    <img onclick="selecionar(this, 'Orgânico')" class="img-fluid" src="/ReciclaMais/imgs/lixeira_organico.svg" alt="">
                                 </div>
                                 <div class="div-trash">
-                                    <img onclick="selecionar(this, 'papel')" class="img-fluid" src="/ReciclaMais/imgs/lixeira_papel.svg" alt="">
+                                    <img onclick="selecionar(this, 'Papel')" class="img-fluid" src="/ReciclaMais/imgs/lixeira_papel.svg" alt="">
                                 </div>
                                 <div class="div-trash">
-                                    <img onclick="selecionar(this, 'plastico')" class="img-fluid" src="/ReciclaMais/imgs/lixeira_plastico.svg" alt="">
+                                    <img onclick="selecionar(this, 'Plástico')" class="img-fluid" src="/ReciclaMais/imgs/lixeira_plastico.svg" alt="">
                                 </div>
                                 <div class="div-trash">
-                                    <img onclick="selecionar(this, 'vidro')" class="img-fluid" src="/ReciclaMais/imgs/lixeira_vidro.svg" alt="">
+                                    <img onclick="selecionar(this, 'Vidro')" class="img-fluid" src="/ReciclaMais/imgs/lixeira_vidro.svg" alt="">
                                 </div>
                             </div>
+                        </div>
+                        <div id="materiaisSelecionados">
+                            <input type="text" id="materiaisInput" name="materiais_selecionados">
                         </div>
                         <div class="w-100 d-flex justify-content-end">
                             <button type="submit" name="btn-cadastro" class="btn-cadastro" form="form_infos_geral">CADASTRAR-SE</button>
