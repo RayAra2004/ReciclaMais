@@ -36,7 +36,7 @@ delete - exclui um registro pelo id
 			$stmt = Database::prepare($sql);
 			$stmt->bindParam(':id', $id, PDO::PARAM_INT);
 			$stmt->execute();
-			return $stmt->fetch(PDO::FETCH_BOTH);
+			return $stmt->fetch(PDO::FETCH_ASSOC);
 			
 		}
 		
@@ -49,7 +49,7 @@ delete - exclui um registro pelo id
 			$stmt = Database::prepare($sql);			
 			$stmt->execute();
 			//retorna um array com os registros da tabela indexado pelo nome da coluna da tabela e por um número
-			return $stmt->fetchAll(PDO::FETCH_BOTH );
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
 			
 		}
 		
