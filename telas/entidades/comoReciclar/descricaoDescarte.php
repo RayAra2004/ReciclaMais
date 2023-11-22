@@ -1,6 +1,6 @@
 <?php 
     $css = '<link rel="stylesheet" href="/ReciclaMais/css/descricaoDescarte.css">';
-    include './componentes/header.php';
+    include './../../componentes/header.php';
 ?>
 
 <section class="body_content">
@@ -8,7 +8,7 @@
         <p>DESCRIÇÃO DO DESCARTE</p>
     </div>
     <div class="container d-flex justify-content-center">
-        <img src="./../imgs/descarteLixo.jpeg" class="img-fluid"></img>
+        <img src="./../../../imgs/descarteLixo.jpeg" class="img-fluid"></img>
     </div>
     <div class="container mt-4">
         <span>
@@ -21,5 +21,5 @@
     </div>
 </section>
 <?php
-    include './componentes/footer.php'
+    include './../../componentes/footer.php'
 ?> 
