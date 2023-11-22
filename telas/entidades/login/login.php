@@ -27,7 +27,7 @@
                         '.$email.'
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Meu Perfil</a>
+                        <a class="dropdown-item" href="/ReciclaMais/telas/entidades/perfilEmpresa/perfilEmpresa.php">Meu Perfil</a>
                         <a class="dropdown-item" href="/ReciclaMais/telas/funcoes/encerrar_sessao.php">Encerrar Sessão</a>
                     </div>
                 </div>
