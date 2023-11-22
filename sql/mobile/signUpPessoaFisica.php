@@ -41,7 +41,6 @@
                 
                         if($pessoaFisica->insert()){
                          
-                            var_dump('oiii');
                             $resposta["status"] = "1";
                         }else{
                        
