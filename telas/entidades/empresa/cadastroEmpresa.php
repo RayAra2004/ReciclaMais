@@ -72,18 +72,30 @@
                 if($isInserted){
 
                     $usuario_id = $newUsuario->getId();
-                    var_dump($usuario_id);
                     $newEmpresa = new Pessoa_Juridica();
 
-                    $newEmpresa->setValuesPJ($cnpj, '', $endereco_id, 1, $usuario_id);
-                    
-                    if($newEmpresa->insert()){
-                        var_dump('oi');
-                        $newPontoColeta = new PontoColeta();
-                        $newPontoColeta->setValues(null, $nome, '', $usuario_id, $endereco_id, $usuario_id, $materiais);
-                        $newPontoColeta->insert();
+                    $res = $newEmpresa->setValuesPJ($cnpj, '', $endereco_id, 1, $usuario_id);
+                   
+                    if($res == true){
+                        if($newEmpresa->insert()){
+                            var_dump('oi');
+                            $newPontoColeta = new PontoColeta();
+                            $newPontoColeta->setValues(null, $nome, '', $usuario_id, $endereco_id, $usuario_id, $materiais);
+                            if($newPontoColeta->insert() == false){
+                                $erros['erro'] = 'Ponto de Coleta não inserido';
+                            }
+                        }else{
+                            $erros['erro'] = 'Empresa não inserida';
+                        }
+                    }else{
+                        $erros['erro'] = 'Endereço não inserido!!';
                     }
+                    
+                }else{
+                    $erros['erro'] = 'Usuário não inserido';
                 }
+            }else{
+                $erros['erro'] = 'Endereço não inserido!!!';
             }
             
         
