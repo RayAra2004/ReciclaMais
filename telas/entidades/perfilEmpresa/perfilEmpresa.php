@@ -31,9 +31,9 @@
             <span class="close">&times;</span>
             <p>Qual informação você deseja alterar?</p>
             <ul>
-            <li><button><a href="./mudarDadosEmpresariais.php" id="option1">Informações Empresariais</a></button></li>
-            <li><button><a href="./mudarEnderecoEmpresarial.php" id="option2">Endereço</a></button></li>
-            <li><button><a href="#" id="option3">Materiais Reciclados</a></button></li>
+            <li><a href="./mudarDadosEmpresariais.php" id="option1"><button>Informações Empresariais</button></a></li>
+            <li><a href="./mudarEnderecoEmpresarial.php" id="option2"><button>Endereço</button></a></li>
+            <li><a href="#" id="option3"><button>Materiais Reciclados</button></a></li>
             </ul>
         </div>
     </div>
