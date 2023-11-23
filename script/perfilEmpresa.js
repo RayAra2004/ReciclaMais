@@ -32,4 +32,16 @@ document.addEventListener('DOMContentLoaded', function () {
       // Adicione sua lógica aqui
     });
 });
+
+function mostrarConfirmacao() {
+  document.getElementById("confirmacao").style.display = "block";
+}
+
+function fecharConfirmacao() {
+  document.getElementById("confirmacao").style.display = "none";
+}
+
+function acaoConfirmada() {
+  fecharConfirmacao();
+}
   
