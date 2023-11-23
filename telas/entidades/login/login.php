@@ -21,10 +21,14 @@
 
         if(empty($erros)){
             if(Usuario::login($email, $senha)){
+                $usuario = Usuario::findByLogin($email);
+
+                $nome = $usuario["nome"];
+                $_SESSION['email'] = $email;
                 $_SESSION['comp_header'] = '
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        '.$email.'
+                        '.$nome.'
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="/ReciclaMais/telas/entidades/perfilEmpresa/perfilEmpresa.php">Meu Perfil</a>

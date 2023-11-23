@@ -92,28 +92,7 @@ telefone.addEventListener("input", e => {
         telefone.value = "(" + result.substring(0, 2) + ")" + result.substring(2, 6) + "-" + result.substring(6, 10);
     }
 });
-/*
-formGeral.addEventListener("submit", e =>{
-    e.preventDefault();
-    const novoCadstro = {
-        nomeEmpresa: nomeEmpresa.value,
-        cnpj: cnpj.value,
-        telefone: telefone.value,
-        email: email.value,
-        senha: senha.value,
-        cep: cep.value,
-        tpLogradouro: tpLogradouro.value,
-        numero: numero.value,
-        uf: uf.value,
-        cidade: cidade.value,
-        bairro: bairro.value,
-        complemento: complemento.value
-    }
-    const novoCadstroSerializado = JSON.stringify(novoCadstro);
-    localStorage.setItem("usuario", novoCadstroSerializado);
 
-});
-*/
 btnContinuar1.addEventListener("click", async (e) =>{
     e.preventDefault();
     

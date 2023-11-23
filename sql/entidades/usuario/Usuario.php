@@ -27,6 +27,13 @@
             $this->telefone = $validatedData['telefone'];
             $this->id = $id;
         }
+
+        public function setValuesUpdate($senha, $nome, $telefone){
+            $telefone = preg_replace('/[^0-9]/', '', $telefone);
+            $this->senha = $senha;
+            $this->nome = $nome;
+            $this->telefone = $telefone;
+        }
         
 
         public function getId(){
@@ -103,13 +110,13 @@
             return false;
         }
 
-        public function update($id){
-            $sql = "UPDATE $this->table SET nome = :nome, senha = :senha, telefone = :telefone WHERE id = :id;";
+        public function update($email){
+            $sql = "UPDATE $this->table SET nome = :nome, senha = :senha, telefone = :telefone WHERE login = :email;";
             $stmt = Database::prepare($sql);
             $stmt->bindParam(":nome", $this->nome);
             $stmt->bindParam(":telefone", $this->telefone);
             $stmt->bindParam(":senha", $this->senha);
-            $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+            $stmt->bindParam(":email", $email);
     
             return $stmt->execute();
         }
