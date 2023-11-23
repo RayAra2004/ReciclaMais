@@ -127,8 +127,28 @@ span{
 
 .my-modal-content button{
   background-color: #333;
+  color: #fff;
   border: none;
   border-radius: 5px;
   height: 48px;
   width: 285px;
+}
+
+.fechar {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.fechar:hover,
+.fechar:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.texto-modal{
+  margin-bottom: 30px;
 }

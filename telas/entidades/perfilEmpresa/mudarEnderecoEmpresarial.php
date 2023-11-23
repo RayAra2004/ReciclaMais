@@ -2,6 +2,7 @@
     $css = '<link rel="stylesheet" href="/ReciclaMais/css/mudarDadosEmpresariais.css"> <script src="/ReciclaMais/script/mudarDados.js" defer></script>';
     include './../../componentes/header.php';
     include './../../../sql/entidades/usuario/Pessoa_Juridica.php';
+    include './../../../sql/entidades/endereco/Endereco.php';
     
     $email = $_SESSION['email'];
 
@@ -15,6 +16,7 @@
     $cidade = $usuario['cidade'];
     $bairro = $usuario['bairro'];
     $tipo_logradouro = $usuario['tipo_logradouro'];
+    $endereco_id = $usuario['id'];
 
     
     if(!empty($_POST)){
@@ -23,14 +25,17 @@
         $novoLogradouro = $_POST['logradouro'];
         $novoNumero = $_POST['numero'];
         $novoEstado = $_POST['uf'];
-        $novoCidade = $_POST['cidade'];
+        $novaCidade = $_POST['cidade'];
         $novoBairro = $_POST['bairro'];
-        $novoComplemnto = $_POST['complemento'];
+        $novoComplemento = $_POST['complemento'];
 
-        $novo_usuario = new Usuario();
-        $novo_usuario->setValuesUpdate($novaSenha, $novoNome, $novoTelefone);
+        $novo_endereco = new Endereco();
+        $erros = $novo_endereco->setValues($novoCep, $novoLogradouro, $novoTipo_logradouro, $novoEstado, $novaCidade, $novoBairro, 
+            $novoNumero, $novoComplemento);
+        
+        var_dump($erros);
 
-        if($novo_usuario->update($email)){
+        if($novo_endereco->update($endereco_id)){
             
         }
 
@@ -40,7 +45,7 @@
 <section class="body_content">
     <div class="container h-fit-content d-flex justify-content-center">
         <div class="card px-4 py-3 bg-padrao w-90">
-            <form action="./mudarDadosEmpresariais.php" method="post" class="form-data">
+            <form action="./mudarEnderecoEmpresarial.php" method="post" class="form-data">
                 <div class="container-fluid row">
                     <div id="div-cad-1" class="div-cad-1 d-flex justify-content-between flex-wrap">
                     <div class="">
@@ -155,7 +160,7 @@
                             </div>
                         </div>
                         <div class="w-100 d-flex justify-content-end">
-                            <button name="btn-editar-dados" type="submit" class="btn-editar-dados" id="btn-editar-dados1">Editar Dados</button>
+                            <button name="btn-editar-dados" type="submit" class="btn-editar-dados" id="btn-editar-dados2">Editar Dados</button>
                         </div>                           
                     </div>
                 </div>

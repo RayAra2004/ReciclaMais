@@ -4,19 +4,19 @@
     include './../../../sql/entidades/usuario/Usuario.php';
 ?>
 <?php
-    $erros = array();
+    $erros;
 
     if(isset($_POST["btn-login"])){
         $email = filter_input(INPUT_POST,'input-email',FILTER_SANITIZE_EMAIL);
         $senha = $_POST["input-senha"];
         
         if(!(filter_var($email, FILTER_VALIDATE_EMAIL))){
-            $erros[] = "Email inválido";
+            $erros = "Formato de email inválido";
         }
 
         $format = array("options" => array("regexp" => "/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/"));
         if(! filter_var($senha, FILTER_VALIDATE_REGEXP, $format)){
-            $erros[] = "Senha inválida";
+            $erros = "Formato de senha inválida";
         }
 
         if(empty($erros)){
@@ -37,7 +37,9 @@
                 </div>
             ';
             header('Location: /ReciclaMais/index.php');
-            } 
+            }else{
+                $erros = 'Login ou Senha incorretos!';
+            }
         }
 
     }
@@ -76,15 +78,28 @@
                             </a>
                         </div>
                     </form>
-                    <div class="d-flex mt-3 div-error">
-                        <?php 
-                            if(!empty($erros)){
-                                foreach($erros as $erro){
-                                    echo "<li> $erro </li>";
-                                }
-                            }
-                        ?>
-                    </div>
+                    <!-- Código para erros -->
+                    <?php if (!empty($erros)) : ?>
+                        <div id="modalErro" class="modal" tabindex="-1" role="dialog">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Erro no Login</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p><?= $erros ?></p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <!-- Termina aqui -->
                 </div>
                 
                 <div class="card px-5 py-3 h-50 d-none justify-content-center align-content-center flex-wrap invalid-email" id="invalid-email">
@@ -102,6 +117,17 @@
             </div>
         </div>
     </div>
+    <!-- Começa aqui -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        // Exibe o modal automaticamente quando há um erro
+        <?php if (!empty($erros)) : ?>
+            $(document).ready(function () {
+                $('#modalErro').modal('show');
+            });
+        <?php endif; ?>
+    </script>
+    <!-- Termina aqui -->
 </section>
 <?php
     include './../../componentes/footer.php'

@@ -91,7 +91,7 @@
         }
 
         public static function getDadosUpdate($login){
-            $sql = "SELECT endereco.cep, endereco.logradouro, endereco.numero, endereco.complemento, estado.estado, cidade.cidade, bairro.bairro, tipo_logradouro.tipo_logradouro
+            $sql = "SELECT endereco.id, endereco.cep, endereco.logradouro, endereco.numero, endereco.complemento, estado.estado, cidade.cidade, bairro.bairro, tipo_logradouro.tipo_logradouro
                 FROM endereco
                 INNER JOIN usuario_instituicao
                 ON usuario_instituicao.fk_endereco_id = endereco.id

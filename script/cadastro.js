@@ -178,7 +178,7 @@ btnContinuar2.addEventListener("click", e =>{
         document.getElementById("div-cad-3").classList.add("show");
     }
     
-})
+});
 
 
 

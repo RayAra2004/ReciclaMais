@@ -4,6 +4,32 @@ const senha = document.getElementById('senha');
 const confirmarSenha = document.getElementById('confirmar_senha');
 const btnEditar1 = document.getElementById("btn-editar-dados1");
 
+const cep = document.getElementById('cep');
+const tpLogradouro = document.getElementById('tp-logradouro');
+const logradouro = document.getElementById('logradouro');
+const numero = document.getElementById('numero');
+const uf = document.getElementById('uf');
+const cidade = document.getElementById('cidade');
+const bairro = document.getElementById('bairro');
+const complemento = document.getElementById('complemento');
+const btnEditar2 = document.getElementById("btn-editar-dados2");
+
+cep.addEventListener("input", e => {
+    if(e.target.value.length === 8){
+        fetch(`https://brasilapi.com.br/api/cep/v2/${e.target.value}`)
+        .then(res => res.json())
+        .then(dados => {
+            cidade.value = dados.city;
+            bairro.value = dados.neighborhood;
+            uf.value = dados.state;
+            logradouro.value = dados.street.split(' ').slice(1).join(' ');
+            const tp_lograduro = dados.street.split(" ");
+            tpLogradouro.value = (tp_lograduro[0]).toLowerCase();
+	});
+    }
+	
+});
+
 telefone.addEventListener("input", e => {
     //remove caracteres não numéricos
     const result = telefone.value.replace(/\D/g, "");
@@ -56,4 +82,17 @@ btnEditar1.addEventListener("click", async (e) =>{
     }
     
     console.log(isValid);    
+});
+
+btnEditar2.addEventListener("click", e =>{
+
+    if(cep.value < 0 || cep.value.length !== 8){
+        isValid = false;
+        cep.setCustomValidity('CEP inválido!!');
+        cep.reportValidity();
+    }else{
+        cep.setCustomValidity('');
+        isValid = true;
+    }
+    
 });
