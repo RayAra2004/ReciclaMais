@@ -1,5 +1,9 @@
 <?php
-  include '../componentes/header.php';
+  $css = '<link rel="stylesheet" href="/ReciclaMais/css/mapa.css">
+  <script src="/ReciclaMais/script/mapa2.js" defer></script>
+  <script src="http://www.bing.com/api/maps/mapcontrol?callback=getMap" async></script>';
+
+  include './../componentes/header.php';
   include './../../sql/entidades/pontoColeta/PontoColeta.php';
   
   if (!(isset($_SESSION['comp_header']))){
@@ -29,9 +33,6 @@
   echo json_encode($dicionario);
   echo "</div>";
   
-  $css = '<link rel="stylesheet" href="/ReciclaMais/css/mapa.css">
-    <script src="/ReciclaMais/script/mapa2.js" defer></script>
-    <script src="http://www.bing.com/api/maps/mapcontrol?callback=getMap" async></script>';
   
 ?>
 <section id="containerMapa">
