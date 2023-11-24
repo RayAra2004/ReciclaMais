@@ -39,7 +39,7 @@
         <div class="card container">
             <div class="row no-gutters card-conteudo">
             <div class="col-md-5">
-                <img src="./imgs/foto-site-sem-login.svg" class="card-img" alt="...">
+                <img src="./imgs/pagina_principal.png" class="card-img" alt="...">
             </div>
             <div class="col-md-7">
                 <div class="card-body">

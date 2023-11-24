@@ -8,7 +8,7 @@
         <p>DESCARTE DE LIXO HOSPITALAR</p>
     </div>
     <div class="container d-flex justify-content-center">
-        <img src="./../../../imgs/descarteLixo.jpeg" class="img-fluid"></img>
+        <img src="./../../../imgs/banner_lixohospitalar.png" class="img-fluid"></img>
     </div>
     <div class="container mt-4">
         <span>

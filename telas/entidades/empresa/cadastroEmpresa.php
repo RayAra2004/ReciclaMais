@@ -7,7 +7,7 @@
     include './../../../sql/entidades/endereco/Endereco.php';
     include './../../../sql/entidades/pontoColeta/PontoColeta.php';
     
-    $erros = array();
+    $erros;
     $nome = '';
     $cnpj = '';
     $telefone = '';
@@ -82,25 +82,27 @@
                             $newPontoColeta = new PontoColeta();
                             $newPontoColeta->setValues(null, $nome, '', $usuario_id, $endereco_id, $usuario_id, $materiais);
                             if($newPontoColeta->insert() == false){
-                                $erros['erro'] = 'Ponto de Coleta não inserido';
+                                $erros = 'Ponto de coleta inválido! Verifique todas as informações fornecidas';
+                            }else{
+                                header('Location: /ReciclaMais/telas/entidades/login/login.php');
                             }
                         }else{
-                            $erros['erro'] = 'Empresa não inserida';
+                            $erros = 'Empresa inválida! Verifique todas as informações fornecidas';
                         }
                     }else{
-                        $erros['erro'] = 'Endereço não inserido!!';
+                        $erros = 'Endereço inválido! Verifique todas as informações fornecidas';
                     }
                     
                 }else{
-                    $erros['erro'] = 'Usuário não inserido';
+                    $erros = 'Usuário inválido! Verifique todas as informações fornecidas';
                 }
             }else{
-                $erros['erro'] = 'Endereço não inserido!!!';
+                $erros = 'Endereço inválido! Verifique todas as informações fornecidas';
             }
             
         
         }else{
-            $erros['erro'] = 'Este usuário já existe!!';
+            $erros = 'Este usuário já possui conta!';
         }
     }
 ?>
@@ -113,34 +115,34 @@
                     <div id="div-cad-1" class="div-cad-1 d-flex justify-content-between flex-wrap">
                         <div class="mb-3 d-flex flex-column w-100 verde">
                             <label for="nome-empresa">NOME (da empresa)</label>
-                            <input value ="recicla"  type="text" class="nome-empresa" name="nome-empresa" id="nome-empresa" placeholder="Digite seu nome empresarial" required>
+                            <input type="text" class="nome-empresa" name="nome-empresa" id="nome-empresa" placeholder="Digite seu nome empresarial" required>
                         </div>
                         <div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="cnpj">CNPJ</label>
-                                <input value ="00000000000191" type="text" name="cnpj" id="cnpj" placeholder="Ex. XX.XXX.XXX/000X-XX" required maxlength="18">
+                                <input type="text" name="cnpj" id="cnpj" placeholder="Ex. XX.XXX.XXX/000X-XX" required maxlength="18">
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="telefone">TELEFONE</label>
-                                <input value="27995273201" type="text" name="telefone" id="telefone" placeholder="Ex. (XX)XXXX-XXXX" required maxlength=14>
+                                <input type="text" name="telefone" id="telefone" placeholder="Ex. (XX)XXXX-XXXX" required maxlength=14>
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="email">EMAIL</label>
-                                <input value="recicla@gmail.com" type="email" name="email" id="email" placeholder="Digite seu email empresarial" required>
+                                <input type="email" name="email" id="email" placeholder="Digite seu email empresarial" required>
                             </div>
                         </div>
                         <div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="senha">SENHA</label>
                                 <div>
-                                    <input value="Recicla2023+" class="" type="password" name="senha" id="senha" placeholder="Digite sua senha empresarial" required>
+                                    <input class="" type="password" name="senha" id="senha" placeholder="Digite sua senha empresarial" required>
                                     <span class="lnr lnr-eye" type="senha"></span>
                                 </div>
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="confirmar-senha">CONFIRME SUA SENHA</label>
                                 <div>
-                                    <input value="Recicla2023+" class="" type="password" name="confirmar-senha" id="confirmar_senha" placeholder="Confirme sua senha empresarial" required>
+                                    <input class="" type="password" name="confirmar-senha" id="confirmar_senha" placeholder="Confirme sua senha empresarial" required>
                                     <span class="lnr lnr-eye" type="confirmar_senha"></span>
                                 </div>
                             </div>
@@ -153,7 +155,7 @@
                         <div class="">
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="cep">CEP</label>
-                                <input value="29116150" type="number" name="cep" id="cep" placeholder="Digie seu CEP empresarial" required pattern="\b\d{5}[-.]\d{3}">
+                                <input type="number" name="cep" id="cep" placeholder="Digie seu CEP empresarial" required pattern="\b\d{5}[-.]\d{3}">
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="tpLogradouro">TIPO LOGRADOURO</label>
@@ -211,7 +213,7 @@
                             </div>
                             <div class="mb-3 d-flex flex-column verde">
                                 <label for="numero">NÚMERO</label>
-                                <input value="225" type="number" name="numero" id="numero" placeholder="Digite o número" required>
+                                <input type="number" name="numero" id="numero" placeholder="Digite o número" required>
                             </div>
                         </div>
                         <div class="">
@@ -306,19 +308,37 @@
                     </div>
                 </div>
             </form>
-            <div class="d-flex mt-3 div-error">
-                <ul>
-                    <?php 
-                        if(!empty($erros)){
-                            foreach($erros as $erro){
-                                echo "<li> $erro </li>";
-                            }
-                        }
-                    ?>
-                </ul>
-            </div>
+            <?php if (!empty($erros)) : ?>
+                <div id="modalErro" class="modal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Erro no Login</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p><?= $erros ?></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        // Exibe o modal automaticamente quando há um erro
+        <?php if (!empty($erros)) : ?>
+            $(document).ready(function () {
+                $('#modalErro').modal('show');
+            });
+        <?php endif; ?>
+    </script>
 </section>
 <?php
     include './../../componentes/footer.php'
