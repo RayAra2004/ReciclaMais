@@ -14,6 +14,7 @@
 
         $user = new Pessoa_Juridica();
         if($user->delete($usuario['id'])){
+            $_SESSION['comp_header'] = '<a class="btn temaGreen" href="/ReciclaMais/telas/entidades/login/login.php" role="button">Entrar</a>';
             header('Location: /ReciclaMais/index.php');
         }else{
             //erro ao deletar um usuário
