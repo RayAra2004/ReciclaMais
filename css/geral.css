@@ -54,11 +54,64 @@ header h5{
     background-color:#201b2c;
 }
 
+section{
+    min-height: 61.6vh;
+}
+#alert-success {
+    font-family: 'Poppins', sans-serif;
+    width: 300px;
+    height: 200px;
+    background-color: #5f5083;
+    color: #05e981;
+    border-color: #05e981;
+    border-width: 2px;
+    display: none;/*troca pra d-flex ou none*/
+    margin-left: 40vw;
+    z-index: 2;
+}
+#alert-success button {
+    width: 150px;
+    height: 20px;
+    background-color: #05e981;
+    color: #5f5083;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 10%;
+}
+#alert-fail {
+    font-family: 'Poppins', sans-serif;
+    width: 300px;
+    height: 200px;
+    background-color: #5f5083;
+    color: #ff4646;
+    border-color: #ff4646;
+    border-width: 2px;
+    display: none;/*troca pra d-flex ou none*/
+    margin-left: 40vw;
+    z-index: 2;
+}
+#alert-fail button {
+    width: 150px;
+    height: 20px;
+    background-color: #ff4646;
+    color: #5f5083;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 10%;
+}
+#listPntos{
+    display: none;
+}
+
+
+
+
 @media (max-width: 800px){
     footer div{
         flex-direction: column;
     }
-}
-section{
-    min-height: 61.6vh;
+    #alert-fail {
+        margin-left: 10vw;
+    }
+    #alert-success {
+        margin-left: 10vw;
+    }
 }

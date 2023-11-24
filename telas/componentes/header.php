@@ -44,3 +44,11 @@
                     </div>
                 </div>
         </nav>
+        <div class="alert position-fixed flex-column justify-content-evenly align-items-center" id = "alert-success">
+            <strong>Atividade efetuada com sucesso.</strong>
+            <button class="btn-primary">continuar</button>
+        </div>
+        <div class="alert position-fixed flex-column justify-content-evenly align-items-center" id = "alert-fail">
+            <strong>Atividade falhou.</strong>
+            <button class="btn-primary">continuar</button>
+        </div>
