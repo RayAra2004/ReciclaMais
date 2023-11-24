@@ -1,11 +1,23 @@
 <?php
     $css = '<link rel="stylesheet" href="/ReciclaMais/css/perfilEmpresa.css"><script src="/ReciclaMais/script/perfilEmpresa.js" defer></script>';
     include './../../componentes/header.php';
+    include './../../../sql/entidades/usuario/Usuario.php';
+    include './../../../sql/entidades/usuario/Pessoa_Juridica.php';
+    include './../../../sql/entidades/endereco/Endereco.php';
+    include './../../../sql/entidades/pontoColeta/PontoColeta.php';
 
-    $email = $_SESSION['$email'];
-    
+    $email = $_SESSION['email'];
+
+    $usuario = Usuario::findByLogin($email);
+
     if(!empty($_POST)){
-        var_dump('oii');
+
+        $user = new Pessoa_Juridica();
+        if($user->delete($usuario['id'])){
+            header('Location: /ReciclaMais/index.php');
+        }else{
+            //erro ao deletar um usuário
+        }
     }
 ?>
 <section class="body_content">

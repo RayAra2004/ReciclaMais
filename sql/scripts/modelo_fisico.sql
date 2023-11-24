@@ -252,7 +252,7 @@ insert into categoria_de_materiais_reciclados (id, descricao) values
     (3, 'Vidro'),
     (4, 'Metal'),
     (5, 'Orgânico'),
-    (6, 'Borracha'),
+    (6, 'Hospitalar'),
     (7, 'Madeira'),
     (8, 'Eletrônicos');
 
@@ -260,82 +260,82 @@ insert into coletado (id, descricao) values  (1, 'disponível'),
     (2, 'indisponível'),
     (3, 'em transação');
 
-insert into usuario (login, senha, id, nome, telefone, fk_tipo_usuario_id) values
-('user1@gmail.com', '$2y$10$BLmNk3RiPVrt9P161QBMfOfyl3VsQUK2HAhTfSVIBkB/Xf31yz.O6', 1, 'Ana', 11111111111, 2),
-('user2@gmail.com', '$2y$10$bPEbksfNU10A3EJna4lgvu4ldUl/0ZzeA9c2ejuaF8Kobqp1bFWOO', 2, 'Bernardo', 22222222222, 2),
-('user3@gmail.com', '$2y$10$.7ZML8EY0xSnMKwMvL.Hd.GvGkruBZPKgv85Sp9mklnUUZh9MSvCG', 3, 'Carlitos', 33333333333, 2),
-('user4@gmail.com', '$2y$10$4KOKO4PD2LUpYOo0o8IFbu6/IkQXMD/OWcpN8Ptyfrm5tWJlj62pm', 4, 'Daniel', 44444444444, 2),
-('user5@gmail.com', '$2y$10$kjibJDuQD/zxG5PkrkbnpuopQuxh6pyW5sxqXwRJckEi2Zu8oiYyC', 5, 'Eduardo', 55555555555, 2),
-('user6@gmail.com', '$2y$10$t7HqNotEwsT6PQYlr19OAe7AlIgXo6n/OxrLrCU7pzE66wl/KTWL2', 6, 'Fátima', 66666666666, 2),
-('user7@gmail.com', '$2y$10$bm/XbAUs2UA2RdeCj8Hqh.fYJskTkCpeFGYesbN7vFR6Ltmb76xbG', 7, 'Gabriel', 77777777777, 2),
-('user8@gmail.com', '$2y$10$036xZqkhH1erdFa1VFMlV.IdUbMiv4iZ1iLoOw9jsgS/K8kD9OMuq', 8, 'Hugo', 88888888888, 2),
-('user9@gmail.com', '$2y$10$/xsqYd20VlVSOjPlyz4yAOHowc26qsymh0cwt6J1e9TU8YoAL3UUm', 9, 'Ingrid', 99999999999, 2),
-('user10@gmail.com', '$2y$10$F36RTX.DoOJDagFYz1/0Fe0hzQioOWJOKRZFolfJ8nxK1nPZ0PMU.', 10, 'Julia', 12121212121, 2),
-('user11@gmail.com', '$2y$10$ScRyYTP3LcsNMtL8cmbzrewiOT7MRLvYn466Ubyn2dFK5v0F1d5ai', 11, 'Katia', 13131313131, 2),
-('user12@gmail.com', '$2y$10$qLdbd0S2zC88JQPThlGbA.bZyoPfMZJ9hhJXlaDV.11VWIu.YtkE2', 12, 'Luiz', 14141414141, 2),
-('user13@gmail.com', '$2y$10$QmjxU8zT.DsOHSOIgc0NteHgHud34ZglvPbaChOxXetCssxVl5zxC', 13, 'Marcelo', 15151515151, 2),
-('user14@gmail.com', '$2y$10$UrdyV18xdQAob9LXpG0f1Oujmk2wDbK/.qAxyYeA84Di.V7yJRXDq', 14, 'Natan', 16161616161, 2),
-('user15@gmail.com', '$2y$10$02HuLXSGpxoXro32FR2DpOflhde2wUaUIJrnz5pSWT68qKWt3zHPu', 15, 'Otavio', 17171717171, 2),
-('user16@gmail.com', '$2y$10$GtbnX6HPPLeBXr797tNAtu6GVu3wYrPRdzhAD92yudl9PCeSHxRpq', 16, 'Patricia', 18181818181, 2),
-('user17@gmail.com', '$2y$10$w65KdvI3OnnmGOCgTem02.nnppQrNyCIqXxokom8BL3gFeHXZJ916', 17, 'Quemuel', 19191919191, 2),
-('user18@gmail.com', '$2y$10$LH8Jp/mG4d/JvvKdRu0lJuuCpCb/H50v.Wh.Oc45g/E7oH8v/tctO', 18, 'Ricardo', 10101010101, 2),
-('user19@gmail.com', '$2y$10$Y2TLHS0lz09msTUFonuQEuZUsayjlsxl5CJnxVYQAhgKqvv4I6bSy', 19, 'Sandro', 20202020202, 2),
-('user20@gmail.com', '$2y$10$amo2b86JuYUcSC0gbkdSDeE1kirY6aq8T3Gy1eVV188QJ/6Z5xx2a', 20, 'Tatiana', 30303030303, 2),
-('user21@gmail.com', '$2y$10$fyfe9lhBUoQhuv0aFj/fn.MqYYLK5Xa51vYJgriZXUByoIcevI0eu', 21, 'Usislei', 40404040404, 2),
-('user22@gmail.com', '$2y$10$mkiUYEk46zIYh8vDaEcgiuYfBoIm8GbY.zDmsWQOQPVntiYcbnUF2', 22, 'Vania', 50505050505, 2),
-('user23@gmail.com', '$2y$10$BHaF16LLiYPriif1dnvxI.cPBr.1mgbcgvxCmBAluBUxyj8s.2AhG', 23, 'Wanda', 60606060606, 2),
-('user24@gmail.com', '$2y$10$98wbYr/rtFc57G.d4oqYxeeRaUfyf0ZxiyMJF2jh3WMr.wL3h9uDW', 24, 'Xavi', 70707070707, 2),
-('user25@gmail.com', '$2y$10$s08LPyos7A9wQOxh5tNKKOudL3sSTHC8QymT3eZzQx9QrMzmvn9gS', 25, 'Yuri', 80808080808, 2),
-('user26@gmail.com', '$2y$10$iAZ4NrfvB0SEBOVEf.tbvOwMfwfzU90xPQwESPZRnnN66.me/rA1W', 26, 'Zata', 90909090909, 2),
-('user27@gmail.com', '$2y$10$Q.njpWVTGEMxIj0F4rXY8.CUESVYtF3e9BAXKA3FtxgsHO/NF85k.', 27, 'Amanda', 91919191919, 2),
-('user28@gmail.com', '$2y$10$LbuSdwj0KPeQs2ToybzH8OAtijZhz1hI4HhO9e6FMtJOg8/4KNrbq', 28, 'Bruno', 92929292929, 2),
-('user29@gmail.com', '$2y$10$Np49byqDNQ5uvlsOkWI8QO1fLtp1BsTYZLjzB5VvPbYSOb/I/s1ei', 29, 'Carina', 93939393939, 2),
-('user30@gmail.com', '$2y$10$CmcpzeVP59lnsGo2NqoHY.4un9HlvraXqVZjrg0Yja331FPf47Jcq', 30, 'Davi', 94949494949, 2),
-('user31@gmail.com', '$2y$10$NJ/PcKX9rPNzFd8Gl61C4eph3NjkVOeDxRy2aZS72y.qCds1.TW76', 31, 'Erika', 95959595959, 2),
-('user32@gmail.com', '$2y$10$czKsFfMO65rtkGj83PWNG.sTEYB0pX5HzAYnSnqIfDULag2ZXrnD6', 32, 'Fernando', 96969696969, 2),
-('user33@gmail.com', '$2y$10$ea/GIQcSu05uBgfCGA24Ee.nXTfZRP1LLfIFsdS82eat3SimxWsOe', 33, 'Gustavo', 97979797979, 2),
-('user34@gmail.com', '$2y$10$TD/iMteQlMYomoJqBxlmn.wEOo9cEDltKDGRmp4XU0XAY8C7iPGN2', 34, 'Hata', 98989898989, 2),
-('user35@gmail.com', '$2y$10$62dOjMm4yVwHp13PJW0xvOGP6XxunEcEFa7Ej6743MgK6CtiSPqYS', 35, 'Ivone', 11991199119, 2),
-('user36@gmail.com', '$2y$10$oLbHtkzrHnljsOF4dHcCXO.z3OnOaEjmTVwvTOcKU08BCMP94Dj6e', 36, 'Jussara', 22992299229, 2),
-('user37@gmail.com', '$2y$10$SDPFTDW26uPC01BK.WF/m.tvQOUfgwRp7zwgwEhHJ6Ua8JctaMoVi', 37, 'Karen', 33993399339, 2),
-('user38@gmail.com', '$2y$10$/wIkUAePIaTfGAXL5/igOOoK/V.e77yN1DTbjtrEdD5IcVmiq5HMm', 38, 'Luiza', 44994499449, 2),
-('user39@gmail.com', '$2y$10$/Aomuz/w1Bi/R6bLNRhWJedsmdWGZyEp6clUXfPNJItq/iHpkM7FC', 39, 'Marta', 55995599559, 2),
-('user40@gmail.com', '$2y$10$xYQGuztLMFf0CBi0gVg4EeEl8yq8mbP4UhXRmMsrtDRkM04ZQELR2', 40, 'Nauvia', 66996699669, 2);
+insert into usuario (login, senha, nome, telefone, fk_tipo_usuario_id) values
+('user1@gmail.com', '$2y$10$BLmNk3RiPVrt9P161QBMfOfyl3VsQUK2HAhTfSVIBkB/Xf31yz.O6', 'Ana', 11111111111, 2),
+('user2@gmail.com', '$2y$10$bPEbksfNU10A3EJna4lgvu4ldUl/0ZzeA9c2ejuaF8Kobqp1bFWOO', 'Bernardo', 22222222222, 2),
+('user3@gmail.com', '$2y$10$.7ZML8EY0xSnMKwMvL.Hd.GvGkruBZPKgv85Sp9mklnUUZh9MSvCG', 'Carlitos', 33333333333, 2),
+('user4@gmail.com', '$2y$10$4KOKO4PD2LUpYOo0o8IFbu6/IkQXMD/OWcpN8Ptyfrm5tWJlj62pm', 'Daniel', 44444444444, 2),
+('user5@gmail.com', '$2y$10$kjibJDuQD/zxG5PkrkbnpuopQuxh6pyW5sxqXwRJckEi2Zu8oiYyC', 'Eduardo', 55555555555, 2),
+('user6@gmail.com', '$2y$10$t7HqNotEwsT6PQYlr19OAe7AlIgXo6n/OxrLrCU7pzE66wl/KTWL2', 'Fátima', 66666666666, 2),
+('user7@gmail.com', '$2y$10$bm/XbAUs2UA2RdeCj8Hqh.fYJskTkCpeFGYesbN7vFR6Ltmb76xbG', 'Gabriel', 77777777777, 2),
+('user8@gmail.com', '$2y$10$036xZqkhH1erdFa1VFMlV.IdUbMiv4iZ1iLoOw9jsgS/K8kD9OMuq', 'Hugo', 88888888888, 2),
+('user9@gmail.com', '$2y$10$/xsqYd20VlVSOjPlyz4yAOHowc26qsymh0cwt6J1e9TU8YoAL3UUm', 'Ingrid', 99999999999, 2),
+('user10@gmail.com', '$2y$10$F36RTX.DoOJDagFYz1/0Fe0hzQioOWJOKRZFolfJ8nxK1nPZ0PMU.', 'Julia', 12121212121, 2),
+('user11@gmail.com', '$2y$10$ScRyYTP3LcsNMtL8cmbzrewiOT7MRLvYn466Ubyn2dFK5v0F1d5ai', 'Katia', 13131313131, 2),
+('user12@gmail.com', '$2y$10$qLdbd0S2zC88JQPThlGbA.bZyoPfMZJ9hhJXlaDV.11VWIu.YtkE2', 'Luiz', 14141414141, 2),
+('user13@gmail.com', '$2y$10$QmjxU8zT.DsOHSOIgc0NteHgHud34ZglvPbaChOxXetCssxVl5zxC', 'Marcelo', 15151515151, 2),
+('user14@gmail.com', '$2y$10$UrdyV18xdQAob9LXpG0f1Oujmk2wDbK/.qAxyYeA84Di.V7yJRXDq', 'Natan', 16161616161, 2),
+('user15@gmail.com', '$2y$10$02HuLXSGpxoXro32FR2DpOflhde2wUaUIJrnz5pSWT68qKWt3zHPu', 'Otavio', 17171717171, 2),
+('user16@gmail.com', '$2y$10$GtbnX6HPPLeBXr797tNAtu6GVu3wYrPRdzhAD92yudl9PCeSHxRpq', 'Patricia', 18181818181, 2),
+('user17@gmail.com', '$2y$10$w65KdvI3OnnmGOCgTem02.nnppQrNyCIqXxokom8BL3gFeHXZJ916', 'Quemuel', 19191919191, 2),
+('user18@gmail.com', '$2y$10$LH8Jp/mG4d/JvvKdRu0lJuuCpCb/H50v.Wh.Oc45g/E7oH8v/tctO', 'Ricardo', 10101010101, 2),
+('user19@gmail.com', '$2y$10$Y2TLHS0lz09msTUFonuQEuZUsayjlsxl5CJnxVYQAhgKqvv4I6bSy', 'Sandro', 20202020202, 2),
+('user20@gmail.com', '$2y$10$amo2b86JuYUcSC0gbkdSDeE1kirY6aq8T3Gy1eVV188QJ/6Z5xx2a', 'Tatiana', 30303030303, 2),
+('user21@gmail.com', '$2y$10$fyfe9lhBUoQhuv0aFj/fn.MqYYLK5Xa51vYJgriZXUByoIcevI0eu', 'Usislei', 40404040404, 2),
+('user22@gmail.com', '$2y$10$mkiUYEk46zIYh8vDaEcgiuYfBoIm8GbY.zDmsWQOQPVntiYcbnUF2', 'Vania', 50505050505, 2),
+('user23@gmail.com', '$2y$10$BHaF16LLiYPriif1dnvxI.cPBr.1mgbcgvxCmBAluBUxyj8s.2AhG', 'Wanda', 60606060606, 2),
+('user24@gmail.com', '$2y$10$98wbYr/rtFc57G.d4oqYxeeRaUfyf0ZxiyMJF2jh3WMr.wL3h9uDW', 'Xavi', 70707070707, 2),
+('user25@gmail.com', '$2y$10$s08LPyos7A9wQOxh5tNKKOudL3sSTHC8QymT3eZzQx9QrMzmvn9gS', 'Yuri', 80808080808, 2),
+('user26@gmail.com', '$2y$10$iAZ4NrfvB0SEBOVEf.tbvOwMfwfzU90xPQwESPZRnnN66.me/rA1W', 'Zata', 90909090909, 2),
+('user27@gmail.com', '$2y$10$Q.njpWVTGEMxIj0F4rXY8.CUESVYtF3e9BAXKA3FtxgsHO/NF85k.', 'Amanda', 91919191919, 2),
+('user28@gmail.com', '$2y$10$LbuSdwj0KPeQs2ToybzH8OAtijZhz1hI4HhO9e6FMtJOg8/4KNrbq', 'Bruno', 92929292929, 2),
+('user29@gmail.com', '$2y$10$Np49byqDNQ5uvlsOkWI8QO1fLtp1BsTYZLjzB5VvPbYSOb/I/s1ei', 'Carina', 93939393939, 2),
+('user30@gmail.com', '$2y$10$CmcpzeVP59lnsGo2NqoHY.4un9HlvraXqVZjrg0Yja331FPf47Jcq', 'Davi', 94949494949, 2),
+('user31@gmail.com', '$2y$10$NJ/PcKX9rPNzFd8Gl61C4eph3NjkVOeDxRy2aZS72y.qCds1.TW76', 'Erika', 95959595959, 2),
+('user32@gmail.com', '$2y$10$czKsFfMO65rtkGj83PWNG.sTEYB0pX5HzAYnSnqIfDULag2ZXrnD6', 'Fernando', 96969696969, 2),
+('user33@gmail.com', '$2y$10$ea/GIQcSu05uBgfCGA24Ee.nXTfZRP1LLfIFsdS82eat3SimxWsOe', 'Gustavo', 97979797979, 2),
+('user34@gmail.com', '$2y$10$TD/iMteQlMYomoJqBxlmn.wEOo9cEDltKDGRmp4XU0XAY8C7iPGN2', 'Hata', 98989898989, 2),
+('user35@gmail.com', '$2y$10$62dOjMm4yVwHp13PJW0xvOGP6XxunEcEFa7Ej6743MgK6CtiSPqYS', 'Ivone', 11991199119, 2),
+('user36@gmail.com', '$2y$10$oLbHtkzrHnljsOF4dHcCXO.z3OnOaEjmTVwvTOcKU08BCMP94Dj6e', 'Jussara', 22992299229, 2),
+('user37@gmail.com', '$2y$10$SDPFTDW26uPC01BK.WF/m.tvQOUfgwRp7zwgwEhHJ6Ua8JctaMoVi', 'Karen', 33993399339, 2),
+('user38@gmail.com', '$2y$10$/wIkUAePIaTfGAXL5/igOOoK/V.e77yN1DTbjtrEdD5IcVmiq5HMm', 'Luiza', 44994499449, 2),
+('user39@gmail.com', '$2y$10$/Aomuz/w1Bi/R6bLNRhWJedsmdWGZyEp6clUXfPNJItq/iHpkM7FC', 'Marta', 55995599559, 2),
+('user40@gmail.com', '$2y$10$xYQGuztLMFf0CBi0gVg4EeEl8yq8mbP4UhXRmMsrtDRkM04ZQELR2', 'Nauvia', 66996699669, 2);
 
  
 
-insert into tipo_logradouro (id, tipo_logradouro) values
-(1, 'Rua'),
-(2, 'Avenida');
+insert into tipo_logradouro (tipo_logradouro) values
+('rua'),
+('avenida');
 
 
-insert into estado (id, estado) values
-(1, 'ES');
+insert into estado (estado) values
+('ES');
 
-insert into cidade (id, cidade) values
-(1, 'Serra');
+insert into cidade (cidade) values
+('Serra');
 
 
-insert into bairro (id, bairro) values
-(1, 'Morada de Lanjeiras'),
-(2, 'Carapina');
+insert into bairro (bairro) values
+('Morada de Lanjeiras'),
+('Carapina');
 
-insert into endereco (cep, fk_tipo_logradouro_id, logradouro, fk_estado_id, fk_cidade_id, fk_bairro_id, numero, id, longitude, latitude) values
-(29166860, 1, 'Arpoador', 1, 1, 1, 525, 1, -40.229002, -20.190996),
-(29166850, 1, 'São Conrado', 1, 1, 1, 15, 2, -40.227510, -20.192678), 
-(29166824, 1, 'Ondina', 1, 1, 1, 14, 3, -40.230726, -20.192008),
-(29166870, 1, 'Minas Gerais', 1, 1, 1, 70, 4, -40.233603, -20.195941), 
-(29166820, 2, 'Copacabana', 1, 1, 1, 0, 5, -40.236036, -20.194538),
-(29166610, 1, 'dos Calafates', 1, 1, 1, 0, 6, -40.216443, -20.200339),
-(29166690, 1, 'dos Melros', 1, 1, 2, 109, 7, -40.219430, -20.197814),
-(29166660, 1, 'dos Tangarás', 1, 1, 2, 0, 8, -40.218953, -20.199207),
-(29166828, 2, 'Paulo Pereira Gomes', 1, 1, 1, 877, 9, -40.226670, -20.199099),
-(29166650, 1, 'dos Rouxinóis', 1, 1, 2, 0, 10, -40.223882, -20.198601),
-(29166680, 1, 'das Patativas', 1, 1, 2, 170, 11, -40.220727, -20.199405),
-(29166828, 1, 'das Graúnas', 1, 1, 1, 94, 12, -40.219785, -20.200905),
-(29166734, 1, 'das Jandaias', 1, 1, 1, 0, 13, -40.222208, -20.194073),
-(29166858, 2, 'Atlântica', 1, 1, 1, 0, 14, -40.223781, -20.190152),
-(29166821, 1, 'Ipanema', 1, 1, 1, 15, 15, -40.230990, -20.191107);
+insert into endereco (cep, fk_tipo_logradouro_id, logradouro, fk_estado_id, fk_cidade_id, fk_bairro_id, numero, longitude, latitude) values
+(29166860, 1, 'Arpoador', 1, 1, 1, 525, -40.229002, -20.190996),
+(29166850, 1, 'São Conrado', 1, 1, 1, 15, -40.227510, -20.192678), 
+(29166824, 1, 'Ondina', 1, 1, 1, 14, -40.230726, -20.192008),
+(29166870, 1, 'Minas Gerais', 1, 1, 1, 70, -40.233603, -20.195941), 
+(29166820, 2, 'Copacabana', 1, 1, 1, 0, -40.236036, -20.194538),
+(29166610, 1, 'dos Calafates', 1, 1, 1, 0, -40.216443, -20.200339),
+(29166690, 1, 'dos Melros', 1, 1, 2, 109, -40.219430, -20.197814),
+(29166660, 1, 'dos Tangarás', 1, 1, 2, 0, -40.218953, -20.199207),
+(29166828, 2, 'Paulo Pereira Gomes', 1, 1, 1, 877, -40.226670, -20.199099),
+(29166650, 1, 'dos Rouxinóis', 1, 1, 2, 0, -40.223882, -20.198601),
+(29166680, 1, 'das Patativas', 1, 1, 2, 170, -40.220727, -20.199405),
+(29166828, 1, 'das Graúnas', 1, 1, 1, 94, -40.219785, -20.200905),
+(29166734, 1, 'das Jandaias', 1, 1, 1, 0, -40.222208, -20.194073),
+(29166858, 2, 'Atlântica', 1, 1, 1, 0, -40.223781, -20.190152),
+(29166821, 1, 'Ipanema', 1, 1, 1, 15, -40.230990, -20.191107);
 
 insert into cadastro_ponto_coleta (nome, imagem, fk_endereco_id, fk_usuario_id) values
 ('Recicla Aqui', 'https://ecrie.com.br/sistema/conteudos/imagem/m_107_1_11_25032022212408.jpg', 1, 1),
