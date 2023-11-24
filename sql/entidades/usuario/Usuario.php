@@ -30,9 +30,11 @@
 
         public function setValuesUpdate($senha, $nome, $telefone){
             $telefone = preg_replace('/[^0-9]/', '', $telefone);
-            $this->senha = $senha;
+            $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+            $this->senha = $senha_hash;
             $this->nome = $nome;
             $this->telefone = $telefone;
+
         }
         
 
