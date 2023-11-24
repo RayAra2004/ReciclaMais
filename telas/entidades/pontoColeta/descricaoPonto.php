@@ -1,6 +1,6 @@
 <?php 
     $css = '<link rel="stylesheet" href="/ReciclaMais/css/descricaoPonto.css"> <script src="./../script/componentes/Comentario.js" defer></script>';
-    include './componentes/header.php';
+    include './../../componentes/header.php';
 ?>
 <section class="body_content">
     <div class="container d-flex flex-wrap flex-column align-content-center pt-4">
@@ -44,5 +44,5 @@
     </div>
 </section>
 <?php
-    include './componentes/footer.php'
+    include './../../componentes/footer.php'
 ?> 
