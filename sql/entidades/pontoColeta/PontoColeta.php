@@ -54,6 +54,16 @@
             return false;
         }
 
+        public function getTableName(){
+            return $this->table;
+        }
+
+        public static function findAllPontosColeta(){
+            $tempUser = new PontoColeta();
+            $tableName = $tempUser->getTableName();
+            return parent::findAll($tableName);
+        }
+
         public function update($id){
         
         }
