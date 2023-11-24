@@ -80,6 +80,13 @@
 
             return true;
         }
+
+        public function delete($id){
+            $sql="DELETE FROM $this->table WHERE fk_usuario_instituicao_fk_usuario_id = :id";
+			$stmt = Database::prepare($sql);	
+			$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+			return $stmt->execute();
+        }
     }
 
 ?>
