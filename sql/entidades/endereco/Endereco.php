@@ -159,6 +159,28 @@
                 return false;
             }
         }
+
+        public static function getDados($id){
+            $sql = "SELECT endereco.cep, endereco.latitude, endereco.longitude, 
+                        endereco.logradouro, endereco.numero, 
+                        endereco.complemento, estado.estado, cidade.cidade, bairro.bairro, 
+                        tipo_logradouro.tipo_logradouro
+                FROM endereco
+                INNER JOIN estado
+                ON estado.id = endereco.fk_estado_id
+                INNER JOIN cidade
+                ON cidade.id = endereco.fk_cidade_id
+                INNER JOIN bairro
+                ON bairro.id = endereco.fk_bairro_id
+                INNER JOIN tipo_logradouro
+                ON tipo_logradouro.id = endereco.fk_tipo_logradouro_id
+                WHERE endereco.id = :id;";
+            
+            $stmt = Database::prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        }
         
 
         public function insert(){
