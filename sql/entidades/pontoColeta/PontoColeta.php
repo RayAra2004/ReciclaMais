@@ -54,6 +54,16 @@
             return false;
         }
 
+        public function getTableName(){
+            return $this->table;
+        }
+
+        public static function findAllPontosColeta(){
+            $tempUser = new PontoColeta();
+            $tableName = $tempUser->getTableName();
+            return parent::findAll($tableName);
+        }
+
         public function update($id){
         
         }
@@ -79,6 +89,13 @@
             }
 
             return true;
+        }
+
+        public function delete($id){
+            $sql="DELETE FROM $this->table WHERE fk_usuario_instituicao_fk_usuario_id = :id";
+			$stmt = Database::prepare($sql);	
+			$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+			return $stmt->execute();
         }
     }
 

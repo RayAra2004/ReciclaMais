@@ -44,7 +44,7 @@ delete - exclui um registro pelo id
 		Objetivo: Método que consulta todos clientes
 		Parâmetro de saída: Retorna a tabela com registros. Em caso de falha na consulta, retorna falso.
 		***************/		
-		public static function  findAll($tableName){
+		public static function findAll($tableName){
 			$sql = "SELECT * FROM $tableName ";
 			$stmt = Database::prepare($sql);			
 			$stmt->execute();

@@ -4,6 +4,7 @@
     include './../../../sql/entidades/usuario/Pessoa_Juridica.php';
     include './../../../sql/entidades/endereco/Endereco.php';
     
+    $erros;
     $email = $_SESSION['email'];
 
     $usuario = Pessoa_Juridica::getDadosUpdate($email);
@@ -36,7 +37,10 @@
         var_dump($erros);
 
         if($novo_endereco->update($endereco_id)){
+            header('Location: ./perfilEmpresa.php');
             
+        }else{
+            $erros = "Não foi possível alterar os dados do seu endereço!";
         }
 
         
@@ -165,8 +169,37 @@
                     </div>
                 </div>
             </form>
+            <?php if (!empty($erros)) : ?>
+                <div id="modalErro" class="modal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Erro no Login</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p><?= $erros ?></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        // Exibe o modal automaticamente quando há um erro
+        <?php if (!empty($erros)) : ?>
+            $(document).ready(function () {
+                $('#modalErro').modal('show');
+            });
+        <?php endif; ?>
+    </script>
 </section>
 <?php
     include './../../componentes/footer.php'

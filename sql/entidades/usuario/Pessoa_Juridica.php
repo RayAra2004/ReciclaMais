@@ -116,5 +116,71 @@
         public function update($id){
            
         }
+
+        public function delete($id){
+			$sql="DELETE FROM recicla
+                WHERE fk_ponto_coleta_id IN 
+                (SELECT id FROM cadastro_ponto_coleta WHERE fk_usuario_instituicao_fk_usuario_id = :id);
+            ";
+			$stmt = Database::prepare($sql);	
+			$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+			$stmt->execute();
+
+            $sql="DELETE FROM valida
+                WHERE fk_cadastro_ponto_coleta_id IN 
+                (SELECT id FROM cadastro_ponto_coleta WHERE fk_usuario_instituicao_fk_usuario_id = :id);
+            ";
+			$stmt = Database::prepare($sql);	
+			$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+			$stmt->execute();
+
+            $sql="DELETE FROM comentario
+                WHERE fk_ponto_coleta_id IN 
+                (SELECT id FROM cadastro_ponto_coleta WHERE fk_usuario_instituicao_fk_usuario_id = :id);
+            ";
+			$stmt = Database::prepare($sql);	
+			$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+			$stmt->execute();
+
+            $sql="DELETE FROM material_reciclavel
+                WHERE fk_usuario_instituicao_fk_usuario_id = :id;
+            
+            ";
+			$stmt = Database::prepare($sql);	
+			$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+			$stmt->execute();
+
+            $sql="DELETE FROM cadastro_ponto_coleta
+                WHERE fk_usuario_instituicao_fk_usuario_id = :id;
+            ";
+			$stmt = Database::prepare($sql);	
+			$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+			$stmt->execute();
+
+            $sql="DELETE FROM usuario_instituicao
+                WHERE fk_usuario_id = :id;            
+            ";
+			$stmt = Database::prepare($sql);	
+			$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+			$stmt->execute();
+			
+            $sql="DELETE FROM usuario
+                WHERE id = :id;            
+            ";
+			$stmt = Database::prepare($sql);	
+			$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+			return $stmt->execute();
+		}
+
+        public static function getPessoaJuridica($id){
+            $tempUser = new Pessoa_Juridica();
+            $tableName = $tempUser->getTableName();
+            $sql = "SELECT * FROM $tableName WHERE fk_usuario_id = :id;";
+            $stmt = Database::prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+
+        }
     }
 ?>
