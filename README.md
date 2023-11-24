@@ -10,8 +10,12 @@ Kauã Mateus de Barros Terra <br>
 Raynan Araujo da Silva <br>
 <br>
 <br>
-Telas que estão responsivas: Todas
-
+- Ao entrar no site e abertar no botão ENTRAR (localizado no menu) você irá entrar na tela de login e poderá fazer cadastro apertando no botão CADASTRE-SE.
+- Quando você terminar o cadastro poderá fazer login e entrar na PÁGINA PRINCIPAL.
+- Na página principal quando você apertar no botão do menu que irá aparecer o nome do seu usuário, você poderá acessar o SEU PERFIL.
+- na tela de perfil você poderá MUDAR OS DADOS do seu usuário e também EXCLUIR o seu usuário.
+- Na página principal no final da página você poderá acessar o RANKING.
+- No ranking você tem disponível as imagens e os nomes dos diferentes pontos de coleta cadastrados.
 
 <br>
 <br>
