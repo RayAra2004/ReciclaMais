@@ -97,6 +97,29 @@
 			$stmt->bindParam(':id', $id, PDO::PARAM_INT);
 			return $stmt->execute();
         }
+
+        public function findByUser($user_id){
+            $sql="SELECT * FROM $this->table WHERE fk_usuario_instituicao_fk_usuario_id = :id";
+			$stmt = Database::prepare($sql);	
+			$stmt->bindParam(':id', $user_id, PDO::PARAM_INT);
+			$stmt->execute();
+
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        }
+
+        public function getMateriaisReciclados($id){
+            $sql="SELECT categoria_de_materiais_reciclados.descricao FROM $this->table
+                INNER JOIN recicla
+                ON cadastro_ponto_coleta.id = recicla.fk_ponto_coleta_id
+                INNER JOIN categoria_de_materiais_reciclados
+                ON recicla.fk_categoria_de_materiais_reciclados_id = categoria_de_materiais_reciclados.id
+                WHERE cadastro_ponto_coleta.id = :id";
+			$stmt = Database::prepare($sql);	
+			$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+			$stmt->execute();
+
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
     }
 
 ?>
