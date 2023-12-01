@@ -6,6 +6,20 @@
   include './../../componentes/header.php';
   include './../../../sql/entidades/pontoColeta/PontoColeta.php';
   
+  $dicioPontos = PontoColeta::findAllPontosColetaMapa();
+  //var_dump($dicioPontos);
+  
+  $dicioPontosMapa = [];
+
+  foreach($dicioPontos as $ponto){
+    $dicioPontosMapa[$ponto["latitude"] . "," . $ponto["longitude"]] = [
+      "title" => $ponto["nome"],
+      "icon" => "/ReciclaMais/imgs/silver_pin.svg"
+    ];
+  };
+
+  var_dump($dicioPontosMapa);
+
   if (!(isset($_SESSION['comp_header']))){
     $_SESSION['comp_header'] = '<a class="btn temaGreen" href="/ReciclaMais/telas/entidades/login/login.php" role="button">Entrar</a>';
   }
@@ -29,8 +43,11 @@
       "title" => "Café Arrumado",
       "icon" => "/ReciclaMais/imgs/silver_pin.svg"
   ];
+  echo "<br> <br> <br> <br>";
+  //var_dump($dicionario);
+
   echo "<div id='listPntos'>";
-  echo json_encode($dicionario);
+  echo json_encode($dicioPontosMapa);
   echo "</div>";
   
   

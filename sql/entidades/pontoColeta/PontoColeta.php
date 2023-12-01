@@ -64,6 +64,23 @@
             return parent::findAll($tableName);
         }
 
+        public static function findAllPontosColetaMapa(){
+            $sql = "select cadastro_ponto_coleta.nome, cadastro_ponto_coleta.id, cadastro_ponto_coleta.imagem,endereco.cep, endereco.latitude, endereco.longitude, endereco.logradouro, endereco.numero, endereco.complemento, estado.estado, cidade.cidade, bairro.bairro, tipo_logradouro.tipo_logradouro  from cadastro_ponto_coleta
+                inner join endereco
+                on cadastro_ponto_coleta.fk_endereco_id = endereco.id
+                INNER JOIN estado
+                ON estado.id = endereco.fk_estado_id
+                INNER JOIN cidade
+                ON cidade.id = endereco.fk_cidade_id
+                INNER JOIN bairro
+                ON bairro.id = endereco.fk_bairro_id
+                INNER JOIN tipo_logradouro
+                ON tipo_logradouro.id = endereco.fk_tipo_logradouro_id;";
+            $stmt = Database::prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
         public function update($id){
         
         }
