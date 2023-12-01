@@ -77,7 +77,7 @@ function clicado(content,Pontos){
     //divtot.style.display = "block";
     divzada.style.display = "block";
     ponto_title.textContent = Pontos[location]["title"];
-    ponto_endereco.textContent = new String(Pontos[location]["tipo_logradouro"][0]).toUpperCase()+new String(Pontos[location]["tipo_logradouro"])+" " +Pontos[location]["logradouro"];
+    ponto_endereco.textContent = new String(Pontos[location]["tipo_logradouro"][0]).toUpperCase()+new String(Pontos[location]["tipo_logradouro"]).slice(1)+" " +Pontos[location]["logradouro"]+", "+Pontos[location]["numero"]+" - "+Pontos[location]["bairro"]+", "+Pontos[location]["cidade"]+" - "+Pontos[location]["estado"]+", "+Pontos[location]["cep"];
     imgPonto.setAttribute('src',Pontos[location]["img"]);
     link_ponto.setAttribute('href',"https://www.google.com/maps/place/"+location);
 }
