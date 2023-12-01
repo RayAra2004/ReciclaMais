@@ -3,10 +3,11 @@ const searchInput = document.querySelector(".search_input");
 const searchBtn = document.querySelector(".search_btn");
 //const divtot = document.getElementById("divtot");
 const divzada = document.getElementById("divzada");
-const text1 = document.getElementById("text1");
+const ponto_title = document.getElementById("ponto_title");
 const imgPonto = document.getElementById("imgPonto");
 const btnClose = document.getElementById("btnClose");
 const link_ponto = document.getElementById("link_ponto");
+const ponto_endereco = document.getElementById("ponto_endereco");
 btnClose.addEventListener("click", ()=>{
     divzada.style.display = "none";
     divtot.style.display = "none";
@@ -68,9 +69,6 @@ window.onload = function(){
 
 function clicado(content,Pontos){
     let location = content.getLocation().latitude + ","+ content.getLocation().longitude;
-    console.log(location);
-    console.log(Pontos);
-    console.log("https://www.google.com/maps/place/"+location)
     /*
     <a href="https://www.google.com/maps/place/<?php echo $endereco["latitude"];?>, <?php echo $endereco["longitude"];?>" target="_blank">
         <button>TRAGETÓRIA ATÉ O PONTO</button>
@@ -78,9 +76,10 @@ function clicado(content,Pontos){
 */
     //divtot.style.display = "block";
     divzada.style.display = "block";
-    text1.textContent = Pontos[location]["title"]
-    imgPonto.setAttribute('src',Pontos[location]["img"])
-    link_ponto.setAttribute('href',"https://www.google.com/maps/place/"+location)
+    ponto_title.textContent = Pontos[location]["title"];
+    ponto_endereco.textContent = new String(Pontos[location]["tipo_logradouro"][0]).toUpperCase()+new String(Pontos[location]["tipo_logradouro"])+" " +Pontos[location]["logradouro"];
+    imgPonto.setAttribute('src',Pontos[location]["img"]);
+    link_ponto.setAttribute('href',"https://www.google.com/maps/place/"+location);
 }
 
 function getMap(){

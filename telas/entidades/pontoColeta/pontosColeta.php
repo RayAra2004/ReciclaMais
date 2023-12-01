@@ -15,7 +15,14 @@
     $dicioPontosMapa[$ponto["latitude"] . "," . $ponto["longitude"]] = [
       "title" => $ponto["nome"],
       "icon" => "/ReciclaMais/imgs/silver_pin.svg",
-      "img" => $ponto["imagem"]
+      "img" => $ponto["imagem"],
+      "cep" => $ponto["cep"],
+      "logradouro" => $ponto["logradouro"],
+      "numero" => $ponto["numero"],
+      "estado" => $ponto["estado"],
+      "cidade" => $ponto["cidade"],
+      "bairro" => $ponto["bairro"],
+      "tipo_logradouro" => $ponto["tipo_logradouro"]
     ];
   };
 
@@ -24,28 +31,6 @@
   if (!(isset($_SESSION['comp_header']))){
     $_SESSION['comp_header'] = '<a class="btn temaGreen" href="/ReciclaMais/telas/entidades/login/login.php" role="button">Entrar</a>';
   }
-
-  $dicionario = [];
-
-  // Adicionando o primeiro item ao dicionário
-  $dicionario["-20.197329691804068, -40.2170160437478"] = [
-      "title" => "Ifes Campus Serra",
-      "icon" => "/ReciclaMais/imgs/silver_pin.svg"
-  ];
-
-  // Adicionando o segundo item ao dicionário
-  $dicionario["-20.199232504534884, -40.227077110956316"] = [
-      "title" => "Hospital Jayme dos Santos Neves",
-      "icon" => "/ReciclaMais/imgs/silver_pin.svg"
-  ];
-
-  // Adicionando o terceiro item ao dicionário
-  $dicionario["-20.19826402415827, -40.224856532079116"] = [
-      "title" => "Café Arrumado",
-      "icon" => "/ReciclaMais/imgs/silver_pin.svg"
-  ];
-  echo "<br> <br> <br> <br>";
-  //var_dump($dicionario);
 
   echo "<div id='listPntos'>";
   echo json_encode($dicioPontosMapa);
@@ -58,10 +43,11 @@
     <div id="divzada">
       <button id="btnClose">X</button>
       <img id="imgPonto" src="/ReciclaMais/imgs/arvores_home.jpg" alt="">
-      <p id="text1"></p>
+      <p id="ponto_title"></p>
       <a id="link_ponto" href="https://www.google.com/maps/place/" target="_blank">
           <button>TRAGETÓRIA ATÉ O PONTO</button>
       </a>
+      <p id="ponto_endereco"></p>
     </div>
   <!--</div>-->
   <div class="options">
