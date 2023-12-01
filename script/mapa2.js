@@ -6,6 +6,7 @@ const divzada = document.getElementById("divzada");
 const text1 = document.getElementById("text1");
 const imgPonto = document.getElementById("imgPonto");
 const btnClose = document.getElementById("btnClose");
+const link_ponto = document.getElementById("link_ponto");
 btnClose.addEventListener("click", ()=>{
     divzada.style.display = "none";
     divtot.style.display = "none";
@@ -41,7 +42,7 @@ const Pontos = JSON.parse(listPontos.textContent);
 let map, searchManager;
 
 searchBtn.addEventListener("click", ()=>{
-    geocodeQuery(searchInput.value);
+    pesquisa(searchInput.value);
 });
 window.onload = function(){
     for (const key in Pontos) {
@@ -66,13 +67,20 @@ window.onload = function(){
 };
 
 function clicado(content,Pontos){
-    let location = content.getLocation().latitude + ", "+ content.getLocation().longitude;
+    let location = content.getLocation().latitude + ","+ content.getLocation().longitude;
     console.log(location);
-    console.log(Pontos[location]);
+    console.log(Pontos);
+    console.log("https://www.google.com/maps/place/"+location)
+    /*
+    <a href="https://www.google.com/maps/place/<?php echo $endereco["latitude"];?>, <?php echo $endereco["longitude"];?>" target="_blank">
+        <button>TRAGETÓRIA ATÉ O PONTO</button>
+    </a>
+*/
     //divtot.style.display = "block";
     divzada.style.display = "block";
     text1.textContent = Pontos[location]["title"]
     imgPonto.setAttribute('src',Pontos[location]["img"])
+    link_ponto.setAttribute('href',"https://www.google.com/maps/place/"+location)
 }
 
 function getMap(){
@@ -125,7 +133,7 @@ function fillMap(Pontos){
 }
 
 //Função que recentraliza o mapa
-function geocodeQuery(query){
+function pesquisa(query){
     map.setView({
         center: {latitude: -20.199232504534884, longitude: -40.227077110956316, altitude: 0, altitudeReference: -1}
     });

@@ -14,7 +14,8 @@
   foreach($dicioPontos as $ponto){
     $dicioPontosMapa[$ponto["latitude"] . "," . $ponto["longitude"]] = [
       "title" => $ponto["nome"],
-      "icon" => "/ReciclaMais/imgs/silver_pin.svg"
+      "icon" => "/ReciclaMais/imgs/silver_pin.svg",
+      "img" => $ponto["imagem"]
     ];
   };
 
@@ -58,6 +59,9 @@
       <button id="btnClose">X</button>
       <img id="imgPonto" src="/ReciclaMais/imgs/arvores_home.jpg" alt="">
       <p id="text1"></p>
+      <a id="link_ponto" href="https://www.google.com/maps/place/" target="_blank">
+          <button>TRAGETÓRIA ATÉ O PONTO</button>
+      </a>
     </div>
   <!--</div>-->
   <div class="options">
