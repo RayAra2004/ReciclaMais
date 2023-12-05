@@ -20,7 +20,7 @@
                 $ponto["id"] = $pontoColeta["id"];
                 $ponto["nome"] = $pontoColeta["nome"];
                 $ponto["imagem"] = $pontoColeta["imagem"];
-                $ponto["materiais"] = $pontoColeta["materiais_reciclados"];
+                $ponto["materiais_reciclados"] = $pontoColeta["materiais_reciclados"];
                 $ponto["distancia"] = 1;
              
                 // Adiciona o ponto no array de pontos.
@@ -34,7 +34,6 @@
         $resposta["status"] = 0;
         $resposta["mensagem"] = "Faltam parâmetros";
     }
-    var_dump($resposta);
     // Converte a resposta para o formato JSON.
     echo json_encode($resposta);
 ?>
