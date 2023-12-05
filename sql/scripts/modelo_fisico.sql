@@ -354,10 +354,10 @@ insert into cadastro_ponto_coleta (nome, imagem, fk_endereco_id, fk_usuario_id) 
 ('EcoAmigo', 'https://www.cogic.fiocruz.br/wp-content/uploads/2011/12/ecoponto.jpg', 14, 14),
 ('Reciclagem Certa', 'https://www.cogic.fiocruz.br/wp-content/uploads/2021/03/ecoponto.jpg', 15, 15);
 
-insert recicla (fk_categoria_de_materiais_reciclados_id, fk_ponto_coleta_id) values
-(5, 1),
-(2, 1),
-(7, 1),
+insert into recicla (fk_categoria_de_materiais_reciclados_id, fk_ponto_coleta_id) values
+(5,1),
+(2,1),
+(7,1),
 (1,2),
 (2,2),
 (3,2),
