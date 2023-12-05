@@ -22,7 +22,8 @@
       "estado" => $ponto["estado"],
       "cidade" => $ponto["cidade"],
       "bairro" => $ponto["bairro"],
-      "tipo_logradouro" => $ponto["tipo_logradouro"]
+      "tipo_logradouro" => $ponto["tipo_logradouro"],
+      "media" => $ponto["media"]
     ];
   };
 
