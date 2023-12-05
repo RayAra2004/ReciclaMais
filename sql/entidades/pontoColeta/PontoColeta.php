@@ -64,6 +64,42 @@
             return parent::findAll($tableName);
         }
 
+        public static function findAllPontosColetaMapa(){
+            $sql = "select cadastro_ponto_coleta.nome, cadastro_ponto_coleta.id, cadastro_ponto_coleta.imagem,endereco.cep, endereco.latitude, endereco.longitude, endereco.logradouro, endereco.numero, endereco.complemento, estado.estado, cidade.cidade, bairro.bairro, tipo_logradouro.tipo_logradouro  from cadastro_ponto_coleta
+                inner join endereco
+                on cadastro_ponto_coleta.fk_endereco_id = endereco.id
+                INNER JOIN estado
+                ON estado.id = endereco.fk_estado_id
+                INNER JOIN cidade
+                ON cidade.id = endereco.fk_cidade_id
+                INNER JOIN bairro
+                ON bairro.id = endereco.fk_bairro_id
+                INNER JOIN tipo_logradouro
+                ON tipo_logradouro.id = endereco.fk_tipo_logradouro_id;";
+            $stmt = Database::prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        public static function findPontosColetaPaginado($limit, $offset){
+            $sql = "SELECT
+                cadastro_ponto_coleta.id, cadastro_ponto_coleta.nome, cadastro_ponto_coleta.imagem,
+                STRING_AGG(cmr.descricao, ', ') AS materiais_reciclados
+                FROM
+                    cadastro_ponto_coleta
+                JOIN
+                    recicla ON cadastro_ponto_coleta.id = recicla.fk_ponto_coleta_id
+                JOIN
+                    categoria_de_materiais_reciclados cmr ON recicla.fk_categoria_de_materiais_reciclados_id = cmr.id
+                GROUP BY
+                cadastro_ponto_coleta.nome, cadastro_ponto_coleta.id
+                LIMIT " . $limit . " OFFSET " . $offset;
+            $stmt = Database::prepare($sql);
+            $stmt->execute();
+            
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
         public function update($id){
         
         }
@@ -96,6 +132,29 @@
 			$stmt = Database::prepare($sql);	
 			$stmt->bindParam(':id', $id, PDO::PARAM_INT);
 			return $stmt->execute();
+        }
+
+        public function findByUser($user_id){
+            $sql="SELECT * FROM $this->table WHERE fk_usuario_instituicao_fk_usuario_id = :id";
+			$stmt = Database::prepare($sql);	
+			$stmt->bindParam(':id', $user_id, PDO::PARAM_INT);
+			$stmt->execute();
+
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        }
+
+        public function getMateriaisReciclados($id){
+            $sql="SELECT categoria_de_materiais_reciclados.descricao FROM $this->table
+                INNER JOIN recicla
+                ON cadastro_ponto_coleta.id = recicla.fk_ponto_coleta_id
+                INNER JOIN categoria_de_materiais_reciclados
+                ON recicla.fk_categoria_de_materiais_reciclados_id = categoria_de_materiais_reciclados.id
+                WHERE cadastro_ponto_coleta.id = :id";
+			$stmt = Database::prepare($sql);	
+			$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+			$stmt->execute();
+
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
     }
 

@@ -3,9 +3,11 @@ const searchInput = document.querySelector(".search_input");
 const searchBtn = document.querySelector(".search_btn");
 //const divtot = document.getElementById("divtot");
 const divzada = document.getElementById("divzada");
-const text1 = document.getElementById("text1");
+const ponto_title = document.getElementById("ponto_title");
 const imgPonto = document.getElementById("imgPonto");
 const btnClose = document.getElementById("btnClose");
+const link_ponto = document.getElementById("link_ponto");
+const ponto_endereco = document.getElementById("ponto_endereco");
 btnClose.addEventListener("click", ()=>{
     divzada.style.display = "none";
     divtot.style.display = "none";
@@ -41,7 +43,7 @@ const Pontos = JSON.parse(listPontos.textContent);
 let map, searchManager;
 
 searchBtn.addEventListener("click", ()=>{
-    geocodeQuery(searchInput.value);
+    pesquisa(searchInput.value);
 });
 window.onload = function(){
     for (const key in Pontos) {
@@ -66,13 +68,25 @@ window.onload = function(){
 };
 
 function clicado(content,Pontos){
-    let location = content.getLocation().latitude + ", "+ content.getLocation().longitude;
-    console.log(location);
-    console.log(Pontos[location]);
+    let location = content.getLocation().latitude + ","+ content.getLocation().longitude;
+    /*
+    <a href="https://www.google.com/maps/place/<?php echo $endereco["latitude"];?>, <?php echo $endereco["longitude"];?>" target="_blank">
+        <button>TRAGETÓRIA ATÉ O PONTO</button>
+    </a>
+    */
     //divtot.style.display = "block";
     divzada.style.display = "block";
-    text1.textContent = Pontos[location]["title"]
-    imgPonto.setAttribute('src',Pontos[location]["img"])
+    ponto_title.textContent = Pontos[location]["title"];
+    /*navigator.geolocation.getCurrentPosition((a)=>console.log(a.coords.latitude.toString()));*/
+    ponto_endereco.textContent = new String(Pontos[location]["tipo_logradouro"][0]).toUpperCase()
+    +new String(Pontos[location]["tipo_logradouro"]).slice(1)
+    +" " +Pontos[location]["logradouro"]+", "+Pontos[location]["numero"]
+    +" - "+Pontos[location]["bairro"]+", "+Pontos[location]["cidade"]+" - "
+    +Pontos[location]["estado"]+", "+Pontos[location]["cep"];
+    
+    imgPonto.setAttribute('src',Pontos[location]["img"]);
+    let lat = location.split(",")[0],long = location.split(",")[1];
+    link_ponto.setAttribute('href',"https://www.google.com/maps/place/"+location);
 }
 
 function getMap(){
@@ -125,7 +139,7 @@ function fillMap(Pontos){
 }
 
 //Função que recentraliza o mapa
-function geocodeQuery(query){
+function pesquisa(query){
     map.setView({
         center: {latitude: -20.199232504534884, longitude: -40.227077110956316, altitude: 0, altitudeReference: -1}
     });

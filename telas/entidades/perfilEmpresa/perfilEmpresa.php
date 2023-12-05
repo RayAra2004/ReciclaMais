@@ -58,7 +58,7 @@
             <ul>
                 <li><a href="./mudarDadosEmpresariais.php" id="option1"><button>Informações Empresariais</button></a></li>
                 <li><a href="./mudarEnderecoEmpresarial.php" id="option2"><button>Endereço</button></a></li>
-                <li><a href="#" id="option3"><button>Materiais Reciclados</button></a></li>
+                <li><a href="./mudarMateriaisReciclados.php" id="option3"><button>Materiais Reciclados</button></a></li>
             </ul>
         </div>
     </div>

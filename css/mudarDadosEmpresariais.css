@@ -68,10 +68,19 @@ form input, select{
     display: flex!important;
 }
 
+.div-trash img{
+    max-width: 200px;
+    cursor: pointer;
+}
+
 form input::placeholder{
     font-family: 'Poppins', sans-serif;
     font-size: small;
     color: rgb(255,255,255, 0.3);
+}
+
+#materiaisSelecionados{
+    display: none;
 }
 
 @media screen and (max-width: 650px) {

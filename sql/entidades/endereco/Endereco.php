@@ -218,8 +218,8 @@
             $stmt->bindParam(':fk_bairro_id', $this->fk_bairro_id, PDO::PARAM_INT);
             $stmt->bindParam(':numero', $this->numero, PDO::PARAM_INT);
             $stmt->bindParam(':complemento', $this->complemento);
-            $stmt->bindParam(':longitude', $this->latitude, PDO::PARAM_INT);
-            $stmt->bindParam(':latitude', $this->longitude, PDO::PARAM_INT);
+            $stmt->bindParam(':longitude', $this->longitude, PDO::PARAM_INT);
+            $stmt->bindParam(':latitude', $this->latitude, PDO::PARAM_INT);
 
             if ($stmt->execute()) {
                 // Recupere o ID inserido

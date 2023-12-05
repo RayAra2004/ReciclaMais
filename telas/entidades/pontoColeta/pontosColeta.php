@@ -1,47 +1,63 @@
 <?php
-    $css = '<script src="/ReciclaMais/script/map.js" defer></script><link rel="stylesheet" href="/ReciclaMais/css/pontosColeta.css"><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">';
-    include './../../componentes/header.php';
+  $css = '<link rel="stylesheet" href="/ReciclaMais/css/mapa.css">
+  <script src="/ReciclaMais/script/mapa2.js" defer></script>
+  <script src="http://www.bing.com/api/maps/mapcontrol?callback=getMap" async></script>';
+
+  include './../../componentes/header.php';
+  include './../../../sql/entidades/pontoColeta/PontoColeta.php';
+  
+  $dicioPontos = PontoColeta::findAllPontosColetaMapa();
+  //var_dump($dicioPontos);
+  
+  $dicioPontosMapa = [];
+
+  foreach($dicioPontos as $ponto){
+    $dicioPontosMapa[$ponto["latitude"] . "," . $ponto["longitude"]] = [
+      "title" => $ponto["nome"],
+      "icon" => "/ReciclaMais/imgs/silver_pin.svg",
+      "img" => $ponto["imagem"],
+      "cep" => $ponto["cep"],
+      "logradouro" => $ponto["logradouro"],
+      "numero" => $ponto["numero"],
+      "estado" => $ponto["estado"],
+      "cidade" => $ponto["cidade"],
+      "bairro" => $ponto["bairro"],
+      "tipo_logradouro" => $ponto["tipo_logradouro"]
+    ];
+  };
+
+  var_dump($dicioPontosMapa);
+
+  if (!(isset($_SESSION['comp_header']))){
+    $_SESSION['comp_header'] = '<a class="btn temaGreen" href="/ReciclaMais/telas/entidades/login/login.php" role="button">Entrar</a>';
+  }
+
+  echo "<div id='listPntos'>";
+  echo json_encode($dicioPontosMapa);
+  echo "</div>";
+  
+  
 ?>
-    <section class="body_content">
-    <div class="container d-flex info">
-        <ion-icon name="filter-outline"></ion-icon>
-        <p class="ms-2">FILTRO DOS PONTOS</p>
+<section id="containerMapa">
+  <!--<div id="divtot">-->
+    <div id="divzada">
+      <button id="btnClose">X</button>
+      <img id="imgPonto" src="/ReciclaMais/imgs/arvores_home.jpg" alt="">
+      <p id="ponto_title"></p>
+      <a id="link_ponto" href="https://www.google.com/maps/place/" target="_blank">
+          <button>TRAGETÓRIA ATÉ O PONTO</button>
+      </a>
+      <p id="ponto_endereco"></p>
     </div>
-    <div class="row m-0 p-0">
-        <div class="container ms-3 me-3 mt-3 checks col-4">
-            <p>MATERIAIS QUE VOCÊ IRÁ DESCARTAR</p>
-            <div class="container mt-2">
-                <form action="">
-                    <fieldset>
-                        <input type="checkbox" name="" id="" value="VIDRO"><span>VIDRO</span><br>
-                        <input type="checkbox" name="" id="" value="PLÁSTICO"><span>PLÁSTICO</span><br>
-                        <input type="checkbox" name="" id="" value="MADEIRA"><span>MADEIRA</span><br>
-                        <input type="checkbox" name="" id="" value="ELETRÔNICO"><span>ELETRÔNICO</span><br>
-                        <input type="checkbox" name="" id="" value="METAIS"><span>METAIS</span><br>
-                        <input type="checkbox" name="" id="" value="PAPEL"><span>PAPEL</span><br>
-                        <input type="checkbox" name="" id="" value="ORGÂNICO"><span>ORGÂNICO</span><br>
-                        <input type="checkbox" name="" id="" value="HOSPITALAR"><span>HOSPITALAR</span><br>
-                    </fieldset>
-                </form>
-            </div>
-            <p class="mt-3">DISTÂNCIA DO PONTO DE COLETA</p>
-            <div class="container mt-2">
-                <form action="">
-                    <fieldset>
-                        <input type="checkbox" name="" id="" value="3"><span>até 3KM</span><br>
-                        <input type="checkbox" name="" id="" value="7"><span>até 7KM</span><br>
-                        <input type="checkbox" name="" id="" value="12"><span>até 12KM</span><br>
-                        <input type="checkbox" name="" id="" value="+12"><span>+12KM</span><br>
-                    </fieldset>
-                </form>
-            </div>
-        </div>
-        <div class="container col-5 maps">
-            <div id="map"></div>
-        </div>
-    </div>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <!--</div>-->
+  <div class="options">
+      <div id="closedFilter">Filtros</div>
+      <div id="openedFilter">Filtros</div>
+      <input class="search_input" placeholder="Search">
+      <button class="search_btn">Search</button>
+  </div>
+  <div id="map"></div>
 </section>
 <?php
-    include './../../componentes/footer.php'
-?>
+    include '../../componentes/footer.php'
+?>    

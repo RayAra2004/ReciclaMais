@@ -14,6 +14,61 @@ const bairro = document.getElementById('bairro');
 const complemento = document.getElementById('complemento');
 const btnEditar2 = document.getElementById("btn-editar-dados2");
 
+const inputMateriaisSelecionados = document.getElementById("materiaisInput");
+const inputnewMateriaisSelecionados = document.getElementById("newMateriaisInput");
+
+let selecionados = 0;
+
+document.addEventListener('DOMContentLoaded', function (e) {
+    e.preventDefault();
+    const form = document.querySelector('.form-data');
+    form.addEventListener('submit', function () {
+        const divTrashElements = document.querySelectorAll('.div-trash img');
+
+        divTrashElements.forEach(element => {
+            const material = element.alt;
+           
+            console.log(element.classList)
+            
+            inputnewMateriaisSelecionados.value += material + ';';
+
+        });
+    });
+});
+
+
+function selecionar(e, material){
+    e.classList.toggle('ativo');
+    if(e.classList.contains('ativo')){
+        e.src = e.src.replace('.svg', '_ativo.svg');
+        selecionados++;
+    }else{
+        e.src = e.src.replace('_ativo.svg', '.svg');
+        selecionados--;
+    }
+}
+
+
+const materiaisDaEmpresa = inputMateriaisSelecionados.value.split(';');
+
+
+function selecionarMateriaisIniciais() {
+    const divTrashElements = document.querySelectorAll('.div-trash img');
+
+    divTrashElements.forEach(element => {
+        const material = element.alt;
+        if (materiaisDaEmpresa.includes(material)) {
+            element.classList.add('ativo');
+            element.src = element.src.replace('.svg', '_ativo.svg');
+            selecionados++;
+            inputMateriaisSelecionados.value += material + ';';
+        }
+    });
+}
+
+selecionarMateriaisIniciais();
+
+
 cep.addEventListener("input", e => {
     if(e.target.value.length === 8){
         fetch(`https://brasilapi.com.br/api/cep/v2/${e.target.value}`)
