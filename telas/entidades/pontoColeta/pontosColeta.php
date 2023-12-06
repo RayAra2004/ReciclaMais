@@ -1,5 +1,6 @@
 <?php
   $css = '<link rel="stylesheet" href="/ReciclaMais/css/mapa.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   <script src="/ReciclaMais/script/mapa2.js" defer></script>
   <script src="http://www.bing.com/api/maps/mapcontrol?callback=getMap" async></script>';
 
@@ -23,7 +24,8 @@
       "cidade" => $ponto["cidade"],
       "bairro" => $ponto["bairro"],
       "tipo_logradouro" => $ponto["tipo_logradouro"],
-      "media" => $ponto["media"]
+      "media" => str_split($ponto["media"],3)[0],
+      "id" => $ponto["id"]
     ];
   };
 
@@ -46,8 +48,12 @@
       <img id="imgPonto" src="/ReciclaMais/imgs/arvores_home.jpg" alt="">
       <p id="ponto_title"></p>
       <a id="link_ponto" href="https://www.google.com/maps/place/" target="_blank">
-          <button>TRAGETÓRIA ATÉ O PONTO</button>
+          <button><span class="material-symbols-outlined">
+        fork_right
+      </span></button>
+      <p>Rotas</p>
       </a>
+      
       <p id="ponto_endereco"></p>
     </div>
   <!--</div>-->
