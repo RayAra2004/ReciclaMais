@@ -338,22 +338,22 @@ insert into endereco (cep, fk_tipo_logradouro_id, logradouro, fk_estado_id, fk_c
 (29166858, 2, 'Atlântica', 1, 1, 1, 0, -40.223781, -20.190152),
 (29166821, 1, 'Ipanema', 1, 1, 1, 15, -40.230990, -20.191107);
 
-insert into cadastro_ponto_coleta (nome, imagem, fk_endereco_id, fk_usuario_id) values
-('Recicla Aqui', 'https://ecrie.com.br/sistema/conteudos/imagem/m_107_1_11_25032022212408.jpg', 1, 1),
-('Ponto Limpo', 'https://pocosdecaldas.mg.gov.br/wp-content/uploads/2019/03/ponto-de-coleta-seletiva.jpg', 2, 2),
-('Coleta Verde', 'https://ecrie.com.br/sistema/conteudos/imagem/g_107_0_12_25032022212408.jpg', 3, 3),
-('SustentaAção', 'https://rioonwatch.org.br/wp-content/uploads/2018/07/PostoDeColetaSeletiva.jpg', 4, 4),
-('Viva Limpo', 'https://soscasanova.files.wordpress.com/2012/06/expansaoreciclagem1.jpg', 5, 5),
-('EcoBairro', 'https://mid.curitiba.pr.gov.br/2016/capa/00181500.jpg', 6, 6),
-('Verde Vizinhança', 'https://media.gazetadopovo.com.br/2018/02/4cbfea70c600aec15d3ec18eb4e8b4f3-gpMedium.jpg', 7, 7),
-('Ponto Eco', 'https://www.santoestevao.ba.gov.br/admin/noticias/5f32d915985f8.jpg', 8, 8),
-('Limpeza Local', 'https://santarem.pa.gov.br/storage/posts/December2022/whatsapp-image-2022-12-15-at-125647-5WnE9y.jpg', 9, 9),
-('Coleta Eficiente', 'https://web.arapiraca.al.gov.br/wp-content/uploads/2020/11/Pevs.jpg', 10, 10),
-('Recicla já', 'https://tudorondonia.com/uploads/21-01-20-oo64363viwly1hn.jpg', 11, 11),
-('Planeta Limpo', 'https://meioambiente.socorro.sp.gov.br/wp-content/uploads/2022/03/container-500x263.jpg', 12, 12),
-('Semeia Verde', 'https://agenciaeconordeste.com.br/wp-content/uploads/2020/12/Eco-da-Gente.jpg', 13, 13),
-('EcoAmigo', 'https://www.cogic.fiocruz.br/wp-content/uploads/2011/12/ecoponto.jpg', 14, 14),
-('Reciclagem Certa', 'https://www.cogic.fiocruz.br/wp-content/uploads/2021/03/ecoponto.jpg', 15, 15);
+insert into cadastro_ponto_coleta (nome, imagem, telefone, fk_endereco_id, fk_usuario_id) values
+('Recicla Aqui', 'https://ecrie.com.br/sistema/conteudos/imagem/m_107_1_11_25032022212408.jpg', 98765432101, 1, 1),
+('Ponto Limpo', 'https://pocosdecaldas.mg.gov.br/wp-content/uploads/2019/03/ponto-de-coleta-seletiva.jpg', 12345678901, 2, 2),
+('Coleta Verde', 'https://ecrie.com.br/sistema/conteudos/imagem/g_107_0_12_25032022212408.jpg', 87654321098, 3, 3),
+('SustentaAção', 'https://rioonwatch.org.br/wp-content/uploads/2018/07/PostoDeColetaSeletiva.jpg', 23456789012, 4, 4),
+('Viva Limpo', 'https://soscasanova.files.wordpress.com/2012/06/expansaoreciclagem1.jpg', 34567890123, 5, 5),
+('EcoBairro', 'https://mid.curitiba.pr.gov.br/2016/capa/00181500.jpg', 89012345678, 6, 6),
+('Verde Vizinhança', 'https://media.gazetadopovo.com.br/2018/02/4cbfea70c600aec15d3ec18eb4e8b4f3-gpMedium.jpg', 45678901234, 7, 7),
+('Ponto Eco', 'https://www.santoestevao.ba.gov.br/admin/noticias/5f32d915985f8.jpg', 56789012345, 8, 8),
+('Limpeza Local', 'https://santarem.pa.gov.br/storage/posts/December2022/whatsapp-image-2022-12-15-at-125647-5WnE9y.jpg', 10987654321, 9, 9),
+('Coleta Eficiente', 'https://web.arapiraca.al.gov.br/wp-content/uploads/2020/11/Pevs.jpg', 32109876543, 10, 10),
+('Recicla já', 'https://tudorondonia.com/uploads/21-01-20-oo64363viwly1hn.jpg', 21098765432, 11, 11),
+('Planeta Limpo', 'https://meioambiente.socorro.sp.gov.br/wp-content/uploads/2022/03/container-500x263.jpg', 67890123456, 12, 12),
+('Semeia Verde', 'https://agenciaeconordeste.com.br/wp-content/uploads/2020/12/Eco-da-Gente.jpg', 54321098765, 13, 13),
+('EcoAmigo', 'https://www.cogic.fiocruz.br/wp-content/uploads/2011/12/ecoponto.jpg', 43210987654, 14, 14),
+('Reciclagem Certa', 'https://www.cogic.fiocruz.br/wp-content/uploads/2021/03/ecoponto.jpg', 87654321098, 15, 15);
 
 insert into recicla (fk_categoria_de_materiais_reciclados_id, fk_ponto_coleta_id) values
 (5,1),
