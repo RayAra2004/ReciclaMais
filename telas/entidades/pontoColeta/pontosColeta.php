@@ -13,9 +13,25 @@
   $dicioPontosMapa = [];
 
   foreach($dicioPontos as $ponto){
+
+    switch (true) {
+      case ((str_split($ponto["media"],3)[0])>3) and ((str_split($ponto["media"],3)[0])<4):
+        $icon = "ponto_icone_prata";
+        break;
+      case (str_split($ponto["media"],3)[0])>=4:
+        $icon = "ponto_icone_dourado";
+        break;
+      default:
+          $icon = "ponto_icone_bronze";
+      }
+
+      /*ponto_icone_bronze
+      ponto_icone_dourado
+      ponto_icone_prata*/
+
     $dicioPontosMapa[$ponto["latitude"] . "," . $ponto["longitude"]] = [
       "title" => $ponto["nome"],
-      "icon" => "/ReciclaMais/imgs/silver_pin.svg",
+      "icon" => "/ReciclaMais/imgs/" . $icon . ".svg",
       "img" => $ponto["imagem"],
       "cep" => $ponto["cep"],
       "logradouro" => $ponto["logradouro"],
@@ -47,13 +63,14 @@
       <button id="btnClose">X</button>
       <img id="imgPonto" src="/ReciclaMais/imgs/arvores_home.jpg" alt="">
       <p id="ponto_title"></p>
-      <a id="link_ponto" href="https://www.google.com/maps/place/" target="_blank">
-          <button><span class="material-symbols-outlined">
-        fork_right
-      </span></button>
-      <p>Rotas</p>
-      </a>
-      
+      <div class = "d-flex bg-white">
+      <a id="link_rota" class="text-decoration-none" href="https://www.google.com/maps/place/" target="_blank">
+            <button class="rounded-circle"><span class="material-symbols-outlined">
+            fork_right
+            </span></button>
+        <p>Rotas</p>
+        </a>
+      </div>
       <p id="ponto_endereco"></p>
     </div>
   <!--</div>-->
