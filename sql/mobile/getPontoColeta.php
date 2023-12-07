@@ -21,8 +21,21 @@
         $resposta["cidade"] = $pontoColeta["cidade"];
         $resposta["bairro"] = $pontoColeta["bairro"];
         $resposta["tipo_logradouro"] = $pontoColeta["tipo_logradouro"];
-        $resposta["comentarios"] = $pontoColeta["comentarios"];
+        $resposta["telefone"] = $pontoColeta["telefone"];
+        $resposta["nota"] = $pontoColeta["nota"];
         
+        $resposta["comentarios"] = array();
+        $comentarios = json_decode($pontoColeta["comentarios"], true);
+
+        foreach($comentarios as $comentarioBD){
+            $cometario = array();
+            $cometario["id"] = $comentarioBD["id"];
+            $cometario["nomeUsuario"] = $comentarioBD["nomeUsuario"];
+            $cometario["nota"] = $comentarioBD["nota"];
+            $cometario["conteudo"] = $comentarioBD["conteudo"];
+
+            $resposta["comentario"][] = $cometario;
+        }
         $resposta["status"] = 1;
     }else{
         $resposta["status"] = 0;
@@ -30,6 +43,7 @@
     }
 
     // Converte a resposta para o formato JSON.
+
     echo json_encode($resposta);
 
 ?>
