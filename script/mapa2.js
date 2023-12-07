@@ -6,14 +6,26 @@ const divzada = document.getElementById("divzada");
 const ponto_title = document.getElementById("ponto_title");
 const imgPonto = document.getElementById("imgPonto");
 const btnClose = document.getElementById("btnClose");
-const link_ponto = document.getElementById("link_ponto");
+const link_rota = document.getElementById("link_rota");
 const ponto_endereco = document.getElementById("ponto_endereco");
 btnClose.addEventListener("click", ()=>{
     divzada.style.display = "none";
     divtot.style.display = "none";
 });
+btnClosedFilter = getElementById("closedFilter");
+btnOpenedFilter = getElementById("openedFilter");
+
+btnClosedFilter.addEventListener("click", ()=>{
+    btnClosedFilter.style.display = "none";
+    divtot.style.display = "none";
+});
+btnOpenedFilter = getElementById("openedFilter");
+
+
 /*divzada.addEventListener("click", ()=>{
     console.log("oi")
+
+
 });*/
 
 const listPontos = document.getElementById("listPntos");
@@ -77,23 +89,27 @@ function clicado(content,Pontos){
     //divtot.style.display = "block";
     divzada.style.display = "block";
     ponto_title.textContent = Pontos[location]["title"];
-    /*navigator.geolocation.getCurrentPosition((a)=>console.log(a.coords.latitude.toString()));*/
+    //navigator.geolocation.getCurrentPosition((a)=>{myposition = (a.coords.latitude.toString()+",+"+a.coords.longitude.toString());});
+    //console.log(myposition);
+    let lat = location.split(",")[0],long = location.split(",")[1];
+    navigator.geolocation.getCurrentPosition((a)=>{
+        link_rota.setAttribute('href',"https://www.google.com/maps/dir/"+a.coords.latitude.toString()+",+"+a.coords.longitude.toString()+"/"+lat+",+"+long)},
+        link_rota.setAttribute('href',"https://www.google.com/maps/place/"+lat+","+long)
+        );
     ponto_endereco.textContent = new String(Pontos[location]["tipo_logradouro"][0]).toUpperCase()
     +new String(Pontos[location]["tipo_logradouro"]).slice(1)
     +" " +Pontos[location]["logradouro"]+", "+Pontos[location]["numero"]
     +" - "+Pontos[location]["bairro"]+", "+Pontos[location]["cidade"]+" - "
-    +Pontos[location]["estado"]+", "+Pontos[location]["cep"];
-    
+    +Pontos[location]["estado"]+", "+Pontos[location]["cep"]+lat+long;
     imgPonto.setAttribute('src',Pontos[location]["img"]);
-    let lat = location.split(",")[0],long = location.split(",")[1];
-    link_ponto.setAttribute('href',"https://www.google.com/maps/place/"+location);
+    //link_rota.setAttribute('href',"https://www.google.com/maps/dir/-20.197329691804068,+-40.2170160437478/"+lat+",+"+long);
 }
 
 function getMap(){
     map = new Microsoft.Maps.Map('#map', {
         center: new Microsoft.Maps.Location(-20.197329691804068, -40.2170160437478),
         zoom: 16,
-        NavigationBarMode: "minified",
+        NavigationBarMode: "defoult",
         navigationBarOrientation: "horizontal",
         credentials: 'Ak_PJnVWlG661PnFrGXTK6jXXiZz9b3Ocn4R5X9BXIhfGRcR7zSvm27_YE30YHHK',
     });
@@ -140,9 +156,10 @@ function fillMap(Pontos){
 
 //Função que recentraliza o mapa
 function pesquisa(query){
-    map.setView({
+    /*map.setView({
         center: {latitude: -20.199232504534884, longitude: -40.227077110956316, altitude: 0, altitudeReference: -1}
-    });
+    });*/
+    map.entities.clear();
 };
 
 

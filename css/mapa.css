@@ -1,4 +1,9 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+p{
+    font-family: 'Poppins', sans-serif;
+}
 .options{
     display: flex;
     z-index: 2;
@@ -69,9 +74,13 @@
     height: 30px;
     color: blue;
 }
-#link_ponto{
+#link_rota{
     text-decoration: none;
 }
-#link_ponto button{
-    border-radius: 45%;
+#link_rota button{
+    height: 30px;
+    width: 30px;
+}
+#link_rota button span{
+    margin-left: -4px;
 }
