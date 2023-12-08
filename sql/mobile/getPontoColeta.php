@@ -24,18 +24,6 @@
         $resposta["telefone"] = $pontoColeta["telefone"];
         $resposta["nota"] = $pontoColeta["nota"];
         
-        $resposta["comentarios"] = array();
-        $comentarios = json_decode($pontoColeta["comentarios"], true);
-
-        foreach($comentarios as $comentarioBD){
-            $cometario = array();
-            $cometario["id"] = $comentarioBD["id"];
-            $cometario["nomeUsuario"] = $comentarioBD["nomeUsuario"];
-            $cometario["nota"] = $comentarioBD["nota"];
-            $cometario["conteudo"] = $comentarioBD["conteudo"];
-
-            $resposta["comentario"][] = $cometario;
-        }
         $resposta["status"] = 1;
     }else{
         $resposta["status"] = 0;

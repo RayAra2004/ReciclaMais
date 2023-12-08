@@ -109,13 +109,7 @@
             $sql = "SELECT cadastro_ponto_coleta.nome, cadastro_ponto_coleta.id, cadastro_ponto_coleta.imagem, cadastro_ponto_coleta.telefone,
                 endereco.cep, endereco.latitude, endereco.longitude, endereco.logradouro, endereco.numero,
                 endereco.complemento, estado.estado, cidade.cidade, bairro.bairro, tipo_logradouro.tipo_logradouro,
-                CAST(avg(comentario.nota) AS numeric(10,2)) as nota,
-                jsonb_agg(jsonb_build_object(
-                'id', comentario.id,
-                'nota', comentario.nota,
-                'conteudo', comentario.conteudo,
-                'nomeUsuario', usuario.nome
-                )) AS comentarios
+                ROUND(avg(comentario.nota)) as nota
                 FROM cadastro_ponto_coleta
                 LEFT JOIN comentario ON cadastro_ponto_coleta.id = comentario.fk_ponto_coleta_id
                 LEFT JOIN endereco ON cadastro_ponto_coleta.fk_endereco_id = endereco.id
@@ -133,6 +127,21 @@
             $stmt->execute();
              
             return $stmt->fetch(PDO::FETCH_ASSOC);
+        }
+
+        public static function getComentarios($id, $limit, $offset){
+            $sql = "SELECT comentario.conteudo, comentario.id, comentario.nota,
+                usuario.nome
+                FROM comentario
+                INNER JOIN usuario ON usuario.id = comentario.fk_usuario_pessoa_fisica_fk_usuario_id
+                INNER JOIN cadastro_ponto_coleta ON cadastro_ponto_coleta.id = comentario.fk_ponto_coleta_id
+                WHERE cadastro_ponto_coleta.id = :id
+                LIMIT " . $limit . " OFFSET " . $offset;
+            $stmt = Database::prepare($sql);
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
         public function update($id){
