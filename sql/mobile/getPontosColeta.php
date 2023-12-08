@@ -23,7 +23,7 @@
                 $ponto["nome"] = $pontoColeta["nome"];
                 $ponto["imagem"] = $pontoColeta["imagem"];
                 $ponto["materiais_reciclados"] = $pontoColeta["materiais_reciclados"];
-                $ponto["distancia"] = 1;
+                $ponto["distancia"] = $pontoColeta["distancia"];
              
                 // Adiciona o ponto no array de pontos.
                 $resposta["pontos"][] = $ponto;

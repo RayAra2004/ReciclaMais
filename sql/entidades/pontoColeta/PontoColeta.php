@@ -93,17 +93,21 @@
         public static function findPontosColetaPaginado($limit, $offset, $latitude, $longitude){
             $sql = "SELECT
                 cadastro_ponto_coleta.id, cadastro_ponto_coleta.nome, cadastro_ponto_coleta.imagem,
-                STRING_AGG(cmr.descricao, ', ') AS materiais_reciclados
+                STRING_AGG(cmr.descricao, ', ') AS materiais_reciclados,
+                (to_char(float8 (point(:latitude,:longitude) <@> point(endereco.latitude, endereco.longitude))*1609, 'FM999999999.00')) as distancia
                 FROM
                     cadastro_ponto_coleta
                 JOIN
                     recicla ON cadastro_ponto_coleta.id = recicla.fk_ponto_coleta_id
                 JOIN
                     categoria_de_materiais_reciclados cmr ON recicla.fk_categoria_de_materiais_reciclados_id = cmr.id
+                JOIN endereco ON cadastro_ponto_coleta.fk_endereco_id = endereco.id
                 GROUP BY
-                cadastro_ponto_coleta.nome, cadastro_ponto_coleta.id
+                cadastro_ponto_coleta.nome, cadastro_ponto_coleta.id, distancia
                 LIMIT " . $limit . " OFFSET " . $offset;
             $stmt = Database::prepare($sql);
+            $stmt->bindParam(":latitude", $latitude);
+            $stmt->bindParam(":longitude", $longitude);
             $stmt->execute();
             
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
