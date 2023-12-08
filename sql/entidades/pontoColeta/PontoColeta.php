@@ -7,6 +7,8 @@
         private $id;
         private $nome;
         private $imagemURL;
+
+        private $telefone;
         private $fk_usuario_instituicao_fk_usuario_id;
         private $fk_endereco_id;
         private $fk_usuario_id;
@@ -17,7 +19,7 @@
         }
 
         public function setValues($id =null, $nome, $imagemURL, $fk_usuario_instituicao_fk_usuario_id = null, 
-            $fk_endereco_id, $fk_usuario_id, $materiais_reciclados){
+            $fk_endereco_id, $fk_usuario_id, $materiais_reciclados, $telefone = null){
 
             $this->id = $id;
             $this->nome = $nome;
@@ -26,15 +28,17 @@
             $this->fk_endereco_id = $fk_endereco_id;
             $this->fk_usuario_id = $fk_usuario_id;
             $this->materiais_reciclados = $materiais_reciclados;
+            $this->telefone = $telefone;
         }
 
         public function insert(){
-            $sql = "INSERT INTO $this->table (nome, imagem, fk_usuario_instituicao_fk_usuario_id, fk_endereco_id, fk_usuario_id) 
-                VALUES (:nome, :imagem, :fk_usuario_instituicao_fk_usuario_id, :fk_endereco_id, :fk_usuario_id);";
+            $sql = "INSERT INTO $this->table (nome, imagem, telefone, fk_usuario_instituicao_fk_usuario_id, fk_endereco_id, fk_usuario_id) 
+                VALUES (:nome, :imagem, :telefone, :fk_usuario_instituicao_fk_usuario_id, :fk_endereco_id, :fk_usuario_id);";
             
             $stmt = Database::prepare($sql);
             $stmt->bindParam(':nome', $this->nome);
             $stmt->bindParam(':imagem', $this->imagemURL);
+            $stmt->bindParam(':telefone', $this->telefone);
             $stmt->bindParam(':fk_usuario_instituicao_fk_usuario_id', $this->fk_usuario_instituicao_fk_usuario_id, PDO::PARAM_INT);
             $stmt->bindParam(':fk_endereco_id', $this->fk_endereco_id, PDO::PARAM_INT);
             $stmt->bindParam(':fk_usuario_id', $this->fk_usuario_id, PDO::PARAM_INT);
@@ -86,7 +90,7 @@
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
-        public static function findPontosColetaPaginado($limit, $offset){
+        public static function findPontosColetaPaginado($limit, $offset, $latitude, $longitude){
             $sql = "SELECT
                 cadastro_ponto_coleta.id, cadastro_ponto_coleta.nome, cadastro_ponto_coleta.imagem,
                 STRING_AGG(cmr.descricao, ', ') AS materiais_reciclados

@@ -3,12 +3,14 @@
 
     $resposta = array();
 
-    if (isset($_GET['limit']) && isset($_GET['offset'])) {
+    if (isset($_GET['limit']) && isset($_GET['offset']) && isset($_GET['latitude']) && isset($_GET['longitude'])) {
         
         $limit = $_GET['limit'];
         $offset = $_GET['offset'];
+        $latitude = $_GET['latitude'];
+        $longitude = $_GET['longitude'];
 
-        $pontosColeta = PontoColeta::findPontosColetaPaginado($limit, $offset);
+        $pontosColeta = PontoColeta::findPontosColetaPaginado($limit, $offset, $latitude, $longitude);
 
         if($pontosColeta != false){
 

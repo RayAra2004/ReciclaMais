@@ -12,7 +12,7 @@
         if (isset($_POST['nome']) && isset($_POST['cep']) && isset($_POST['tp_logradouro']) 
             && isset($_POST['logradouro']) && isset($_POST['numero']) && isset($_POST['estado']) 
             && isset($_POST['cidade']) && isset($_POST['bairro']) && isset($_POST['materiais']) 
-            && isset($_FILES['img'])) {
+            && isset($_POST['telefone']) && isset($_FILES['img'])) {
                 
             $nome = $_POST['nome'];
             $cep = $_POST['cep'];
@@ -22,6 +22,7 @@
             $estado = $_POST['estado'];
             $cidade = $_POST['cidade'];
             $bairro = $_POST['bairro'];
+            $telefone = $_POST['telefone'];
             $materiais_string = $_POST['materiais'];
 
             $materiais_string = str_replace("'", "\"", $materiais_string);
@@ -69,7 +70,7 @@
 
                 $newPontoColeta = new PontoColeta();
 
-                $newPontoColeta->setValues(null, $nome, $img_url, null, $endereco_id, $user_id, $materiais_array);
+                $newPontoColeta->setValues(null, $nome, $img_url, null, $endereco_id, $user_id, $materiais_array, $telefone);
                 $isInserted = $newPontoColeta->insert();
 
                 if($isInserted){
