@@ -7,7 +7,6 @@
         private $id;
         private $nome;
         private $imagemURL;
-
         private $telefone;
         private $fk_usuario_instituicao_fk_usuario_id;
         private $fk_endereco_id;
@@ -91,19 +90,27 @@
         }
 
         public static function findPontosColetaPaginado($limit, $offset, $latitude, $longitude){
-            $sql = "SELECT
-                cadastro_ponto_coleta.id, cadastro_ponto_coleta.nome, cadastro_ponto_coleta.imagem,
-                STRING_AGG(cmr.descricao, ', ') AS materiais_reciclados,
-                CAST((float8(point(:latitude, :longitude) <@> point(endereco.latitude, endereco.longitude)) * 1609 / 1000) AS DECIMAL(10,1)) AS distancia
+            $sql = "WITH DistanceCTE AS (
+                SELECT
+                    cadastro_ponto_coleta.id,
+                    cadastro_ponto_coleta.nome,
+                    cadastro_ponto_coleta.imagem,
+                    STRING_AGG(cmr.descricao, ', ') AS materiais_reciclados,
+                    CAST((float8(point(:latitude, :longitude) <@> point(endereco.latitude, endereco.longitude)) * 1609 / 1000) AS DECIMAL(10,1)) AS distancia
                 FROM
                     cadastro_ponto_coleta
                 JOIN
                     recicla ON cadastro_ponto_coleta.id = recicla.fk_ponto_coleta_id
                 JOIN
                     categoria_de_materiais_reciclados cmr ON recicla.fk_categoria_de_materiais_reciclados_id = cmr.id
-                JOIN endereco ON cadastro_ponto_coleta.fk_endereco_id = endereco.id
+                JOIN
+                    endereco ON cadastro_ponto_coleta.fk_endereco_id = endereco.id
                 GROUP BY
-                cadastro_ponto_coleta.nome, cadastro_ponto_coleta.id, distancia
+                    cadastro_ponto_coleta.nome, cadastro_ponto_coleta.id, distancia
+                )
+                SELECT *
+                FROM DistanceCTE
+                WHERE distancia < 20
                 ORDER BY distancia
                 LIMIT " . $limit . " OFFSET " . $offset;
             $stmt = Database::prepare($sql);
@@ -116,49 +123,50 @@
 
         public static function findPontoColetaById($id){
             $sql = "SELECT
-            cadastro_ponto_coleta.nome,
-            cadastro_ponto_coleta.id,
-            cadastro_ponto_coleta.imagem,
-            cadastro_ponto_coleta.telefone,
-            endereco.cep,
-            endereco.latitude,
-            endereco.longitude,
-            endereco.logradouro,
-            endereco.numero,
-            endereco.complemento,
-            estado.estado,
-            cidade.cidade,
-            bairro.bairro,
-            tipo_logradouro.tipo_logradouro,
-            ROUND(avg(comentario.nota)) as nota,
-            STRING_AGG(cmr.descricao, ', ') AS materiais_reciclados
-        FROM
-            cadastro_ponto_coleta
-        INNER JOIN endereco ON cadastro_ponto_coleta.fk_endereco_id = endereco.id
-        INNER JOIN estado ON estado.id = endereco.fk_estado_id
-        INNER JOIN cidade ON cidade.id = endereco.fk_cidade_id
-        INNER JOIN bairro ON bairro.id = endereco.fk_bairro_id
-        INNER JOIN tipo_logradouro ON tipo_logradouro.id = endereco.fk_tipo_logradouro_id
-        LEFT JOIN comentario ON cadastro_ponto_coleta.id = comentario.fk_ponto_coleta_id
-        LEFT JOIN usuario ON usuario.id = comentario.fk_usuario_pessoa_fisica_fk_usuario_id
-        LEFT JOIN recicla ON cadastro_ponto_coleta.id = recicla.fk_ponto_coleta_id
-        LEFT JOIN categoria_de_materiais_reciclados cmr ON recicla.fk_categoria_de_materiais_reciclados_id = cmr.id
-        WHERE
-            cadastro_ponto_coleta.id = :id
-        GROUP BY
-            cadastro_ponto_coleta.nome,
-            cadastro_ponto_coleta.id,
-            cadastro_ponto_coleta.imagem,
-            endereco.cep,
-            endereco.latitude,
-            endereco.longitude,
-            endereco.logradouro,
-            endereco.numero,
-            endereco.complemento,
-            estado.estado,
-            cidade.cidade,
-            bairro.bairro,
-            tipo_logradouro.tipo_logradouro;";
+                cadastro_ponto_coleta.nome,
+                cadastro_ponto_coleta.id,
+                cadastro_ponto_coleta.imagem,
+                cadastro_ponto_coleta.telefone,
+                endereco.cep,
+                endereco.latitude,
+                endereco.longitude,
+                endereco.logradouro,
+                endereco.numero,
+                endereco.complemento,
+                estado.estado,
+                cidade.cidade,
+                bairro.bairro,
+                tipo_logradouro.tipo_logradouro,
+                ROUND(avg(comentario.nota)) as nota,
+                STRING_AGG(cmr.descricao, ', ') AS materiais_reciclados
+            FROM
+                cadastro_ponto_coleta
+            INNER JOIN endereco ON cadastro_ponto_coleta.fk_endereco_id = endereco.id
+            INNER JOIN estado ON estado.id = endereco.fk_estado_id
+            INNER JOIN cidade ON cidade.id = endereco.fk_cidade_id
+            INNER JOIN bairro ON bairro.id = endereco.fk_bairro_id
+            INNER JOIN tipo_logradouro ON tipo_logradouro.id = endereco.fk_tipo_logradouro_id
+            LEFT JOIN comentario ON cadastro_ponto_coleta.id = comentario.fk_ponto_coleta_id
+            LEFT JOIN usuario ON usuario.id = comentario.fk_usuario_pessoa_fisica_fk_usuario_id
+            LEFT JOIN recicla ON cadastro_ponto_coleta.id = recicla.fk_ponto_coleta_id
+            LEFT JOIN categoria_de_materiais_reciclados cmr ON recicla.fk_categoria_de_materiais_reciclados_id = cmr.id
+            WHERE
+                cadastro_ponto_coleta.id = :id
+            GROUP BY
+                cadastro_ponto_coleta.nome,
+                cadastro_ponto_coleta.id,
+                cadastro_ponto_coleta.imagem,
+                endereco.cep,
+                endereco.latitude,
+                endereco.longitude,
+                endereco.logradouro,
+                endereco.numero,
+                endereco.complemento,
+                estado.estado,
+                cidade.cidade,
+                bairro.bairro,
+                tipo_logradouro.tipo_logradouro;";
+            
             $stmt = Database::prepare($sql);
             $stmt->bindParam(":id", $id, PDO::PARAM_INT);
             $stmt->execute();
