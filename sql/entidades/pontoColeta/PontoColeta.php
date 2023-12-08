@@ -94,7 +94,7 @@
             $sql = "SELECT
                 cadastro_ponto_coleta.id, cadastro_ponto_coleta.nome, cadastro_ponto_coleta.imagem,
                 STRING_AGG(cmr.descricao, ', ') AS materiais_reciclados,
-                (to_char(float8 (point(:latitude,:longitude) <@> point(endereco.latitude, endereco.longitude))*1609, 'FM999999999.00')) as distancia
+                CAST((float8(point(:latitude, :longitude) <@> point(endereco.latitude, endereco.longitude)) * 1609 / 1000) AS DECIMAL(10,1)) AS distancia
                 FROM
                     cadastro_ponto_coleta
                 JOIN
@@ -104,6 +104,7 @@
                 JOIN endereco ON cadastro_ponto_coleta.fk_endereco_id = endereco.id
                 GROUP BY
                 cadastro_ponto_coleta.nome, cadastro_ponto_coleta.id, distancia
+                ORDER BY distancia
                 LIMIT " . $limit . " OFFSET " . $offset;
             $stmt = Database::prepare($sql);
             $stmt->bindParam(":latitude", $latitude);
