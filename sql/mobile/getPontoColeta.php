@@ -23,6 +23,7 @@
         $resposta["tipo_logradouro"] = $pontoColeta["tipo_logradouro"];
         $resposta["telefone"] = $pontoColeta["telefone"];
         $resposta["nota"] = $pontoColeta["nota"];
+        $resposta["materiais"] = $pontoColeta["materiais_reciclados"];
         
         $resposta["status"] = 1;
     }else{

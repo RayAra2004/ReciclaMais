@@ -11,8 +11,7 @@
             $this->fk_id_user = $fk_id_user;
         }
 
-        public function insert(){
-            try {
+        public function insert(){         
                 // Tenta inserir os dados específicos de pessoa física (data de nascimento)
                 $sql = "INSERT INTO $this->table (fk_usuario_id, data_nascimento) VALUES (:id, :dataNascimento);";
                 $stmt = Database::prepare($sql);
@@ -20,11 +19,6 @@
                 $stmt->bindParam(':dataNascimento', $this->dataNascimento);
     
                 return $stmt->execute();
-                    
-            } catch (PDOException $e) {
-                // Lidar com exceções de banco de dados, se necessário
-                return $e->getMessage();
-            } 
         }
 
         public function update($id){

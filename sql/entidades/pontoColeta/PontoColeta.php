@@ -109,7 +109,7 @@
             $sql = "SELECT cadastro_ponto_coleta.nome, cadastro_ponto_coleta.id, cadastro_ponto_coleta.imagem, cadastro_ponto_coleta.telefone,
                 endereco.cep, endereco.latitude, endereco.longitude, endereco.logradouro, endereco.numero,
                 endereco.complemento, estado.estado, cidade.cidade, bairro.bairro, tipo_logradouro.tipo_logradouro,
-                ROUND(avg(comentario.nota)) as nota
+                ROUND(avg(comentario.nota)) as nota, STRING_AGG(cmr.descricao, ', ') AS materiais_reciclados
                 FROM cadastro_ponto_coleta
                 LEFT JOIN comentario ON cadastro_ponto_coleta.id = comentario.fk_ponto_coleta_id
                 LEFT JOIN endereco ON cadastro_ponto_coleta.fk_endereco_id = endereco.id
@@ -118,6 +118,8 @@
                 LEFT JOIN bairro ON bairro.id = endereco.fk_bairro_id
                 LEFT JOIN tipo_logradouro ON tipo_logradouro.id = endereco.fk_tipo_logradouro_id
                 INNER JOIN usuario ON usuario.id = comentario.fk_usuario_pessoa_fisica_fk_usuario_id
+                INNER JOIN recicla ON cadastro_ponto_coleta.id = recicla.fk_ponto_coleta_id
+                INNER JOIN categoria_de_materiais_reciclados cmr ON recicla.fk_categoria_de_materiais_reciclados_id = cmr.id
                 WHERE cadastro_ponto_coleta.id = :id
                 GROUP BY cadastro_ponto_coleta.nome, cadastro_ponto_coleta.id, cadastro_ponto_coleta.imagem,
                 endereco.cep, endereco.latitude, endereco.longitude, endereco.logradouro,
@@ -129,6 +131,18 @@
             return $stmt->fetch(PDO::FETCH_ASSOC);
         }
 
+        public static function postComentario($idPontoColeta, $idUsuario, $conteudo, $nota){
+            $sql = "INSERT INTO comentario (conteudo, nota, fk_usuario_pessoa_fisica_fk_usuario_id, fk_ponto_coleta_id)
+                VALUES (:conteudo, :nota, :fk_usuario_pessoa_fisica_fk_usuario_id, :fk_ponto_coleta_id);";
+            $stmt = Database::prepare($sql);
+            $stmt->bindParam(":conteudo", $conteudo);
+            $stmt->bindParam(":nota", $nota);
+            $stmt->bindParam(":fk_usuario_pessoa_fisica_fk_usuario_id", $idUsuario);
+            $stmt->bindParam(":fk_ponto_coleta_id", $idPontoColeta);
+            
+            return $stmt->execute();
+        }
+
         public static function getComentarios($id, $limit, $offset){
             $sql = "SELECT comentario.conteudo, comentario.id, comentario.nota,
                 usuario.nome
@@ -136,6 +150,7 @@
                 INNER JOIN usuario ON usuario.id = comentario.fk_usuario_pessoa_fisica_fk_usuario_id
                 INNER JOIN cadastro_ponto_coleta ON cadastro_ponto_coleta.id = comentario.fk_ponto_coleta_id
                 WHERE cadastro_ponto_coleta.id = :id
+                ORDER BY data_postagem desc
                 LIMIT " . $limit . " OFFSET " . $offset;
             $stmt = Database::prepare($sql);
             $stmt->bindParam(":id", $id);
