@@ -37,7 +37,6 @@
                 }else{
                     if($usuario->insert()){
                         $user_id = $usuario->getId();
-                        var_dump($user_id);
                         $pessoaFisica = new Pessoa_Fisica($data, $user_id);
                 
                         if($pessoaFisica->insert()){

@@ -78,9 +78,8 @@
                    
                     if($res == true){
                         if($newEmpresa->insert()){
-                            var_dump('oi');
                             $newPontoColeta = new PontoColeta();
-                            $newPontoColeta->setValues(null, $nome, '', $usuario_id, $endereco_id, $usuario_id, $materiais);
+                            $newPontoColeta->setValues(null, $nome, '', $usuario_id, $endereco_id, $usuario_id, $materiais, $telefone);
                             if($newPontoColeta->insert() == false){
                                 $erros = 'Ponto de coleta inválido! Verifique todas as informações fornecidas';
                             }else{

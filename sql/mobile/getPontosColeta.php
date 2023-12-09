@@ -3,12 +3,14 @@
 
     $resposta = array();
 
-    if (isset($_GET['limit']) && isset($_GET['offset'])) {
+    if (isset($_GET['limit']) && isset($_GET['offset']) && isset($_GET['latitude']) && isset($_GET['longitude'])) {
         
         $limit = $_GET['limit'];
         $offset = $_GET['offset'];
+        $latitude = $_GET['latitude'];
+        $longitude = $_GET['longitude'];
 
-        $pontosColeta = PontoColeta::findPontosColetaPaginado($limit, $offset);
+        $pontosColeta = PontoColeta::findPontosColetaPaginado($limit, $offset, $latitude, $longitude);
 
         if($pontosColeta != false){
 
@@ -21,7 +23,7 @@
                 $ponto["nome"] = $pontoColeta["nome"];
                 $ponto["imagem"] = $pontoColeta["imagem"];
                 $ponto["materiais_reciclados"] = $pontoColeta["materiais_reciclados"];
-                $ponto["distancia"] = 1;
+                $ponto["distancia"] = $pontoColeta["distancia"];
              
                 // Adiciona o ponto no array de pontos.
                 $resposta["pontos"][] = $ponto;
