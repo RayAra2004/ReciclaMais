@@ -12,6 +12,14 @@
   
   $dicioPontosMapa = [];
 
+  //$texto = "Org\u00e2nico";
+
+//$texto_substituido = str_replace("\u00e2", "â", $texto);
+
+//echo $texto_substituido;
+
+
+
   foreach($dicioPontos as $ponto){
 
     switch (true) {
@@ -23,7 +31,26 @@
         break;
       default:
           $icon = "ponto_icone_bronze";
+      };
+      
+      $string = $ponto["materiais_reciclados"];
+
+      $json = json_decode($string);
+
+      $materiais = [];
+      foreach ($json as $objeto) {
+          $materiais[] = $objeto->id;
       }
+      
+      $materiais = array_unique($materiais);
+      //var_dump($materiais);
+
+      //echo json_encode(["materiais" => $materiais]);
+      
+
+
+      
+      
 
       /*ponto_icone_bronze
       ponto_icone_dourado
@@ -41,7 +68,8 @@
       "bairro" => $ponto["bairro"],
       "tipo_logradouro" => $ponto["tipo_logradouro"],
       "media" => str_split($ponto["media"],3)[0],
-      "id" => $ponto["id"]
+      "id" => $ponto["id"],
+      "materiais_reciclados" => ["materiais" => $materiais]
     ];
   };
 

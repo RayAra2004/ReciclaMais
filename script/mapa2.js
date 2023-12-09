@@ -12,14 +12,21 @@ btnClose.addEventListener("click", ()=>{
     divzada.style.display = "none";
     divtot.style.display = "none";
 });
-btnClosedFilter = getElementById("closedFilter");
-btnOpenedFilter = getElementById("openedFilter");
+const btnClosedFilter = document.getElementById("closedFilter");
+const btnOpenedFilter = document.getElementById("openedFilter");
 
 btnClosedFilter.addEventListener("click", ()=>{
     btnClosedFilter.style.display = "none";
-    divtot.style.display = "none";
+    btnOpenedFilter.style.display = "block";
+    searchInput.style.display = "none";
+    searchBtn.style.display = "none";
 });
-btnOpenedFilter = getElementById("openedFilter");
+btnOpenedFilter.addEventListener("click", ()=>{
+    btnClosedFilter.style.display = "block";
+    btnOpenedFilter.style.display = "none";
+    searchInput.style.display = "block";
+    searchBtn.style.display = "block";
+});
 
 
 /*divzada.addEventListener("click", ()=>{
