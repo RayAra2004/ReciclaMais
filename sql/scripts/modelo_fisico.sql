@@ -71,11 +71,11 @@ create table comentario (
 create table material_reciclavel (
     peso_estimado varchar(30) not null,
     id serial primary key,
+    nome varchar(100) not null,
+    imagem text not null,
     descricao varchar(300) not null,
     fk_usuario_pessoa_fisica_fk_usuario_id int not null,
     fk_usuario_instituicao_fk_usuario_id int not null,
-    latitude bigint not null,
-    longitude bigint not null,
     fk_coletado_id int not null
 );
 
