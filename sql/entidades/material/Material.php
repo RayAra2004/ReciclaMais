@@ -55,6 +55,20 @@
             return false;
         }
 
+        public static function findMateriaisPaginado($limit, $offset, $id_user){
+            $sql = "SELECT material_reciclavel.id, material_reciclavel.imagem, coletado.descricao
+                FROM material_reciclavel
+                INNER JOIN coletado ON material_reciclavel.fk_coletado_id = coletado.id
+                INNER JOIN usuario ON material_reciclavel.fk_usuario_pessoa_fisica_fk_usuario_id = usuario.id
+                WHERE usuario.id = :id_user
+                LIMIT " . $limit . " OFFSET " . $offset;
+            $stmt = Database::prepare($sql);
+            $stmt->bindParam(":id_user", $id_user);
+            $stmt->execute();
+            
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
         private function cadastrar_materiais_reciclados(){
             foreach ($this->materiais_reciclados as $material){
                 $sql = "SELECT * FROM categoria_de_materiais_reciclados WHERE descricao = :material;";
