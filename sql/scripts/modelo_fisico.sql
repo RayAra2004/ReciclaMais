@@ -75,7 +75,7 @@ create table material_reciclavel (
     imagem text not null,
     descricao varchar(300) not null,
     fk_usuario_pessoa_fisica_fk_usuario_id int not null,
-    fk_usuario_instituicao_fk_usuario_id int not null,
+    fk_usuario_instituicao_fk_usuario_id int,
     fk_coletado_id int not null
 );
 
