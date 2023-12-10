@@ -1,39 +1,80 @@
 "use strict"
 const searchInput = document.querySelector(".search_input");
 const searchBtn = document.querySelector(".search_btn");
-//const divtot = document.getElementById("divtot");
 const divzada = document.getElementById("divzada");
 const ponto_title = document.getElementById("ponto_title");
 const imgPonto = document.getElementById("imgPonto");
 const btnClose = document.getElementById("btnClose");
 const link_rota = document.getElementById("link_rota");
 const ponto_endereco = document.getElementById("ponto_endereco");
-btnClose.addEventListener("click", ()=>{
-    divzada.style.display = "none";
-    divtot.style.display = "none";
-});
 const btnClosedFilter = document.getElementById("closedFilter");
 const btnOpenedFilter = document.getElementById("openedFilter");
+const buttons = document.querySelectorAll(".filterClassButton");
+const ponto_telefone = document.getElementById("ponto_telefone");
+const link_ponto = document.getElementById("link_ponto");
 
+btnClose.addEventListener("click", ()=>{
+    divzada.style.display = "none";
+    btnClosedFilter.style.display = "block";
+    btnOpenedFilter.style.display = "none";
+    searchInput.style.display = "block";
+    searchBtn.style.display = "block";
+
+});
+for (const button of buttons) {
+button.addEventListener("click", (event) => {
+    filterByClass(event.target.textContent);
+    divzada.style.display = "none";
+    btnClosedFilter.style.display = "block";
+    btnOpenedFilter.style.display = "none";
+    searchInput.style.display = "block";
+    searchBtn.style.display = "block";
+});
+}
 btnClosedFilter.addEventListener("click", ()=>{
     btnClosedFilter.style.display = "none";
     btnOpenedFilter.style.display = "block";
     searchInput.style.display = "none";
     searchBtn.style.display = "none";
 });
-btnOpenedFilter.addEventListener("click", ()=>{
+/*btnOpenedFilter.addEventListener("click", ()=>{
     btnClosedFilter.style.display = "block";
     btnOpenedFilter.style.display = "none";
     searchInput.style.display = "block";
     searchBtn.style.display = "block";
-});
-
-
-/*divzada.addEventListener("click", ()=>{
-    console.log("oi")
-
-
 });*/
+
+//função para filtar o mapa
+
+function filterByClass(classToFilter) {
+    console.log(classToFilter);
+    divzada.style.display = "none";
+    map.entities.clear();
+
+        for (const key in Pontos) {
+            const value = Pontos[key];
+            if(!(value["materiais_reciclados"].includes(classToFilter))){
+                continue
+            };
+            // Process the key and value
+            const coordenadas = key.split(",");
+            const latitude = parseFloat(coordenadas[0]);
+            const longitude = parseFloat(coordenadas[1]);
+            
+            const pushpin = new Microsoft.Maps.Pushpin(
+                new Microsoft.Maps.Location(latitude, longitude),{
+                title: value.title,
+                icon: value.icon
+                }
+            );
+        map.entities.push(pushpin);
+        
+        // Adiciona o evento de clique
+        Microsoft.Maps.Events.addHandler(pushpin, 'click', function () {clicado(pushpin,Pontos);});
+        }
+    };
+    
+
 
 const listPontos = document.getElementById("listPntos");
 const Pontos = JSON.parse(listPontos.textContent);
@@ -64,7 +105,9 @@ let map, searchManager;
 searchBtn.addEventListener("click", ()=>{
     pesquisa(searchInput.value);
 });
-window.onload = function(){
+
+
+window.onload = function (){
     for (const key in Pontos) {
         const value = Pontos[key];
         // Process the key and value
@@ -87,6 +130,10 @@ window.onload = function(){
 };
 
 function clicado(content,Pontos){
+    btnClosedFilter.style.display = "none";
+    btnOpenedFilter.style.display = "none";
+    searchInput.style.display = "none";
+    searchBtn.style.display = "none";
     let location = content.getLocation().latitude + ","+ content.getLocation().longitude;
     /*
     <a href="https://www.google.com/maps/place/<?php echo $endereco["latitude"];?>, <?php echo $endereco["longitude"];?>" target="_blank">
@@ -99,27 +146,40 @@ function clicado(content,Pontos){
     //navigator.geolocation.getCurrentPosition((a)=>{myposition = (a.coords.latitude.toString()+",+"+a.coords.longitude.toString());});
     //console.log(myposition);
     let lat = location.split(",")[0],long = location.split(",")[1];
-    navigator.geolocation.getCurrentPosition((a)=>{
-        link_rota.setAttribute('href',"https://www.google.com/maps/dir/"+a.coords.latitude.toString()+",+"+a.coords.longitude.toString()+"/"+lat+",+"+long)},
+    navigator.geolocation.getCurrentPosition(
+        (a)=>{
+            link_rota.setAttribute('href',"https://www.google.com/maps/dir/"+a.coords.latitude.toString()+",+"+a.coords.longitude.toString()+"/"+lat+",+"+long)
+            },
         link_rota.setAttribute('href',"https://www.google.com/maps/place/"+lat+","+long)
-        );
+    );
+
     ponto_endereco.textContent = new String(Pontos[location]["tipo_logradouro"][0]).toUpperCase()
     +new String(Pontos[location]["tipo_logradouro"]).slice(1)
     +" " +Pontos[location]["logradouro"]+", "+Pontos[location]["numero"]
     +" - "+Pontos[location]["bairro"]+", "+Pontos[location]["cidade"]+" - "
-    +Pontos[location]["estado"]+", "+Pontos[location]["cep"]+lat+long;
+    +Pontos[location]["estado"]+", "+Pontos[location]["cep"];
     imgPonto.setAttribute('src',Pontos[location]["img"]);
+    ponto_telefone.textContent = new String(Pontos[location]["telefone"]);
     //link_rota.setAttribute('href',"https://www.google.com/maps/dir/-20.197329691804068,+-40.2170160437478/"+lat+",+"+long);
 }
 
 function getMap(){
-    map = new Microsoft.Maps.Map('#map', {
-        center: new Microsoft.Maps.Location(-20.197329691804068, -40.2170160437478),
-        zoom: 16,
-        NavigationBarMode: "defoult",
-        navigationBarOrientation: "horizontal",
-        credentials: 'Ak_PJnVWlG661PnFrGXTK6jXXiZz9b3Ocn4R5X9BXIhfGRcR7zSvm27_YE30YHHK',
-    });
+    navigator.geolocation.getCurrentPosition(
+        (a)=>{
+            let latPessoa = a.coords.latitude.toString();
+            let longPessoa = a.coords.longitude.toString();
+            map = new Microsoft.Maps.Map('#map', {
+                center: new Microsoft.Maps.Location(latPessoa, longPessoa),
+                zoom: 16,
+                NavigationBarMode: "default",
+                navigationBarOrientation: "horizontal",
+                credentials: 'Ak_PJnVWlG661PnFrGXTK6jXXiZz9b3Ocn4R5X9BXIhfGRcR7zSvm27_YE30YHHK',
+            });
+            }
+    );
+
+
+    
 
     /*const Pontos = {
         "-20.197329691804068, -40.2170160437478": {
@@ -170,11 +230,11 @@ function pesquisa(query){
 };
 
 
-/*function geocodeQuery(query){
+/*function pesquisa(query){
     if (!searchManager) {
         Microsoft.Maps.loadModule('Microsoft.Maps.Search', function () {
             searchManager = new Microsoft.Maps.Search.SearchManager(map);
-            geocodeQuery(query);
+            pesquisa(query);
         });
     } else {
         let searchRequest = {
