@@ -116,7 +116,7 @@
                 )
                 SELECT *
                 FROM DistanceCTE
-                WHERE distancia < 20
+                WHERE distancia < 5
                 ORDER BY distancia
                 LIMIT " . $limit . " OFFSET " . $offset;
             $stmt = Database::prepare($sql);
