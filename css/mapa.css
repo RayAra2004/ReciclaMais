@@ -36,13 +36,12 @@ p{
     background-color: cyan;
     height: 50vh;
     width: 300px;
-    position: fixed;
+    position: relative;
     left: 1vw;
-    top: 20vh;
     z-index: 10;
     border-radius: 5%
 }
-#divtot{
+/*#divtot{
     display: block;
     height: 100vh;
     width: 100vw;
@@ -50,37 +49,51 @@ p{
     left: 0;
     top: 0;
     z-index: 1;
-}
+}*/
 #imgPonto{
     width: inherit;
     max-height: 200px;
     border-radius: 0% 0% 5% 5%;
 }
 #btnClose{
-    position: fixed;
+    position: absolute;
     z-index: 2;
 }
 #closedFilter{
     display: block;
     background-color: #000;
-    width: 50px;
-    height: 30px;
+    width: auto;
+    height: auto;
     color: #fff;
+}
+#closedFilter span{
+    margin-top: 10px;
+    font-size: 50px;
 }
 #openedFilter{
     display: none;
+    padding: 5px;
     background-color: #000;
-    width: 300px;
-    height: 30px;
-    color: blue;
+    width: auto;
+    height: auto;
+    color: #05e981;
 }
-#link_rota{
-    text-decoration: none;
+#openedFilter p{
+    margin-bottom: 5px;
 }
-#link_rota button{
+.link_btn{
     height: 30px;
     width: 30px;
 }
-#link_rota button span{
-    margin-left: -4px;
+.link_btn span{
+    margin-left: -5px;
+}
+.filterClassButton{
+    border-radius: 8px;
+}
+.bm_bottomRightOverlay{
+    display:none;
+}
+.bm_bottomLeftOverlay{
+    display: none;
 }
