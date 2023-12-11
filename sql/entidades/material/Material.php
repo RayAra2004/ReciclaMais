@@ -95,5 +95,12 @@
         public function update($id){
 
         }
+
+        public static function marcarMaterialColetado($id){
+            $sql = "UPDATE material_reciclavel SET fk_coletado_id = 2 WHERE id = :id;";
+            $stmt = Database::prepare($sql);
+            $stmt->bindParam(":id", $id);
+            return $stmt->execute();
+        }
     }
 ?>
