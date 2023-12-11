@@ -26,7 +26,7 @@
 
         $nome = $_POST['nome-empresa'];
         $cnpj = $_POST['cnpj'];
-        $telefone = $_POST['telefone'];
+        $telefone = preg_replace("/\D/", "", $_POST['telefone']);
         $email = $_POST['email'];
         $senha = $_POST['senha'];
 
