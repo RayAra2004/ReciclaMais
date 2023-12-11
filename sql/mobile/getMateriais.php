@@ -1,5 +1,6 @@
 <?php
     require_once './../entidades/material/Material.php';
+    require_once 'autenticacao.php';
 
     $resposta = array();
 
