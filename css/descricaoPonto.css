@@ -86,7 +86,7 @@ p, span{
 .comentarios{
     width: 655px;
     height: 290px;
-
+    /*display: none;*/
     overflow-y: scroll;
 }
 
