@@ -23,7 +23,7 @@
 ?>
 <section class="body_content">
     <div class="conteudo">
-        <div class="opcoes">
+        <div class="opcoes d-flex flex-wrap">
             <div class="option" id="btn_mudar_dados">
                 <span class="material-symbols-outlined">
                     person
@@ -41,12 +41,6 @@
                     shopping_cart_checkout
                 </span>
                 <p>Suas negociações</p>
-            </div>
-            <div class="option" onclick="mostrarConfirmacao()">
-                <span class="material-symbols-outlined">
-                    person_remove
-                </span>
-                <p>Excluir perfil</p>
             </div>
         </div>
     </div>
