@@ -258,7 +258,7 @@ insert into categoria_de_materiais_reciclados (id, descricao) values
     (8, 'Eletrônicos');
 
 insert into coletado (id, descricao) values  (1, 'disponível'),
-    (2, 'indisponível'),
+    (2, 'coletado'),
     (3, 'em transação');
 
 insert into usuario (login, senha, nome, telefone, fk_tipo_usuario_id) values
