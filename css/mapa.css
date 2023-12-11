@@ -34,7 +34,7 @@ p{
 #divzada{
     display: none;
     background-color: cyan;
-    height: 50vh;
+    height: auto;
     width: 300px;
     position: relative;
     left: 1vw;

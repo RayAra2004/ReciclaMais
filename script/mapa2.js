@@ -6,12 +6,14 @@ const ponto_title = document.getElementById("ponto_title");
 const imgPonto = document.getElementById("imgPonto");
 const btnClose = document.getElementById("btnClose");
 const link_rota = document.getElementById("link_rota");
+const link_ponto = document.getElementById("link_ponto");
 const ponto_endereco = document.getElementById("ponto_endereco");
 const btnClosedFilter = document.getElementById("closedFilter");
 const btnOpenedFilter = document.getElementById("openedFilter");
 const buttons = document.querySelectorAll(".filterClassButton");
 const ponto_telefone = document.getElementById("ponto_telefone");
-const link_ponto = document.getElementById("link_ponto");
+
+//href="./../pontoColeta/descricaoPonto.php?id=' . $pontoColeta["id"] . '
 
 btnClose.addEventListener("click", ()=>{
     divzada.style.display = "none";
@@ -47,13 +49,12 @@ btnClosedFilter.addEventListener("click", ()=>{
 //função para filtar o mapa
 
 function filterByClass(classToFilter) {
-    console.log(classToFilter);
     divzada.style.display = "none";
     map.entities.clear();
 
         for (const key in Pontos) {
             const value = Pontos[key];
-            if(!(value["materiais_reciclados"].includes(classToFilter))){
+            if(!(value["materiais_reciclados"].includes(classToFilter))&&classToFilter!="Nenhum"){
                 continue
             };
             // Process the key and value
@@ -159,8 +160,8 @@ function clicado(content,Pontos){
     +" - "+Pontos[location]["bairro"]+", "+Pontos[location]["cidade"]+" - "
     +Pontos[location]["estado"]+", "+Pontos[location]["cep"];
     imgPonto.setAttribute('src',Pontos[location]["img"]);
-    ponto_telefone.textContent = new String(Pontos[location]["telefone"]);
-    //link_rota.setAttribute('href',"https://www.google.com/maps/dir/-20.197329691804068,+-40.2170160437478/"+lat+",+"+long);
+    ponto_telefone.textContent = "Telefone: "+new String(Pontos[location]["telefone"]);
+    link_ponto.setAttribute('href','./../pontoColeta/descricaoPonto.php?id='+Pontos[location]["id"]);
 }
 
 function getMap(){
@@ -177,29 +178,9 @@ function getMap(){
             });
             }
     );
-
-
-    
-
-    /*const Pontos = {
-        "-20.197329691804068, -40.2170160437478": {
-            title: "Ifes Campus Serra",
-            icon: "/ReciclaMais/imgs/silver_pin.svg",
-            img: "/ReciclaMais/imgs/arvores_home.jpg"
-        },
-        "-20.199232504534884, -40.227077110956316":{
-            title: "Hospital Jayme dos Santos Neves",
-            icon: "/ReciclaMais/imgs/silver_pin.svg",
-            img: "/ReciclaMais/imgs/simbolo-de-reciclagem.png"
-        },
-        "-20.19826402415827, -40.224856532079116":{
-            title: "Café Arrumado",
-            icon: "/ReciclaMais/imgs/silver_pin.svg",
-            img: "/ReciclaMais/imgs/logoMA.png"
-        }};*/
 };
 
-function fillMap(Pontos){
+/*function fillMap(Pontos){
     for (const key in Pontos) {
         const value = Pontos[key];
         // Process the key and value
@@ -219,14 +200,14 @@ function fillMap(Pontos){
         // Adiciona o evento de clique
         Microsoft.Maps.Events.addHandler(pushpin, 'click', function () {clicado(pushpin,Pontos);});
     }
-}
+}*/
 
 //Função que recentraliza o mapa
 function pesquisa(query){
     /*map.setView({
         center: {latitude: -20.199232504534884, longitude: -40.227077110956316, altitude: 0, altitudeReference: -1}
     });*/
-    map.entities.clear();
+    //map.entities.clear();
 };
 
 

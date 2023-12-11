@@ -27,3 +27,4 @@ function Comentario(){
 
     comentarios.innerHTML = c;
 }
+window.onload = Comentario;

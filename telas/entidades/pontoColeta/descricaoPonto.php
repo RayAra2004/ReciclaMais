@@ -1,5 +1,5 @@
 <?php 
-    $css = '<link rel="stylesheet" href="/ReciclaMais/css/descricaoPonto.css"> <script src="./../script/componentes/Comentario.js" defer></script>';
+    $css = '<link rel="stylesheet" href="/ReciclaMais/css/descricaoPonto.css"> <script src="/ReciclaMais/script/componentes/Comentario.js" defer></script>';
     include './../../componentes/header.php';
     include './../../../sql/entidades/pontoColeta/PontoColeta.php';
     include './../../../sql/entidades/endereco/Endereco.php';
@@ -10,15 +10,17 @@
     $newPontoColeta = new PontoColeta();
     $pontoColeta = $newPontoColeta->find($id_pontoColeta);
 
+    $quero = PontoColeta::findByIdPontosColetaMapa($id_pontoColeta);
+    
     $newUsuario = new Usuario();
     $usuario = $newUsuario->find($pontoColeta["fk_usuario_id"]);
 
     $endereco = Endereco::getDados($pontoColeta["fk_endereco_id"]);
     $tipo_logradouro = ucfirst($endereco["tipo_logradouro"]);
     $cep = substr_replace($endereco["cep"], '-', -3, 0);
-    $telefone = substr_replace($usuario["telefone"], '(', 0, 0);
+    $telefone = substr_replace($pontoColeta["telefone"], '(', 0, 0);
     $telefone = substr_replace($telefone, ') ', 3, 0);
-    if(strlen($usuario["telefone"]) == 11){
+    if(strlen($pontoColeta["telefone"]) == 11){
         $telefone = substr_replace($telefone, '-', 10, 0);
     }else{
         $telefone = substr_replace($telefone, '-', 9, 0);
@@ -32,7 +34,7 @@
         <div class="divPontuacao">
             <div class="pontuacao d-flex justify-content-start pt-1">
                 <ion-icon class="estrela" name="star"></ion-icon>
-                <p class="mt-1">4.8/5.0</p>
+                <p class="mt-1"><?php echo (str_split($quero[0]["media"],3)[0]); ?>/5.0</p>
             </div>
         </div>
         <div class="container d-flex justify-content-center">

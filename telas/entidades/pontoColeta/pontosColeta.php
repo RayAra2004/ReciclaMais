@@ -8,18 +8,7 @@
   include './../../../sql/entidades/pontoColeta/PontoColeta.php';
   
   $dicioPontos = PontoColeta::findAllPontosColetaMapa();
-  //var_dump($dicioPontos);
-  
   $dicioPontosMapa = [];
-
-  //$texto = "Org\u00e2nico";
-
-//$texto_substituido = str_replace("\u00e2", "â", $texto);
-
-//echo $texto_substituido;
-
-
-
   foreach($dicioPontos as $ponto){
 
     switch (true) {

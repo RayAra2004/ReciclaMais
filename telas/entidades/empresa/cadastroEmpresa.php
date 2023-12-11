@@ -26,7 +26,7 @@
 
         $nome = $_POST['nome-empresa'];
         $cnpj = $_POST['cnpj'];
-        $telefone = $_POST['telefone'];
+        $telefone = preg_replace("/\D/", "", $_POST['telefone']);
         $email = $_POST['email'];
         $senha = $_POST['senha'];
 
@@ -262,7 +262,8 @@
                                 <input type="text" name="complemento" id="complemento" placeholder="Digite o complemento">
                             </div>
                         </div>
-                        <div class="w-100 d-flex justify-content-end">
+                        <div class="w-100 d-flex justify-content-between">
+                            <button name="btn-parte-2"  class="btn-continuar" id="btn-voltar1">Voltar</button>
                             <button name="btn-parte-2" class="btn-continuar" id="btn-continuar2">Próxima</button>
                         </div>
                     </div>               
