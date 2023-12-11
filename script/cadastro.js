@@ -15,6 +15,8 @@ const complemento = document.getElementById('complemento');
 const formGeral = document.getElementById('form_infos_geral');
 const btnContinuar1 = document.getElementById("btn-continuar1");
 const btnContinuar2 = document.getElementById("btn-continuar2");
+const btnVoltar1 = document.getElementById("btn-voltar1");
+
 const inputMateriaisSelecionados = document.getElementById("materiaisInput");
 
 const cadastros = [];
@@ -180,6 +182,11 @@ btnContinuar2.addEventListener("click", e =>{
     
 });
 
+btnVoltar1.addEventListener("click", e =>{
+    document.getElementById("div-cad-2").classList.remove("show");
+    document.getElementById("div-cad-1").classList.remove("hide");
+    
+});
 
 
 /*
