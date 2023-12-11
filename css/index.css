@@ -37,6 +37,11 @@ span{
 #navCards div{
     background-color:#201b2c;
 }
+
+#navCards a{
+    box-shadow: 1px 1px 10px 10px teal;
+}
+
 .card-conteudo{
     background-color:#201b2c;
 }
