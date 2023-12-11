@@ -89,7 +89,7 @@
                             left JOIN tipo_logradouro
                             ON tipo_logradouro.id = endereco.fk_tipo_logradouro_id
                             group by cadastro_ponto_coleta.nome, cadastro_ponto_coleta.id, cadastro_ponto_coleta.imagem,endereco.cep, endereco.latitude, endereco.longitude, endereco.logradouro, endereco.numero, endereco.complemento, estado.estado, cidade.cidade, bairro.bairro, tipo_logradouro.tipo_logradouro, recicla.fk_ponto_coleta_id
-                            order by nome;";
+                            order by media DESC;";
             $stmt = Database::prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
