@@ -203,15 +203,15 @@ function getMap(){
 }*/
 
 //Função que recentraliza o mapa
-function pesquisa(query){
+/*function pesquisa(query){
     /*map.setView({
         center: {latitude: -20.199232504534884, longitude: -40.227077110956316, altitude: 0, altitudeReference: -1}
-    });*/
+    });
     //map.entities.clear();
-};
+};*/
 
 
-/*function pesquisa(query){
+function pesquisa(query){
     if (!searchManager) {
         Microsoft.Maps.loadModule('Microsoft.Maps.Search', function () {
             searchManager = new Microsoft.Maps.Search.SearchManager(map);
@@ -233,7 +233,7 @@ function pesquisa(query){
         };
         searchManager.geocode(searchRequest);
     };
-};*/
+};
 
 
 /*Microsoft.Maps.Events.addHandler(map, 'viewchangeend', function (e) {
