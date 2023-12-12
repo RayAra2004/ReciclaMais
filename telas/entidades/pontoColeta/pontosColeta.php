@@ -1,7 +1,7 @@
 <?php
   $css = '<link rel="stylesheet" href="/ReciclaMais/css/mapa.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-  <script src="/ReciclaMais/script/mapa2.js" defer></script>
+  <script src="/ReciclaMais/script/mapa.js" defer></script>
   <script src="http://www.bing.com/api/maps/mapcontrol?callback=getMap" async></script>';
 
   include './../../componentes/header.php';
