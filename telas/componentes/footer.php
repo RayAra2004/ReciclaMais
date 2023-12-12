@@ -11,6 +11,6 @@
         <p class="text-center pb-4  temaGreen">Reciclar nunca foi tão fácil!</p>
     </div>
 </div>
-
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </body>
 </html>
